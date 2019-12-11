@@ -24,7 +24,7 @@ html {
 body {
     height: 100%;
     color: $black;
-    font: #{$text-size-mobile * 0.1}em / 1.5 $sans-serif-font;
+    font: #{$text-size-mobile * 0.1}em / 1.5 $dm;
     font-kerning: normal;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
@@ -98,7 +98,7 @@ ul {
 ol {
     counter-reset: ol-counter;
 
-    > li {
+    >li {
         counter-increment: ol-counter;
 
         &:before {
@@ -145,6 +145,7 @@ input {
 a {
     color: inherit;
     @extend %outline;
+
     &:active {
         filter: saturate(200%);
     }
@@ -154,14 +155,17 @@ a {
     body {
         font-size: #{$text-size-desktop * 0.1}rem;
     }
+
     .wysiwyg h1,
     .h1 {
         font-size: 4rem;
     }
+
     .wysiwyg h2,
     .h2 {
         font-size: 3.2rem;
     }
+
     .wysiwyg h3,
     .h3 {
         font-size: 2.1rem;

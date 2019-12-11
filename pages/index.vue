@@ -1,13 +1,17 @@
 <template>
-    <div class="container">
-        <h1>Winpharma</h1>
+    <div>
+        <Hero />
     </div>
 </template>
 
 <script>
 import { getHome } from '~/cms';
+import Hero from '~/components/Hero';
 
 export default {
+    components: {
+        Hero
+    },
     async asyncData() {
         return {};
     }

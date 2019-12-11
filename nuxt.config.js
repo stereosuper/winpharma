@@ -24,7 +24,11 @@ export default {
     /*
      ** Environnement variables shared for the client and server-side
      */
-    env: { cmsToken: process.env.CMS_TOKEN, isDevEnv, websiteUrl },
+    env: {
+        cmsToken: process.env.CMS_TOKEN,
+        isDevEnv,
+        websiteUrl
+    },
     /*
      ** Headers of the page
      */
@@ -33,13 +37,17 @@ export default {
         htmlAttrs: {
             lang: 'en'
         },
-        meta: [
-            { charset: 'utf-8' },
+        meta: [{
+                charset: 'utf-8'
+            },
             {
                 name: 'viewport',
                 content: 'width=device-width, initial-scale=1'
             },
-            { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' },
+            {
+                'http-equiv': 'X-UA-Compatible',
+                content: 'IE=edge'
+            },
             {
                 hid: 'author',
                 name: 'author',
@@ -144,6 +152,10 @@ export default {
             //     href: '/safari-pinned-tab.svg',
             //     color: '#fff',
             // },
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css?family=DM+Sans&display=swap'
+            }
         ]
     },
     /*
@@ -223,7 +235,9 @@ export default {
         /*
          ** Used to analyse chunks
          */
-        analyze: isDevEnv ? { analyzerMode: 'static' } : false,
+        analyze: isDevEnv ? {
+            analyzerMode: 'static'
+        } : false,
         /*
          ** You can extend webpack config here
          */
