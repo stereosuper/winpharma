@@ -48,7 +48,7 @@ export default {
     computed: {
         navigationIsMobile() {
             if (!this.$store.state.superWindow) return false;
-            return this.$store.state.superWindow.width <= this.$breakpoints.list.xl;
+            return this.$store.state.superWindow.width < this.$breakpoints.list.l;
         },
         burgerState() {
             return this.$store.state.navigation.navigationActivated;
@@ -86,7 +86,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
     z-index: 1;
 }
 .logo {
@@ -210,13 +211,14 @@ export default {
     }
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $desktop-small) {
     .header {
-        padding: 60px 0;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
     .logo {
-        width: 244px;
-        height: 36px;
+        width: 200px;
+        height: 30px;
     }
     .main-navigation {
         position: static;
@@ -233,13 +235,25 @@ export default {
         flex-direction: row;
         justify-content: flex-end;
         > li {
-            margin: 0 0 0 30px;
+            margin: 0 0 0 25px;
         }
         a {
             font-size: 1.7rem;
             .txt {
                 padding: 1px 0;
             }
+        }
+    }
+}
+
+@media (min-width: $desktop-large) {
+    .logo {
+        width: 244px;
+        height: 36px;
+    }
+    .menu {
+        > li {
+            margin-left: 50px;
         }
     }
     .new {
@@ -253,14 +267,6 @@ export default {
         letter-spacing: 1px;
         text-transform: uppercase;
         background: $secondary;
-    }
-}
-
-@media (min-width: $desktop-large) {
-    .menu {
-        > li {
-            margin-left: 50px;
-        }
     }
 }
 </style>

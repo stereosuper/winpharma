@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Icon from '~/components/Icon';
+import Button from '~/components/Button';
 // NOTE: Here's how to import superComponents
 import { useSacVue, superWindowVue } from '@stereorepo/sac';
 
@@ -18,3 +19,4 @@ Vue.use(superWindowVue);
 
 // Set Vue.component here
 Vue.component('Icon', Icon);
+Vue.component('Button', Button);

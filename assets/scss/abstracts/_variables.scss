@@ -22,8 +22,10 @@ $dm: 'DM Sans',
 $sans-serif-font;
 $ageo: 'ageo',
 $sans-serif-font;
-$ageo-semi-bold: 'ageo-semi-bold',
+$ageo-medium: 'ageo-medium',
 $ageo;
+$ageo-semi-bold: 'ageo-semi-bold',
+$ageo-medium;
 $ageo-bold: 'ageo-bold',
 $ageo-semi-bold;
 
@@ -36,9 +38,9 @@ $header-height: 88px;
 $header-logo-height: 28px;
 
 // Grids variables 📐
-$gutter: 35px; // Space between columns = 70px
-$small-gutter: 15px;
-$line-height: 22px;
+$gutter: 15px; // Space between columns = 30px
+$small-gutter: 10px;
+$line-height: 20px;
 
 // Mediaqueries 📱
 // Horizontal sizes
