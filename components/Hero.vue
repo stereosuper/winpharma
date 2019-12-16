@@ -1,5 +1,9 @@
 <template>
     <div class="hero">
+        <div class="wrapper-bg-hero">
+            <img src="img/bg-hero-1.svg" alt="" class="bg-hero-1" />
+            <img src="img/bg-hero-2.svg" alt="" class="bg-hero-2" />
+        </div>
         <div class="container">
             <div class="wrapper-txt-hero">
                 <p class="intro">Révolutionner votre gestion des commandes</p>
@@ -22,11 +26,41 @@ export default {};
 
 <style lang="scss" scoped>
 .hero {
-    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 90vh;
     padding: 110px 0;
     text-align: center;
     color: $white;
     background: $primary;
+    z-index: 1;
+}
+.wrapper-bg-hero {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: -1;
+}
+.bg-hero-1,
+.bg-hero-2 {
+    position: absolute;
+    max-width: none;
+}
+.bg-hero-1 {
+    left: -97%;
+    bottom: -35%;
+    width: 310%;
+    fill: $primary-dark;
+}
+.bg-hero-2 {
+    width: 549px;
+    transform: translate3d(-36%, 0, 0);
+    fill: $primary-darker;
+    opacity: 0;
 }
 .h2 {
     > strong {

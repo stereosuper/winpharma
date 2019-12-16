@@ -88,7 +88,7 @@ export default {
     justify-content: space-between;
     padding-top: 40px;
     padding-bottom: 40px;
-    z-index: 1;
+    z-index: 2;
 }
 .logo {
     flex: 0 0 auto;

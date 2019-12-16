@@ -7,6 +7,18 @@
         xmlns:xlink="http://www.w3.org/1999/xlink"
     >
         <defs>
+            <symbol id="icon-bg-hero-2" viewBox="0 0 71 32">
+                <title>bg-hero-2</title>
+                <path
+                    d="M101.302 11.471c-12.604-8.575-29.561-13.679-47.272-10.536-8.68 1.559-32.278 6.689-56.681 12.145v21.192c0 0 44.127 0 103.953 0v-22.802z"
+                ></path>
+            </symbol>
+            <symbol id="icon-bg-hero-1" viewBox="0 0 16 32">
+                <title>bg-hero-1</title>
+                <path
+                    d="M22.34 0c0 0-4.004 0.487-6.198 3.62s-4.318 0.835-6.755 4.456c-2.437 3.62-0.279 4.839-4.77 7.902s-3.482 5.082-6.059 8.006c-2.577 2.924-8.287 2.82-11.281 5.57s-2.994 3.69-2.994 3.69c0 0 11.386-1.184 19.534 0.94s30.119 6.022 30.119 6.022l0.801-0.070v-40.137h-12.396z"
+                ></path>
+            </symbol>
             <symbol id="icon-winpharma-horizontal" viewBox="0 0 218 32">
                 <title>Winpharma</title>
                 <path
