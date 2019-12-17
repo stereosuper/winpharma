@@ -69,7 +69,7 @@ export default {
         bottom: 1px;
         left: 0;
         right: 0;
-        border-bottom: 1px solid #e8e8e8;
+        border-bottom: 1px solid $grey-lighter;
     }
     > button {
         flex: 1 1 auto;

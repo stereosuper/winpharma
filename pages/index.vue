@@ -2,6 +2,7 @@
     <div>
         <Hero />
         <KeyFigures />
+        <Experiences />
     </div>
 </template>
 
@@ -9,11 +10,13 @@
 import { getHome } from '~/cms';
 import Hero from '~/components/Hero';
 import KeyFigures from '~/components/KeyFigures';
+import Experiences from '~/components/Experiences';
 
 export default {
     components: {
         Hero,
-        KeyFigures
+        KeyFigures,
+        Experiences
     },
     async asyncData() {
         return {};

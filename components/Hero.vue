@@ -75,8 +75,10 @@ export default {};
     margin: 0 0 32px;
     font-family: $ageo-bold;
     font-size: 1.2rem;
+    line-height: 22px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: $white;
 }
 
 @media (min-width: $desktop-small) {
