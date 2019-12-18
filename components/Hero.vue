@@ -6,7 +6,9 @@
         </div>
         <div class="container">
             <div class="wrapper-txt-hero">
-                <p class="intro">Révolutionner votre gestion des commandes</p>
+                <p class="intro">
+                    Révolutionner votre gestion des commandes
+                </p>
                 <h2 class="h2">
                     <strong>winAutopilote<sup>®</sup></strong> c'est simple de gagner beaucoup de temps&nbsp;!
                 </h2>
@@ -14,7 +16,9 @@
                     La Méthode winAutopilote®, unique sur le marché, atteint des gains de temps et des gains financiers
                     encore jamais vus en matière de gestion de stock en pharmacie&nbsp;!
                 </h1>
-                <Button :href="'#'">Demander une démo</Button>
+                <Button :href="'#'" type="Primary">
+                    Demander une démo
+                </Button>
             </div>
         </div>
     </div>

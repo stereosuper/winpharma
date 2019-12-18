@@ -1,5 +1,5 @@
 <template>
-    <a :href="href" class="btn">
+    <a :href="href" :class="[{ btn: type === 'Primary' }, { 'btn-secondary': type === 'Secondary' }]">
         <slot />
     </a>
 </template>
@@ -10,7 +10,12 @@ export default {
         href: {
             type: String,
             required: true,
-            default: ''
+            default: '#'
+        },
+        type: {
+            type: String,
+            required: true,
+            default: 'Primary'
         }
     }
 };
@@ -25,5 +30,10 @@ export default {
     font-size: 1.6rem;
     text-decoration: none;
     background: $secondary;
+}
+.btn-secondary {
+    font-family: $ageo-semi-bold;
+    font-size: 1.8rem;
+    text-decoration: none;
 }
 </style>

@@ -37,8 +37,7 @@ export default {
         htmlAttrs: {
             lang: 'en'
         },
-        meta: [
-            {
+        meta: [{
                 charset: 'utf-8'
             },
             {
@@ -155,7 +154,7 @@ export default {
             // },
             {
                 rel: 'stylesheet',
-                href: 'https://fonts.googleapis.com/css?family=DM+Sans:400,500&display=swap'
+                href: 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap'
             }
         ]
     },
@@ -236,11 +235,11 @@ export default {
         /*
          ** Used to analyse chunks
          */
-        analyze: isDevEnv
-            ? {
-                  analyzerMode: 'static'
-              }
-            : false,
+        analyze: isDevEnv ?
+            {
+                analyzerMode: 'static'
+            } :
+            false,
         /*
          ** You can extend webpack config here
          */
