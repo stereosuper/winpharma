@@ -4,6 +4,7 @@
         <KeyFigures />
         <Experiences />
         <Testimonies />
+        <Cards />
     </div>
 </template>
 
@@ -13,13 +14,15 @@ import Hero from '~/components/Hero';
 import KeyFigures from '~/components/KeyFigures';
 import Experiences from '~/components/Experiences';
 import Testimonies from '~/components/Testimonies';
+import Cards from '~/components/Cards';
 
 export default {
     components: {
         Hero,
         KeyFigures,
         Experiences,
-        Testimonies
+        Testimonies,
+        Cards
     },
     async asyncData() {
         return {};

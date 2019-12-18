@@ -1,7 +1,7 @@
 <template>
-    <a :href="href" :class="[{ btn: type === 'Primary' }, { 'btn-secondary': type === 'Secondary' }]">
+    <component :is="tag" :href="href" :class="[{ btn: type === 'Primary' }, { 'btn-secondary': type === 'Secondary' }]">
         <slot />
-    </a>
+    </component>
 </template>
 
 <script>
@@ -9,13 +9,18 @@ export default {
     props: {
         href: {
             type: String,
-            required: true,
+            required: false,
             default: '#'
         },
         type: {
             type: String,
             required: true,
             default: 'Primary'
+        },
+        tag: {
+            type: String,
+            required: false,
+            default: 'a'
         }
     }
 };
