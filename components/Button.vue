@@ -34,6 +34,7 @@ export default {
     font-family: $ageo-bold;
     font-size: 1.6rem;
     text-decoration: none;
+    color: $white;
     background: $secondary;
 }
 .btn-secondary {

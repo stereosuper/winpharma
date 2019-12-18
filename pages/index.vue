@@ -5,6 +5,7 @@
         <Experiences />
         <Testimonies />
         <Cards />
+        <PreFooter />
     </div>
 </template>
 
@@ -15,6 +16,7 @@ import KeyFigures from '~/components/KeyFigures';
 import Experiences from '~/components/Experiences';
 import Testimonies from '~/components/Testimonies';
 import Cards from '~/components/Cards';
+import PreFooter from '~/components/PreFooter';
 
 export default {
     components: {
@@ -22,7 +24,8 @@ export default {
         KeyFigures,
         Experiences,
         Testimonies,
-        Cards
+        Cards,
+        PreFooter
     },
     async asyncData() {
         return {};
