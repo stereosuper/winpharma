@@ -13,7 +13,7 @@
                     pour réorganiser son backoffice.
                 </p>
                 <Button :href="'#'" :type="'Secondary'">
-                    Demander une démo
+                    Tous nos témoignages
                 </Button>
             </div>
         </div>

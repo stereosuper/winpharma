@@ -1,5 +1,5 @@
 <template>
-    <svg class="icon" :class="`icon-${name}`"><use v-bind="{ 'xlink:href': `#icon-${name}` }"></use></svg>
+    <svg class="icon" :class="`icon-${name}`"><use v-bind="{ 'xlink:href': `#icon-${name}` }" /></svg>
 </template>
 
 <script>
@@ -12,3 +12,8 @@ export default {
     }
 };
 </script>
+<style lang="scss" scoped>
+.icon {
+    fill: currentColor;
+}
+</style>
