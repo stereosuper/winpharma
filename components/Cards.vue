@@ -43,7 +43,8 @@ export default {};
 .wrapper-cards {
     display: flex;
     flex-direction: column;
-    margin: 45px 0 50px;
+    margin-top: 45px;
+    margin-bottom: 50px;
     > a {
         margin-bottom: 30px;
         &:last-child {

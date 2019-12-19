@@ -19,7 +19,8 @@ export default {};
 <style lang="scss" scoped>
 .wrapper-prefooter {
     position: relative;
-    padding: 90px 0 35px;
+    padding-top: 90px;
+    padding-bottom: 35px;
     text-align: center;
     color: $white;
     background: $primary;
