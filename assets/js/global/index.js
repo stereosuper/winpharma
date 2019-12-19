@@ -1,11 +1,15 @@
-import { CustomEase } from '~/assets/js/plugins/CustomEase';
+import { CustomEase } from 'gsap/all';
 
 export const gutter = 35;
 export const lineHeight = 22;
 
 export const headerHeight = 88;
 
-export const duration = { short: 0.3, medium: 0.5, long: 0.7 };
+export const duration = {
+    short: 0.3,
+    medium: 0.5,
+    long: 0.7
+};
 
 export const ease = {
     easeOut: CustomEase.create('custom', 'M0,0,C0,0,0,0,1,1'),
