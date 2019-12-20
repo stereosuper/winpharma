@@ -23,148 +23,18 @@
         </div>
         <div class="around-testimonies">
             <ul class="testimonies">
-                <li class="testimony">
+                <li v-for="testimony in testimonies" :key="testimony.title" class="testimony">
                     <blockquote>
                         <h4 class="h4">
-                            Tranquillité d’esprit au quotidien
+                            {{ testimony.title }}
                         </h4>
                         <p>
-                            <span class="blockquote-content">
-                                WinAutopilote permet un pilotage automatique des commandes et une
-                                <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit
-                                <strong>6h par semaine minimum.</strong>
-                            </span>
+                            <span class="blockquote-content" v-html="testimony.text"></span>
                             <span class="blockquote-wrapper-author">
                                 <span class="wrapper-img" />
                                 <span>
-                                    <cite class="blockquote-author">Hélène Lecoq</cite>
-                                    <span class="blockquote-source">Issy-les-Moulineaux (92)</span>
-                                </span>
-                            </span>
-                        </p>
-                    </blockquote>
-                </li>
-                <li class="testimony">
-                    <blockquote>
-                        <h4 class="h4">
-                            Tranquillité d’esprit au quotidien
-                        </h4>
-                        <p>
-                            <span class="blockquote-content">
-                                WinAutopilote permet un pilotage automatique des commandes et une
-                                <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit
-                                <strong>6h par semaine minimum.</strong>
-                            </span>
-                            <span class="blockquote-wrapper-author">
-                                <span class="wrapper-img" />
-                                <span>
-                                    <cite class="blockquote-author">Hélène Lecoq</cite>
-                                    <span class="blockquote-source">Issy-les-Moulineaux (92)</span>
-                                </span>
-                            </span>
-                        </p>
-                    </blockquote>
-                </li>
-                <li class="testimony">
-                    <blockquote>
-                        <h4 class="h4">
-                            Tranquillité d’esprit au quotidien
-                        </h4>
-                        <p>
-                            <span class="blockquote-content">
-                                WinAutopilote permet un pilotage automatique des commandes et une
-                                <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit
-                                <strong>6h par semaine minimum.</strong>
-                            </span>
-                            <span class="blockquote-wrapper-author">
-                                <span class="wrapper-img" />
-                                <span>
-                                    <cite class="blockquote-author">Hélène Lecoq</cite>
-                                    <span class="blockquote-source">Issy-les-Moulineaux (92)</span>
-                                </span>
-                            </span>
-                        </p>
-                    </blockquote>
-                </li>
-                <li class="testimony">
-                    <blockquote>
-                        <h4 class="h4">
-                            Tranquillité d’esprit au quotidien
-                        </h4>
-                        <p>
-                            <span class="blockquote-content">
-                                WinAutopilote permet un pilotage automatique des commandes et une
-                                <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit
-                                <strong>6h par semaine minimum.</strong>
-                            </span>
-                            <span class="blockquote-wrapper-author">
-                                <span class="wrapper-img" />
-                                <span>
-                                    <cite class="blockquote-author">Hélène Lecoq</cite>
-                                    <span class="blockquote-source">Issy-les-Moulineaux (92)</span>
-                                </span>
-                            </span>
-                        </p>
-                    </blockquote>
-                </li>
-                <li class="testimony">
-                    <blockquote>
-                        <h4 class="h4">
-                            Tranquillité d’esprit au quotidien
-                        </h4>
-                        <p>
-                            <span class="blockquote-content">
-                                WinAutopilote permet un pilotage automatique des commandes et une
-                                <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit
-                                <strong>6h par semaine minimum.</strong>
-                            </span>
-                            <span class="blockquote-wrapper-author">
-                                <span class="wrapper-img" />
-                                <span>
-                                    <cite class="blockquote-author">Hélène Lecoq</cite>
-                                    <span class="blockquote-source">Issy-les-Moulineaux (92)</span>
-                                </span>
-                            </span>
-                        </p>
-                    </blockquote>
-                </li>
-                <li class="testimony">
-                    <blockquote>
-                        <h4 class="h4">
-                            Tranquillité d’esprit au quotidien
-                        </h4>
-                        <p>
-                            <span class="blockquote-content">
-                                WinAutopilote permet un pilotage automatique des commandes et une
-                                <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit
-                                <strong>6h par semaine minimum.</strong>
-                            </span>
-                            <span class="blockquote-wrapper-author">
-                                <span class="wrapper-img" />
-                                <span>
-                                    <cite class="blockquote-author">Hélène Lecoq</cite>
-                                    <span class="blockquote-source">Issy-les-Moulineaux (92)</span>
-                                </span>
-                            </span>
-                        </p>
-                    </blockquote>
-                </li>
-                <li class="testimony">
-                    <blockquote>
-                        <h4 class="h4">
-                            Tranquillité d’esprit au quotidien
-                        </h4>
-                        <p>
-                            <span class="blockquote-content">
-                                WinAutopilote permet un pilotage automatique des commandes et une
-                                <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit
-                                <strong>6h par semaine minimum.</strong>
-                            </span>
-                            <span class="blockquote-wrapper-author">
-                                <span class="wrapper-img" />
-                                <span>
-                                    <cite class="blockquote-author">Hélène Lecoq</cite>
-                                    <span class="blockquote-source">Issy-les-Moulineaux (92)</span>
+                                    <cite class="blockquote-author">{{ testimony.author }}</cite>
+                                    <span class="blockquote-source">{{ testimony.source }}</span>
                                 </span>
                             </span>
                         </p>
@@ -176,7 +46,56 @@
 </template>
 
 <script>
-export default {};
+export default {
+    data: () => ({
+        testimonies: [
+            {
+                title: 'Tranquillité d’esprit au quotidien',
+                text: 'WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d\'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>',
+                author: 'Hélène Lecoq',
+                source: 'Issy-les-Moulineaux (92)'
+            },
+            {
+                title: 'Tranquillité d’esprit au quotidien',
+                text: 'WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d\'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>',
+                author: 'Hélène Lecoq',
+                source: 'Issy-les-Moulineaux (92)'
+            },
+            {
+                title: 'Tranquillité d’esprit au quotidien',
+                text: 'WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d\'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>',
+                author: 'Hélène Lecoq',
+                source: 'Issy-les-Moulineaux (92)'
+            },
+
+            {
+                title: 'Tranquillité d’esprit au quotidien',
+                text: 'WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d\'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>',
+                author: 'Hélène Lecoq',
+                source: 'Issy-les-Moulineaux (92)'
+            },
+
+            {
+                title: 'Tranquillité d’esprit au quotidien',
+                text: 'WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d\'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>',
+                author: 'Hélène Lecoq',
+                source: 'Issy-les-Moulineaux (92)'
+            },
+            {
+                title: 'Tranquillité d’esprit au quotidien',
+                text: 'WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d\'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>',
+                author: 'Hélène Lecoq',
+                source: 'Issy-les-Moulineaux (92)'
+            },
+            {
+                title: 'Tranquillité d’esprit au quotidien',
+                text: 'WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d\'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>',
+                author: 'Hélène Lecoq',
+                source: 'Issy-les-Moulineaux (92)'
+            }
+        ]
+    })
+};
 </script>
 
 <style lang="scss" scoped>
