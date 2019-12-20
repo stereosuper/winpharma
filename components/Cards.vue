@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper-cards container">
-        <a href="#" class="card">
+        <a href="#" class="card button-trigger">
             <span class="wrapper-img" />
             <span class="card-txt">
                 <span class="card-txt-top">
@@ -18,7 +18,7 @@
                 </span>
             </span>
         </a>
-        <a href="#" class="card">
+        <a href="#" class="card button-trigger">
             <span class="wrapper-img" />
             <span class="card-txt">
                 <span class="card-txt-top">

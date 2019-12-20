@@ -64,6 +64,8 @@ export default {
     }
     &:hover,
     &:focus,
+    .button-trigger:hover &,
+    .button-trigger:focus &,
     .hover {
         color: $secondary;
         .icon {
