@@ -3,12 +3,14 @@
         <a href="#" class="card">
             <span class="wrapper-img" />
             <span class="card-txt">
-                <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
-                <p>
-                    Par un travail de terrain, au cœur des pharmacies, nous avons étudié, testé et validé tous les
-                    paramètres intervenant dans la gestion des commandes d’une officine, de structure ou taille
-                    différente.
-                </p>
+                <span class="card-txt-top">
+                    <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
+                    <p>
+                        Par un travail de terrain, au cœur des pharmacies, nous avons étudié, testé et validé tous les
+                        paramètres intervenant dans la gestion des commandes d’une officine, de structure ou taille
+                        différente.
+                    </p>
+                </span>
                 <span class="card-btn">
                     <Button :is="'span'" :type="'Secondary'">
                         Notre livre blanc
@@ -19,12 +21,14 @@
         <a href="#" class="card">
             <span class="wrapper-img" />
             <span class="card-txt">
-                <span class="card-title">Le fruit d’un travail de co&#x2011;création</span>
-                <p>
-                    Par un travail de terrain, au cœur des pharmacies, nous avons étudié, testé et validé tous les
-                    paramètres intervenant dans la gestion des commandes d’une officine, de structure ou taille
-                    différente.
-                </p>
+                <span class="card-txt-top">
+                    <span class="card-title">Le fruit d’un travail de co&#x2011;création</span>
+                    <p>
+                        Par un travail de terrain, au cœur des pharmacies, nous avons étudié, testé et validé tous les
+                        paramètres intervenant dans la gestion des commandes d’une officine, de structure ou taille
+                        différente.
+                    </p>
+                </span>
                 <span class="card-btn">
                     <Button :is="'span'" :type="'Secondary'">
                         Notre étude
@@ -42,6 +46,7 @@ export default {};
 <style lang="scss" scoped>
 .wrapper-cards {
     display: flex;
+    align-items: center;
     flex-direction: column;
     margin-top: 45px;
     margin-bottom: 50px;
@@ -53,6 +58,7 @@ export default {};
     }
 }
 .card {
+    max-width: 500px;
     position: relative;
     text-decoration: none;
     z-index: 1;
@@ -71,6 +77,9 @@ export default {};
     > span {
         display: block;
     }
+    p {
+        color: $grey;
+    }
 }
 .wrapper-img {
     height: 220px;
@@ -82,6 +91,9 @@ export default {};
     padding: 30px 30px 40px;
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+}
+.card-txt-top {
+    display: block;
 }
 .card-title {
     display: block;
@@ -98,5 +110,38 @@ p {
 .card-btn {
     display: block;
     margin-top: 30px;
+}
+
+@media (min-width: $desktop-small) {
+    .wrapper-cards {
+        justify-content: space-between;
+        align-items: stretch;
+        flex-direction: row;
+        > a {
+            margin-bottom: 0;
+        }
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        max-width: none;
+        width: calc(50% - #{$gutter});
+        > span {
+            &.card-txt {
+                flex: 1 1 auto;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+        }
+    }
+    .card-txt-top {
+        flex: 1 1 auto;
+    }
+}
+@media (min-width: $desktop-large) {
+    .wrapper-cards {
+        padding: 0 #{percentage(1/12)};
+    }
 }
 </style>
