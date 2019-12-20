@@ -12,7 +12,7 @@
                     </p>
                 </span>
                 <span class="card-btn">
-                    <Button :is="'span'" :type="'Secondary'">
+                    <Button tag="span" type="Secondary">
                         Notre livre blanc
                     </Button>
                 </span>
@@ -30,7 +30,7 @@
                     </p>
                 </span>
                 <span class="card-btn">
-                    <Button :is="'span'" :type="'Secondary'">
+                    <Button tag="span" type="Secondary">
                         Notre étude
                     </Button>
                 </span>
