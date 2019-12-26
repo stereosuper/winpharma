@@ -1,33 +1,33 @@
 <template>
-    <div class="wrapper-key-figures">
+    <div ref="wrapperKeyFigures" class="wrapper-key-figures">
         <div class="container">
-            <h3 class="h3">
+            <h3 ref="keyFiguresTitle" class="h3 key-figures-title">
                 Des résultats époustouflants
                 <span class="second-line">pour <span class="secondary">toutes les pharmacies de&nbsp;:</span></span>
             </h3>
             <div class="wrapper-tabs">
-                <button type="button" :class="{ active: tabActive === 0 }">
+                <button :class="{ active: tabActive === 0 }" type="button" class="key-figures-button">
                     Village
                 </button>
-                <button type="button" :class="{ active: tabActive === 1 }">
+                <button :class="{ active: tabActive === 1 }" type="button" class="key-figures-button">
                     Quartier
                 </button>
-                <button type="button" :class="{ active: tabActive === 2 }">
+                <button :class="{ active: tabActive === 2 }" type="button" class="key-figures-button">
                     Centre C<span class="hide-small-device">ommerc</span>ial
                 </button>
             </div>
             <div class="wrapper-tabs-contents">
                 <div class="tab-content">
                     <ul class="key-figures">
-                        <li>
+                        <li class="key-figure">
                             <h4 class="key-figure-title"><strong>85%</strong> de taux d'automatisation</h4>
                             <p>En génération, envoi et réception, atteignable dès la 1re journée d'accompagnement.</p>
                         </li>
-                        <li>
+                        <li class="key-figure">
                             <h4 class="key-figure-title"><strong>16h</strong> gagnées</h4>
                             <p>C’est le temps gagné chaque mois grâce à l’automatisation des commandes.</p>
                         </li>
-                        <li>
+                        <li class="key-figure">
                             <h4 class="key-figure-title"><strong>+15&nbsp;000€</strong> de trésorerie</h4>
                             <p>Soit 1 point de trésorerie récupérée pour une pharmacie moyenne.</p>
                         </li>
@@ -46,11 +46,46 @@
 </template>
 
 <script>
+import gsap from 'gsap';
+import { query } from '@stereorepo/sac';
+
 export default {
-    data() {
-        return {
-            tabActive: 0
-        };
+    data: () => ({
+        tabActive: 0,
+        myWatcher: null,
+        keyFiguresButtons: null,
+        keyFigures: null,
+        user: null
+    }),
+    mounted() {
+        this.$stereorepo.superScroll.initializeScroll();
+        this.keyFiguresButtons = query({ selector: '.key-figures-button' });
+        this.keyFigures = query({ selector: '.key-figure' });
+        this.user = query({ selector: '.user' });
+        // Watch an element
+        this.myWatcher = this.$stereorepo.superScroll
+            .watch({
+                element: this.$refs.wrapperKeyFigures,
+                options: {
+                    stalk: false,
+                    triggerOffset: '40%'
+                }
+            })
+            .on('enter-view', () => {
+                let tl = gsap.timeline();
+                tl.to(this.$refs.keyFiguresTitle, { duration: 0.3, x: 0, opacity: 1 });
+                tl.to(this.keyFiguresButtons, { duration: 0.3, x: 0, opacity: 1, stagger: 0.3, delay: 0.3 });
+                tl.to(
+                    this.keyFigures,
+                    { duration: 0.3, scale: 1, opacity: 1, stagger: 0.3, delay: 0.3 },
+                    'keyFiguresAppearing'
+                );
+                tl.to(this.user, { duration: 0.3, opacity: 1, delay: 0.3 }, 'keyFiguresAppearing');
+            });
+    },
+    beforeDestroy() {
+        // Forget the watcher to avoid memory leak
+        if (this.myWatcher) this.myWatcher.forget();
     }
 };
 </script>
@@ -186,6 +221,19 @@ export default {
     }
     .hide-small-device {
         display: inline;
+    }
+    .key-figures-title,
+    .wrapper-tabs > button {
+        transform: translate3d(-50px, 0, 0);
+        opacity: 0;
+    }
+    .key-figure {
+        transform-origin: 50% 50%;
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    .user {
+        opacity: 0;
     }
 }
 </style>
