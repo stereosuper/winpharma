@@ -52,7 +52,9 @@
                         </li>
                     </ul>
                     <div class="user">
-                        <div class="wrapper-img"></div>
+                        <div class="wrapper-img">
+                            <img src="img/olivier-henry.png" alt="">
+                        </div>
                         <div>
                             <div class="wrapper-user-name-company">
                                 <span class="user-name">Olivier Henry</span>
@@ -78,7 +80,9 @@
                         </li>
                     </ul>
                     <div class="user">
-                        <div class="wrapper-img"></div>
+                        <div class="wrapper-img">
+                            <img src="img/jean-rene-delobelle.png" alt="">
+                        </div>
                         <div>
                             <div class="wrapper-user-name-company">
                                 <span class="user-name">Jean-René Delobelle</span>
@@ -104,7 +108,9 @@
                         </li>
                     </ul>
                     <div class="user">
-                        <div class="wrapper-img"></div>
+                        <div class="wrapper-img">
+                            <img src="img/user-placeholder.svg" alt="">
+                        </div>
                         <div>
                             <div class="wrapper-user-name-company">
                                 <span class="user-name">Sophie Lachèze</span>
@@ -351,7 +357,6 @@ export default {
         height: 40px;
         margin-right: 10px;
         border-radius: 50%;
-        background: $primary;
     }
     .wrapper-user-name-company {
         display: flex;
