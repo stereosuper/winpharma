@@ -16,8 +16,64 @@
                     Centre C<span class="hide-small-device">ommerc</span>ial
                 </button>
             </div>
-            <div class="wrapper-tabs-contents">
-                <div class="tab-content">
+            <div
+                :style="{ minHeight: tabContentActiveHeight + 'px' }"
+                :class="{ 'height-set': heightTabSet }"
+                class="wrapper-tabs-contents"
+            >
+                <div :class="{ active: tabActive === 0 }" class="tab-content">
+                    <ul class="key-figures">
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>91%</strong> de taux d'automatisation</h4>
+                            <p>En préparation envoi et réception des commandes.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>8h</strong> gagnées</h4>
+                            <p>En temps chaque semaine grâce à l’automatisation des commandes.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>+25&nbsp;000€</strong> de trésorerie</h4>
+                            <p>Récupérés grâce à un stock et des canaux d'achat optimisés.</p>
+                        </li>
+                    </ul>
+                    <div class="user">
+                        <div class="wrapper-img"></div>
+                        <div>
+                            <div class="wrapper-user-name-company">
+                                <span class="user-name">Olivier Henry</span>
+                                <span class="user-company">, Pharmacie Mereau (18)</span>
+                            </div>
+                            <div class="user-company">Chiffre d’affaires : 1,2M&nbsp;€</div>
+                        </div>
+                    </div>
+                </div>
+                <div :class="{ active: tabActive === 1 }" class="tab-content">
+                    <ul class="key-figures">
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>87%</strong> de taux d'automatisation</h4>
+                            <p>En préparation envoi et réception des commandes.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>1 temps plein</strong> d’économisé</h4>
+                            <p>Du temps consacré pour optimiser la pharmacie.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>+ de sérénité</strong> au quotidien</h4>
+                            <p>Des outils précis pour améliorer mon suivi et éviter les ruptures.</p>
+                        </li>
+                    </ul>
+                    <div class="user">
+                        <div class="wrapper-img"></div>
+                        <div>
+                            <div class="wrapper-user-name-company">
+                                <span class="user-name">Jean-René Delobelle</span>
+                                <span class="user-company">, Pharmacie à Orchie (59)</span>
+                            </div>
+                            <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
+                        </div>
+                    </div>
+                </div>
+                <div :class="{ active: tabActive === 3 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>85%</strong> de taux d'automatisation</h4>
@@ -35,8 +91,11 @@
                     <div class="user">
                         <div class="wrapper-img"></div>
                         <div>
-                            <div class="user-name">Adrien Dupif,</div>
-                            <div class="user-company">Pharmacie Le Coeur de la Brie (10)</div>
+                            <div class="wrapper-user-name-company">
+                                <span class="user-name">Sophie Lachèze</span>
+                                <span class="user-company">, Pharmacie à Merignac (33)</span>
+                            </div>
+                            <div class="user-company">Chiffre d’affaires : 7,2M&nbsp;€</div>
                         </div>
                     </div>
                 </div>
@@ -55,10 +114,15 @@ export default {
         myWatcher: null,
         keyFiguresButtons: null,
         keyFigures: null,
-        user: null
+        user: null,
+        tabContentActive: null,
+        tabContentActiveHeight: 0,
+        heightTabSet: false
     }),
     mounted() {
         this.$stereorepo.superScroll.initializeScroll();
+        this.tabContentHeight();
+
         this.keyFiguresButtons = query({ selector: '.key-figures-button' });
         this.keyFigures = query({ selector: '.key-figure' });
         this.user = query({ selector: '.user' });
@@ -86,6 +150,13 @@ export default {
     beforeDestroy() {
         // Forget the watcher to avoid memory leak
         if (this.myWatcher) this.myWatcher.forget();
+    },
+    methods: {
+        tabContentHeight() {
+            this.tabContentActive = query({ selector: '.tab-content.active' });
+            this.tabContentActiveHeight = this.tabContentActive[0].getBoundingClientRect().height;
+            this.heightTabSet = true;
+        }
     }
 };
 </script>
@@ -131,8 +202,25 @@ export default {
         }
     }
 }
-.wrapper-tabs-contents {
-    padding-top: 30px;
+// .wrapper-tabs-contents {
+//     padding-top: 30px;
+//     &.height-set {
+//         .tab-content {
+//             display: block;
+//             opacity: 0;
+//             visibility: hidden;
+//             &.active {
+//                 opacity: 1;
+//                 visibility: visible;
+//             }
+//         }
+//     }
+// }
+.tab-content {
+    display: none;
+    &.active {
+        display: block;
+    }
 }
 .key-figures {
     display: flex;
@@ -180,6 +268,11 @@ export default {
         margin-right: 10px;
         border-radius: 50%;
         background: $primary;
+    }
+    .wrapper-user-name-company {
+        display: flex;
+        justify-content: flex-start;
+        align-items: baseline;
     }
     .user-name {
         font-family: $ageo-semi-bold;
