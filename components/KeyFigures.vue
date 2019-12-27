@@ -33,7 +33,7 @@
             </div>
             <div
                 :style="{ minHeight: tabContentActiveHeight + 'px' }"
-                :class="{ 'height-set': heightTabSet, unchanged: !alreadyChanged }"
+                :class="{ 'height-set': heightTabSet }"
                 class="wrapper-tabs-contents"
             >
                 <div :class="{ active: tabActive === 0 }" class="tab-content">
@@ -137,8 +137,7 @@ export default {
         tlAppear: null,
         tlChangeTab: null,
         keyFiguresNotActive: null,
-        usersNotActive: null,
-        alreadyChanged: false
+        usersNotActive: null
     }),
     computed: {
         ww() {
@@ -300,14 +299,6 @@ export default {
             }
         }
     }
-    // &.height-set.unchanged {
-    //     .tab-content {
-    //         &.active {
-    //             opacity: 1;
-    //             visibility: visible;
-    //         }
-    //     }
-    // }
 }
 .tab-content {
     display: none;
@@ -378,6 +369,20 @@ export default {
     display: none;
 }
 
+.key-figures-title,
+.wrapper-tabs > button {
+    transform: translate3d(-50px, 0, 0);
+    opacity: 0;
+}
+.key-figure {
+    transform-origin: 50% 50%;
+    transform: scale(0.9);
+    opacity: 0;
+}
+.user {
+    opacity: 0;
+}
+
 @media (min-width: $desktop-small) {
     .wrapper-tabs {
         justify-content: flex-end;
@@ -407,19 +412,6 @@ export default {
     }
     .hide-small-device {
         display: inline;
-    }
-    .key-figures-title,
-    .wrapper-tabs > button {
-        transform: translate3d(-50px, 0, 0);
-        opacity: 0;
-    }
-    .key-figure {
-        transform-origin: 50% 50%;
-        transform: scale(0.9);
-        opacity: 0;
-    }
-    .user {
-        opacity: 0;
     }
 }
 </style>
