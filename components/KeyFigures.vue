@@ -119,8 +119,20 @@ export default {
         tabContentActiveHeight: 0,
         heightTabSet: false
     }),
+    computed: {
+        ww() {
+            if (!this.$store.state.superWindow) return false;
+            return this.$store.state.superWindow.width;
+        }
+    },
+    watch: {
+        ww() {
+            this.tabContentHeight();
+        }
+    },
     mounted() {
         this.$stereorepo.superScroll.initializeScroll();
+        this.$stereorepo.superWindow.initializeWindow(this.$store);
         this.tabContentHeight();
 
         this.keyFiguresButtons = query({ selector: '.key-figures-button' });
@@ -150,6 +162,11 @@ export default {
     beforeDestroy() {
         // Forget the watcher to avoid memory leak
         if (this.myWatcher) this.myWatcher.forget();
+        this.$stereorepo.superScroll.destroyScroll();
+    },
+    destroyed() {
+        // this.$store is your VueX store instance
+        this.$stereorepo.superWindow.destroyWindow(this.$store);
     },
     methods: {
         tabContentHeight() {
@@ -202,20 +219,25 @@ export default {
         }
     }
 }
-// .wrapper-tabs-contents {
-//     padding-top: 30px;
-//     &.height-set {
-//         .tab-content {
-//             display: block;
-//             opacity: 0;
-//             visibility: hidden;
-//             &.active {
-//                 opacity: 1;
-//                 visibility: visible;
-//             }
-//         }
-//     }
-// }
+.wrapper-tabs-contents {
+    position: relative;
+    margin-top: 30px;
+    &.height-set {
+        .tab-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            opacity: 0;
+            visibility: hidden;
+            &.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
 .tab-content {
     display: none;
     &.active {
