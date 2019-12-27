@@ -6,19 +6,34 @@
                 <span class="second-line">pour <span class="secondary">toutes les pharmacies de&nbsp;:</span></span>
             </h3>
             <div class="wrapper-tabs">
-                <button :class="{ active: tabActive === 0 }" type="button" class="key-figures-button">
+                <button
+                    :class="{ active: tabActive === 0 }"
+                    type="button"
+                    class="key-figures-button"
+                    @click="changeTab(0)"
+                >
                     Village
                 </button>
-                <button :class="{ active: tabActive === 1 }" type="button" class="key-figures-button">
+                <button
+                    :class="{ active: tabActive === 1 }"
+                    type="button"
+                    class="key-figures-button"
+                    @click="changeTab(1)"
+                >
                     Quartier
                 </button>
-                <button :class="{ active: tabActive === 2 }" type="button" class="key-figures-button">
+                <button
+                    :class="{ active: tabActive === 2 }"
+                    type="button"
+                    class="key-figures-button"
+                    @click="changeTab(2)"
+                >
                     Centre C<span class="hide-small-device">ommerc</span>ial
                 </button>
             </div>
             <div
                 :style="{ minHeight: tabContentActiveHeight + 'px' }"
-                :class="{ 'height-set': heightTabSet }"
+                :class="{ 'height-set': heightTabSet, unchanged: !alreadyChanged }"
                 class="wrapper-tabs-contents"
             >
                 <div :class="{ active: tabActive === 0 }" class="tab-content">
@@ -73,7 +88,7 @@
                         </div>
                     </div>
                 </div>
-                <div :class="{ active: tabActive === 3 }" class="tab-content">
+                <div :class="{ active: tabActive === 2 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>85%</strong> de taux d'automatisation</h4>
@@ -106,18 +121,24 @@
 
 <script>
 import gsap from 'gsap';
-import { query } from '@stereorepo/sac';
+import { query, forEach } from '@stereorepo/sac';
 
 export default {
     data: () => ({
         tabActive: 0,
         myWatcher: null,
         keyFiguresButtons: null,
-        keyFigures: null,
-        user: null,
+        keyFiguresActive: null,
+        userActive: null,
+        tabContents: null,
         tabContentActive: null,
         tabContentActiveHeight: 0,
-        heightTabSet: false
+        heightTabSet: false,
+        tlAppear: null,
+        tlChangeTab: null,
+        keyFiguresNotActive: null,
+        usersNotActive: null,
+        alreadyChanged: false
     }),
     computed: {
         ww() {
@@ -133,11 +154,14 @@ export default {
     mounted() {
         this.$stereorepo.superScroll.initializeScroll();
         this.$stereorepo.superWindow.initializeWindow(this.$store);
-        this.tabContentHeight();
 
+        this.tabContents = query({ selector: '.tab-content' });
+        this.tabContentActive = this.tabContents[this.tabActive];
         this.keyFiguresButtons = query({ selector: '.key-figures-button' });
-        this.keyFigures = query({ selector: '.key-figure' });
-        this.user = query({ selector: '.user' });
+        this.keyFiguresActive = query({ selector: '.key-figure', ctx: this.tabContentActive });
+        this.userActive = query({ selector: '.user', ctx: this.tabContentActive });
+
+        this.tabContentHeight();
         // Watch an element
         this.myWatcher = this.$stereorepo.superScroll
             .watch({
@@ -148,15 +172,15 @@ export default {
                 }
             })
             .on('enter-view', () => {
-                let tl = gsap.timeline();
-                tl.to(this.$refs.keyFiguresTitle, { duration: 0.3, x: 0, opacity: 1 });
-                tl.to(this.keyFiguresButtons, { duration: 0.3, x: 0, opacity: 1, stagger: 0.3, delay: 0.3 });
-                tl.to(
-                    this.keyFigures,
+                this.tlAppear = gsap.timeline();
+                this.tlAppear.to(this.$refs.keyFiguresTitle, { duration: 0.3, x: 0, opacity: 1 });
+                this.tlAppear.to(this.keyFiguresButtons, { duration: 0.3, x: 0, opacity: 1, stagger: 0.3, delay: 0.3 });
+                this.tlAppear.to(
+                    this.keyFiguresActive,
                     { duration: 0.3, scale: 1, opacity: 1, stagger: 0.3, delay: 0.3 },
                     'keyFiguresAppearing'
                 );
-                tl.to(this.user, { duration: 0.3, opacity: 1, delay: 0.3 }, 'keyFiguresAppearing');
+                this.tlAppear.to(this.userActive, { duration: 0.3, opacity: 1, delay: 0.3 }, 'keyFiguresAppearing');
             });
     },
     beforeDestroy() {
@@ -170,9 +194,47 @@ export default {
     },
     methods: {
         tabContentHeight() {
-            this.tabContentActive = query({ selector: '.tab-content.active' });
-            this.tabContentActiveHeight = this.tabContentActive[0].getBoundingClientRect().height;
+            this.tabContentActiveHeight = this.tabContentActive.getBoundingClientRect().height;
             this.heightTabSet = true;
+        },
+        changeTab(tabNb) {
+            if (tabNb !== this.tabActive) {
+                // Clear other tabs styles
+                this.keyFiguresNotActive = query({ selector: '.tab-content:not(.active) .key-figure' });
+                this.usersNotActive = query({ selector: '.tab-content:not(.active) .user' });
+                forEach(this.keyFiguresNotActive, item => {
+                    item.removeAttribute('style');
+                });
+                forEach(this.usersNotActive, item => {
+                    item.removeAttribute('style');
+                });
+                // Hide current key figures
+                this.tlChangeTab = gsap.timeline();
+                this.tlChangeTab.to(
+                    this.keyFiguresActive,
+                    { duration: 0.15, scale: 0.9, opacity: 0, stagger: 0.15 },
+                    'keyFiguresDisappearing'
+                );
+                this.tlChangeTab.to(this.userActive, { duration: 0.15, opacity: 0 }, 'keyFiguresDisappearing');
+                // Show new key figures
+                this.tlChangeTab.add(() => {
+                    this.tabActive = tabNb;
+                    this.tabContentActive = this.tabContents[this.tabActive];
+                    this.tabContentActiveHeight = this.tabContentActive.getBoundingClientRect().height;
+                    this.keyFiguresActive = query({ selector: '.key-figure', ctx: this.tabContentActive });
+                    this.userActive = query({ selector: '.user', ctx: this.tabContentActive });
+                    this.tlChangeTab.to(
+                        this.keyFiguresActive,
+                        { duration: 0.3, scale: 1, opacity: 1, stagger: 0.3, delay: 0.3 },
+                        'newKeyFiguresAppearing'
+                    );
+                    this.tlChangeTab.to(
+                        this.userActive,
+                        { duration: 0.3, opacity: 1, delay: 0.3 },
+                        'newKeyFiguresAppearing'
+                    );
+                });
+            }
         }
     }
 };
@@ -222,6 +284,7 @@ export default {
 .wrapper-tabs-contents {
     position: relative;
     margin-top: 30px;
+    transition: min-height 0.2s ease-out;
     &.height-set {
         .tab-content {
             position: absolute;
@@ -237,6 +300,14 @@ export default {
             }
         }
     }
+    // &.height-set.unchanged {
+    //     .tab-content {
+    //         &.active {
+    //             opacity: 1;
+    //             visibility: visible;
+    //         }
+    //     }
+    // }
 }
 .tab-content {
     display: none;
