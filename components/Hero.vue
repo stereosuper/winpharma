@@ -21,11 +21,35 @@
                 </Button>
             </div>
         </div>
+        <HeroIllustration v-if="showIllus" />
     </div>
 </template>
 
 <script>
-export default {};
+import HeroIllustration from '~/components/HeroIllustration';
+export default {
+    components: {
+        HeroIllustration
+    },
+    data: () => ({
+        showIllus: false
+    }),
+    computed: {
+        ww() {
+            if (!this.$store.state.superWindow) return false;
+            return this.$store.state.superWindow.width;
+        }
+    },
+    watch: {
+        ww(w) {
+            if (w >= this.$breakpoints.list.l) {
+                this.showIllus = true;
+            } else {
+                this.showIllus = false;
+            }
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
