@@ -8,8 +8,10 @@
         </div>
         <ul class="experiences">
             <li class="experience">
-                <div class="wrapper-img" />
-                <div class="container">
+                <div class="container-img">
+                    <div class="wrapper-img" />
+                </div>
+                <div class="container-txt container">
                     <div class="experience-intro double">
                         <div>
                             <span class="intro-title">CA annuel</span>
@@ -20,7 +22,7 @@
                             <span class="intro-number primary-light">20 pers.</span>
                         </div>
                     </div>
-                    <blockquote>
+                    <blockquote class="experience-content">
                         <p>
                             <span class="blockquote-content">
                                 Je suis pharmacien titulaire de la pharmacie du Cœur de la Brie, en Seine-et-Marne.
@@ -33,8 +35,10 @@
                 </div>
             </li>
             <li class="experience">
-                <div class="wrapper-img" />
-                <div class="container">
+                <div class="container-img">
+                    <div class="wrapper-img" />
+                </div>
+                <div class="container-txt container">
                     <div class="experience-intro">
                         <blockquote>
                             <p>
@@ -47,33 +51,42 @@
                             </p>
                         </blockquote>
                     </div>
-                    <h3 class="h3">
-                        Réception automatique
-                    </h3>
-                    <h4 class="h4">
-                        Suppression des faux promis
-                    </h4>
-                    <p>
-                        Aucun laps de temps perdu entre la livraison des produits et le chargement du robot ou la
-                        disponibilité des promis.
-                    </p>
-                    <h4 class="h4">
-                        Confort de travail
-                    </h4>
-                    <p>Votre équipe se consacre plus sereinement à l’accueil, au conseil et au service des patients.</p>
-                    <div class="experience-number">
-                        <div class="wrapper-icon">
-                            <Icon name="time" class="experience-icon" />
-                        </div>
-                        <div class="wrapper-txt">
-                            <p><strong>2h de temps gagnées</strong> Chaque jour grâce à la reception automatique.</p>
+                    <div class="experience-content">
+                        <h3 class="h3">
+                            Réception automatique
+                        </h3>
+                        <h4 class="h4">
+                            Suppression des faux promis
+                        </h4>
+                        <p>
+                            Aucun laps de temps perdu entre la livraison des produits et le chargement du robot ou la
+                            disponibilité des promis.
+                        </p>
+                        <h4 class="h4">
+                            Confort de travail
+                        </h4>
+                        <p>
+                            Votre équipe se consacre plus sereinement à l’accueil, au conseil et au service des
+                            patients.
+                        </p>
+                        <div class="experience-number">
+                            <div class="wrapper-icon">
+                                <Icon name="time" class="experience-icon" />
+                            </div>
+                            <div class="wrapper-txt">
+                                <p>
+                                    <strong>2h de temps gagnées</strong> Chaque jour grâce à la reception automatique.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </li>
             <li class="experience">
-                <div class="wrapper-img" />
-                <div class="container">
+                <div class="container-img">
+                    <div class="wrapper-img" />
+                </div>
+                <div class="container-txt container">
                     <div class="experience-intro">
                         <blockquote>
                             <p>
@@ -86,39 +99,43 @@
                             </p>
                         </blockquote>
                     </div>
-                    <h3 class="h3">
-                        Des outils simples pour gérer les commandes
-                    </h3>
-                    <h4 class="h4">
-                        Visuel et dynamique
-                    </h4>
-                    <p>
-                        Le tableau de bord winAutopilote synthétise et pointe les commandes qui méritent votre
-                        attention.
-                    </p>
-                    <h4 class="h4">
-                        Des règles de gestion dynamiques
-                    </h4>
-                    <p>
-                        Des règles personnalisées à la pharmacie, qui évoluent automatiquement tout au long du cycle de
-                        vie des produits.
-                    </p>
-                    <div class="experience-number">
-                        <div class="wrapper-icon">
-                            <Icon name="eye" class="experience-icon" />
-                        </div>
-                        <div class="wrapper-txt">
-                            <p>
-                                <strong>1 seul coup d’oeil</strong> Visualiser rapidement l’organisation de la gestion
-                                de vos commandes
-                            </p>
+                    <div class="experience-content">
+                        <h3 class="h3">
+                            Des outils simples pour gérer les commandes
+                        </h3>
+                        <h4 class="h4">
+                            Visuel et dynamique
+                        </h4>
+                        <p>
+                            Le tableau de bord winAutopilote synthétise et pointe les commandes qui méritent votre
+                            attention.
+                        </p>
+                        <h4 class="h4">
+                            Des règles de gestion dynamiques
+                        </h4>
+                        <p>
+                            Des règles personnalisées à la pharmacie, qui évoluent automatiquement tout au long du cycle
+                            de vie des produits.
+                        </p>
+                        <div class="experience-number">
+                            <div class="wrapper-icon">
+                                <Icon name="eye" class="experience-icon" />
+                            </div>
+                            <div class="wrapper-txt">
+                                <p>
+                                    <strong>1 seul coup d’oeil</strong> Visualiser rapidement l’organisation de la
+                                    gestion de vos commandes
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </li>
             <li class="experience">
-                <div class="wrapper-img" />
-                <div class="container">
+                <div class="container-img">
+                    <div class="wrapper-img" />
+                </div>
+                <div class="container-txt container">
                     <div class="experience-intro">
                         <blockquote>
                             <p>
@@ -131,39 +148,43 @@
                             </p>
                         </blockquote>
                     </div>
-                    <h3 class="h3">
-                        Génération et envoi automatique
-                    </h3>
-                    <h4 class="h4">
-                        L’esprit tranquille
-                    </h4>
-                    <p>
-                        Ne vous souciez plus de vérifier et passer les commandes des grossistes, d'homéopathie et même
-                        de certains laboratoires directs.
-                    </p>
-                    <h4 class="h4">
-                        Réduction des erreurs
-                    </h4>
-                    <p>
-                        winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à vérifier. Il
-                        n'est jamais distrait ni même pressé.
-                    </p>
-                    <div class="experience-number">
-                        <div class="wrapper-icon">
-                            <Icon name="time" class="experience-icon" />
-                        </div>
-                        <div class="wrapper-txt">
-                            <p>
-                                <strong>2h de temps gagnées</strong> Par jour grâce à 26 commandes quotidiennes
-                                automatisées
-                            </p>
+                    <div class="experience-content">
+                        <h3 class="h3">
+                            Génération et envoi automatique
+                        </h3>
+                        <h4 class="h4">
+                            L’esprit tranquille
+                        </h4>
+                        <p>
+                            Ne vous souciez plus de vérifier et passer les commandes des grossistes, d'homéopathie et
+                            même de certains laboratoires directs.
+                        </p>
+                        <h4 class="h4">
+                            Réduction des erreurs
+                        </h4>
+                        <p>
+                            winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à vérifier. Il
+                            n'est jamais distrait ni même pressé.
+                        </p>
+                        <div class="experience-number">
+                            <div class="wrapper-icon">
+                                <Icon name="time" class="experience-icon" />
+                            </div>
+                            <div class="wrapper-txt">
+                                <p>
+                                    <strong>2h de temps gagnées</strong> Par jour grâce à 26 commandes quotidiennes
+                                    automatisées
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </li>
             <li class="experience">
-                <div class="wrapper-img" />
-                <div class="container">
+                <div class="container-img">
+                    <div class="wrapper-img" />
+                </div>
+                <div class="container-txt container">
                     <div class="experience-intro">
                         <blockquote>
                             <p>
@@ -176,29 +197,33 @@
                             </p>
                         </blockquote>
                     </div>
-                    <h3 class="h3">
-                        Diminution du stock
-                    </h3>
-                    <h4 class="h4">
-                        Un stock optimisé
-                    </h4>
-                    <p>
-                        Diminue d’environ 1 %, ce qui représente en moyenne 15 000 € pour une pharmacie générant 1,5 M€
-                        de chiffre d’affaires.
-                    </p>
-                    <h4 class="h4">
-                        Des clients toujours satisfaits
-                    </h4>
-                    <p>
-                        Les produits sont en stock toujours au bon moment. La baisse du stock n'engendre pas
-                        d'augmentation des promis grâce à une optimisation des achats.
-                    </p>
-                    <div class="experience-number">
-                        <div class="wrapper-icon">
-                            <Icon name="graph" class="experience-icon" />
-                        </div>
-                        <div class="wrapper-txt">
-                            <p><strong>+&nbsp;38&nbsp;000€ de trésorerie</strong> Grâce à une diminution du stock</p>
+                    <div class="experience-content">
+                        <h3 class="h3">
+                            Diminution du stock
+                        </h3>
+                        <h4 class="h4">
+                            Un stock optimisé
+                        </h4>
+                        <p>
+                            Diminue d’environ 1 %, ce qui représente en moyenne 15 000 € pour une pharmacie générant 1,5
+                            M€ de chiffre d’affaires.
+                        </p>
+                        <h4 class="h4">
+                            Des clients toujours satisfaits
+                        </h4>
+                        <p>
+                            Les produits sont en stock toujours au bon moment. La baisse du stock n'engendre pas
+                            d'augmentation des promis grâce à une optimisation des achats.
+                        </p>
+                        <div class="experience-number">
+                            <div class="wrapper-icon">
+                                <Icon name="graph" class="experience-icon" />
+                            </div>
+                            <div class="wrapper-txt">
+                                <p>
+                                    <strong>+&nbsp;38&nbsp;000€ de trésorerie</strong> Grâce à une diminution du stock
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -248,6 +273,7 @@ export default {};
     margin: -35px 0 30px;
     border-radius: 8px;
     background: $white;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
     &.double {
         position: relative;
         display: flex;
@@ -331,6 +357,45 @@ export default {};
     .experience-icon {
         width: 100%;
         height: 100%;
+    }
+}
+
+@media (min-width: $desktop-small) {
+    .experiences {
+        > li {
+            display: flex;
+            align-items: stretch;
+            padding: 0 #{$gutter * 2};
+        }
+    }
+    .container-img {
+        flex: 0 0 auto;
+        display: flex;
+        justify-content: flex-end;
+        width: percentage(7/12);
+    }
+    .wrapper-img {
+        flex: 0 0 auto;
+        width: calc(100% + #{$gutter * 2});
+        height: 90vh;
+    }
+    .container-txt {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 50px;
+        padding: 0 0 0 #{$gutter * 2};
+    }
+    .experience-content {
+        order: 1;
+    }
+    .experience-intro {
+        order: 2;
+        width: 100%;
+        margin: 30px 0 -45px calc(-20% + #{$gutter * 2});
+    }
+    .experience-number {
+        margin-top: 60px;
     }
 }
 </style>
