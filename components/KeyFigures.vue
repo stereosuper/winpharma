@@ -1,5 +1,10 @@
 <template>
     <div ref="wrapperKeyFigures" class="wrapper-key-figures">
+        <div class="wrapper-wave">
+            <svg viewBox="0 0 1440 178" preserveAspectRatio="none" class="wave-aze">
+                <path d="M0 116.061C174.596 -7.90953 531.156 -21.6062 776.5 23.8375C896.733 46.3769 1222.62 120.419 1440 176.959C1440 176.959 1440 177.262 1440 178H0V116.061Z" />
+            </svg>
+        </div>
         <div class="container">
             <h3 ref="keyFiguresTitle" class="h3 key-figures-title">
                 Des résultats époustouflants
@@ -247,9 +252,35 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-key-figures {
-    padding: 60px 0 50px;
-    background: $fake-white;
+    position: relative;
+    z-index: 1;
+    padding: 15px 0 50px;
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $fake-white;
+        z-index: -1;
+    }
 }
+.wrapper-wave {
+    position: absolute;
+    top: -47px;
+    left: 0;
+    right: -10px;
+    height: 48px;
+    // height: 182px;
+    .wave-aze {
+        display: block;
+        width: 100%;
+        height: 100%;
+        fill: $fake-white;
+    }
+}
+
 .wrapper-tabs {
     position: relative;
     display: flex;
@@ -388,6 +419,16 @@ export default {
     opacity: 0;
 }
 
+@media (min-width: $tablet) {
+    .wrapper-key-figures {
+        padding: 0 0 50px;
+    }
+    .wrapper-wave {
+        top: -99px;
+        height: 100px;
+    }
+}
+
 @media (min-width: $desktop-small) {
     .wrapper-tabs {
         justify-content: flex-end;
@@ -417,6 +458,19 @@ export default {
     }
     .hide-small-device {
         display: inline;
+    }
+}
+
+@media (min-width: $desktop-large) {
+    .wrapper-key-figures {
+        margin-top: -60px;
+        &::before {
+            top: 60px;
+        }
+    }
+    .wrapper-wave {
+        top: -110px;
+        height: 170px;
     }
 }
 </style>

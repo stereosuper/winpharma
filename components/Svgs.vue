@@ -7,6 +7,12 @@
         xmlns:xlink="http://www.w3.org/1999/xlink"
     >
         <defs>
+            <symbol id="icon-wave" viewBox="0 0 259 32">
+                <title>wave</title>
+                <path
+                    d="M0 20.865c31.388-22.287 95.489-24.749 139.595-16.579 21.615 4.052 80.201 17.363 119.281 27.527 0 0 0 0.054 0 0.187h-258.876v-11.135z"
+                />
+            </symbol>
             <symbol id="icon-youtube" viewBox="0 0 32 32">
                 <title>Youtube</title>
                 <path

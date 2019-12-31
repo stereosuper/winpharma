@@ -122,4 +122,10 @@ export default {
         width: percentage(5/12);
     }
 }
+
+@media (min-width: $desktop-large) {
+    .hero {
+        padding: 200px 0;
+    }
+}
 </style>
