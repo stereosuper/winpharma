@@ -1,8 +1,10 @@
 <template>
     <div class="hero">
         <div class="wrapper-bg-hero">
-            <img src="img/bg-hero-1.svg" alt="" class="bg-hero-1" />
-            <img src="img/bg-hero-2.svg" alt="" class="bg-hero-2" />
+            <svg viewBox="0 0 1190 935" preserveAspectRatio="none" class="bg-hero">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M890.755 0C870.405 17.1395 850.106 22.0367 829.442 27.0219C798.016 34.6036 765.746 42.3889 731.169 93.7515C704.963 132.679 698.196 161.446 692.157 187.121C682.844 226.714 675.261 258.951 600.787 309.745C525.527 361.076 506.775 401.679 487.308 443.83C475.019 470.439 462.446 497.664 435.193 528.594C398.661 570.055 340.872 587.401 282.286 604.987C227.931 621.302 172.889 637.823 133.5 674C51.6546 749.17 0 916 0 916C0 916 356.202 749.345 578.898 807.388C715.644 843.029 994.849 896.967 1190 933.293V0H890.755Z" fill="#453270"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M604.134 719.534C814.606 682.166 1018.22 719.753 1190 799.105V935H0V916C175.5 823.5 411 753.824 604.134 719.534Z" fill="#322654"/>
+            </svg>
         </div>
         <div class="wrapper-txt container">
             <div class="wrapper-txt-hero">
@@ -67,28 +69,16 @@ export default {
 .wrapper-bg-hero {
     position: absolute;
     top: 0;
-    right: 0;
+    right: -300px;
     bottom: 0;
-    left: 0;
+    width: 80%;
+    min-width: 800px;
     overflow: hidden;
     z-index: -1;
 }
-.bg-hero-1,
-.bg-hero-2 {
-    position: absolute;
-    max-width: none;
-}
-.bg-hero-1 {
-    left: -97%;
-    bottom: -35%;
-    width: 310%;
-    fill: $primary-dark;
-}
-.bg-hero-2 {
-    width: 549px;
-    transform: translate3d(-36%, 0, 0);
-    fill: $primary-darker;
-    opacity: 0;
+.bg-hero {
+    width: 100%;
+    height: 100%;
 }
 .wrapper-txt {
     position: relative;
@@ -111,6 +101,12 @@ export default {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: $white;
+}
+
+@media (min-width: $tablet) {
+    .wrapper-bg-hero {
+        right: 0;
+    }
 }
 
 @media (min-width: $desktop-small) {
