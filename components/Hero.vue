@@ -4,7 +4,7 @@
             <img src="img/bg-hero-1.svg" alt="" class="bg-hero-1" />
             <img src="img/bg-hero-2.svg" alt="" class="bg-hero-2" />
         </div>
-        <div class="container">
+        <div class="wrapper-txt container">
             <div class="wrapper-txt-hero">
                 <p class="intro">
                     Révolutionner votre gestion des commandes
@@ -57,7 +57,7 @@ export default {
     position: relative;
     display: flex;
     align-items: center;
-    min-height: 90vh;
+    min-height: 95vh;
     padding: 110px 0;
     text-align: center;
     color: $white;
@@ -89,6 +89,10 @@ export default {
     transform: translate3d(-36%, 0, 0);
     fill: $primary-darker;
     opacity: 0;
+}
+.wrapper-txt {
+    position: relative;
+    z-index: 1;
 }
 .h2 {
     > strong {

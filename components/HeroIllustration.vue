@@ -312,7 +312,7 @@ export default {};
 .wrapper-hero-illustration {
     position: absolute;
     top: 90px;
-    right: 0;
+    right: 30px;
     bottom: 100px;
     left: 18%;
 }
