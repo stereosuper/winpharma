@@ -22,16 +22,23 @@
                             <span class="intro-number primary-light">20 pers.</span>
                         </div>
                     </div>
-                    <blockquote class="experience-content">
-                        <p>
-                            <span class="blockquote-content">
-                                Je suis pharmacien titulaire de la pharmacie du Cœur de la Brie, en Seine-et-Marne.
-                                J’utilise winAutopilote depuis juillet 2019.
-                            </span>
-                            <cite class="blockquote-author">Sylvain Pelletier</cite>
-                            <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
-                        </p>
-                    </blockquote>
+                    <div class="experience-content">
+                        <blockquote>
+                            <p>
+                                <span class="blockquote-content">
+                                    Je suis pharmacien titulaire de la pharmacie du Cœur de la Brie, en Seine-et-Marne.
+                                    J’utilise winAutopilote depuis juillet 2019.
+                                </span>
+                                <cite class="blockquote-author">Sylvain Pelletier</cite>
+                                <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
+                            </p>
+                        </blockquote>
+                        <div class="wrapper-experience-button">
+                            <Button :href="'#'" type="Primary" class="experience-button">
+                                Demander une démo
+                            </Button>
+                        </div>
+                    </div>
                 </div>
             </li>
             <li class="experience">
@@ -329,6 +336,11 @@ export default {};
         line-height: 36px;
     }
 }
+.wrapper-experience-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
 .experience-number {
     display: flex;
     align-items: center;
@@ -360,7 +372,18 @@ export default {};
     }
 }
 
+@media (min-width: $tablet) {
+    .wrapper-experience-button {
+        justify-content: flex-start;
+        margin-top: 40px;
+    }
+}
 @media (min-width: $desktop-small) {
+    .title-experiences {
+        .title-arrow {
+            margin-top: 100px;
+        }
+    }
     .experiences {
         > li {
             display: flex;
@@ -396,6 +419,14 @@ export default {};
     }
     .experience-number {
         margin-top: 60px;
+    }
+}
+@media (min-width: $desktop-large) {
+    .container-txt {
+        padding-left: percentage(1/12);
+    }
+    .experience-intro {
+        margin-left: calc(-50% + #{$gutter * 2});
     }
 }
 </style>
