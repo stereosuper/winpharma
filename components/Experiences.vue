@@ -9,7 +9,7 @@
         <ul class="experiences">
             <li class="experience">
                 <div class="container-img">
-                    <div class="wrapper-img" />
+                    <div class="wrapper-img"></div>
                 </div>
                 <div class="container-txt container">
                     <div class="experience-intro double">
@@ -43,7 +43,7 @@
             </li>
             <li class="experience">
                 <div class="container-img">
-                    <div class="wrapper-img" />
+                    <div class="wrapper-img"></div>
                 </div>
                 <div class="container-txt container">
                     <div class="experience-intro">
@@ -91,7 +91,7 @@
             </li>
             <li class="experience">
                 <div class="container-img">
-                    <div class="wrapper-img" />
+                    <div class="wrapper-img"></div>
                 </div>
                 <div class="container-txt container">
                     <div class="experience-intro">
@@ -140,7 +140,7 @@
             </li>
             <li class="experience">
                 <div class="container-img">
-                    <div class="wrapper-img" />
+                    <div class="wrapper-img"></div>
                 </div>
                 <div class="container-txt container">
                     <div class="experience-intro">
@@ -189,7 +189,7 @@
             </li>
             <li class="experience">
                 <div class="container-img">
-                    <div class="wrapper-img" />
+                    <div class="wrapper-img"></div>
                 </div>
                 <div class="container-txt container">
                     <div class="experience-intro">
@@ -385,10 +385,24 @@ export default {};
         }
     }
     .experiences {
+        position: relative;
+        height: 100vh;
         > li {
+            position: absolute;
+            top: 15vh;
+            right: 0;
+            bottom: 15vh;
+            left: 0;
             display: flex;
             align-items: stretch;
+            margin: 0;
             padding: 0 #{$gutter * 2};
+            opacity: 0;
+            visibility: hidden;
+            &:nth-child(1) {
+                opacity: 1;
+                visibility: visible;
+            }
         }
     }
     .container-img {
@@ -396,11 +410,12 @@ export default {};
         display: flex;
         justify-content: flex-end;
         width: percentage(7/12);
+        height: 100%;
     }
     .wrapper-img {
         flex: 0 0 auto;
         width: calc(100% + #{$gutter * 2});
-        height: 90vh;
+        height: 100%;
     }
     .container-txt {
         display: flex;

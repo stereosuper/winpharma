@@ -202,14 +202,8 @@ hr {
 
 /******* LIENS / BOUTONS *******/
 
-button,
-input {
-    @extend %outline;
-}
-
 a {
     color: inherit;
-    @extend %outline;
 
     &:active {
         filter: saturate(200%);
