@@ -5,7 +5,7 @@
         }"
         class="header container"
     >
-        <nuxt-link to="/" @click.native="closeBurger" class="logo">
+        <nuxt-link to="/" class="logo" @click.native="closeBurger">
             <Icon name="winpharma-horizontal" class="icon-logo" />
         </nuxt-link>
         <nav class="main-navigation">
@@ -14,7 +14,7 @@
                     <a href="http://www.winpharma.com/"><span class="txt">Winpharma</span></a>
                 </li>
                 <li class="active">
-                    <nuxt-link to="/"><span class="new">new</span> <span class="txt">winAutopilote</span></nuxt-link>
+                    <nuxt-link to="/"> <span class="new">new</span> <span class="txt">winAutopilote</span> </nuxt-link>
                 </li>
                 <li>
                     <a href="http://www.winpharma.com/temoignages/"><span class="txt">Témoignages</span></a>
@@ -33,10 +33,10 @@
         <button
             v-if="navigationIsMobile"
             :class="{ activated: burgerState }"
-            @click="toggleBurger"
             class="burger"
             type="button"
             aria-label="Burger menu navigation"
+            @click="toggleBurger"
         >
             <span></span>
         </button>
@@ -145,6 +145,10 @@ export default {
         text-decoration: none;
         color: $white;
         font-size: 2.4rem;
+        // transition: opacity $short-duration;
+        &:hover {
+            opacity: 0.6;
+        }
         .txt {
             position: relative;
             display: block;
