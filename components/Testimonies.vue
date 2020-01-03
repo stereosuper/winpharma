@@ -191,10 +191,8 @@ export default {
             gsap.to(this.slide, { duration: 2.4, timeScale: 1, ease: 'power2.out' });
         },
         go() {
-            console.log('go');
-
             this.slide = gsap.to(this.$refs.testimoniesWrapper, {
-                duration: 60,
+                duration: 100,
                 ease: 'linear',
                 x: -this.wrapperWidth,
                 repeat: -1,
@@ -258,7 +256,7 @@ export default {
 .testimonies-title {
     font-family: $ageo-semi-bold;
     font-size: 2.8rem;
-    line-height: 30px;
+    line-height: 40px;
     max-width: 480px;
 }
 .testimonies-intro {
@@ -282,6 +280,7 @@ export default {
     perspective: 1000px;
 }
 .testimony {
+    user-select: none;
     flex: 0 0 auto;
     width: calc(100vw - #{4 * $small-gutter});
     padding: 20px 30px;
