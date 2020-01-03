@@ -57,16 +57,14 @@
 </template>
 
 <script>
-import { gsap, MotionPathPlugin, MorphSVGPlugin, InertiaPlugin } from 'gsap/all';
+import { gsap, CSSPlugin } from 'gsap/all';
 
 if (process.browser) {
-    gsap.registerPlugin(MotionPathPlugin, MorphSVGPlugin, InertiaPlugin);
+    gsap.registerPlugin(CSSPlugin);
 }
+
 export default {
     data: () => ({
-        offsetTestimonies: 480,
-        speed: -1.8,
-        normalizedSpeed: 0.0003,
         testimonies: [
             {
                 title: 'Sécurité et simplicité',
@@ -120,24 +118,45 @@ export default {
                 source: 'Mouchamps (85)'
             }
         ],
-        start: 0,
         wrapperWidth: 1280,
-        nextToAppear: 0,
         slide: null
     }),
     computed: {
         testimoniesDouble() {
             return this.testimonies.concat(this.testimonies);
+        },
+        ww() {
+            return this.$store.state.superWindow ? this.$store.state.superWindow.width : 0;
+        }
+    },
+    watch: {
+        ww(w) {
+            if (!this.slide && w < 780) return;
+            if (this.slide) {
+                this.slide.kill();
+                this.slide = null;
+            }
+            gsap.set(this.$refs.testimonies, { clearProps: 'all' });
+            gsap.set(this.$refs.testimoniesWrapper, { clearProps: 'all' });
+            if (w >= 780) {
+                this.$nextTick(() => {
+                    this.initSlide();
+                });
+            }
         }
     },
     mounted() {
-        this.$nextTick(() => {
-            // this.setTestimonies();
-            this.wrapperWidth = this.$refs.testimoniesWrapper.getBoundingClientRect().width / 2;
-            this.go();
-        });
+        if (this.ww >= 780) {
+            this.$nextTick(() => {
+                this.initSlide();
+            });
+        }
     },
     methods: {
+        initSlide() {
+            this.wrapperWidth = this.$refs.testimoniesWrapper.getBoundingClientRect().width / 2;
+            this.go();
+        },
         easeInOutQuad(t) {
             return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
         },
@@ -145,7 +164,7 @@ export default {
             this.$refs.testimonies.forEach(el => {
                 const rect = el.getBoundingClientRect();
 
-                let x = rect.left / this.$store.state.superWindow.width;
+                let x = rect.left / this.ww;
 
                 let y = gsap.getProperty(el, 'y');
 
@@ -155,7 +174,7 @@ export default {
                 } else if (x >= 0.2 && x < 0.6) {
                     x = this.mapRange(x, 0.2, 0.6, 0, 1);
                     y = this.easeInOutQuad(x);
-                } else if (x >= 0.6 && rect.left < this.$store.state.superWindow.width + 440) {
+                } else if (x >= 0.6 && rect.left < this.ww + 440) {
                     x = this.mapRange(x, 0.6, 1.6, 1, 0);
                     y = this.easeInOutQuad(x);
                 }
@@ -164,12 +183,16 @@ export default {
             });
         },
         stop() {
+            if (this.ww < 780) return;
             gsap.to(this.slide, { duration: 2.4, timeScale: 0.2, ease: 'power2.out' });
         },
         play() {
+            if (this.ww < 780) return;
             gsap.to(this.slide, { duration: 2.4, timeScale: 1, ease: 'power2.out' });
         },
         go() {
+            console.log('go');
+
             this.slide = gsap.to(this.$refs.testimoniesWrapper, {
                 duration: 40,
                 ease: 'linear',
@@ -187,74 +210,6 @@ export default {
         },
         mapRange(value, low1, high1, low2, high2) {
             return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
-        },
-        clamp(val, min, max) {
-            return Math.min(Math.max(min, val), max);
-        },
-        setTestimonies() {
-            this.wrapperWidth = this.$refs.path.getBoundingClientRect().width;
-
-            this.testimonies.map((t, i) => {
-                const el = this.$refs.testimonies[i];
-
-                const startPos = this.offsetTestimonies * i;
-                const normalizedStartPos = this.clamp(startPos / this.wrapperWidth, 0, 1);
-
-                this.$set(t, 'el', el);
-                this.$set(t, 'pos', startPos);
-                this.$set(t, 'startPos', startPos);
-                this.$set(t, 'ready', true);
-                this.$set(t, 'normalizedPos', normalizedStartPos);
-                return t;
-            });
-            requestAnimationFrame(this.animateTestimonies);
-        },
-        animateTestimonies() {
-            this.testimonies.map((t, i) => {
-                gsap.set(t.el, {
-                    // xPercent: -50,
-                    // yPercent: -50,
-                    // transformOrigin: '50% 50%',
-                    x: t.pos,
-                    force3D: true
-                    // motionPath: {
-                    //     path: this.$refs.path,
-                    //     align: this.$refs.path,
-                    //     end: t.normalizedPos
-                    // }
-                });
-
-                // gsap.to(t.el, {
-                //     duration: 50,
-                //     // xPercent: -50,
-                //     // yPercent: -50,
-                //     // transformOrigin: '50% 50%',
-                //     x: t.pos + 2000,
-                //     // x: t.pos,
-                //     force3D: true
-                //     // motionPath: {
-                //     //     path: this.$refs.path,
-                //     //     align: this.$refs.path,
-                //     //     end: t.pos
-                //     // }
-                // });
-
-                if (t.ready) {
-                    if (t.pos + this.speed <= 0) {
-                        this.$set(t, 'pos', this.wrapperWidth);
-                        this.$set(t, 'ready', false);
-                    } else {
-                        this.$set(t, 'pos', t.pos + this.speed);
-                    }
-                    // this.$set(
-                    //     t,
-                    //     'normalizedPos',
-                    //     t.normalizedPos + this.normalizedSpeed > 1 ? 0 : t.normalizedPos + this.normalizedSpeed
-                    // );
-                }
-            });
-
-            // requestAnimationFrame(this.animateTestimonies);
         }
     }
 };
@@ -327,10 +282,6 @@ export default {
     perspective: 1000px;
 }
 .testimony {
-    // position: absolute;
-    top: 0;
-    // left: -640px;
-    left: 0;
     flex: 0 0 auto;
     width: calc(100vw - #{4 * $small-gutter});
     padding: 20px 30px;
@@ -341,26 +292,6 @@ export default {
     will-change: transform;
     transform-style: preserve-3d;
     perspective: 1000px;
-    // animation: testi 30s ease-in-out;
-    // &:nth-child(1) {
-    //     animation-delay: 2s;
-    // }
-    // &:nth-child(2) {
-    //     animation-delay: 4s;
-    // }
-    // &:nth-child(3) {
-    //     animation-delay: 6s;
-    // }
-    // &:nth-child(4) {
-    //     animation-delay: 8s;
-    // }
-    // &:nth-child(5) {
-    //     animation-delay: 10s;
-    // }
-    // &:nth-child(6) {
-    //     animation-delay: 12s;
-    // }
-
     .h4 {
         font-size: 2rem;
         margin: 0 0 20px;
