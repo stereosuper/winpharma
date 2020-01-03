@@ -6,240 +6,246 @@
                 <Icon name="arrow" class="title-arrow primary-light" />
             </h2>
         </div>
-        <div
-            ref="containerExperiences"
-            class="container-experiences"
-            :style="{ minHeight: `calc(${heightExperiences}vh + ${heightGap}px)` }"
-        >
+        <div ref="containerExperiences" class="container-experiences">
             <div ref="bgImg" class="container-img-large">
                 <div class="bg-img"></div>
             </div>
-            <ul ref="wrapperExperiences" class="experiences">
+            <ul class="experiences">
                 <li class="experience">
-                    <div class="container-img">
-                        <div class="wrapper-img"></div>
-                    </div>
-                    <div class="container-txt container">
-                        <div class="experience-intro double">
-                            <div>
-                                <span class="intro-title">CA annuel</span>
-                                <span class="intro-number primary-light">5,4 M€</span>
-                            </div>
-                            <div>
-                                <span class="intro-title">Équipe</span>
-                                <span class="intro-number primary-light">20 pers.</span>
-                            </div>
+                    <div class="experience-content-large">
+                        <div class="container-img">
+                            <div class="wrapper-img"></div>
                         </div>
-                        <div class="experience-content">
-                            <blockquote>
-                                <p>
-                                    <span class="blockquote-content">
-                                        Je suis pharmacien titulaire de la pharmacie du Cœur de la Brie, en
-                                        Seine-et-Marne. J’utilise winAutopilote depuis juillet 2019.
-                                    </span>
-                                    <cite class="blockquote-author">Sylvain Pelletier</cite>
-                                    <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
-                                </p>
-                            </blockquote>
-                            <div class="wrapper-experience-button">
-                                <Button :href="'#'" type="Primary" class="experience-button">
-                                    Demander une démo
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="experience">
-                    <div class="container-img">
-                        <div class="wrapper-img"></div>
-                    </div>
-                    <div class="container-txt container">
-                        <div class="experience-intro">
-                            <blockquote>
-                                <p>
-                                    <span class="blockquote-content secondary">
-                                        L’ordinateur s'occupe de mes commandes pendant que mon équipe privilégie nos
-                                        patients et les tâches à valeur ajoutée.
-                                    </span>
-                                    <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                    <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="experience-content">
-                            <h3 class="h3">
-                                Réception automatique
-                            </h3>
-                            <h4 class="h4">
-                                Suppression des faux promis
-                            </h4>
-                            <p>
-                                Aucun laps de temps perdu entre la livraison des produits et le chargement du robot ou
-                                la disponibilité des promis.
-                            </p>
-                            <h4 class="h4">
-                                Confort de travail
-                            </h4>
-                            <p>
-                                Votre équipe se consacre plus sereinement à l’accueil, au conseil et au service des
-                                patients.
-                            </p>
-                            <div class="experience-number">
-                                <div class="wrapper-icon">
-                                    <Icon name="time" class="experience-icon" />
+                        <div class="container-txt container">
+                            <div class="experience-intro double">
+                                <div>
+                                    <span class="intro-title">CA annuel</span>
+                                    <span class="intro-number primary-light">5,4 M€</span>
                                 </div>
-                                <div class="wrapper-txt">
+                                <div>
+                                    <span class="intro-title">Équipe</span>
+                                    <span class="intro-number primary-light">20 pers.</span>
+                                </div>
+                            </div>
+                            <div class="experience-content">
+                                <blockquote>
                                     <p>
-                                        <strong>2h de temps gagnées</strong> Chaque jour grâce à la reception
-                                        automatique.
+                                        <span class="blockquote-content">
+                                            Je suis pharmacien titulaire de la pharmacie du Cœur de la Brie, en
+                                            Seine-et-Marne. J’utilise winAutopilote depuis juillet 2019.
+                                        </span>
+                                        <cite class="blockquote-author">Sylvain Pelletier</cite>
+                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
                                     </p>
+                                </blockquote>
+                                <div class="wrapper-experience-button">
+                                    <Button :href="'#'" type="Primary" class="experience-button">
+                                        Demander une démo
+                                    </Button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="experience">
-                    <div class="container-img">
-                        <div class="wrapper-img"></div>
-                    </div>
-                    <div class="container-txt container">
-                        <div class="experience-intro">
-                            <blockquote>
-                                <p>
-                                    <span class="blockquote-content secondary">
-                                        Seulement 5 min suffisent pour contrôler et isoler la commande des produits
-                                        sensibles, nécessitant votre intervention.
-                                    </span>
-                                    <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                    <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
-                                </p>
-                            </blockquote>
+                    <div class="experience-content-large">
+                        <div class="container-img">
+                            <div class="wrapper-img"></div>
                         </div>
-                        <div class="experience-content">
-                            <h3 class="h3">
-                                Des outils simples pour gérer les commandes
-                            </h3>
-                            <h4 class="h4">
-                                Visuel et dynamique
-                            </h4>
-                            <p>
-                                Le tableau de bord winAutopilote synthétise et pointe les commandes qui méritent votre
-                                attention.
-                            </p>
-                            <h4 class="h4">
-                                Des règles de gestion dynamiques
-                            </h4>
-                            <p>
-                                Des règles personnalisées à la pharmacie, qui évoluent automatiquement tout au long du
-                                cycle de vie des produits.
-                            </p>
-                            <div class="experience-number">
-                                <div class="wrapper-icon">
-                                    <Icon name="eye" class="experience-icon" />
-                                </div>
-                                <div class="wrapper-txt">
+                        <div class="container-txt container">
+                            <div class="experience-intro">
+                                <blockquote>
                                     <p>
-                                        <strong>1 seul coup d’oeil</strong> Visualiser rapidement l’organisation de la
-                                        gestion de vos commandes
+                                        <span class="blockquote-content secondary">
+                                            L’ordinateur s'occupe de mes commandes pendant que mon équipe privilégie nos
+                                            patients et les tâches à valeur ajoutée.
+                                        </span>
+                                        <cite class="blockquote-author">Sylvain Pelletier,</cite>
+                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
                                     </p>
+                                </blockquote>
+                            </div>
+                            <div class="experience-content">
+                                <h3 class="h3">
+                                    Réception automatique
+                                </h3>
+                                <h4 class="h4">
+                                    Suppression des faux promis
+                                </h4>
+                                <p>
+                                    Aucun laps de temps perdu entre la livraison des produits et le chargement du robot
+                                    ou la disponibilité des promis.
+                                </p>
+                                <h4 class="h4">
+                                    Confort de travail
+                                </h4>
+                                <p>
+                                    Votre équipe se consacre plus sereinement à l’accueil, au conseil et au service des
+                                    patients.
+                                </p>
+                                <div class="experience-number">
+                                    <div class="wrapper-icon">
+                                        <Icon name="time" class="experience-icon" />
+                                    </div>
+                                    <div class="wrapper-txt">
+                                        <p>
+                                            <strong>2h de temps gagnées</strong> Chaque jour grâce à la reception
+                                            automatique.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="experience">
-                    <div class="container-img">
-                        <div class="wrapper-img"></div>
-                    </div>
-                    <div class="container-txt container">
-                        <div class="experience-intro">
-                            <blockquote>
-                                <p>
-                                    <span class="blockquote-content secondary">
-                                        Le reste des commandes a été envoyé automatiquement en temps et en heure pendant
-                                        que j’étais au comptoir auprès de mes patients.
-                                    </span>
-                                    <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                    <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
-                                </p>
-                            </blockquote>
+                    <div class="experience-content-large">
+                        <div class="container-img">
+                            <div class="wrapper-img"></div>
                         </div>
-                        <div class="experience-content">
-                            <h3 class="h3">
-                                Génération et envoi automatique
-                            </h3>
-                            <h4 class="h4">
-                                L’esprit tranquille
-                            </h4>
-                            <p>
-                                Ne vous souciez plus de vérifier et passer les commandes des grossistes, d'homéopathie
-                                et même de certains laboratoires directs.
-                            </p>
-                            <h4 class="h4">
-                                Réduction des erreurs
-                            </h4>
-                            <p>
-                                winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à vérifier.
-                                Il n'est jamais distrait ni même pressé.
-                            </p>
-                            <div class="experience-number">
-                                <div class="wrapper-icon">
-                                    <Icon name="time" class="experience-icon" />
-                                </div>
-                                <div class="wrapper-txt">
+                        <div class="container-txt container">
+                            <div class="experience-intro">
+                                <blockquote>
                                     <p>
-                                        <strong>2h de temps gagnées</strong> Par jour grâce à 26 commandes quotidiennes
-                                        automatisées
+                                        <span class="blockquote-content secondary">
+                                            Seulement 5 min suffisent pour contrôler et isoler la commande des produits
+                                            sensibles, nécessitant votre intervention.
+                                        </span>
+                                        <cite class="blockquote-author">Sylvain Pelletier,</cite>
+                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
                                     </p>
+                                </blockquote>
+                            </div>
+                            <div class="experience-content">
+                                <h3 class="h3">
+                                    Des outils simples pour gérer les commandes
+                                </h3>
+                                <h4 class="h4">
+                                    Visuel et dynamique
+                                </h4>
+                                <p>
+                                    Le tableau de bord winAutopilote synthétise et pointe les commandes qui méritent
+                                    votre attention.
+                                </p>
+                                <h4 class="h4">
+                                    Des règles de gestion dynamiques
+                                </h4>
+                                <p>
+                                    Des règles personnalisées à la pharmacie, qui évoluent automatiquement tout au long
+                                    du cycle de vie des produits.
+                                </p>
+                                <div class="experience-number">
+                                    <div class="wrapper-icon">
+                                        <Icon name="eye" class="experience-icon" />
+                                    </div>
+                                    <div class="wrapper-txt">
+                                        <p>
+                                            <strong>1 seul coup d’oeil</strong> Visualiser rapidement l’organisation de
+                                            la gestion de vos commandes
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </li>
                 <li class="experience">
-                    <div class="container-img">
-                        <div class="wrapper-img"></div>
-                    </div>
-                    <div class="container-txt container">
-                        <div class="experience-intro">
-                            <blockquote>
-                                <p>
-                                    <span class="blockquote-content secondary">
-                                        Seulement 5 min suffisent pour contrôler et isoler la commande des produits
-                                        sensibles, nécessitant votre intervention.
-                                    </span>
-                                    <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                    <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
-                                </p>
-                            </blockquote>
+                    <div class="experience-content-large">
+                        <div class="container-img">
+                            <div class="wrapper-img"></div>
                         </div>
-                        <div class="experience-content">
-                            <h3 class="h3">
-                                Diminution du stock
-                            </h3>
-                            <h4 class="h4">
-                                Un stock optimisé
-                            </h4>
-                            <p>
-                                Diminue d’environ 1 %, ce qui représente en moyenne 15 000 € pour une pharmacie générant
-                                1,5 M€ de chiffre d’affaires.
-                            </p>
-                            <h4 class="h4">
-                                Des clients toujours satisfaits
-                            </h4>
-                            <p>
-                                Les produits sont en stock toujours au bon moment. La baisse du stock n'engendre pas
-                                d'augmentation des promis grâce à une optimisation des achats.
-                            </p>
-                            <div class="experience-number">
-                                <div class="wrapper-icon">
-                                    <Icon name="graph" class="experience-icon" />
-                                </div>
-                                <div class="wrapper-txt">
+                        <div class="container-txt container">
+                            <div class="experience-intro">
+                                <blockquote>
                                     <p>
-                                        <strong>+&nbsp;38&nbsp;000€ de trésorerie</strong> Grâce à une diminution du
-                                        stock
+                                        <span class="blockquote-content secondary">
+                                            Le reste des commandes a été envoyé automatiquement en temps et en heure
+                                            pendant que j’étais au comptoir auprès de mes patients.
+                                        </span>
+                                        <cite class="blockquote-author">Sylvain Pelletier,</cite>
+                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
                                     </p>
+                                </blockquote>
+                            </div>
+                            <div class="experience-content">
+                                <h3 class="h3">
+                                    Génération et envoi automatique
+                                </h3>
+                                <h4 class="h4">
+                                    L’esprit tranquille
+                                </h4>
+                                <p>
+                                    Ne vous souciez plus de vérifier et passer les commandes des grossistes,
+                                    d'homéopathie et même de certains laboratoires directs.
+                                </p>
+                                <h4 class="h4">
+                                    Réduction des erreurs
+                                </h4>
+                                <p>
+                                    winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à
+                                    vérifier. Il n'est jamais distrait ni même pressé.
+                                </p>
+                                <div class="experience-number">
+                                    <div class="wrapper-icon">
+                                        <Icon name="time" class="experience-icon" />
+                                    </div>
+                                    <div class="wrapper-txt">
+                                        <p>
+                                            <strong>2h de temps gagnées</strong> Par jour grâce à 26 commandes
+                                            quotidiennes automatisées
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="experience">
+                    <div class="experience-content-large">
+                        <div class="container-img">
+                            <div class="wrapper-img"></div>
+                        </div>
+                        <div class="container-txt container">
+                            <div class="experience-intro">
+                                <blockquote>
+                                    <p>
+                                        <span class="blockquote-content secondary">
+                                            Seulement 5 min suffisent pour contrôler et isoler la commande des produits
+                                            sensibles, nécessitant votre intervention.
+                                        </span>
+                                        <cite class="blockquote-author">Sylvain Pelletier,</cite>
+                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
+                                    </p>
+                                </blockquote>
+                            </div>
+                            <div class="experience-content">
+                                <h3 class="h3">
+                                    Diminution du stock
+                                </h3>
+                                <h4 class="h4">
+                                    Un stock optimisé
+                                </h4>
+                                <p>
+                                    Diminue d’environ 1 %, ce qui représente en moyenne 15 000 € pour une pharmacie
+                                    générant 1,5 M€ de chiffre d’affaires.
+                                </p>
+                                <h4 class="h4">
+                                    Des clients toujours satisfaits
+                                </h4>
+                                <p>
+                                    Les produits sont en stock toujours au bon moment. La baisse du stock n'engendre pas
+                                    d'augmentation des promis grâce à une optimisation des achats.
+                                </p>
+                                <div class="experience-number">
+                                    <div class="wrapper-icon">
+                                        <Icon name="graph" class="experience-icon" />
+                                    </div>
+                                    <div class="wrapper-txt">
+                                        <p>
+                                            <strong>+&nbsp;38&nbsp;000€ de trésorerie</strong> Grâce à une diminution du
+                                            stock
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -252,38 +258,26 @@
 
 <script>
 import gsap from 'gsap';
-import { query } from '@stereorepo/sac';
+import { query, forEach } from '@stereorepo/sac';
 
 export default {
     data: () => ({
         containerExperiences: null,
         bgImg: null,
         myWatcher: null,
-        wrapperExperiences: null,
         experiences: null,
-        nbExperiences: 1,
-        gapBtwExperiences: 100,
-        heightExperiences: 0,
-        heightGap: 0,
-        collant: null,
-        collantBg: null,
         collantCreated: false,
-        containerTxt: null
+        containerTxt: null,
+        experiencesContents: null,
+        experiencesCollants: []
     }),
     computed: {
-        // ww() {
-        //     if (!this.$store.state.superWindow) return false;
-        //     return this.$store.state.superWindow.width;
-        // },
         isL() {
             if (!this.$store.state.superWindow) return false;
             return this.$store.state.superWindow.width >= this.$breakpoints.list.l;
         }
     },
     watch: {
-        // ww(w) {
-
-        // },
         isL(isBigDevice) {
             if (isBigDevice && !this.collantCreated) {
                 this.$nextTick(() => {
@@ -291,10 +285,6 @@ export default {
                 });
                 this.collantCreated = true;
             } else if (!isBigDevice && this.collantCreated) {
-                if (this.collant) {
-                    this.collant.forget();
-                }
-                this.collantCreated = false;
             }
         }
     },
@@ -302,13 +292,8 @@ export default {
         this.$stereorepo.superScroll.initializeScroll();
         this.$stereorepo.superWindow.initializeWindow(this.$store);
 
-        this.containerExperiences = this.$refs.containerExperiences;
-        this.bgImg = this.$refs.bgImg;
-        this.containerTxt = query({ selector: '.container-txt', ctx: this.containerExperiences });
-        this.experiences = query({ selector: '.experience', ctx: this.containerExperiences });
-        this.nbExperiences = this.experiences.length;
-        this.heightExperiences = this.nbExperiences * 100;
-        this.heightGap = this.nbExperiences * this.gapBtwExperiences;
+        this.initRefs();
+
         // Watch an element
         this.myWatcher = this.$stereorepo.superScroll
             .watch({
@@ -328,34 +313,45 @@ export default {
         // Forget the watcher to avoid memory leak
         if (this.myWatcher) this.myWatcher.forget();
         this.$stereorepo.superScroll.destroyScroll();
-        if (this.collant) this.collant.forget();
     },
     destroyed() {
         // this.$store is your VueX store instance
         this.$stereorepo.superWindow.destroyWindow(this.$store);
     },
     methods: {
+        initRefs() {
+            this.containerExperiences = this.$refs.containerExperiences;
+            this.bgImg = this.$refs.bgImg;
+            this.containerTxt = query({ selector: '.container-txt', ctx: this.containerExperiences });
+            this.experiences = query({ selector: '.experience', ctx: this.containerExperiences });
+            this.experiencesContents = query({ selector: '.experience-content-large', ctx: this.containerExperiences });
+        },
         createCollant() {
-            if (this.$refs['wrapperExperiences']) {
-                this.collant = this.$stereorepo.superScroll.watch({
-                    element: this.$refs['wrapperExperiences'],
-                    options: {
-                        collant: true,
-                        target: this.$refs['containerExperiences'],
-                        position: 'top',
-                        collantOffset: 0
-                    }
-                });
-                this.collantBg = this.$stereorepo.superScroll.watch({
-                    element: this.bgImg,
-                    options: {
-                        collant: true,
-                        target: this.$refs['containerExperiences'],
-                        position: 'top',
-                        collantOffset: 0
-                    }
-                });
-            }
+            forEach(this.experiencesContents, (item, index) => {
+                this.experiencesCollants[index] = this.$stereorepo.superScroll
+                    .watch({
+                        element: item,
+                        options: {
+                            collant: true,
+                            target: this.experiences[index],
+                            position: 'top',
+                            collantOffset: 0
+                        }
+                    })
+                    .on('enter-view', () => {
+                        this.inXp(index);
+                    })
+                    .on('leave-view', () => {
+                        this.outXp(index);
+                    });
+            });
+            this.$stereorepo.superScroll.update();
+        },
+        inXp(xpIndex) {
+            gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 1, visibility: 'visible' });
+        },
+        outXp(xpIndex) {
+            gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 1, visibility: 'hidden' });
         }
     }
 };
@@ -511,17 +507,20 @@ export default {
     .experiences {
         position: relative;
         width: 100%;
-        height: 100vh;
         > li {
-            position: absolute;
-            top: 15vh;
-            right: 0;
-            bottom: 15vh;
-            left: 0;
-            display: flex;
-            align-items: stretch;
+            position: relative;
+            height: 200vh;
+            &:not(:first-child) {
+                margin-top: calc(-100vh + 1px);
+            }
+            // position: absolute;
+            // top: 15vh;
+            // right: 0;
+            // bottom: 15vh;
+            // left: 0;
+            // display: flex;
+            // align-items: stretch;
             margin: 0;
-            padding: 0 #{$gutter * 2};
             opacity: 0;
             visibility: hidden;
             &:nth-child(1) {
@@ -530,20 +529,27 @@ export default {
             }
         }
     }
+    .experience-content-large {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: stretch;
+        padding: 15vh #{$gutter * 2};
+    }
     .container-img {
         flex: 0 0 auto;
         display: flex;
         justify-content: flex-end;
         width: percentage(7/12);
         height: 100%;
-        opacity: 0;
-        visibility: hidden;
+        // opacity: 0;
+        // visibility: hidden;
     }
     .wrapper-img {
         flex: 0 0 auto;
         width: calc(100% + #{$gutter * 2});
         height: 100%;
-        transform: translate3d(calc(50vw - 50%), 0, 0);
+        // transform: translate3d(calc(50vw - 50%), 0, 0);
     }
     .container-txt {
         display: flex;
@@ -551,8 +557,8 @@ export default {
         justify-content: space-between;
         margin-top: 50px;
         padding: 0 0 0 #{$gutter * 2};
-        opacity: 0;
-        visibility: hidden;
+        // opacity: 0;
+        // visibility: hidden;
     }
     .experience-content {
         order: 1;
