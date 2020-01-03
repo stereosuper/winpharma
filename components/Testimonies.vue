@@ -21,7 +21,7 @@
                 </Button>
             </div>
         </div>
-        <div class="around-testimonies">
+        <div ref="testimoniesParent" class="around-testimonies">
             <ul ref="testimoniesWrapper" class="testimonies">
                 <li
                     v-for="(testimony, index) in testimoniesDouble"
@@ -57,10 +57,10 @@
 </template>
 
 <script>
-import { gsap, CSSPlugin } from 'gsap/all';
+import { gsap, CSSPlugin, Draggable, InertiaPlugin } from 'gsap/all';
 
 if (process.browser) {
-    gsap.registerPlugin(CSSPlugin);
+    gsap.registerPlugin(CSSPlugin, Draggable, InertiaPlugin);
 }
 
 export default {
@@ -118,10 +118,15 @@ export default {
                 source: 'Mouchamps (85)'
             }
         ],
-        wrapperWidth: 1280,
-        slide: null
+        wrapperWidth: 0,
+        slide: null,
+        drag: null
     }),
     computed: {
+        isMobile() {
+            if (!this.$store.state.superWindow) return true;
+            return this.$store.state.superWindow.width < this.$breakpoints.list.m;
+        },
         testimoniesDouble() {
             return this.testimonies.concat(this.testimonies);
         },
@@ -130,29 +135,51 @@ export default {
         }
     },
     watch: {
-        ww(w) {
-            if (!this.slide && w < 780) return;
-            if (this.slide) {
-                this.slide.kill();
-                this.slide = null;
-            }
+        ww() {
             gsap.set(this.$refs.testimonies, { clearProps: 'all' });
             gsap.set(this.$refs.testimoniesWrapper, { clearProps: 'all' });
-            if (w >= 780) {
-                this.$nextTick(() => {
-                    this.initSlide();
-                });
+
+            if ((this.drag && this.isMobile) || (!this.isMobile && this.slide)) return;
+
+            if (this.isMobile && !this.drag) {
+                if (this.slide) {
+                    this.slide.kill();
+                    this.slide = null;
+                }
+                this.initDrag();
+            }
+
+            if (!this.isMobile && !this.slide) {
+                if (this.drag) {
+                    this.drag.kill();
+                    this.drag = null;
+                }
+                this.initSlide();
             }
         }
     },
     mounted() {
-        if (this.ww >= 780) {
+        if (this.isMobile) {
+            this.$nextTick(() => {
+                this.initDrag();
+            });
+        } else {
             this.$nextTick(() => {
                 this.initSlide();
             });
         }
     },
     methods: {
+        initDrag() {
+            [this.drag] = Draggable.create(this.$refs.testimoniesWrapper, {
+                type: 'x',
+                bounds: this.$refs.testimoniesParent,
+                inertia: true,
+                throwResistance: 900,
+                maxDuration: 0.45,
+                snap: value => Math.round(value / this.ww) * this.ww
+            });
+        },
         initSlide() {
             this.wrapperWidth = this.$refs.testimoniesWrapper.getBoundingClientRect().width / 2;
             this.go();
