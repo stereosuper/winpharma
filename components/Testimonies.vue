@@ -273,6 +273,7 @@ export default {
 }
 .testimonies {
     display: flex;
+    align-items: center;
     margin: 40px 0 25px;
     backface-visibility: hidden;
     will-change: transform;
