@@ -72,6 +72,7 @@ export default {
     min-height: 95vh;
     padding: 110px 0;
     text-align: center;
+    overflow: hidden;
     color: $white;
     background: $primary;
     z-index: 1;

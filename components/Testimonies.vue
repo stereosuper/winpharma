@@ -243,6 +243,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-testimonies {
     position: relative;
+    overflow: hidden;
     padding: 120px 0;
 }
 .wrapper-bg-testimonies {
@@ -392,6 +393,9 @@ export default {
     }
     .testimonies-title {
         font-size: 3.6rem;
+    }
+    .around-testimonies {
+        padding-bottom: 90px;
     }
     .testimony {
         padding: 40px 50px;
