@@ -169,13 +169,13 @@ export default {
                 let y = gsap.getProperty(el, 'y');
 
                 if (rect.left >= -440 && x < 0.2) {
-                    x = this.mapRange(x, -0.8, 0.2, 1, 0);
+                    x = this.mapRange(x, -0.5, 0.2, 1, 0);
                     y = this.easeInOutQuad(x);
                 } else if (x >= 0.2 && x < 0.6) {
                     x = this.mapRange(x, 0.2, 0.6, 0, 1);
                     y = this.easeInOutQuad(x);
                 } else if (x >= 0.6 && rect.left < this.ww + 440) {
-                    x = this.mapRange(x, 0.6, 1.6, 1, 0);
+                    x = this.mapRange(x, 0.6, 1.3, 1, 0);
                     y = this.easeInOutQuad(x);
                 }
 
@@ -184,7 +184,7 @@ export default {
         },
         stop() {
             if (this.ww < 780) return;
-            gsap.to(this.slide, { duration: 2.4, timeScale: 0.2, ease: 'power2.out' });
+            gsap.to(this.slide, { duration: 2.4, timeScale: 0.3, ease: 'power2.out' });
         },
         play() {
             if (this.ww < 780) return;
@@ -194,7 +194,7 @@ export default {
             console.log('go');
 
             this.slide = gsap.to(this.$refs.testimoniesWrapper, {
-                duration: 40,
+                duration: 60,
                 ease: 'linear',
                 x: -this.wrapperWidth,
                 repeat: -1,
