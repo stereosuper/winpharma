@@ -22,8 +22,15 @@
             </div>
         </div>
         <div class="around-testimonies">
-            <ul class="testimonies">
-                <li v-for="testimony in testimonies" :key="testimony.title" class="testimony">
+            <ul ref="testimoniesWrapper" class="testimonies">
+                <li
+                    v-for="(testimony, index) in testimoniesDouble"
+                    :key="testimony.title + index"
+                    ref="testimonies"
+                    class="testimony"
+                    @mouseenter="stop"
+                    @mouseleave="play"
+                >
                     <blockquote>
                         <h4 class="h4">
                             {{ testimony.title }}
@@ -41,67 +48,168 @@
                     </blockquote>
                 </li>
             </ul>
+
+            <svg class="svg-path" viewBox="0 0 1878 346" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path ref="path" d="M1 345C109 193 225 95 479 95C1109.43 95 1289 469 1877 1" stroke="black" />
+            </svg>
         </div>
     </div>
 </template>
 
 <script>
+import { gsap, CSSPlugin } from 'gsap/all';
+
+if (process.browser) {
+    gsap.registerPlugin(CSSPlugin);
+}
+
 export default {
     data: () => ({
         testimonies: [
             {
-                title: 'Tranquillité d’esprit au quotidien',
+                title: 'Sécurité et simplicité',
                 text:
-                    "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
+                    "Pour moi, l’automatisation présente <strong>un gain de temps important</strong> et pour rien au monde je ne reviendrai en arrière. Cela apporte <strong>sécurité et simplicité</strong> surtout en cas d'équipe réduite.",
                 author: 'Hélène Lecoq',
                 source: 'Issy-les-Moulineaux (92)'
             },
             {
-                title: 'Tranquillité d’esprit au quotidien',
+                title: 'Je gagne 1h de temps par jour',
                 text:
-                    "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
-                author: 'Hélène Lecoq',
-                source: 'Issy-les-Moulineaux (92)'
+                    "J'ai gagné avec winAutopilote au moins 1h/jour soit presque <strong>une journée chaque semaine</strong>. Imaginez tout ce que vous pouvez faire de mieux. Pour ma part : des formations, du coaching, des travaux et du sport !",
+                author: 'Isabelle Delobelle',
+                source: 'Orchies (59)'
             },
             {
-                title: 'Tranquillité d’esprit au quotidien',
+                title: 'J’ai gagné en efficacité',
                 text:
-                    "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
-                author: 'Hélène Lecoq',
-                source: 'Issy-les-Moulineaux (92)'
-            },
-
-            {
-                title: 'Tranquillité d’esprit au quotidien',
-                text:
-                    "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
-                author: 'Hélène Lecoq',
-                source: 'Issy-les-Moulineaux (92)'
+                    "WinAutopilote, <strong>c'est un gain de temps énorme !</strong>  On se libère des commandes grossistes. Depuis, <strong>j’ai gagné en efficacité</strong>, en stock <strong>et surtout en marge !</strong>",
+                author: 'Benoit Beaussier',
+                source: 'Tinchebray (61)'
             },
 
             {
                 title: 'Tranquillité d’esprit au quotidien',
                 text:
                     "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
-                author: 'Hélène Lecoq',
-                source: 'Issy-les-Moulineaux (92)'
+                author: 'Nicolas Zinck',
+                source: 'Soisy-sur-Seine (59)'
+            },
+
+            {
+                title: 'Tout se déroule en automatique',
+                text:
+                    "En période de forte activité ou lorsqu'un collaborateur est absent, ce n'est pas la panique. <strong>Tout se déroule en automatique</strong>, sans stress et sans surcharge de travail.",
+                author: 'Olivier Henry',
+                source: 'Mereau (18)'
             },
             {
-                title: 'Tranquillité d’esprit au quotidien',
+                title: 'Mon stock a baissé de 10K euros',
                 text:
-                    "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
-                author: 'Hélène Lecoq',
-                source: 'Issy-les-Moulineaux (92)'
+                    'Les commandes se passent sans intervention de ma part. <strong>Les erreurs constatées sont très minimes.</strong> J’ai gagné en tranquillité d’esprit et <strong>mon stock a baissé de 10K euros !</strong>',
+                author: 'Françoise Koenig',
+                source: 'Versailles (78)'
             },
             {
-                title: 'Tranquillité d’esprit au quotidien',
+                title: 'C’est Winpharma qui gère !',
                 text:
-                    "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
-                author: 'Hélène Lecoq',
-                source: 'Issy-les-Moulineaux (92)'
+                    'Pour tous ceux qui acceptent le Pharma-ML, <strong>c’est Winpharma qui gère !</strong> Pour les autres, la commande est paramétrée dans winAutopilote et envoyée <strong>sans vérification</strong>.',
+                author: 'Marc Lhopitalier',
+                source: 'Mouchamps (85)'
             }
-        ]
-    })
+        ],
+        wrapperWidth: 1280,
+        slide: null
+    }),
+    computed: {
+        testimoniesDouble() {
+            return this.testimonies.concat(this.testimonies);
+        },
+        ww() {
+            return this.$store.state.superWindow ? this.$store.state.superWindow.width : 0;
+        }
+    },
+    watch: {
+        ww(w) {
+            if (!this.slide && w < 780) return;
+            if (this.slide) {
+                this.slide.kill();
+                this.slide = null;
+            }
+            gsap.set(this.$refs.testimonies, { clearProps: 'all' });
+            gsap.set(this.$refs.testimoniesWrapper, { clearProps: 'all' });
+            if (w >= 780) {
+                this.$nextTick(() => {
+                    this.initSlide();
+                });
+            }
+        }
+    },
+    mounted() {
+        if (this.ww >= 780) {
+            this.$nextTick(() => {
+                this.initSlide();
+            });
+        }
+    },
+    methods: {
+        initSlide() {
+            this.wrapperWidth = this.$refs.testimoniesWrapper.getBoundingClientRect().width / 2;
+            this.go();
+        },
+        easeInOutQuad(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+        },
+        setCardsY() {
+            this.$refs.testimonies.forEach(el => {
+                const rect = el.getBoundingClientRect();
+
+                let x = rect.left / this.ww;
+
+                let y = gsap.getProperty(el, 'y');
+
+                if (rect.left >= -440 && x < 0.2) {
+                    x = this.mapRange(x, -0.5, 0.2, 1, 0);
+                    y = this.easeInOutQuad(x);
+                } else if (x >= 0.2 && x < 0.6) {
+                    x = this.mapRange(x, 0.2, 0.6, 0, 1);
+                    y = this.easeInOutQuad(x);
+                } else if (x >= 0.6 && rect.left < this.ww + 440) {
+                    x = this.mapRange(x, 0.6, 1.3, 1, 0);
+                    y = this.easeInOutQuad(x);
+                }
+
+                gsap.set(el, { y: y * 100 });
+            });
+        },
+        stop() {
+            if (this.ww < 780) return;
+            gsap.to(this.slide, { duration: 2.4, timeScale: 0.3, ease: 'power2.out' });
+        },
+        play() {
+            if (this.ww < 780) return;
+            gsap.to(this.slide, { duration: 2.4, timeScale: 1, ease: 'power2.out' });
+        },
+        go() {
+            this.slide = gsap.to(this.$refs.testimoniesWrapper, {
+                duration: 100,
+                ease: 'linear',
+                x: -this.wrapperWidth,
+                repeat: -1,
+                onRepeat: () => {
+                    gsap.set(this.$refs.testimoniesWrapper, {
+                        x: 0
+                    });
+                },
+                onUpdate: () => {
+                    this.setCardsY();
+                }
+            });
+        },
+        mapRange(value, low1, high1, low2, high2) {
+            return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);
+        }
+    }
 };
 </script>
 
@@ -148,7 +256,7 @@ export default {
 .testimonies-title {
     font-family: $ageo-semi-bold;
     font-size: 2.8rem;
-    line-height: 30px;
+    line-height: 40px;
     max-width: 480px;
 }
 .testimonies-intro {
@@ -160,14 +268,20 @@ export default {
     }
 }
 .around-testimonies {
+    position: relative;
     display: flex;
-    // padding: 0 $small-gutter * 2;
 }
 .testimonies {
     display: flex;
+    align-items: center;
     margin: 40px 0 25px;
+    backface-visibility: hidden;
+    will-change: transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 .testimony {
+    user-select: none;
     flex: 0 0 auto;
     width: calc(100vw - #{4 * $small-gutter});
     padding: 20px 30px;
@@ -175,6 +289,9 @@ export default {
     border-radius: 8px;
     background: $white;
     box-shadow: 0px 0px 30px rgba(112, 112, 112, 0.1);
+    will-change: transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
     .h4 {
         font-size: 2rem;
         margin: 0 0 20px;
@@ -216,6 +333,15 @@ export default {
         border-radius: 50%;
         background: $primary;
     }
+}
+
+.svg-path {
+    margin-left: -440px;
+    width: calc(100vw + 880px);
+    backface-visibility: hidden;
+    will-change: transform;
+    transform-style: preserve-3d;
+    perspective: 1000px;
 }
 
 @media (min-width: $phone) {
