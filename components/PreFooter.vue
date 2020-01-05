@@ -49,12 +49,23 @@ export default {
     margin-bottom: 20px;
     font-family: $ageo-semi-bold;
     font-size: 3.2rem;
-    line-height: 38px;
+    line-height: 40px;
 }
 
 @media (min-width: $tablet) {
     .wrapper-txt {
         padding: 315px 0 25px;
+    }
+    .prefooter-title {
+        font-size: 4.2rem;
+        line-height: 60px;
+    }
+}
+
+@media (min-width: $desktop-small) {
+    .prefooter-title {
+        font-size: 6.8rem;
+        line-height: 80px;
     }
 }
 </style>
