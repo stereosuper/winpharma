@@ -1,32 +1,41 @@
 <template>
-    <div class="wrapper-prefooter container">
-        <p class="prefooter-intro">
-            Avec la méthode winAutopilote
-        </p>
-        <p class="prefooter-title">
-            Prêt à vous lancer&nbsp;?
-        </p>
-        <Button :href="'#'" type="Primary">
-            Prendre rendez-vous
-        </Button>
+    <div class="wrapper-prefooter">
+        <div class="wrapper-txt container">
+            <p class="prefooter-intro">
+                Avec la méthode winAutopilote
+            </p>
+            <p class="prefooter-title">
+                Prêt à vous lancer&nbsp;?
+            </p>
+            <Button :href="'#'" type="Primary">
+                Prendre rendez-vous
+            </Button>
+        </div>
+        <PreFooterIllustration />
     </div>
 </template>
 
 <script>
-export default {};
+import PreFooterIllustration from '~/components/PreFooterIllustration';
+export default {
+    components: {
+        PreFooterIllustration
+    }
+};
 </script>
 
 <style lang="scss" scoped>
 .wrapper-prefooter {
     position: relative;
-    padding-top: 90px;
-    padding-bottom: 35px;
     text-align: center;
     color: $white;
     background: $primary;
     p {
         color: $white;
     }
+}
+.wrapper-txt {
+    padding: 90px 0 35px;
 }
 .prefooter-intro {
     margin-bottom: 20px;
@@ -41,5 +50,11 @@ export default {};
     font-family: $ageo-semi-bold;
     font-size: 3.2rem;
     line-height: 38px;
+}
+
+@media (min-width: $tablet) {
+    .wrapper-txt {
+        padding: 315px 0 25px;
+    }
 }
 </style>
