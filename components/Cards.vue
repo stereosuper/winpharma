@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper-cards container">
         <a href="#" class="card button-trigger">
-            <span class="wrapper-img" />
+            <span class="wrapper-img"></span>
             <span class="card-txt">
                 <span class="card-txt-top">
                     <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
@@ -19,7 +19,7 @@
             </span>
         </a>
         <a href="#" class="card button-trigger">
-            <span class="wrapper-img" />
+            <span class="wrapper-img"></span>
             <span class="card-txt">
                 <span class="card-txt-top">
                     <span class="card-title">Le fruit d’un travail de co&#x2011;création</span>
@@ -110,6 +110,12 @@ p {
 .card-btn {
     display: block;
     margin-top: 30px;
+}
+
+@media (min-width: $tablet) {
+    .wrapper-cards {
+        margin-bottom: -165px;
+    }
 }
 
 @media (min-width: $desktop-small) {
