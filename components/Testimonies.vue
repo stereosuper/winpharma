@@ -450,13 +450,21 @@ export default {
     .bg-testimonies {
         top: auto;
         bottom: 0;
-        width: 120%;
+        width: 130%;
+    }
+    .wrapper-testimonies {
+        overflow: visible;
     }
 }
 
-@media (min-width: $desktop) {
+@media (min-width: $desktop-large) {
     .bg-testimonies {
         width: 100%;
+        position: static;
+    }
+    .wrapper-bg-testimonies {
+        overflow: hidden;
+        top: auto;
     }
 }
 </style>
