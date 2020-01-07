@@ -268,14 +268,14 @@ export default {
 }
 .wrapper-wave {
     position: absolute;
+    overflow: hidden;
     top: -47px;
     left: 0;
-    right: -10px;
+    right: 0;
     height: 48px;
-    // height: 182px;
     .wave-aze {
         display: block;
-        width: 100%;
+        width: calc(100% + 10px);
         height: 100%;
         fill: $fake-white;
     }

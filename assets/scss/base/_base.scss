@@ -59,7 +59,7 @@ body {
     margin: 30px 0 10px;
     letter-spacing: 0.01em;
 
-    > strong {
+    >strong {
         font-family: $ageo-bold;
         font-size: 4.2rem;
     }
@@ -163,7 +163,7 @@ ul {
 ol {
     counter-reset: ol-counter;
 
-    > li {
+    >li {
         counter-increment: ol-counter;
 
         &:before {
@@ -235,12 +235,13 @@ a {
 }
 
 @media (min-width: $desktop-large) {
+
     .wysiwyg h2,
     .h2 {
         font-size: 4.5rem;
         line-height: 54px;
 
-        > strong {
+        >strong {
             font-size: 5.2rem;
         }
     }
