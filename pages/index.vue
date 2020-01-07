@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { getHome } from '~/cms';
 import Hero from '~/components/Hero';
 import KeyFigures from '~/components/KeyFigures';
 import Experiences from '~/components/Experiences';
@@ -27,8 +26,18 @@ export default {
         Cards,
         PreFooter
     },
-    async asyncData() {
-        return {};
+
+    created() {
+        if (process.browser) {
+            window.addEventListener(
+                'beforeunload',
+                () => {
+                    this.$store.commit('setLoading', true);
+                    window.scrollTo(0, 0);
+                },
+                false
+            );
+        }
     }
 };
 </script>

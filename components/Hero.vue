@@ -40,6 +40,8 @@
 <script>
 import HeroIllustration from '~/components/HeroIllustration';
 export default {
+    scrollToTop: true,
+
     components: {
         HeroIllustration
     },
