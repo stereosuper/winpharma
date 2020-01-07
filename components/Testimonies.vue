@@ -48,10 +48,14 @@
                     </blockquote>
                 </li>
             </ul>
-
-            <svg class="svg-path" viewBox="0 0 1878 346" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path ref="path" d="M1 345C109 193 225 95 479 95C1109.43 95 1289 469 1877 1" stroke="black" />
-            </svg>
+        </div>
+        <div v-if="isMobile" class="bullets">
+            <span
+                v-for="p in testimonies.length"
+                :key="'bullet' + p"
+                class="bullet"
+                :class="{ active: p - 1 === currentBullet }"
+            ></span>
         </div>
     </div>
 </template>
@@ -70,8 +74,8 @@ export default {
                 title: 'Sécurité et simplicité',
                 text:
                     "Pour moi, l’automatisation présente <strong>un gain de temps important</strong> et pour rien au monde je ne reviendrai en arrière. Cela apporte <strong>sécurité et simplicité</strong> surtout en cas d'équipe réduite.",
-                author: 'Hélène Lecoq',
-                source: 'Issy-les-Moulineaux (92)'
+                author: 'Constance Vanwelden',
+                source: 'Mouchin (59)'
             },
             {
                 title: 'Je gagne 1h de temps par jour',
@@ -120,7 +124,8 @@ export default {
         ],
         wrapperWidth: 0,
         slide: null,
-        drag: null
+        drag: null,
+        currentBullet: 0
     }),
     computed: {
         isMobile() {
@@ -128,7 +133,7 @@ export default {
             return this.$store.state.superWindow.width < this.$breakpoints.list.m;
         },
         testimoniesDouble() {
-            return this.testimonies.concat(this.testimonies);
+            return this.isMobile ? this.testimonies.concat() : this.testimonies.concat(this.testimonies);
         },
         ww() {
             return this.$store.state.superWindow ? this.$store.state.superWindow.width : 0;
@@ -136,9 +141,6 @@ export default {
     },
     watch: {
         ww() {
-            gsap.set(this.$refs.testimonies, { clearProps: 'all' });
-            gsap.set(this.$refs.testimoniesWrapper, { clearProps: 'all' });
-
             if ((this.drag && this.isMobile) || (!this.isMobile && this.slide)) return;
 
             if (this.isMobile && !this.drag) {
@@ -156,6 +158,8 @@ export default {
                 }
                 this.initSlide();
             }
+            gsap.set(this.$refs.testimonies, { clearProps: 'all' });
+            gsap.set(this.$refs.testimoniesWrapper, { clearProps: 'all' });
         }
     },
     mounted() {
@@ -171,12 +175,17 @@ export default {
     },
     methods: {
         initDrag() {
+            const self = this;
             [this.drag] = Draggable.create(this.$refs.testimoniesWrapper, {
                 type: 'x',
                 bounds: this.$refs.testimoniesParent,
                 inertia: true,
                 throwResistance: 900,
                 maxDuration: 0.45,
+                onThrowComplete: function() {
+                    const dist = gsap.getProperty(this.target, 'x');
+                    self.currentBullet = -dist / self.ww;
+                },
                 snap: value => Math.round(value / this.ww) * this.ww
             });
         },
@@ -243,6 +252,8 @@ export default {
 <style lang="scss" scoped>
 .wrapper-testimonies {
     position: relative;
+    display: flex;
+    flex-direction: column;
     overflow: hidden;
     padding: 120px 0;
 }
@@ -370,6 +381,24 @@ export default {
     will-change: transform;
     transform-style: preserve-3d;
     perspective: 1000px;
+}
+
+.bullets {
+    display: flex;
+    align-self: center;
+}
+
+.bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    margin: 0 12px;
+    border: 1px solid #b5b3b3;
+    transition: 0.2s ease-in-out;
+    &.active {
+        width: 24px;
+        border-color: $secondary;
+    }
 }
 
 @media (min-width: $phone) {

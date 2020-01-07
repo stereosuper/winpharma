@@ -37,8 +37,7 @@ export default {
         htmlAttrs: {
             lang: 'en'
         },
-        meta: [
-            {
+        meta: [{
                 charset: 'utf-8'
             },
             {
@@ -236,11 +235,11 @@ export default {
         /*
          ** Used to analyse chunks
          */
-        analyze: isDevEnv
-            ? {
-                  analyzerMode: 'static'
-              }
-            : false,
+        analyze: isDevEnv ?
+            {
+                analyzerMode: 'static'
+            } :
+            false,
         /*
          ** You can extend webpack config here
          */
