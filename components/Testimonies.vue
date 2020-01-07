@@ -224,6 +224,8 @@ export default {
                 } else if (x >= 0.6 && rect.left < this.ww + 440) {
                     x = this.mapRange(x, 0.6, 1.3, 1, 0);
                     y = this.easeInOutQuad(x);
+                } else {
+                    y = 0;
                 }
 
                 gsap.set(el, { y: y * 100 });
