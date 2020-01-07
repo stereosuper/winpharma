@@ -1,14 +1,13 @@
 <template>
     <div class="wrapper-cards container">
         <a href="#" class="card button-trigger">
-            <span class="wrapper-img"></span>
+            <span class="wrapper-img" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
             <span class="card-txt">
                 <span class="card-txt-top">
                     <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
                     <p>
-                        Par un travail de terrain, au cœur des pharmacies, nous avons étudié, testé et validé tous les
-                        paramètres intervenant dans la gestion des commandes d’une officine, de structure ou taille
-                        différente.
+                        Si vous avez encore quelques questions, téléchargez ce livre blanc qui reprend 8 idées reçues
+                        sur l’automatisation et pourquoi vous avez tout intérêt à les dépasser.
                     </p>
                 </span>
                 <span class="card-btn">
@@ -19,7 +18,7 @@
             </span>
         </a>
         <a href="#" class="card button-trigger">
-            <span class="wrapper-img"></span>
+            <span class="wrapper-img" :style="{ backgroundImage: 'url(img/co-creation.png)' }"></span>
             <span class="card-txt">
                 <span class="card-txt-top">
                     <span class="card-title">Le fruit d’un travail de co&#x2011;création</span>
@@ -82,10 +81,13 @@ export default {};
     }
 }
 .wrapper-img {
-    height: 220px;
+    height: 160px;
     background: $primary-light;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-position: 50% 50%;
 }
 .card-txt {
     padding: 30px 30px 40px;
@@ -110,6 +112,12 @@ p {
 .card-btn {
     display: block;
     margin-top: 30px;
+}
+
+@media (min-width: $phone-small) {
+    .wrapper-img {
+        height: 220px;
+    }
 }
 
 @media (min-width: $tablet) {
