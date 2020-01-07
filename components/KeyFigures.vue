@@ -114,7 +114,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/user-placeholder.svg" alt="">
+                            <img src="img/sophie-lacheze.png" alt="Sophie Lachèze">
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
