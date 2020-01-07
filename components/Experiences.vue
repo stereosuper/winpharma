@@ -14,7 +14,9 @@
                 <li class="experience">
                     <div class="experience-content-large">
                         <div class="container-img">
-                            <div class="wrapper-img"></div>
+                            <div class="wrapper-img">
+                                <div class="bg-img"></div>
+                            </div>
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro double">
@@ -50,7 +52,9 @@
                 <li class="experience">
                     <div class="experience-content-large">
                         <div class="container-img">
-                            <div class="wrapper-img"></div>
+                            <div class="wrapper-img">
+                                <div class="bg-img"></div>
+                            </div>
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
@@ -101,7 +105,9 @@
                 <li class="experience">
                     <div class="experience-content-large">
                         <div class="container-img">
-                            <div class="wrapper-img"></div>
+                            <div class="wrapper-img">
+                                <div class="bg-img"></div>
+                            </div>
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
@@ -152,7 +158,9 @@
                 <li class="experience">
                     <div class="experience-content-large">
                         <div class="container-img">
-                            <div class="wrapper-img"></div>
+                            <div class="wrapper-img">
+                                <div class="bg-img"></div>
+                            </div>
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
@@ -203,7 +211,9 @@
                 <li class="experience">
                     <div class="experience-content-large">
                         <div class="container-img">
-                            <div class="wrapper-img"></div>
+                            <div class="wrapper-img">
+                                <div class="bg-img"></div>
+                            </div>
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
@@ -264,13 +274,18 @@ export default {
     data: () => ({
         containerExperiences: null,
         bgImg: null,
-        myWatcher: null,
+        revealXp: null,
+        bgCollant: null,
         experiences: null,
         collantCreated: false,
         containerTxt: null,
         experiencesContents: null,
         experiencesCollants: [],
-        nbExperiences: 0
+        experiencesTxt: [],
+        experiencesIntro: [],
+        nbExperiences: 0,
+        tlXpIn: null,
+        tlXpOut: null
     }),
     computed: {
         isL() {
@@ -295,8 +310,11 @@ export default {
 
         this.initRefs();
 
+        this.tlXpIn = gsap.timeline();
+        this.tlXpOut = gsap.timeline();
+
         // Watch an element
-        this.myWatcher = this.$stereorepo.superScroll
+        this.revealXp = this.$stereorepo.superScroll
             .watch({
                 element: this.containerExperiences,
                 options: {
@@ -309,10 +327,19 @@ export default {
                 gsap.to(this.bgImg, { duration: 0.3, x: 0 });
                 gsap.to(this.containerTxt, { duration: 0.3, opacity: 1, visibility: 'visible', delay: 0.1 });
             });
+        this.bgCollant = this.$stereorepo.superScroll.watch({
+            element: this.bgImg,
+            options: {
+                collant: true,
+                target: this.containerExperiences,
+                position: 'top',
+                collantOffset: 0
+            }
+        });
     },
     beforeDestroy() {
         // Forget the watcher to avoid memory leak
-        if (this.myWatcher) this.myWatcher.forget();
+        if (this.revealXp) this.revealXp.forget();
         this.$stereorepo.superScroll.destroyScroll();
     },
     destroyed() {
@@ -325,8 +352,10 @@ export default {
             this.bgImg = this.$refs.bgImg;
             this.containerTxt = query({ selector: '.container-txt', ctx: this.containerExperiences });
             this.experiences = query({ selector: '.experience', ctx: this.containerExperiences });
+            this.experiencesTxt = query({ selector: '.experience-content', ctx: this.containerExperiences });
             this.nbExperiences = this.experiences.length;
             this.experiencesContents = query({ selector: '.experience-content-large', ctx: this.containerExperiences });
+            this.experiencesIntro = query({ selector: '.experience-intro', ctx: this.containerExperiences });
         },
         createCollant() {
             forEach(this.experiencesContents, (item, index) => {
@@ -353,19 +382,21 @@ export default {
             this.$stereorepo.superScroll.update();
         },
         outBeforeXp(xpIndex) {
-            // gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 0, visibility: 'hidden' });
             if (xpIndex != 0) {
-                gsap.set(this.experiences[xpIndex], { opacity: 0, visibility: 'hidden' });
+                gsap.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 0 });
+                gsap.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 0, scale: 0.9 });
             }
         },
         inXp(xpIndex) {
-            // gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 1, visibility: 'visible' });
-            gsap.set(this.experiences[xpIndex], { opacity: 1, visibility: 'visible' });
+            this.tlXpIn.kill();
+            this.tlXpIn = gsap.timeline();
+            this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1, delay: 0.3 });
+            this.tlXpIn.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 1, scale: 1 });
         },
         outXp(xpIndex) {
-            // gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 0, visibility: 'hidden' });
             if (xpIndex < this.nbExperiences - 1) {
-                gsap.set(this.experiences[xpIndex], { opacity: 0, visibility: 'hidden' });
+                gsap.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 0 });
+                gsap.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 0, scale: 0.9 });
             }
         }
     }
@@ -405,8 +436,16 @@ export default {
     }
 }
 .wrapper-img {
+    position: relative;
     height: 316px;
-    background: $secondary;
+    .bg-img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $secondary;
+    }
 }
 .experience-intro {
     margin: -35px 0 30px;
@@ -528,19 +567,15 @@ export default {
             &:not(:first-child) {
                 margin-top: calc(-100vh + 1px);
             }
-            // position: absolute;
-            // top: 15vh;
-            // right: 0;
-            // bottom: 15vh;
-            // left: 0;
-            // display: flex;
-            // align-items: stretch;
             margin: 0;
-            opacity: 0;
-            visibility: hidden;
             &:nth-child(1) {
-                opacity: 1;
-                visibility: visible;
+                .experience-content {
+                    opacity: 1;
+                }
+                .experience-intro {
+                    opacity: 1;
+                    transform: scale(1);
+                }
             }
         }
     }
@@ -549,7 +584,11 @@ export default {
         height: 100vh;
         display: flex;
         align-items: stretch;
-        padding: 15vh #{$gutter * 2};
+        padding: 10vh #{$gutter * 2};
+        @media (min-height: $desktop-v) {
+            padding-top: 15vh;
+            padding-bottom: 15vh;
+        }
     }
     .container-img {
         flex: 0 0 auto;
@@ -557,14 +596,14 @@ export default {
         justify-content: flex-end;
         width: percentage(7/12);
         height: 100%;
-        // opacity: 0;
-        // visibility: hidden;
     }
     .wrapper-img {
         flex: 0 0 auto;
         width: calc(100% + #{$gutter * 2});
         height: 100%;
-        // transform: translate3d(calc(50vw - 50%), 0, 0);
+        .bg-img {
+            display: none;
+        }
     }
     .container-txt {
         display: flex;
@@ -572,22 +611,25 @@ export default {
         justify-content: space-between;
         margin-top: 50px;
         padding: 0 0 0 #{$gutter * 2};
-        // opacity: 0;
-        // visibility: hidden;
     }
     .experience-content {
         order: 1;
+        opacity: 0;
     }
     .experience-intro {
         order: 2;
         width: 100%;
         margin: 30px 0 -45px calc(-20% + #{$gutter * 2});
+        opacity: 0;
+        transform: scale(0.9);
     }
     .experience-number {
-        margin-top: 60px;
+        @media (min-height: $desktop-v) {
+            margin-top: 60px;
+        }
     }
     .container-img-large {
-        display: none;
+        display: block;
         position: absolute;
         top: 0;
         left: 0;
@@ -596,15 +638,19 @@ export default {
         transform: translate3d(calc(50vw - 50%), 0, 0);
         .bg-img {
             position: absolute;
-            top: 15vh;
+            top: 10vh;
             right: 0;
-            bottom: 15vh;
+            bottom: 10vh;
             left: 0;
-            background: red;
+            background: $secondary;
+            @media (min-height: $desktop-v) {
+                padding-top: 15vh;
+                padding-bottom: 15vh;
+            }
         }
     }
 }
-@media (min-width: $desktop-large) {
+@media (min-width: $desktop-xxl) {
     .container-txt {
         padding-left: percentage(1/12);
     }
