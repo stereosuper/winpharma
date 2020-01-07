@@ -269,7 +269,8 @@ export default {
         collantCreated: false,
         containerTxt: null,
         experiencesContents: null,
-        experiencesCollants: []
+        experiencesCollants: [],
+        nbExperiences: 0
     }),
     computed: {
         isL() {
@@ -324,6 +325,7 @@ export default {
             this.bgImg = this.$refs.bgImg;
             this.containerTxt = query({ selector: '.container-txt', ctx: this.containerExperiences });
             this.experiences = query({ selector: '.experience', ctx: this.containerExperiences });
+            this.nbExperiences = this.experiences.length;
             this.experiencesContents = query({ selector: '.experience-content-large', ctx: this.containerExperiences });
         },
         createCollant() {
@@ -338,6 +340,9 @@ export default {
                             collantOffset: 0
                         }
                     })
+                    .on('before-enter-collant', () => {
+                        this.outBeforeXp(index);
+                    })
                     .on('enter-collant', () => {
                         this.inXp(index);
                     })
@@ -347,11 +352,21 @@ export default {
             });
             this.$stereorepo.superScroll.update();
         },
+        outBeforeXp(xpIndex) {
+            // gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 0, visibility: 'hidden' });
+            if (xpIndex != 0) {
+                gsap.set(this.experiences[xpIndex], { opacity: 0, visibility: 'hidden' });
+            }
+        },
         inXp(xpIndex) {
-            gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 1, visibility: 'visible' });
+            // gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 1, visibility: 'visible' });
+            gsap.set(this.experiences[xpIndex], { opacity: 1, visibility: 'visible' });
         },
         outXp(xpIndex) {
-            gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 0, visibility: 'hidden' });
+            // gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 0, visibility: 'hidden' });
+            if (xpIndex < this.nbExperiences - 1) {
+                gsap.set(this.experiences[xpIndex], { opacity: 0, visibility: 'hidden' });
+            }
         }
     }
 };
@@ -572,7 +587,7 @@ export default {
         margin-top: 60px;
     }
     .container-img-large {
-        display: block;
+        display: none;
         position: absolute;
         top: 0;
         left: 0;
