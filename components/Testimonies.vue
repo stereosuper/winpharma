@@ -7,7 +7,7 @@
         <div class="container">
             <div class="wrapper-title">
                 <h3 class="testimonies-title">
-                    Comme ces pharmaciens ouvrez-vous à de <span class="secondary">nouveaux horizons&nbsp;!</span>
+                    Comme vos confrères, faites avancer <span class="secondary">les projets dont vous rêvez&nbsp;!</span>
                 </h3>
             </div>
             <div class="testimonies-intro">

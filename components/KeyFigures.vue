@@ -48,8 +48,8 @@
                             <p>En préparation envoi et réception des commandes.</p>
                         </li>
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>8h</strong> gagnées</h4>
-                            <p>En temps chaque semaine grâce à l’automatisation des commandes.</p>
+                            <h4 class="key-figure-title"><strong>8h</strong> gagnées chaque semaine</h4>
+                            <p>Grâce à l’automatisation des commandes et la gestion des stocks.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>+25&nbsp;000€</strong> de trésorerie</h4>

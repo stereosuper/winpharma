@@ -2,7 +2,7 @@
     <div class="wrapper-experiences">
         <div class="container">
             <h2 class="title-experiences">
-                <span>Découvrez <span class="primary-light">l'expérience</span> de nos utilisateurs</span>
+                <span>Découvrez <span class="primary-light">les gains incroyables</span> de vos confrères&nbsp;!</span>
                 <Icon name="arrow" class="title-arrow primary-light" />
             </h2>
         </div>
