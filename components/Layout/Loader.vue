@@ -1,5 +1,5 @@
 <template>
-    <div class="loader" :class="{ loading: isLoading }" />
+    <div class="loader" :class="{ loading: isLoading }"></div>
 </template>
 
 <script>
@@ -40,12 +40,14 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    background: $black;
+    background: $primary;
     opacity: 0;
     pointer-events: none;
     @include z-index('loader');
+    transition: 0.5s ease-out;
     &.loading {
         opacity: 1;
+        transition: 0s ease-out;
     }
 }
 </style>
