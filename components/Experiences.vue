@@ -338,10 +338,10 @@ export default {
                             collantOffset: 0
                         }
                     })
-                    .on('enter-view', () => {
+                    .on('enter-collant', () => {
                         this.inXp(index);
                     })
-                    .on('leave-view', () => {
+                    .on('leave-collant', () => {
                         this.outXp(index);
                     });
             });
@@ -351,7 +351,7 @@ export default {
             gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 1, visibility: 'visible' });
         },
         outXp(xpIndex) {
-            gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 1, visibility: 'hidden' });
+            gsap.to(this.experiences[xpIndex], { duration: 0.3, opacity: 0, visibility: 'hidden' });
         }
     }
 };
