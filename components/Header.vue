@@ -4,7 +4,7 @@
             'nav-activated': burgerState
         }"
         class="header container"
-        ref='header'
+        ref="header"
     >
         <nuxt-link to="/" class="logo" @click.native="closeBurger">
             <Icon name="winpharma-horizontal" class="icon-logo" />
@@ -58,6 +58,10 @@ export default {
         },
         ready() {
             return this.$store.state.ready;
+        },
+        isMobile() {
+            if (!this.$store.state.superWindow) return true;
+            return this.$store.state.superWindow.width < this.$breakpoints.list.l;
         }
     },
     watch: {
@@ -76,10 +80,11 @@ export default {
     },
     methods: {
         reveal() {
+            const delay = this.isMobile ? 1 : 3.5;
             gsap.from(this.$refs.header, {
                 duration: 1,
                 opacity: 0,
-                delay: 3.5
+                delay: delay
             });
         },
         toggleBurger() {

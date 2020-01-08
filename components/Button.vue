@@ -64,12 +64,12 @@ export default {
     &:hover,
     &:focus {
         &:after {
-            transform: scale(1.05) translateZ(0);
+            transform: scale(1.08) translateZ(0);
             background-color: #f55b33;
         }
         &:before {
             opacity: 1;
-            transform: scale(1.05) translateZ(0);
+            transform: scale(1.08) translateZ(0);
         }
     }
     &:active {

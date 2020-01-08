@@ -51,6 +51,10 @@ export default {
         showIllus: false
     }),
     computed: {
+        isMobile() {
+            if (!this.$store.state.superWindow) return true;
+            return this.$store.state.superWindow.width < this.$breakpoints.list.l;
+        },
         ready() {
             return this.$store.state.ready;
         },
@@ -74,10 +78,11 @@ export default {
     },
     methods: {
         reveal() {
+            const delay = this.isMobile ? 0.7 : 3;
             gsap.from(this.$refs.text, {
                 duration: 1,
                 opacity: 0,
-                delay: 3
+                delay: delay
             });
         }
     }
