@@ -16,6 +16,9 @@
                         <div class="container-img">
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
+                                <div class="wrapper-illus img">
+                                    <QuoteAuthor />
+                                </div>
                             </div>
                         </div>
                         <div class="container-txt container">
@@ -54,6 +57,9 @@
                         <div class="container-img">
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
+                                <div class="wrapper-illus">
+                                    <Reception />
+                                </div>
                             </div>
                         </div>
                         <div class="container-txt container">
@@ -107,6 +113,9 @@
                         <div class="container-img">
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
+                                <div class="wrapper-illus">
+                                    <Tools />
+                                </div>
                             </div>
                         </div>
                         <div class="container-txt container">
@@ -160,6 +169,9 @@
                         <div class="container-img">
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
+                                <div class="wrapper-illus">
+                                    <Generation />
+                                </div>
                             </div>
                         </div>
                         <div class="container-txt container">
@@ -213,6 +225,9 @@
                         <div class="container-img">
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
+                                <div class="wrapper-illus">
+                                    <Stock />
+                                </div>
                             </div>
                         </div>
                         <div class="container-txt container">
@@ -270,7 +285,20 @@
 import gsap from 'gsap';
 import { query, forEach } from '@stereorepo/sac';
 
+import QuoteAuthor from '~/components/ExperiencesIllustrations/QuoteAuthor';
+import Reception from '~/components/ExperiencesIllustrations/Reception';
+import Tools from '~/components/ExperiencesIllustrations/Tools';
+import Stock from '~/components/ExperiencesIllustrations/Stock';
+import Generation from '~/components/ExperiencesIllustrations/Generation';
+
 export default {
+    components: {
+        QuoteAuthor,
+        Reception,
+        Tools,
+        Stock,
+        Generation
+    },
     data: () => ({
         containerExperiences: null,
         bgImg: null,
@@ -283,6 +311,7 @@ export default {
         experiencesCollants: [],
         experiencesTxt: [],
         experiencesIntro: [],
+        experiencesIllus: [],
         nbExperiences: 0,
         tlXpIn: null,
         tlXpOut: null
@@ -325,7 +354,7 @@ export default {
             .on('enter-view', () => {
                 // appear initial animation
                 gsap.to(this.bgImg, { duration: 0.3, x: 0 });
-                gsap.to(this.containerTxt, { duration: 0.3, opacity: 1, visibility: 'visible', delay: 0.1 });
+                this.inXp(0);
             });
         this.bgCollant = this.$stereorepo.superScroll.watch({
             element: this.bgImg,
@@ -356,6 +385,7 @@ export default {
             this.nbExperiences = this.experiences.length;
             this.experiencesContents = query({ selector: '.experience-content-large', ctx: this.containerExperiences });
             this.experiencesIntro = query({ selector: '.experience-intro', ctx: this.containerExperiences });
+            this.experiencesIllus = query({ selector: '.wrapper-illus', ctx: this.containerExperiences });
         },
         createCollant() {
             forEach(this.experiencesContents, (item, index) => {
@@ -383,6 +413,7 @@ export default {
         },
         outBeforeXp(xpIndex) {
             if (xpIndex != 0) {
+                gsap.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 0 });
                 gsap.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 0 });
                 gsap.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 0, scale: 0.9 });
             }
@@ -390,11 +421,13 @@ export default {
         inXp(xpIndex) {
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
+            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1, delay: 0.3 });
             this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1, delay: 0.3 });
             this.tlXpIn.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 1, scale: 1 });
         },
         outXp(xpIndex) {
             if (xpIndex < this.nbExperiences - 1) {
+                gsap.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 0 });
                 gsap.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 0 });
                 gsap.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 0, scale: 0.9 });
             }
@@ -437,6 +470,9 @@ export default {
 }
 .wrapper-img {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 316px;
     .bg-img {
         position: absolute;
@@ -445,6 +481,18 @@ export default {
         bottom: 0;
         left: 0;
         background: $secondary;
+    }
+}
+.wrapper-illus {
+    flex: 0 0 auto;
+    width: 80%;
+    height: 80%;
+    &.img {
+        width: 100%;
+        height: 100%;
+    }
+    /deep/ svg {
+        max-height: 100%;
     }
 }
 .experience-intro {
@@ -564,18 +612,9 @@ export default {
         > li {
             position: relative;
             height: 200vh;
+            margin: 0;
             &:not(:first-child) {
                 margin-top: calc(-100vh + 1px);
-            }
-            margin: 0;
-            &:nth-child(1) {
-                .experience-content {
-                    opacity: 1;
-                }
-                .experience-intro {
-                    opacity: 1;
-                    transform: scale(1);
-                }
             }
         }
     }
@@ -604,6 +643,9 @@ export default {
         .bg-img {
             display: none;
         }
+    }
+    .wrapper-illus {
+        opacity: 0;
     }
     .container-txt {
         display: flex;
