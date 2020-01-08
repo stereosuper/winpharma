@@ -349,9 +349,6 @@ export default {
                         { clearProps: 'all' }
                     );
                 });
-                // forEach(this.experiencesContents, item => {
-                //     gsap.set(item, { clearProps: 'all' });
-                // });
                 this.collantCreated = false;
             }
         }
@@ -506,6 +503,13 @@ export default {
     margin: 0;
     > li {
         margin: 0 0 60px;
+        &:first-child {
+            .wrapper-img {
+                .bg-img {
+                    background: $secondary;
+                }
+            }
+        }
         &:last-child {
             margin-bottom: 0;
         }
@@ -516,14 +520,17 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 316px;
+    height: 280px;
     .bg-img {
         position: absolute;
         top: 0;
         right: 0;
-        bottom: 0;
+        bottom: -35px;
         left: 0;
-        background: $secondary;
+        background-color: $primary;
+        background-image: url('/img/stars.svg');
+        background-repeat: repeat;
+        background-position: 0 0;
     }
 }
 .wrapper-illus {
@@ -541,7 +548,7 @@ export default {
 }
 .experience-intro {
     position: relative;
-    margin: -35px 0 30px;
+    margin: 0 0 30px;
     border-radius: 8px;
     background: $white;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
@@ -643,6 +650,9 @@ export default {
     .wrapper-experience-button {
         justify-content: flex-start;
         margin-top: 40px;
+    }
+    .wrapper-img {
+        height: 350px;
     }
 }
 @media (min-width: $desktop-small) {
