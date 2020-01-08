@@ -361,26 +361,26 @@ export default {
     max-height: 100%;
 }
 @keyframes float1 {
-	0% {
-		transform: translate3d(0, 0, 0);
-	}
-	50% {
-		transform: translate3d(0, -25px, 0);
-	}
-	100% {
-		transform: translate3d(0, 0, 0);
-	}
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -25px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
 @keyframes float2 {
-	0% {
-		transform: translate3d(0, 0, 0);
-	}
-	50% {
-		transform: translate3d(0, -20px, 0);
-	}
-	100% {
-		transform: translate3d(0, 0, 0);
-	}
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -20px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
 @keyframes float3 {
     0% {
@@ -394,15 +394,15 @@ export default {
     }
 }
 @keyframes float4 {
-	0% {
-		transform: translate3d(0, 0, 0);
-	}
-	50% {
-		transform: translate3d(0, -10px, 0);
-	}
-	100% {
-		transform: translate3d(0, 0, 0);
-	}
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -10px, 0);
+    }
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
 }
 .plan-1 {
     // animation: float1 4s ease-in-out infinite;
