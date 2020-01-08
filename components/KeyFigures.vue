@@ -2,7 +2,9 @@
     <div ref="wrapperKeyFigures" class="wrapper-key-figures">
         <div class="wrapper-wave">
             <svg viewBox="0 0 1440 178" preserveAspectRatio="none" class="wave-aze">
-                <path d="M0 116.061C174.596 -7.90953 531.156 -21.6062 776.5 23.8375C896.733 46.3769 1222.62 120.419 1440 176.959C1440 176.959 1440 177.262 1440 178H0V116.061Z" />
+                <path
+                    d="M0 116.061C174.596 -7.90953 531.156 -21.6062 776.5 23.8375C896.733 46.3769 1222.62 120.419 1440 176.959C1440 176.959 1440 177.262 1440 178H0V116.061Z"
+                />
             </svg>
         </div>
         <div class="container">
@@ -17,7 +19,7 @@
                     class="key-figures-button"
                     @click="changeTab(0)"
                 >
-                    Village
+                    Quartier
                 </button>
                 <button
                     :class="{ active: tabActive === 1 }"
@@ -25,7 +27,7 @@
                     class="key-figures-button"
                     @click="changeTab(1)"
                 >
-                    Quartier
+                    Village
                 </button>
                 <button
                     :class="{ active: tabActive === 2 }"
@@ -44,34 +46,6 @@
                 <div :class="{ active: tabActive === 0 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>91%</strong> de taux d'automatisation</h4>
-                            <p>En préparation envoi et réception des commandes.</p>
-                        </li>
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>8h</strong> gagnées chaque semaine</h4>
-                            <p>Grâce à l’automatisation des commandes et la gestion des stocks.</p>
-                        </li>
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>+25&nbsp;000€</strong> de trésorerie</h4>
-                            <p>Récupérés grâce à un stock et des canaux d'achat optimisés.</p>
-                        </li>
-                    </ul>
-                    <div class="user">
-                        <div class="wrapper-img">
-                            <img src="img/olivier-henry.png" alt="">
-                        </div>
-                        <div>
-                            <div class="wrapper-user-name-company">
-                                <span class="user-name">Olivier Henry</span>
-                                <span class="user-company">, Pharmacie Mereau (18)</span>
-                            </div>
-                            <div class="user-company">Chiffre d’affaires : 1,2M&nbsp;€</div>
-                        </div>
-                    </div>
-                </div>
-                <div :class="{ active: tabActive === 1 }" class="tab-content">
-                    <ul class="key-figures">
-                        <li class="key-figure">
                             <h4 class="key-figure-title"><strong>87%</strong> de taux d'automatisation</h4>
                             <p>En préparation envoi et réception des commandes.</p>
                         </li>
@@ -86,7 +60,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/jean-rene-delobelle.png" alt="">
+                            <img src="img/jean-rene-delobelle.png" alt="" />
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
@@ -94,6 +68,34 @@
                                 <span class="user-company">, Pharmacie à Orchie (59)</span>
                             </div>
                             <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
+                        </div>
+                    </div>
+                </div>
+                <div :class="{ active: tabActive === 1 }" class="tab-content">
+                    <ul class="key-figures">
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>91%</strong> de taux d'automatisation</h4>
+                            <p>En préparation envoi et réception des commandes.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>8h</strong> gagnées chaque semaine</h4>
+                            <p>Grâce à l’automatisation des commandes et la gestion des stocks.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>+25&nbsp;000€</strong> de trésorerie</h4>
+                            <p>Récupérés grâce à un stock et des canaux d'achat optimisés.</p>
+                        </li>
+                    </ul>
+                    <div class="user">
+                        <div class="wrapper-img">
+                            <img src="img/olivier-henry.png" alt="" />
+                        </div>
+                        <div>
+                            <div class="wrapper-user-name-company">
+                                <span class="user-name">Olivier Henry</span>
+                                <span class="user-company">, Pharmacie Mereau (18)</span>
+                            </div>
+                            <div class="user-company">Chiffre d’affaires : 1,2M&nbsp;€</div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +116,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/sophie-lacheze.png" alt="Sophie Lachèze">
+                            <img src="img/sophie-lacheze.png" alt="Sophie Lachèze" />
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
@@ -256,7 +258,7 @@ export default {
     z-index: 1;
     padding: 15px 0 50px;
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         right: 0;
