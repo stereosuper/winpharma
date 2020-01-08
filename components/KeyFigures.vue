@@ -13,30 +13,34 @@
                 <span class="second-line">pour <span class="secondary">toutes les pharmacies de&nbsp;:</span></span>
             </h3>
             <div class="wrapper-tabs">
-                <button
-                    :class="{ active: tabActive === 0 }"
-                    type="button"
-                    class="key-figures-button"
-                    @click="changeTab(0)"
-                >
-                    Quartier
-                </button>
-                <button
-                    :class="{ active: tabActive === 1 }"
-                    type="button"
-                    class="key-figures-button"
-                    @click="changeTab(1)"
-                >
-                    Village
-                </button>
-                <button
-                    :class="{ active: tabActive === 2 }"
-                    type="button"
-                    class="key-figures-button"
-                    @click="changeTab(2)"
-                >
-                    Centre C<span class="hide-small-device">ommerc</span>ial
-                </button>
+                <div class="outer-tabs">
+                    <button
+                        ref="firstTabButton"
+                        :class="{ active: tabActive === 0 && showActive }"
+                        type="button"
+                        class="key-figures-button"
+                        @click="changeTab(0, $event)"
+                    >
+                        Quartier
+                    </button>
+                    <button
+                        :class="{ active: tabActive === 1 && showActive }"
+                        type="button"
+                        class="key-figures-button"
+                        @click="changeTab(1, $event)"
+                    >
+                        Village
+                    </button>
+                    <button
+                        :class="{ active: tabActive === 2 && showActive }"
+                        type="button"
+                        class="key-figures-button"
+                        @click="changeTab(2, $event)"
+                    >
+                        Centre C<span class="hide-small-device">ommerc</span>ial
+                    </button>
+                    <span class="select-bar" ref="selectBar"></span>
+                </div>
             </div>
             <div
                 :style="{ minHeight: tabContentActiveHeight + 'px' }"
@@ -139,6 +143,7 @@ import { query, forEach } from '@stereorepo/sac';
 export default {
     data: () => ({
         tabActive: 0,
+        showActive: false,
         myWatcher: null,
         keyFiguresButtons: null,
         keyFiguresActive: null,
@@ -150,7 +155,8 @@ export default {
         tlAppear: null,
         tlChangeTab: null,
         keyFiguresNotActive: null,
-        usersNotActive: null
+        usersNotActive: null,
+        transitionDone: true
     }),
     computed: {
         ww() {
@@ -185,14 +191,34 @@ export default {
             })
             .on('enter-view', () => {
                 this.tlAppear = gsap.timeline();
-                this.tlAppear.to(this.$refs.keyFiguresTitle, { duration: 0.3, x: 0, opacity: 1 });
-                this.tlAppear.to(this.keyFiguresButtons, { duration: 0.3, x: 0, opacity: 1, stagger: 0.3, delay: 0.3 });
+                this.tlAppear.to(this.$refs.keyFiguresTitle, { duration: 1.2, x: 0, opacity: 1, ease: 'power4.out' });
+                this.tlAppear.to(this.keyFiguresButtons, {
+                    duration: 0.7,
+                    x: 0,
+                    opacity: 1,
+                    stagger: 0.2,
+                    delay: -0.9,
+                    ease: 'power4.out',
+                    onComplete: () => {
+                        this.showActive = true;
+                        const button = this.$refs.firstTabButton;
+                        const width = button.getBoundingClientRect().width;
+                        const left = button.offsetLeft;
+                        gsap.to(this.$refs.selectBar, {
+                            duration: 0.7,
+                            width: width,
+                            transformOrigin: '50% 50%',
+                            ease: 'power4.inOut',
+                            x: left
+                        });
+                    }
+                });
                 this.tlAppear.to(
                     this.keyFiguresActive,
-                    { duration: 0.3, scale: 1, opacity: 1, stagger: 0.3, delay: 0.3 },
+                    { duration: 1, scale: 1, force3D: true, opacity: 1, stagger: 0.1, delay: 0.3, ease: 'power4.out' },
                     'keyFiguresAppearing'
                 );
-                this.tlAppear.to(this.userActive, { duration: 0.3, opacity: 1, delay: 0.3 }, 'keyFiguresAppearing');
+                this.tlAppear.to(this.userActive, { duration: 0.7, opacity: 1, delay: 0.3 }, 'keyFiguresAppearing');
             });
     },
     beforeDestroy() {
@@ -206,11 +232,23 @@ export default {
     },
     methods: {
         tabContentHeight() {
+            if (!this.tabContentActive) return;
             this.tabContentActiveHeight = this.tabContentActive.getBoundingClientRect().height;
             this.heightTabSet = true;
         },
-        changeTab(tabNb) {
-            if (tabNb !== this.tabActive) {
+        changeTab(tabNb, e) {
+            if (tabNb !== this.tabActive && this.transitionDone) {
+                this.transitionDone = false;
+                const width = e.target.getBoundingClientRect().width;
+                const left = e.target.offsetLeft;
+                gsap.to(this.$refs.selectBar, {
+                    duration: 0.7,
+                    width: width,
+                    transformOrigin: '50% 50%',
+                    ease: 'power4.inOut',
+                    x: left
+                });
+
                 // Clear other tabs styles
                 this.keyFiguresNotActive = query({ selector: '.tab-content:not(.active) .key-figure' });
                 this.usersNotActive = query({ selector: '.tab-content:not(.active) .user' });
@@ -224,10 +262,11 @@ export default {
                 this.tlChangeTab = gsap.timeline();
                 this.tlChangeTab.to(
                     this.keyFiguresActive,
-                    { duration: 0.15, scale: 0.9, opacity: 0, stagger: 0.15 },
+                    { duration: 0.5, scale: 0.9, opacity: 0, force3D: true, stagger: 0.1, ease: 'power4.out' },
                     'keyFiguresDisappearing'
                 );
                 this.tlChangeTab.to(this.userActive, { duration: 0.15, opacity: 0 }, 'keyFiguresDisappearing');
+
                 // Show new key figures
                 this.tlChangeTab.add(() => {
                     this.tabActive = tabNb;
@@ -237,12 +276,19 @@ export default {
                     this.userActive = query({ selector: '.user', ctx: this.tabContentActive });
                     this.tlChangeTab.to(
                         this.keyFiguresActive,
-                        { duration: 0.3, scale: 1, opacity: 1, stagger: 0.3, delay: 0.3 },
+                        { duration: 1, scale: 1, force3D: true, opacity: 1, stagger: 0.1, ease: 'power4.out' },
                         'newKeyFiguresAppearing'
                     );
                     this.tlChangeTab.to(
                         this.userActive,
-                        { duration: 0.3, opacity: 1, delay: 0.3 },
+                        {
+                            duration: 0.7,
+                            opacity: 1,
+                            delay: 0.3,
+                            onComplete: () => {
+                                this.transitionDone = true;
+                            }
+                        },
                         'newKeyFiguresAppearing'
                     );
                 });
@@ -282,6 +328,33 @@ export default {
         fill: $fake-white;
     }
 }
+.select-bar {
+    height: 3px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $secondary;
+}
+
+.outer-tabs {
+    position: relative;
+    display: flex;
+    width: 100%;
+    > button {
+        flex: 1 1 auto;
+        position: relative;
+        padding: 0 10px 30px;
+        font-family: $ageo-medium;
+        font-size: 1.8rem;
+        border: 0;
+        color: $grey-light;
+        transition: color 0.4s $easeInOut;
+        &.active {
+            color: $secondary;
+        }
+    }
+}
 
 .wrapper-tabs {
     position: relative;
@@ -293,30 +366,6 @@ export default {
         left: 0;
         right: 0;
         border-bottom: 1px solid $grey-lighter;
-    }
-    > button {
-        flex: 1 1 auto;
-        position: relative;
-        padding: 0 10px 30px;
-        font-family: $ageo-medium;
-        font-size: 1.8rem;
-        border: 0;
-        color: $grey-light;
-        &::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            border-bottom: 3px solid $secondary;
-            opacity: 0;
-        }
-        &.active {
-            color: $secondary;
-            &::before {
-                opacity: 1;
-            }
-        }
     }
 }
 .wrapper-tabs-contents {
@@ -341,6 +390,8 @@ export default {
 }
 .tab-content {
     display: none;
+    backface-visibility: hidden;
+    will-change: transform;
     &.active {
         display: block;
     }
@@ -408,7 +459,7 @@ export default {
 }
 
 .key-figures-title,
-.wrapper-tabs > button {
+.outer-tabs > button {
     transform: translate3d(-50px, 0, 0);
     opacity: 0;
 }
@@ -432,13 +483,17 @@ export default {
 }
 
 @media (min-width: $desktop-small) {
-    .wrapper-tabs {
-        justify-content: flex-end;
+    .outer-tabs {
+        width: auto;
+        margin-left: auto;
         > button {
             flex: 0 0 auto;
             margin-left: 20px;
             padding-left: 20px;
             padding-right: 20px;
+            &:first-child {
+                margin-left: 0;
+            }
         }
     }
     .key-figures {
