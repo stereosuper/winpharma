@@ -7,8 +7,8 @@
             </h2>
         </div>
         <div ref="containerExperiences" class="container-experiences">
-            <div ref="bgImg" class="container-img-large">
-                <div class="bg-img"></div>
+            <div ref="containerImgLarge" class="container-img-large">
+                <div ref="bgImg" class="bg-img-large"></div>
             </div>
             <ul class="experiences">
                 <li class="experience">
@@ -301,7 +301,9 @@ export default {
     },
     data: () => ({
         containerExperiences: null,
+        containerImgLarge: null,
         bgImg: null,
+        bgImgColor: '#EB522B',
         revealXp: null,
         bgCollant: null,
         experiences: null,
@@ -357,7 +359,7 @@ export default {
                 this.inXp(0);
             });
         this.bgCollant = this.$stereorepo.superScroll.watch({
-            element: this.bgImg,
+            element: this.containerImgLarge,
             options: {
                 collant: true,
                 target: this.containerExperiences,
@@ -369,6 +371,10 @@ export default {
     beforeDestroy() {
         // Forget the watcher to avoid memory leak
         if (this.revealXp) this.revealXp.forget();
+        if (this.bgCollant) this.bgCollant.forget();
+        forEach(this.experiencesContents, (item, index) => {
+            this.experiencesCollants[index].forget();
+        });
         this.$stereorepo.superScroll.destroyScroll();
     },
     destroyed() {
@@ -378,6 +384,7 @@ export default {
     methods: {
         initRefs() {
             this.containerExperiences = this.$refs.containerExperiences;
+            this.containerImgLarge = this.$refs.containerImgLarge;
             this.bgImg = this.$refs.bgImg;
             this.containerTxt = query({ selector: '.container-txt', ctx: this.containerExperiences });
             this.experiences = query({ selector: '.experience', ctx: this.containerExperiences });
@@ -413,7 +420,7 @@ export default {
         },
         outBeforeXp(xpIndex) {
             if (xpIndex != 0) {
-                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0 });
+                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9 });
                 gsap.set(this.experiencesTxt[xpIndex], { opacity: 0 });
                 gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9 });
             }
@@ -421,13 +428,18 @@ export default {
         inXp(xpIndex) {
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
-            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1 });
-            this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1, delay: 0.3 });
+            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1, scale: 1 }, 'first-step');
+            this.tlXpIn.to(
+                this.bgImg,
+                { duration: 0.3, background: xpIndex === 0 ? '#EB522B' : '#593D8C' },
+                'first-step'
+            );
+            this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1 }, 'first-step');
             this.tlXpIn.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 1, scale: 1 });
         },
         outXp(xpIndex) {
             if (xpIndex < this.nbExperiences - 1) {
-                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0 });
+                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9 });
                 gsap.set(this.experiencesTxt[xpIndex], { opacity: 0 });
                 gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9 });
             }
@@ -646,6 +658,10 @@ export default {
     }
     .wrapper-illus {
         opacity: 0;
+        transform: scale(0.9);
+        &.img {
+            transform-origin: 50% 100%;
+        }
     }
     .container-txt {
         display: flex;
@@ -677,14 +693,15 @@ export default {
         left: 0;
         width: calc(58.33333337% - 5px);
         height: 100vh;
-        transform: translate3d(calc(50vw - 50%), 0, 0);
-        .bg-img {
+
+        .bg-img-large {
             position: absolute;
             top: 10vh;
             right: 0;
             bottom: 10vh;
             left: 0;
             background: $secondary;
+            transform: translate3d(calc(50vw - 50%), 0, 0);
             @media (min-height: $desktop-v) {
                 padding-top: 15vh;
                 padding-bottom: 15vh;

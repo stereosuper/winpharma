@@ -2,7 +2,9 @@
     <div ref="wrapperKeyFigures" class="wrapper-key-figures">
         <div class="wrapper-wave">
             <svg viewBox="0 0 1440 178" preserveAspectRatio="none" class="wave-aze">
-                <path d="M0 116.061C174.596 -7.90953 531.156 -21.6062 776.5 23.8375C896.733 46.3769 1222.62 120.419 1440 176.959C1440 176.959 1440 177.262 1440 178H0V116.061Z" />
+                <path
+                    d="M0 116.061C174.596 -7.90953 531.156 -21.6062 776.5 23.8375C896.733 46.3769 1222.62 120.419 1440 176.959C1440 176.959 1440 177.262 1440 178H0V116.061Z"
+                />
             </svg>
         </div>
         <div class="container">
@@ -17,7 +19,7 @@
                     class="key-figures-button"
                     @click="changeTab(0)"
                 >
-                    Village
+                    Quartier
                 </button>
                 <button
                     :class="{ active: tabActive === 1 }"
@@ -25,7 +27,7 @@
                     class="key-figures-button"
                     @click="changeTab(1)"
                 >
-                    Quartier
+                    Village
                 </button>
                 <button
                     :class="{ active: tabActive === 2 }"
@@ -44,6 +46,34 @@
                 <div :class="{ active: tabActive === 0 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>90%</strong> de taux d'automatisation</h4>
+                            <p>En préparation envoi et réception des commandes.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>30%</strong> de manquants en moins</h4>
+                            <p>Pour des prévisions plus justes et des besoins anticipés.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>+20&nbsp;000€</strong> de trésorerie</h4>
+                            <p>Une bonne adéquation entre les besoins et le taux d'immobilisation.</p>
+                        </li>
+                    </ul>
+                    <div class="user">
+                        <div class="wrapper-img">
+                            <img src="img/jean-rene-delobelle.png" alt="" />
+                        </div>
+                        <div>
+                            <div class="wrapper-user-name-company">
+                                <span class="user-name">Jean-René Delobelle</span>
+                                <span class="user-company">, Pharmacie à Orchie (59)</span>
+                            </div>
+                            <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
+                        </div>
+                    </div>
+                </div>
+                <div :class="{ active: tabActive === 1 }" class="tab-content">
+                    <ul class="key-figures">
+                        <li class="key-figure">
                             <h4 class="key-figure-title"><strong>91%</strong> de taux d'automatisation</h4>
                             <p>En préparation envoi et réception des commandes.</p>
                         </li>
@@ -58,7 +88,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/olivier-henry.png" alt="">
+                            <img src="img/olivier-henry.png" alt="" />
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
@@ -69,14 +99,14 @@
                         </div>
                     </div>
                 </div>
-                <div :class="{ active: tabActive === 1 }" class="tab-content">
+                <div :class="{ active: tabActive === 2 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>87%</strong> de taux d'automatisation</h4>
                             <p>En préparation envoi et réception des commandes.</p>
                         </li>
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>1 temps plein</strong> d’économisé</h4>
+                            <h4 class="key-figure-title"><strong>1 temps plein</strong> d'économisé</h4>
                             <p>Du temps consacré pour optimiser la pharmacie.</p>
                         </li>
                         <li class="key-figure">
@@ -86,35 +116,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/jean-rene-delobelle.png" alt="">
-                        </div>
-                        <div>
-                            <div class="wrapper-user-name-company">
-                                <span class="user-name">Jean-René Delobelle</span>
-                                <span class="user-company">, Pharmacie à Orchie (59)</span>
-                            </div>
-                            <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
-                        </div>
-                    </div>
-                </div>
-                <div :class="{ active: tabActive === 2 }" class="tab-content">
-                    <ul class="key-figures">
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>85%</strong> de taux d'automatisation</h4>
-                            <p>En génération, envoi et réception, atteignable dès la 1re journée d'accompagnement.</p>
-                        </li>
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>16h</strong> gagnées</h4>
-                            <p>C’est le temps gagné chaque mois grâce à l’automatisation des commandes.</p>
-                        </li>
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>+15&nbsp;000€</strong> de trésorerie</h4>
-                            <p>Soit 1 point de trésorerie récupérée pour une pharmacie moyenne.</p>
-                        </li>
-                    </ul>
-                    <div class="user">
-                        <div class="wrapper-img">
-                            <img src="img/sophie-lacheze.png" alt="Sophie Lachèze">
+                            <img src="img/sophie-lacheze.png" alt="Sophie Lachèze" />
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
@@ -256,7 +258,7 @@ export default {
     z-index: 1;
     padding: 15px 0 50px;
     &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         right: 0;
