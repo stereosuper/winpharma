@@ -303,6 +303,7 @@ export default {
         containerExperiences: null,
         containerImgLarge: null,
         bgImg: null,
+        bgImgColor: '#EB522B',
         revealXp: null,
         bgCollant: null,
         experiences: null,
@@ -370,6 +371,10 @@ export default {
     beforeDestroy() {
         // Forget the watcher to avoid memory leak
         if (this.revealXp) this.revealXp.forget();
+        if (this.bgCollant) this.bgCollant.forget();
+        forEach(this.experiencesContents, (item, index) => {
+            this.experiencesCollants[index].forget();
+        });
         this.$stereorepo.superScroll.destroyScroll();
     },
     destroyed() {
@@ -423,8 +428,13 @@ export default {
         inXp(xpIndex) {
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
-            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1, scale: 1 }, 'test');
-            this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1 }, 'test');
+            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1, scale: 1 }, 'first-step');
+            this.tlXpIn.to(
+                this.bgImg,
+                { duration: 0.3, background: xpIndex === 0 ? '#EB522B' : '#593D8C' },
+                'first-step'
+            );
+            this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1 }, 'first-step');
             this.tlXpIn.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 1, scale: 1 });
         },
         outXp(xpIndex) {
