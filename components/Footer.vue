@@ -183,6 +183,10 @@ export default {};
         font-size: 1.4rem;
         line-height: 24px;
         text-decoration: none;
+        transition: opacity $short-duration;
+        &:hover {
+            opacity: 0.6;
+        }
     }
 }
 .footer-title {
@@ -235,11 +239,16 @@ export default {};
         padding: 12px 20px;
         border: 1px solid $grey-lighter;
         border-right: 0;
-        border-radius: 4px;
+        border-radius: 4px 0 0 4px;
         font-family: $dm;
         font-size: 1.3rem;
         line-height: 24px;
         color: $primary-darker;
+        transition: $short-duration;
+        &:focus {
+            outline: 0;
+            border-color: $secondary;
+        }
         &::placeholder {
             color: #b2b0b0;
         }
@@ -275,11 +284,17 @@ export default {};
     > li {
         a {
             display: block;
+            &:hover {
+                .icon {
+                    fill: $secondary;
+                }
+            }
             .icon {
                 display: block;
                 width: 100%;
                 height: 100%;
                 fill: #b2c5c9;
+                transition: fill $short-duration;
             }
             &.twitter {
                 width: 23px;
@@ -320,6 +335,10 @@ export default {};
         line-height: 24px;
         text-decoration: none;
         color: $primary-darker;
+        transition: opacity $short-duration;
+        &:hover {
+            opacity: 0.6;
+        }
     }
 }
 
