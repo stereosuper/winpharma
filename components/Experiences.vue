@@ -335,6 +335,24 @@ export default {
                 });
                 this.collantCreated = true;
             } else if (!isBigDevice && this.collantCreated) {
+                if (this.revealXp) this.revealXp.forget();
+                if (this.bgCollant) this.bgCollant.forget();
+                forEach(this.experiencesContents, (item, index) => {
+                    this.experiencesCollants[index].forget();
+                    gsap.set(
+                        [
+                            this.experiencesContents[index],
+                            this.experiencesIllus[index],
+                            this.experiencesIntro[index],
+                            this.experiencesTxt[index]
+                        ],
+                        { clearProps: 'all' }
+                    );
+                });
+                // forEach(this.experiencesContents, item => {
+                //     gsap.set(item, { clearProps: 'all' });
+                // });
+                this.collantCreated = false;
             }
         }
     },
@@ -509,6 +527,7 @@ export default {
     }
 }
 .wrapper-illus {
+    position: relative;
     flex: 0 0 auto;
     width: 80%;
     height: 80%;
@@ -521,6 +540,7 @@ export default {
     }
 }
 .experience-intro {
+    position: relative;
     margin: -35px 0 30px;
     border-radius: 8px;
     background: $white;
