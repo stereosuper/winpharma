@@ -8,7 +8,9 @@
         </div>
         <div ref="containerExperiences" class="container-experiences">
             <div ref="containerImgLarge" class="container-img-large">
-                <div ref="bgImg" class="bg-img-large"></div>
+                <div ref="bgImg" class="bg-img-large">
+                    <div ref="starsBg" class="stars-bg"></div>
+                </div>
             </div>
             <ul class="experiences">
                 <li class="experience">
@@ -304,6 +306,7 @@ export default {
         containerImgLarge: null,
         bgImg: null,
         bgImgColor: '#EB522B',
+        starsBg: null,
         revealXp: null,
         bgCollant: null,
         experiences: null,
@@ -386,6 +389,7 @@ export default {
             this.containerExperiences = this.$refs.containerExperiences;
             this.containerImgLarge = this.$refs.containerImgLarge;
             this.bgImg = this.$refs.bgImg;
+            this.starsBg = this.$refs.starsBg;
             this.containerTxt = query({ selector: '.container-txt', ctx: this.containerExperiences });
             this.experiences = query({ selector: '.experience', ctx: this.containerExperiences });
             this.experiencesTxt = query({ selector: '.experience-content', ctx: this.containerExperiences });
@@ -434,6 +438,15 @@ export default {
                 { duration: 0.3, background: xpIndex === 0 ? '#EB522B' : '#593D8C' },
                 'first-step'
             );
+            if (xpIndex != 0) {
+                this.tlXpIn.to(
+                    this.starsBg,
+                    { duration: 0.8, opacity: 1, backgroundPosition: `-${xpIndex * 300}% 0`, ease: 'power4.inOut' },
+                    'first-step'
+                );
+            } else {
+                this.tlXpIn.to(this.starsBg, { duration: 0.3, opacity: 0 }, 'first-step');
+            }
             this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1 }, 'first-step');
             this.tlXpIn.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 1, scale: 1 });
         },
@@ -706,6 +719,17 @@ export default {
                 padding-top: 15vh;
                 padding-bottom: 15vh;
             }
+        }
+        .stars-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('/img/stars.svg');
+            background-repeat: repeat;
+            background-position: 0 0;
+            opacity: 0;
         }
     }
 }
