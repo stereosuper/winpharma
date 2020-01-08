@@ -413,23 +413,23 @@ export default {
         },
         outBeforeXp(xpIndex) {
             if (xpIndex != 0) {
-                gsap.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 0 });
-                gsap.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 0 });
-                gsap.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 0, scale: 0.9 });
+                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0 });
+                gsap.set(this.experiencesTxt[xpIndex], { opacity: 0 });
+                gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9 });
             }
         },
         inXp(xpIndex) {
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
-            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1, delay: 0.3 });
+            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1 });
             this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1, delay: 0.3 });
             this.tlXpIn.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 1, scale: 1 });
         },
         outXp(xpIndex) {
             if (xpIndex < this.nbExperiences - 1) {
-                gsap.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 0 });
-                gsap.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 0 });
-                gsap.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 0, scale: 0.9 });
+                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0 });
+                gsap.set(this.experiencesTxt[xpIndex], { opacity: 0 });
+                gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9 });
             }
         }
     }
