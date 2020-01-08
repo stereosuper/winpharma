@@ -44,11 +44,13 @@ export default {};
 
 <style lang="scss" scoped>
 .wrapper-cards {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 45px;
     margin-bottom: 50px;
+    z-index: 2;
     > a {
         margin-bottom: 30px;
         &:last-child {
@@ -61,23 +63,37 @@ export default {};
     position: relative;
     text-decoration: none;
     z-index: 1;
-    &::before {
+     &::before, &::after {
         content: '';
         position: absolute;
         top: 0;
         right: 0;
         bottom: 0;
         left: 0;
-        background: $white;
         border-radius: 8px;
+    }
+    &::before {
+        background: $white;
         box-shadow: 0px 0px 20px rgba($black, 0.05);
         z-index: -1;
+    }
+    &::after {
+        opacity: 0;
+        z-index: -2;
+        box-shadow: 0px 49px 30px rgba(25, 16, 40, 0.156714);
+        transition: 0.7s $easeOut;
     }
     > span {
         display: block;
     }
     p {
         color: $grey;
+    }
+    &:hover, &:focus{
+        &::after{
+            opacity: 1;
+        }
+        // box-shadow: 0px 49px 30px rgba(25, 16, 40, 0.156714);
     }
 }
 .wrapper-img {

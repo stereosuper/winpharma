@@ -9,7 +9,7 @@
         <nuxt-link to="/" class="logo" @click.native="closeBurger">
             <Icon name="winpharma-horizontal" class="icon-logo" />
         </nuxt-link>
-        <nav class="main-navigation">
+        <nav ref='nav' class="main-navigation">
             <ul class="menu">
                 <li>
                     <a href="http://www.winpharma.com/"><span class="txt">Winpharma</span></a>
@@ -77,6 +77,7 @@ export default {
     },
     mounted() {
         this.$stereorepo.superWindow.initializeWindow(this.$store);
+        this.$store.commit('superWindow/setNoTransitionElements', this.$refs.nav);
     },
     methods: {
         reveal() {

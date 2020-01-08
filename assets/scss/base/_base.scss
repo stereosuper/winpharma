@@ -200,6 +200,10 @@ hr {
     background: $black;
 }
 
+.no-transition {
+    transition: none !important;
+}
+
 /******* LIENS / BOUTONS *******/
 
 a {
