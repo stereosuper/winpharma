@@ -16,7 +16,7 @@
                 />
             </svg>
         </div>
-        <div class="wrapper-txt container">
+        <div ref="text" class="wrapper-txt container">
             <div class="wrapper-txt-hero">
                 <p class="intro">
                     Révolutionner votre gestion des commandes
@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import { gsap } from 'gsap/all';
+
 import HeroIllustration from '~/components/HeroIllustration';
 export default {
     scrollToTop: true,
@@ -49,18 +51,34 @@ export default {
         showIllus: false
     }),
     computed: {
+        ready() {
+            return this.$store.state.ready;
+        },
         ww() {
             if (!this.$store.state.superWindow) return false;
             return this.$store.state.superWindow.width;
         }
     },
     watch: {
+        async ready(r) {
+            if (!r) return;
+            this.reveal();
+        },
         ww(w) {
             if (w >= this.$breakpoints.list.l) {
                 this.showIllus = true;
             } else {
                 this.showIllus = false;
             }
+        }
+    },
+    methods: {
+        reveal() {
+            gsap.from(this.$refs.text, {
+                duration: 1,
+                opacity: 0,
+                delay: 3
+            });
         }
     }
 };
