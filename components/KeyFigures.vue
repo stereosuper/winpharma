@@ -46,16 +46,16 @@
                 <div :class="{ active: tabActive === 0 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>87%</strong> de taux d'automatisation</h4>
+                            <h4 class="key-figure-title"><strong>90%</strong> de taux d'automatisation</h4>
                             <p>En préparation envoi et réception des commandes.</p>
                         </li>
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>1 temps plein</strong> d’économisé</h4>
-                            <p>Du temps consacré pour optimiser la pharmacie.</p>
+                            <h4 class="key-figure-title"><strong>30%</strong> de manquants en moins</h4>
+                            <p>Pour des prévisions plus justes et des besoins anticipés.</p>
                         </li>
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>+ de sérénité</strong> au quotidien</h4>
-                            <p>Des outils précis pour améliorer mon suivi et éviter les ruptures.</p>
+                            <h4 class="key-figure-title"><strong>+20&nbsp;000€</strong> de trésorerie</h4>
+                            <p>Une bonne adéquation entre les besoins et le taux d'immobilisation.</p>
                         </li>
                     </ul>
                     <div class="user">
@@ -102,16 +102,16 @@
                 <div :class="{ active: tabActive === 2 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>85%</strong> de taux d'automatisation</h4>
-                            <p>En génération, envoi et réception, atteignable dès la 1re journée d'accompagnement.</p>
+                            <h4 class="key-figure-title"><strong>87%</strong> de taux d'automatisation</h4>
+                            <p>En préparation envoi et réception des commandes.</p>
                         </li>
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>16h</strong> gagnées</h4>
-                            <p>C’est le temps gagné chaque mois grâce à l’automatisation des commandes.</p>
+                            <h4 class="key-figure-title"><strong>1 temps plein</strong> d'économisé</h4>
+                            <p>Du temps consacré pour optimiser la pharmacie.</p>
                         </li>
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>+15&nbsp;000€</strong> de trésorerie</h4>
-                            <p>Soit 1 point de trésorerie récupérée pour une pharmacie moyenne.</p>
+                            <h4 class="key-figure-title"><strong>+ de sérénité</strong> au quotidien</h4>
+                            <p>Des outils précis pour améliorer mon suivi et éviter les ruptures.</p>
                         </li>
                     </ul>
                     <div class="user">
