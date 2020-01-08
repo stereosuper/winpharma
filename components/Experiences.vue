@@ -439,15 +439,19 @@ export default {
         },
         outBeforeXp(xpIndex) {
             if (xpIndex != 0) {
-                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9 });
-                gsap.set(this.experiencesTxt[xpIndex], { opacity: 0 });
-                gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9 });
+                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+                gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
+                gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
             }
         },
         inXp(xpIndex) {
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
-            this.tlXpIn.to(this.experiencesIllus[xpIndex], { duration: 0.3, opacity: 1, scale: 1 }, 'first-step');
+            this.tlXpIn.to(
+                this.experiencesIllus[xpIndex],
+                { duration: 0.3, opacity: 1, scale: 1, visibility: 'visible' },
+                'first-step'
+            );
             this.tlXpIn.to(
                 this.bgImg,
                 { duration: 0.3, background: xpIndex === 0 ? '#EB522B' : '#593D8C' },
@@ -456,20 +460,35 @@ export default {
             if (xpIndex != 0) {
                 this.tlXpIn.to(
                     this.starsBg,
-                    { duration: 0.8, opacity: 1, backgroundPosition: `-${xpIndex * 300}% 0`, ease: 'power4.inOut' },
+                    {
+                        duration: 0.8,
+                        opacity: 1,
+                        visibility: 'visible',
+                        backgroundPosition: `-${xpIndex * 300}% 0`,
+                        ease: 'power4.inOut'
+                    },
                     'first-step'
                 );
             } else {
-                this.tlXpIn.to(this.starsBg, { duration: 0.3, opacity: 0 }, 'first-step');
+                this.tlXpIn.to(this.starsBg, { duration: 0.3, opacity: 0, visibility: 'hidden' }, 'first-step');
             }
-            this.tlXpIn.to(this.experiencesTxt[xpIndex], { duration: 0.3, opacity: 1 }, 'first-step');
-            this.tlXpIn.to(this.experiencesIntro[xpIndex], { duration: 0.3, opacity: 1, scale: 1 });
+            this.tlXpIn.to(
+                this.experiencesTxt[xpIndex],
+                { duration: 0.3, opacity: 1, visibility: 'visible' },
+                'first-step'
+            );
+            this.tlXpIn.to(this.experiencesIntro[xpIndex], {
+                duration: 0.3,
+                opacity: 1,
+                visibility: 'visible',
+                scale: 1
+            });
         },
         outXp(xpIndex) {
             if (xpIndex < this.nbExperiences - 1) {
-                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9 });
-                gsap.set(this.experiencesTxt[xpIndex], { opacity: 0 });
-                gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9 });
+                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+                gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
+                gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
             }
         }
     }
@@ -674,11 +693,15 @@ export default {
         }
     }
     .experience-content-large {
+        position: relative;
         width: 100%;
         height: 100vh;
         display: flex;
         align-items: stretch;
         padding: 10vh #{$gutter * 2};
+        &.collant {
+            z-index: 1;
+        }
         @media (min-height: $desktop-v) {
             padding-top: 15vh;
             padding-bottom: 15vh;
@@ -702,6 +725,7 @@ export default {
     .wrapper-illus {
         opacity: 0;
         transform: scale(0.9);
+        visibility: hidden;
         &.img {
             transform-origin: 50% 100%;
         }
@@ -716,6 +740,7 @@ export default {
     .experience-content {
         order: 1;
         opacity: 0;
+        visibility: hidden;
     }
     .experience-intro {
         order: 2;
@@ -723,6 +748,7 @@ export default {
         margin: 30px 0 -45px calc(-20% + #{$gutter * 2});
         opacity: 0;
         transform: scale(0.9);
+        visibility: hidden;
     }
     .experience-number {
         @media (min-height: $desktop-v) {
@@ -760,6 +786,7 @@ export default {
             background-repeat: repeat;
             background-position: 0 0;
             opacity: 0;
+            visibility: hidden;
         }
     }
 }
