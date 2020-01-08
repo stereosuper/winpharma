@@ -4,6 +4,7 @@
             'nav-activated': burgerState
         }"
         class="header container"
+        ref='header'
     >
         <nuxt-link to="/" class="logo" @click.native="closeBurger">
             <Icon name="winpharma-horizontal" class="icon-logo" />
@@ -44,6 +45,8 @@
 </template>
 
 <script>
+import { gsap } from 'gsap/all';
+
 export default {
     computed: {
         navigationIsMobile() {
@@ -52,9 +55,16 @@ export default {
         },
         burgerState() {
             return this.$store.state.navigation.navigationActivated;
+        },
+        ready() {
+            return this.$store.state.ready;
         }
     },
     watch: {
+        async ready(r) {
+            if (!r) return;
+            this.reveal();
+        },
         navigationIsMobile(isMobile) {
             if (!isMobile) {
                 this.$store.commit('navigation/toggleBurger', false);
@@ -65,6 +75,13 @@ export default {
         this.$stereorepo.superWindow.initializeWindow(this.$store);
     },
     methods: {
+        reveal() {
+            gsap.from(this.$refs.header, {
+                duration: 1,
+                opacity: 0,
+                delay: 3.5
+            });
+        },
         toggleBurger() {
             this.$store.commit('navigation/toggleBurger', !this.burgerState);
         },

@@ -22,6 +22,7 @@ export default {
         this.$stereorepo.superWindow.initializeWindow(this.$store);
         this.$nextTick(() => {
             this.$store.commit('setLoading', false);
+            this.$store.commit('setReady', true);
         });
     }
 };
