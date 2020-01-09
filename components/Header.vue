@@ -1,10 +1,10 @@
 <template>
     <header
+        ref="header"
         :class="{
             'nav-activated': burgerState
         }"
         class="header container"
-        ref="header"
     >
         <nuxt-link to="/" class="logo" @click.native="closeBurger">
             <Icon name="winpharma-horizontal" class="icon-logo" />
@@ -15,7 +15,7 @@
                     <a href="http://www.winpharma.com/"><span class="txt">Winpharma</span></a>
                 </li>
                 <li class="active">
-                    <nuxt-link to="/"> <span class="new">new</span> <span class="txt">winAutopilote</span> </nuxt-link>
+                    <a href="/"> <span class="new">new</span> <span class="txt">winAutopilote</span> </a>
                 </li>
                 <li>
                     <a href="http://www.winpharma.com/temoignages/"><span class="txt">Témoignages</span></a>

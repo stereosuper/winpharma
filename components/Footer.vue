@@ -8,25 +8,25 @@
                     </h4>
                     <ul class="footer-submenu">
                         <li>
-                            <a href="#">winAutopilote</a>
+                            <a href="/">winAutopilote</a>
                         </li>
                         <li>
-                            <a href="#">Winpharma 9</a>
+                            <a href="http://www.winpharma.com/winpharma9-5/">Winpharma 9</a>
                         </li>
                         <li>
-                            <a href="#">winTeam</a>
+                            <a href="http://www.winpharma.com/winteam/">winTeam</a>
                         </li>
                         <li>
-                            <a href="#">winStat</a>
+                            <a href="http://www.winpharma.com/winstat/">winStat</a>
                         </li>
                         <li>
-                            <a href="#">Elsa</a>
+                            <a href="http://www.winpharma.com/elsa-2/">Elsa</a>
                         </li>
                         <li>
-                            <a href="#">winAccompagnement</a>
+                            <a href="http://www.winpharma.com/winaccompagnement/">winAccompagnement</a>
                         </li>
                         <li>
-                            <a href="#">Cashguard</a>
+                            <a href="http://www.winpharma.com/cashguard/">Cashguard</a>
                         </li>
                     </ul>
                 </li>
@@ -36,22 +36,19 @@
                     </h4>
                     <ul class="footer-submenu">
                         <li>
-                            <a href="#">À propos</a>
+                            <a href="http://www.winpharma.com/actualites/">Actualités</a>
                         </li>
                         <li>
-                            <a href="#">Actualités</a>
+                            <a href="http://www.winpharma.com/temoignages/">Témoignages</a>
                         </li>
                         <li>
-                            <a href="#">Témoignages</a>
+                            <a href="http://www.winpharma.com/recrutement/">Recrutement</a>
                         </li>
                         <li>
-                            <a href="#">Recrutement</a>
+                            <a href="http://www.winpharma.com/formations/">Espace e&#x2011;learning</a>
                         </li>
                         <li>
-                            <a href="#">Espace e&#x2011;learning</a>
-                        </li>
-                        <li>
-                            <a href="#">Forum</a>
+                            <a href="http://www.winpharma.com/forum/">Forum</a>
                         </li>
                     </ul>
                 </li>
@@ -108,27 +105,47 @@
             </div>
             <ul class="social">
                 <li>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="twitter">
+                    <a href="https://twitter.com/Winpharma" target="_blank" rel="noopener noreferrer" class="twitter">
                         <Icon name="twitter" />
                     </a>
                 </li>
                 <li>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="facebook">
+                    <a
+                        href="https://www.facebook.com/Winpharma-427022747370410/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="facebook"
+                    >
                         <Icon name="facebook" />
                     </a>
                 </li>
                 <li>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="youtube">
+                    <a
+                        href="https://www.youtube.com/user/winpharma/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="youtube"
+                    >
                         <Icon name="youtube" />
                     </a>
                 </li>
                 <li>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="linkedin">
+                    <a
+                        href="https://www.linkedin.com/company/winpharma-everys/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="linkedin"
+                    >
                         <Icon name="linkedin" />
                     </a>
                 </li>
                 <li>
-                    <a href="#" target="_blank" rel="noopener noreferrer" class="instagram">
+                    <a
+                        href="https://www.instagram.com/winpharma/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="instagram"
+                    >
                         <Icon name="instagram" />
                     </a>
                 </li>
@@ -138,7 +155,7 @@
                     Copyright 1994 - 2018 Winpharma | All Rights Reserved
                 </p>
                 <div class="footer-bottom">
-                    <a href="#">Mentions légales</a>
+                    <a href="http://www.winpharma.com/mentions-legales/">Mentions légales</a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 <template>
     <div class="wrapper-cards container">
-        <a href="#" class="card button-trigger">
+        <a href="http://www.winpharma.com/livre-blanc-winautopilote/" class="card button-trigger">
             <div class="inner-card">
                 <span class="wrapper-img" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
                 <span class="card-txt">
@@ -19,7 +19,7 @@
                 </span>
             </div>
         </a>
-        <a href="#" class="card button-trigger">
+        <a href="http://www.winpharma.com/notre-etude/" class="card button-trigger">
             <div class="inner-card">
                 <span class="wrapper-img" :style="{ backgroundImage: 'url(img/co-creation.png)' }"></span>
                 <span class="card-txt">
