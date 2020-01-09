@@ -79,24 +79,15 @@
                     </ul>
                 </li>
             </ul>
-            <div class="wrapper-newsletter">
-                <h4 class="newsletter-title">
-                    S’abonner à la newsletter Winpharma
+            <div class="wrapper-about">
+                <h4 class="footer-title">
+                    À propos
                 </h4>
-                <p>Les dernières actualités et produits Winpharma, dans votre boîte de mail tous les mois.</p>
-                <form class="newsletter-form">
-                    <div class="wrapper-input-btn">
-                        <input
-                            id="newsletter-mail"
-                            type="email"
-                            name="newsletter-mail"
-                            placeholder="Votre adresse email"
-                        />
-                        <button type="submit">
-                            S'abonner
-                        </button>
-                    </div>
-                </form>
+                <p>
+                    N°1 des éditeurs indépendants de logiciels de pharmacie et leader en matière d’innovation, Winpharma
+                    développe son logiciel, vend le matériel associé et assure les services d’installation, de formation
+                    et d’assistance.
+                </p>
             </div>
         </div>
         <div class="wrapper-footer-bottom">
@@ -182,6 +173,7 @@ export default {};
         margin: 0 0 30px;
         &.big {
             width: 100%;
+            margin-bottom: 0;
             .footer-submenu {
                 display: flex;
                 align-items: flex-start;
@@ -232,9 +224,9 @@ export default {};
         display: block;
     }
 }
-.wrapper-newsletter {
+.wrapper-about {
     p {
-        color: $primary-darker;
+        line-height: 24px;
     }
 }
 .newsletter-title {
@@ -399,7 +391,7 @@ export default {};
         width: percentage(8/12);
         margin: 0 #{$gutter};
     }
-    .wrapper-newsletter {
+    .wrapper-about {
         flex: 0 0 auto;
         width: percentage(4/12);
         margin: 0 #{$gutter};
