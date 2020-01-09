@@ -81,11 +81,10 @@ export default {
     },
     methods: {
         reveal() {
-            const delay = this.isMobile ? 1 : 3.5;
             gsap.from(this.$refs.header, {
                 duration: 1,
                 opacity: 0,
-                delay: delay
+                delay: 0.5
             });
         },
         toggleBurger() {

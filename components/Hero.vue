@@ -78,11 +78,10 @@ export default {
     },
     methods: {
         reveal() {
-            const delay = this.isMobile ? 0.7 : 3;
             gsap.from(this.$refs.text, {
                 duration: 1,
                 opacity: 0,
-                delay: delay
+                delay: 1.3
             });
         }
     }
