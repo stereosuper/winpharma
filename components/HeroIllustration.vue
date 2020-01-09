@@ -729,6 +729,8 @@ export default {
     left: 18%;
 }
 .hero-illustration {
+    position: absolute;
+    bottom: 0;
     max-height: 100%;
 }
 @keyframes float1 {
