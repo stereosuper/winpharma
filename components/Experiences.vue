@@ -8,6 +8,14 @@
         </div>
         <div ref="containerExperiences" class="container-experiences">
             <div ref="containerImgLarge" class="container-img-large">
+                <div v-if="isL" class="bullets">
+                    <span
+                        v-for="p in 5"
+                        :key="'bullet' + p"
+                        class="bullet"
+                        :class="{ active: p - 1 === activeBullet }"
+                    ></span>
+                </div>
                 <div ref="bgImg" class="bg-img-large">
                     <div ref="starsBg" class="stars-bg"></div>
                 </div>
@@ -319,7 +327,8 @@ export default {
         experiencesIllus: [],
         nbExperiences: 0,
         tlXpIn: null,
-        tlXpOut: null
+        tlXpOut: null,
+        activeBullet: 0
     }),
     computed: {
         isL() {
@@ -445,6 +454,7 @@ export default {
             }
         },
         inXp(xpIndex) {
+            this.activeBullet = xpIndex;
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
             this.tlXpIn.to(
@@ -532,6 +542,25 @@ export default {
         &:last-child {
             margin-bottom: 0;
         }
+    }
+}
+.bullets {
+    position: absolute;
+    top: calc(10vh + 20px);
+    left: calc(100% + 30px);
+    display: flex;
+}
+
+.bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 3px;
+    margin-right: 25px;
+    border: 1px solid #b5b3b3;
+    transition: 0.2s ease-in-out;
+    &.active {
+        width: 24px;
+        border-color: $secondary;
     }
 }
 .wrapper-img {
