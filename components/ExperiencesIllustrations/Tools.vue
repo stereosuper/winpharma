@@ -1,17 +1,63 @@
 <template>
     <div class="wrapper">
         <div class="wrapper-shape">
-            <img class="shape" src="img/tools-shape.svg" alt="" />
+            <img ref="shape" class="shape" src="img/tools-shape.svg" alt="" />
         </div>
         <span class="wrapper-screen">
             <img class="screen" src="img/tools-screen.png" alt="" />
-            <img class="front" src="img/tools-switch.svg" alt="" />
+            <img ref="front" class="front" src="img/tools-switch.svg" alt="" />
         </span>
     </div>
 </template>
 
 <script>
-export default {};
+import { gsap } from 'gsap/all';
+
+export default {
+    data: () => ({
+        shape: null,
+        factorShape: 1,
+        front: null,
+        factorFront: 2
+    }),
+    mounted() {
+        this.initRefs();
+    },
+    methods: {
+        initRefs() {
+            this.shape = this.$refs.shape;
+            this.front = this.$refs.front;
+        },
+        launchFloat() {
+            gsap.to(this.shape, {
+                duration: 3 * (this.factorShape * 0.1 + 1),
+                repeat: -1,
+                yoyo: true,
+                y: -5 * this.factorShape - 5,
+                ease: 'power1.inOut'
+            });
+            gsap.to(this.shape, {
+                duration: 3 * (this.factorShape * 0.6 + 1),
+                repeat: -1,
+                yoyo: true,
+                rotation: -5 * (this.factorShape * 0.5),
+                ease: 'power1.inOut',
+                transformOrigin: '50% 50%'
+            });
+            gsap.to(this.front, {
+                duration: 3 * (this.factorFront * 0.1 + 1),
+                repeat: -1,
+                yoyo: true,
+                y: -5 * this.factorFront - 5,
+                ease: 'power1.inOut',
+                delay: 1.5
+            });
+        },
+        killFloat() {
+            gsap.killTweensOf([this.shape, this.front]);
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>

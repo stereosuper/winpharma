@@ -1,7 +1,8 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 445">
+    <svg class="illus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 445">
         <path
             id="forme"
+            ref="shape"
             d="M82.9 398.8c35.6 55.2 114.2 62.4 158.3 13.8 8.1-9 14.5-19.3 18-31.1 19.6-66.7 92.9-53 124-117.6 31.2-64.5-21.3-140.5 26.8-170.1 48.2-29.5 67.2-32.8 47-57.5-20.2-24.7-74.3-62.4-176.5-9.9s-120.1 38.1-202.4 94C-4.1 176.3-19 236 22 302.7c18.2 29.6 41.1 65.5 60.9 96.1z"
             fill="#795bc0"
         />
@@ -136,7 +137,7 @@
                 d="M324.7 69c-2-1.5-3.4-3.6-4-6h-2.4v-3.7h1.9v-1.9h-1.9v-3.7h2.5c.6-2.4 2.1-4.5 4.1-6 2.1-1.5 4.5-2.2 7-2.2 1.4 0 2.7.2 4 .5 1.2.4 2.3.9 3.3 1.5v5.9c-.9-.7-1.9-1.3-3-1.7-1.2-.3-2.4-.5-3.6-.5-2.3 0-4 .8-5 2.4h4.6v3.7h-5.7v1.9h5.6v3.7h-4.6c1 1.7 2.7 2.5 5 2.5 1.2 0 2.4-.2 3.6-.5 1.2-.4 2.3-1 3.2-1.8v5.8c-1 .7-2.2 1.3-3.4 1.6-1.4.3-2.8.5-4.2.5-2.5.3-4.9-.5-7-2z"
             />
         </g>
-        <g id="planete">
+        <g id="planete" ref="planet">
             <path
                 class="st1"
                 d="M455.7 271c0-12.2-3.5-24.1-10.1-34.3-6.6-10.2-16-18.3-27.1-23.2-11.1-4.9-23.4-6.6-35.3-4.6-12 1.9-23.1 7.3-32.1 15.4 6.1 2 17.6 4.9 35.5 6.1 28.9 1.9 32.8 23.7 16.9 29.1-15.9 5.3-44.4-16.5-60.3-1.5s-10.1 23.7 0 34.4 12.1 40.7 35.2 25.7c23.2-15 9.3-34.2 34.4-32.8 18.6 1 22 20.2 23.2 31.8 6.3-5.9 11.3-13 14.7-20.9 3.3-8 5-16.6 5-25.2z"
@@ -159,7 +160,62 @@
 </template>
 
 <script>
-export default {};
+import { gsap } from 'gsap/all';
+
+export default {
+    data: () => ({
+        shape: null,
+        factorShape: 1,
+        planet: null,
+        factorPlanet: 2
+    }),
+    mounted() {
+        this.initRefs();
+    },
+    methods: {
+        initRefs() {
+            this.shape = this.$refs.shape;
+            this.planet = this.$refs.planet;
+        },
+        launchFloat() {
+            gsap.to(this.shape, {
+                duration: 3 * (this.factorShape * 0.1 + 1),
+                repeat: -1,
+                yoyo: true,
+                y: -5 * this.factorShape - 5,
+                ease: 'power1.inOut'
+            });
+            gsap.to(this.shape, {
+                duration: 3 * (this.factorShape * 0.6 + 1),
+                repeat: -1,
+                yoyo: true,
+                rotation: -5 * (this.factorShape * 0.5),
+                ease: 'power1.inOut',
+                transformOrigin: '50% 50%'
+            });
+            gsap.to(this.planet, {
+                duration: 3 * (this.factorPlanet * 0.1 + 1),
+                repeat: -1,
+                yoyo: true,
+                y: -5 * this.factorPlanet - 5,
+                ease: 'power1.inOut',
+                delay: 1.5
+            });
+            gsap.to(this.planet, {
+                duration: 3 * (this.factorPlanet * 0.6 + 1),
+                repeat: -1,
+                yoyo: true,
+                rotation: -5 * (this.factorPlanet * 0.5),
+                ease: 'power1.inOut',
+                transformOrigin: '50% 50%',
+                delay: 1.5
+            });
+        },
+        killFloat() {
+            gsap.killTweensOf([this.shape, this.planet]);
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -192,5 +248,8 @@ export default {};
 }
 .st13 {
     fill: #fec832;
+}
+.illus {
+    overflow: visible;
 }
 </style>
