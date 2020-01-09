@@ -389,6 +389,10 @@ export default {
             })
             .on('enter-view', () => {
                 gsap.to(this.$refs.titleModule, { duration: 0.7, opacity: 1, ease: 'power1.inOut' });
+                forEach(this.experiencesContents, (item, index) => {
+                    this.experiencesCollants[index].forget();
+                });
+                this.createCollant();
             });
 
         // Watch an element
