@@ -28,7 +28,7 @@
                     La Méthode winAutopilote®, unique sur le marché, atteint des gains de temps et des gains financiers
                     encore jamais vus en matière de gestion de stock en pharmacie&nbsp;!
                 </h1>
-                <Button :href="'#'" type="Primary">
+                <Button :href="'http://www.winpharma.com/info-winautopilote/'" type="Primary">
                     Demander une démo
                 </Button>
             </div>

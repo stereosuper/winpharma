@@ -54,7 +54,11 @@
                                     </p>
                                 </blockquote>
                                 <div class="wrapper-experience-button">
-                                    <Button :href="'#'" type="Primary" class="experience-button">
+                                    <Button
+                                        :href="'http://www.winpharma.com/info-winautopilote/'"
+                                        type="Primary"
+                                        class="experience-button"
+                                    >
                                         Demander une démo
                                     </Button>
                                 </div>
