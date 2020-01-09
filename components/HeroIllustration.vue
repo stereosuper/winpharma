@@ -775,4 +775,10 @@ export default {
         transform: translate3d(0, 0, 0);
     }
 }
+
+@media (min-width: $container) {
+    .wrapper-hero-illustration {
+        right: calc(((100vw - #{$container}) / 2) - 55px);
+    }
+}
 </style>

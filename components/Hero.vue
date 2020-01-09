@@ -1,7 +1,7 @@
 <template>
     <div class="hero">
         <div class="wrapper-bg-hero">
-            <svg viewBox="0 0 1190 935" preserveAspectRatio="none" class="bg-hero">
+            <svg viewBox="0 0 1403 935" preserveAspectRatio="none" class="bg-hero">
                 <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
@@ -11,7 +11,7 @@
                 <path
                     fill-rule="evenodd"
                     clip-rule="evenodd"
-                    d="M604.134 719.534C814.606 682.166 1018.22 719.753 1190 799.105V935H0V916C175.5 823.5 411 753.824 604.134 719.534Z"
+                    d="M604.134 719.534C879.465 670.651 1220 777.5 1402.5 935H1339H0V916C175.5 823.5 411 753.824 604.134 719.534Z"
                     fill="#322654"
                 />
             </svg>
@@ -69,11 +69,7 @@ export default {
             this.reveal();
         },
         ww(w) {
-            if (w >= this.$breakpoints.list.l) {
-                this.showIllus = true;
-            } else {
-                this.showIllus = false;
-            }
+            this.showIllus = w >= this.$breakpoints.list.l;
         }
     },
     methods: {
@@ -108,12 +104,14 @@ export default {
     bottom: 0;
     width: 80%;
     min-width: 800px;
-    overflow: hidden;
+    // overflow: hidden;
     z-index: -1;
 }
 .bg-hero {
-    width: 100%;
+    position: relative;
+    width: calc(100% + 213px);
     height: 100%;
+    z-index: 1;
 }
 .wrapper-txt {
     position: relative;
@@ -152,6 +150,26 @@ export default {
     }
     .wrapper-txt-hero {
         width: percentage(5/12);
+    }
+}
+
+@media (min-width: $container) {
+    .hero {
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            width: calc((100vw - #{$container}) / 2);
+            background-color: $primary-dark;
+            z-index: -1;
+        }
+    }
+
+    .wrapper-bg-hero {
+        width: $container;
+        right: calc((100vw - #{$container} - 20px) / 2);
     }
 }
 
