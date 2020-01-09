@@ -729,6 +729,8 @@ export default {
     left: 18%;
 }
 .hero-illustration {
+    position: absolute;
+    bottom: 0;
     max-height: 100%;
 }
 @keyframes float1 {
@@ -773,6 +775,12 @@ export default {
     }
     100% {
         transform: translate3d(0, 0, 0);
+    }
+}
+
+@media (min-width: $container) {
+    .wrapper-hero-illustration {
+        right: calc(((100vw - #{$container}) / 2) - 55px);
     }
 }
 </style>

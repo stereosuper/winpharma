@@ -435,6 +435,8 @@ export default {
     margin-top: 30px;
     line-height: 17px;
     color: $grey-light;
+    font-family: $dm;
+    font-size: 1.4rem;
     .wrapper-img {
         flex: 0 0 auto;
         width: 40px;
@@ -448,10 +450,7 @@ export default {
         align-items: baseline;
     }
     .user-name {
-        font-family: $ageo-semi-bold;
-    }
-    .user-company {
-        font-family: $ageo-medium;
+        font-weight: 700;
     }
 }
 .hide-small-device {

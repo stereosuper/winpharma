@@ -80,7 +80,7 @@ export default {
                     "Pour moi, l’automatisation présente <strong>un gain de temps important</strong> et pour rien au monde je ne reviendrai en arrière. Cela apporte <strong>sécurité et simplicité</strong> surtout en cas d'équipe réduite.",
                 author: 'Constance Vanwelden',
                 source: 'Mouchin (59)',
-                img: 'isabelle-delobelle.png'
+                img: 'user-placeholder.svg'
             },
             {
                 title: 'Je gagne 1h de temps par jour',
@@ -96,7 +96,7 @@ export default {
                     "WinAutopilote, <strong>c'est un gain de temps énorme !</strong>  On se libère des commandes grossistes. Depuis, <strong>j’ai gagné en efficacité</strong>, en stock <strong>et surtout en marge !</strong>",
                 author: 'Benoit Beaussier',
                 source: 'Tinchebray (61)',
-                img: 'isabelle-delobelle.png'
+                img: 'user-placeholder.svg'
             },
 
             {
