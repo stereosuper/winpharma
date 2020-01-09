@@ -493,7 +493,7 @@ export default {
             this.tlXpIn.to(
                 this.experiencesWrapperIllus[xpIndex],
                 { duration: 0.3, opacity: 1, scale: 1, visibility: 'visible' },
-                'first-step'
+                'first-step+=1'
             );
             this.tlXpIn.to(
                 this.bgImg,
@@ -505,10 +505,10 @@ export default {
                 this.tlXpIn.to(
                     this.starsBg,
                     {
-                        duration: 0.8,
+                        duration: 1,
                         opacity: 1,
                         visibility: 'visible',
-                        backgroundPosition: `-${xpIndex * 300}% 0`,
+                        backgroundPosition: `-${xpIndex * 600}% 0`,
                         ease: 'power4.inOut'
                     },
                     'first-step'
