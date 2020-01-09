@@ -43,6 +43,11 @@
                                 </div>
                             </div>
                             <div class="experience-content">
+                                <div
+                                    v-if="isL"
+                                    class="blockquote-image"
+                                    :style="{ backgroundImage: 'url(img/sylvain-author.png)' }"
+                                ></div>
                                 <blockquote>
                                     <p>
                                         <span class="blockquote-content">
@@ -50,7 +55,7 @@
                                             Seine-et-Marne. J’utilise winAutopilote depuis juillet 2019.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier</cite>
-                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
+                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
                                     </p>
                                 </blockquote>
                                 <div class="wrapper-experience-button">
@@ -78,6 +83,11 @@
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
+                                <div
+                                    v-if="isL"
+                                    class="blockquote-image"
+                                    :style="{ backgroundImage: 'url(img/sylvain-author.png)' }"
+                                ></div>
                                 <blockquote>
                                     <p>
                                         <span class="blockquote-content secondary">
@@ -85,7 +95,7 @@
                                             patients et les tâches à valeur ajoutée.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
+                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
                                     </p>
                                 </blockquote>
                             </div>
@@ -134,6 +144,11 @@
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
+                                <div
+                                    v-if="isL"
+                                    class="blockquote-image"
+                                    :style="{ backgroundImage: 'url(img/sylvain-author.png)' }"
+                                ></div>
                                 <blockquote>
                                     <p>
                                         <span class="blockquote-content secondary">
@@ -141,7 +156,7 @@
                                             sensibles, nécessitant votre intervention.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
+                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
                                     </p>
                                 </blockquote>
                             </div>
@@ -190,6 +205,11 @@
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
+                                <div
+                                    v-if="isL"
+                                    class="blockquote-image"
+                                    :style="{ backgroundImage: 'url(img/sylvain-author.png)' }"
+                                ></div>
                                 <blockquote>
                                     <p>
                                         <span class="blockquote-content secondary">
@@ -197,7 +217,7 @@
                                             pendant que j’étais au comptoir auprès de mes patients.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
+                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
                                     </p>
                                 </blockquote>
                             </div>
@@ -246,6 +266,11 @@
                         </div>
                         <div class="container-txt container">
                             <div class="experience-intro">
+                                <div
+                                    v-if="isL"
+                                    class="blockquote-image"
+                                    :style="{ backgroundImage: 'url(img/sylvain-author.png)' }"
+                                ></div>
                                 <blockquote>
                                     <p>
                                         <span class="blockquote-content secondary">
@@ -253,7 +278,7 @@
                                             sensibles, nécessitant votre intervention.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">WinPharmacien Le Coeur de la Brie (10)</span>
+                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
                                     </p>
                                 </blockquote>
                             </div>
@@ -813,6 +838,9 @@ export default {
             display: none;
         }
     }
+    .blockquote-image{
+        display: none;
+    }
     .wrapper-illus {
         opacity: 0;
         transform: scale(0.9);
@@ -904,6 +932,25 @@ export default {
     .bullets {
         left: calc(100% + 100px);
         top: calc(10vh + 45px);
+    }
+    .blockquote-image {
+        display: block;
+        flex-shrink: 0;
+        width: 120px;
+        background-color: $secondary;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 100%;
+        border-radius: 8px 0 0 8px;
+    }
+    .experience-intro {
+        display: flex;
+        &:not(.double) {
+            padding: 0;
+            > blockquote {
+                padding: 20px 30px;
+            }
+        }
     }
 }
 </style>
