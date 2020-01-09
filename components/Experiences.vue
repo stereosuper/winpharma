@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper-experiences">
         <div class="container">
-            <h2 class="title-experiences">
+            <h2 ref="titleModule" class="title-experiences">
                 <span>Découvrez <span class="primary-light">les gains incroyables</span> de vos confrères&nbsp;!</span>
                 <Icon name="arrow" class="title-arrow primary-light" />
             </h2>
@@ -310,6 +310,7 @@ export default {
         Generation
     },
     data: () => ({
+        revealTitle: null,
         containerExperiences: null,
         containerImgLarge: null,
         bgImg: null,
@@ -371,6 +372,20 @@ export default {
         this.tlXpIn = gsap.timeline();
         this.tlXpOut = gsap.timeline();
 
+        gsap.set(this.$refs.titleModule, { opacity: 0 });
+
+        this.revealTitle = this.$stereorepo.superScroll
+            .watch({
+                element: this.$refs.titleModule,
+                options: {
+                    stalk: false,
+                    triggerOffset: 200
+                }
+            })
+            .on('enter-view', () => {
+                gsap.to(this.$refs.titleModule, { duration: 0.7, opacity: 1, ease: 'power1.inOut' });
+            });
+
         // Watch an element
         this.revealXp = this.$stereorepo.superScroll
             .watch({
@@ -399,6 +414,7 @@ export default {
         // Forget the watcher to avoid memory leak
         if (this.revealXp) this.revealXp.forget();
         if (this.bgCollant) this.bgCollant.forget();
+        if (this.revealTitle) this.revealTitle.forget();
         forEach(this.experiencesContents, (item, index) => {
             this.experiencesCollants[index].forget();
         });
