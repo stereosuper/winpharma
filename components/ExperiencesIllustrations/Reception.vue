@@ -171,7 +171,6 @@ export default {
     }),
     mounted() {
         this.initRefs();
-        this.launchFloat();
     },
     methods: {
         initRefs() {
@@ -211,6 +210,9 @@ export default {
                 transformOrigin: '50% 50%',
                 delay: 1.5
             });
+        },
+        killFloat() {
+            gsap.killTweensOf([this.shape, this.cosmonaut]);
         }
     }
 };

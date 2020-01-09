@@ -27,7 +27,7 @@
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
                                 <div class="wrapper-illus img">
-                                    <QuoteAuthor />
+                                    <QuoteAuthor ref="quoteIllus" />
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
                                 <div class="wrapper-illus">
-                                    <Reception />
+                                    <Reception ref="receptionIllus" />
                                 </div>
                             </div>
                         </div>
@@ -128,7 +128,7 @@
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
                                 <div class="wrapper-illus">
-                                    <Tools />
+                                    <Tools ref="toolsIllus" />
                                 </div>
                             </div>
                         </div>
@@ -184,7 +184,7 @@
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
                                 <div class="wrapper-illus">
-                                    <Generation />
+                                    <Generation ref="generationIllus" />
                                 </div>
                             </div>
                         </div>
@@ -240,7 +240,7 @@
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
                                 <div class="wrapper-illus">
-                                    <Stock />
+                                    <Stock ref="stockIllus" />
                                 </div>
                             </div>
                         </div>
@@ -329,6 +329,7 @@ export default {
         experiencesCollants: [],
         experiencesTxt: [],
         experiencesIntro: [],
+        experiencesWrapperIllus: [],
         experiencesIllus: [],
         nbExperiences: 0,
         tlXpIn: null,
@@ -356,7 +357,7 @@ export default {
                     gsap.set(
                         [
                             this.experiencesContents[index],
-                            this.experiencesIllus[index],
+                            this.experiencesWrapperIllus[index],
                             this.experiencesIntro[index],
                             this.experiencesTxt[index]
                         ],
@@ -440,7 +441,14 @@ export default {
             this.nbExperiences = this.experiences.length;
             this.experiencesContents = query({ selector: '.experience-content-large', ctx: this.containerExperiences });
             this.experiencesIntro = query({ selector: '.experience-intro', ctx: this.containerExperiences });
-            this.experiencesIllus = query({ selector: '.wrapper-illus', ctx: this.containerExperiences });
+            this.experiencesWrapperIllus = query({ selector: '.wrapper-illus', ctx: this.containerExperiences });
+            this.experiencesIllus = [
+                this.$refs.quoteIllus,
+                this.$refs.receptionIllus,
+                this.$refs.toolsIllus,
+                this.$refs.generationIllus,
+                this.$refs.stockIllus
+            ];
         },
         createCollant() {
             forEach(this.experiencesContents, (item, index) => {
@@ -468,9 +476,10 @@ export default {
         },
         outBeforeXp(xpIndex) {
             if (xpIndex != 0) {
-                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+                gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
                 gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
                 gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+                this.experiencesIllus[xpIndex].killFloat();
             }
         },
         inXp(xpIndex) {
@@ -478,7 +487,7 @@ export default {
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
             this.tlXpIn.to(
-                this.experiencesIllus[xpIndex],
+                this.experiencesWrapperIllus[xpIndex],
                 { duration: 0.3, opacity: 1, scale: 1, visibility: 'visible' },
                 'first-step'
             );
@@ -488,6 +497,7 @@ export default {
                 'first-step'
             );
             if (xpIndex != 0) {
+                this.experiencesIllus[xpIndex].launchFloat();
                 this.tlXpIn.to(
                     this.starsBg,
                     {
@@ -516,9 +526,12 @@ export default {
         },
         outXp(xpIndex) {
             if (xpIndex < this.nbExperiences - 1) {
-                gsap.set(this.experiencesIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+                gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
                 gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
                 gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+            }
+            if (xpIndex != 0) {
+                this.experiencesIllus[xpIndex].killFloat();
             }
         }
     }

@@ -22,7 +22,6 @@ export default {
     }),
     mounted() {
         this.initRefs();
-        this.launchFloat();
     },
     methods: {
         initRefs() {
@@ -53,6 +52,9 @@ export default {
                 ease: 'power1.inOut',
                 delay: 1.5
             });
+        },
+        killFloat() {
+            gsap.killTweensOf([this.shape, this.front]);
         }
     }
 };
