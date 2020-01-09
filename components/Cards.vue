@@ -1,39 +1,43 @@
 <template>
     <div class="wrapper-cards container">
         <a href="#" class="card button-trigger">
-            <span class="wrapper-img" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
-            <span class="card-txt">
-                <span class="card-txt-top">
-                    <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
-                    <p>
-                        Si vous avez encore quelques questions, téléchargez ce livre blanc qui reprend 8 idées reçues
-                        sur l’automatisation et pourquoi vous avez tout intérêt à les dépasser.
-                    </p>
+            <div class="inner-card">
+                <span class="wrapper-img" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
+                <span class="card-txt">
+                    <span class="card-txt-top">
+                        <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
+                        <p>
+                            Si vous avez encore quelques questions, téléchargez ce livre blanc qui reprend 8 idées
+                            reçues sur l’automatisation et pourquoi vous avez tout intérêt à les dépasser.
+                        </p>
+                    </span>
+                    <span class="card-btn">
+                        <Button tag="span" type="Secondary">
+                            Notre livre blanc
+                        </Button>
+                    </span>
                 </span>
-                <span class="card-btn">
-                    <Button tag="span" type="Secondary">
-                        Notre livre blanc
-                    </Button>
-                </span>
-            </span>
+            </div>
         </a>
         <a href="#" class="card button-trigger">
-            <span class="wrapper-img" :style="{ backgroundImage: 'url(img/co-creation.png)' }"></span>
-            <span class="card-txt">
-                <span class="card-txt-top">
-                    <span class="card-title">Le fruit d’un travail de co&#x2011;création</span>
-                    <p>
-                        Par un travail de terrain, au cœur des pharmacies, nous avons étudié, testé et validé tous les
-                        paramètres intervenant dans la gestion des commandes d’une officine, de structure ou taille
-                        différente.
-                    </p>
+            <div class="inner-card">
+                <span class="wrapper-img" :style="{ backgroundImage: 'url(img/co-creation.png)' }"></span>
+                <span class="card-txt">
+                    <span class="card-txt-top">
+                        <span class="card-title">Le fruit d’un travail de co&#x2011;création</span>
+                        <p>
+                            Par un travail de terrain, au cœur des pharmacies, nous avons étudié, testé et validé tous
+                            les paramètres intervenant dans la gestion des commandes d’une officine, de structure ou
+                            taille différente.
+                        </p>
+                    </span>
+                    <span class="card-btn">
+                        <Button tag="span" type="Secondary">
+                            Notre étude
+                        </Button>
+                    </span>
                 </span>
-                <span class="card-btn">
-                    <Button tag="span" type="Secondary">
-                        Notre étude
-                    </Button>
-                </span>
-            </span>
+            </div>
         </a>
     </div>
 </template>
@@ -63,7 +67,30 @@ export default {};
     position: relative;
     text-decoration: none;
     z-index: 1;
-     &::before, &::after {
+    &:hover,
+    &:focus {
+        .inner-card {
+            &::after {
+                opacity: 1;
+            }
+            transform: translateY(-10px) translateZ(0);
+        }
+    }
+}
+
+.inner-card {
+    position: relative;
+    transform: translateY(0) translateZ(0);
+    transition: transform 0.7s $easeOut;
+    z-index: 1;
+    > span {
+        display: block;
+    }
+    p {
+        color: $grey;
+    }
+    &::before,
+    &::after {
         content: '';
         position: absolute;
         top: 0;
@@ -82,18 +109,6 @@ export default {};
         z-index: -2;
         box-shadow: 0px 49px 30px rgba(25, 16, 40, 0.156714);
         transition: 0.7s $easeOut;
-    }
-    > span {
-        display: block;
-    }
-    p {
-        color: $grey;
-    }
-    &:hover, &:focus{
-        &::after{
-            opacity: 1;
-        }
-        // box-shadow: 0px 49px 30px rgba(25, 16, 40, 0.156714);
     }
 }
 .wrapper-img {
@@ -152,10 +167,13 @@ p {
         }
     }
     .card {
-        display: flex;
-        flex-direction: column;
         max-width: none;
         width: calc(50% - #{$gutter});
+    }
+    .inner-card {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
         > span {
             &.card-txt {
                 flex: 1 1 auto;
