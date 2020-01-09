@@ -90,20 +90,20 @@
                                 </blockquote>
                             </div>
                             <div class="experience-content">
-                                <h3 class="h3">
+                                <h3 class="content-title">
                                     Réception automatique
                                 </h3>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     Suppression des faux promis
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     Aucun laps de temps perdu entre la livraison des produits et le chargement du robot
                                     ou la disponibilité des promis.
                                 </p>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     Confort de travail
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     Votre équipe se consacre plus sereinement à l’accueil, au conseil et au service des
                                     patients.
                                 </p>
@@ -146,20 +146,20 @@
                                 </blockquote>
                             </div>
                             <div class="experience-content">
-                                <h3 class="h3">
+                                <h3 class="content-title">
                                     Des outils simples pour gérer les commandes
                                 </h3>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     Visuel et dynamique
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     Le tableau de bord winAutopilote synthétise et pointe les commandes qui méritent
                                     votre attention.
                                 </p>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     Des règles de gestion dynamiques
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     Des règles personnalisées à la pharmacie, qui évoluent automatiquement tout au long
                                     du cycle de vie des produits.
                                 </p>
@@ -202,20 +202,20 @@
                                 </blockquote>
                             </div>
                             <div class="experience-content">
-                                <h3 class="h3">
+                                <h3 class="content-title">
                                     Génération et envoi automatique
                                 </h3>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     L’esprit tranquille
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     Ne vous souciez plus de vérifier et passer les commandes des grossistes,
                                     d'homéopathie et même de certains laboratoires directs.
                                 </p>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     Réduction des erreurs
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à
                                     vérifier. Il n'est jamais distrait ni même pressé.
                                 </p>
@@ -258,20 +258,20 @@
                                 </blockquote>
                             </div>
                             <div class="experience-content">
-                                <h3 class="h3">
+                                <h3 class="content-title">
                                     Diminution du stock
                                 </h3>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     Un stock optimisé
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     Diminue d’environ 1 %, ce qui représente en moyenne 15 000 € pour une pharmacie
                                     générant 1,5 M€ de chiffre d’affaires.
                                 </p>
-                                <h4 class="h4">
+                                <h4 class="content-subtitle">
                                     Des clients toujours satisfaits
                                 </h4>
-                                <p>
+                                <p class="content-text">
                                     Les produits sont en stock toujours au bon moment. La baisse du stock n'engendre pas
                                     d'augmentation des promis grâce à une optimisation des achats.
                                 </p>
@@ -674,6 +674,7 @@ export default {
         font-family: $ageo-semi-bold;
         font-size: 3rem;
         line-height: 36px;
+        font-weight: 500;
     }
 }
 .wrapper-experience-button {
@@ -681,6 +682,24 @@ export default {
     justify-content: center;
     margin-top: 30px;
 }
+
+.content-title {
+    margin-bottom: 30px;
+    font-family: $ageo;
+    font-size: 2.8rem;
+    font-weight: normal;
+}
+
+.content-subtitle {
+    margin-top: 20px;
+    font-family: $ageo-semi-bold;
+    font-size: 2rem;
+}
+
+.content-text {
+    font-size: 1.4rem;
+}
+
 .experience-number {
     display: flex;
     align-items: center;
@@ -694,10 +713,11 @@ export default {
         margin-right: #{$small-gutter * 2};
     }
     .wrapper-txt {
+        color: $grey-light;
         p {
             > strong {
                 display: block;
-                font-family: $ageo-bold;
+                font-family: $ageo-semi-bold;
                 font-size: 2rem;
                 line-height: 24px;
                 color: $tertiary;
@@ -724,7 +744,11 @@ export default {
         height: 350px;
     }
 }
+
 @media (min-width: $desktop-small) {
+    .content-title {
+        margin-bottom: 20px;
+    }
     .title-experiences {
         .title-arrow {
             margin-top: 100px;
@@ -742,6 +766,10 @@ export default {
             }
         }
     }
+    .experience-number {
+        margin-top: 20px;
+        padding-top: 20px;
+    }
     .experience-content-large {
         position: relative;
         width: 100%;
@@ -752,16 +780,12 @@ export default {
         &.collant {
             z-index: 1;
         }
-        @media (min-height: $desktop-v) {
-            padding-top: 15vh;
-            padding-bottom: 15vh;
-        }
     }
     .container-img {
         flex: 0 0 auto;
         display: flex;
         justify-content: flex-end;
-        width: percentage(7/12);
+        width: percentage(6/12);
         height: 100%;
     }
     .wrapper-img {
@@ -795,22 +819,17 @@ export default {
     .experience-intro {
         order: 2;
         width: 100%;
-        margin: 30px 0 -45px calc(-20% + #{$gutter * 2});
+        margin: 30px 0 -45px -20%;
         opacity: 0;
         transform: scale(0.9);
         visibility: hidden;
-    }
-    .experience-number {
-        @media (min-height: $desktop-v) {
-            margin-top: 60px;
-        }
     }
     .container-img-large {
         display: block;
         position: absolute;
         top: 0;
         left: 0;
-        width: calc(58.33333337% - 5px);
+        width: calc(50% - 5px);
         height: 100vh;
 
         .bg-img-large {
@@ -821,10 +840,6 @@ export default {
             left: 0;
             background: $secondary;
             transform: translate3d(calc(50vw - 50%), 0, 0);
-            @media (min-height: $desktop-v) {
-                padding-top: 15vh;
-                padding-bottom: 15vh;
-            }
         }
         .stars-bg {
             position: absolute;
@@ -840,12 +855,38 @@ export default {
         }
     }
 }
-@media (min-width: $desktop-xxl) {
+
+@media (min-width: $container) {
+    .container-img-large {
+        width: calc(#{percentage(7/12)} - 5px);
+    }
+
+    .content-title {
+        margin-bottom: 70px;
+    }
+
+    .container-img {
+        width: percentage(7/12);
+    }
     .container-txt {
-        padding-left: percentage(1/12);
+        padding: 0 0 0 100px;
+        width: 500px;
+        margin: 100px 0 0;
+    }
+    .experience-number {
+        margin-top: 35px;
+        padding-top: 40px;
     }
     .experience-intro {
-        margin-left: calc(-50% + #{$gutter * 2});
+        width: 125%;
+        margin-left: -50%;
+        .intro-number {
+            font-size: 4rem;
+        }
+    }
+    .bullets {
+        left: calc(100% + 100px);
+        top: calc(10vh + 45px);
     }
 }
 </style>
