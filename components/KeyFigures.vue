@@ -51,11 +51,11 @@
                     <ul class="key-figures">
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>90%</strong> de taux d'automatisation</h4>
-                            <p>En préparation envoi et réception des commandes.</p>
+                            <p>En préparation, envoi et réception des commandes.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>30%</strong> de manquants en moins</h4>
-                            <p>Pour des prévisions plus justes et des besoins anticipés.</p>
+                            <p>Des prévisions plus justes et des besoins anticipés.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>+20&nbsp;000€</strong> de trésorerie</h4>
@@ -79,11 +79,11 @@
                     <ul class="key-figures">
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>91%</strong> de taux d'automatisation</h4>
-                            <p>En préparation envoi et réception des commandes.</p>
+                            <p>En préparation, envoi et réception des commandes.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>8h</strong> gagnées chaque semaine</h4>
-                            <p>Grâce à l’automatisation des commandes et la gestion des stocks.</p>
+                            <p>Grâce à l’automatisation des commandes et la nouvelle gestion de stocks.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>+25&nbsp;000€</strong> de trésorerie</h4>
@@ -107,10 +107,10 @@
                     <ul class="key-figures">
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>87%</strong> de taux d'automatisation</h4>
-                            <p>En préparation envoi et réception des commandes.</p>
+                            <p>En préparation, envoi et réception des commandes.</p>
                         </li>
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>1 temps plein</strong> d'économisé</h4>
+                            <h4 class="key-figure-title"><strong>35h</strong> gagnées chaque semaine</h4>
                             <p>Du temps consacré pour optimiser la pharmacie.</p>
                         </li>
                         <li class="key-figure">
