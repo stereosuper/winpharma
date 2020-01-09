@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-hero-illustration" ref="illu">
+    <div ref="illu" class="wrapper-hero-illustration">
         <svg
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="xMaxYMid"
@@ -528,7 +528,7 @@ import { gsap } from 'gsap/all';
 
 export default {
     data: () => ({
-        randomized: null,
+        randomized: null
     }),
     computed: {
         ready() {
@@ -537,23 +537,23 @@ export default {
         isMobile() {
             if (!this.$store.state.superWindow) return true;
             return this.$store.state.superWindow.width < this.$breakpoints.list.l;
-        },
+        }
     },
     watch: {
         async ready(r) {
             if (!r) return;
             this.reveal();
         },
-        isMobile(im){
-            if(!im){
+        isMobile(im) {
+            if (!im) {
                 this.randomized = [...this.$refs.illu.querySelectorAll('.front')].sort(() => Math.random() - 0.5);
                 this.launchFloat();
             }
         }
     },
-    mounted(){
+    mounted() {
         this.randomized = [...this.$refs.illu.querySelectorAll('.front')].sort(() => Math.random() - 0.5);
-        if(this.ready){
+        if (this.ready) {
             this.launchFloat();
         }
     },
@@ -562,7 +562,7 @@ export default {
             gsap.from(this.randomized, {
                 duration: 2,
                 opacity: 0,
-                delay: 1,
+                delay: 2.3,
                 stagger: 0.1,
                 y: -40,
                 rotation: -5,
@@ -575,12 +575,13 @@ export default {
             gsap.from(this.$refs.illu.querySelectorAll('.back'), {
                 duration: 1,
                 opacity: 0,
-                delay: 0.5
+                delay: 1.5
             });
         },
         launchFloat() {
             this.randomized.forEach((el, i) => {
                 const factor = el.getAttribute('data-factor');
+                // Vertical translation
                 gsap.to(el, {
                     duration: 3 * (factor * 0.1 + 1),
                     repeat: -1,
@@ -589,6 +590,8 @@ export default {
                     ease: 'power1.inOut',
                     delay: (i - 1) * 0.5
                 });
+
+                // Rotation qui boucle plus lentement
                 gsap.to(el, {
                     duration: 3 * (factor * 0.6 + 1),
                     repeat: -1,
