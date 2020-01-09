@@ -1,6 +1,6 @@
 <template>
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 371 497">
-        <g id="fond">
+    <svg class="illus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 371 497">
+        <g id="fond" ref="shape">
             <path
                 d="M185.5 487.8c102.4 0 185.5-83 185.5-185.5s-83-185.5-185.5-185.5C83 116.9 0 199.9 0 302.3s83 185.5 185.5 185.5z"
                 fill="#795bc0"
@@ -62,7 +62,7 @@
                 d="M125.7 263.7l-8.2-8.2c-.7-.7-1.6-1-2.5-1s-1.8.4-2.5 1l-23.9 23.9c-.7.7-1.6 1-2.5 1s-1.8-.4-2.5-1l-6.2-6.2c-.7-.7-1.6-1-2.5-1-.9 0-1.8.4-2.5 1l-8.3 8.3c-.7.7-1 1.6-1 2.5s.4 1.9 1 2.5L86 308.4l.1-.1.1.1 39.7-39.7c.7-.7 1-1.6 1-2.6s-.5-1.7-1.2-2.4z"
             />
         </g>
-        <g id="cosmonaute">
+        <g id="cosmonaute" ref="cosmonaut">
             <path
                 class="st5"
                 d="M289.3 71.8s-18.8-1.3-24.9-4.5C258.3 64 232 48.7 232 48.7l-10.6 10.6s28.1 25.1 36.9 28.3c8.8 3.1 20.8 7.1 20.8 7.1l10.2-22.9z"
@@ -160,7 +160,60 @@
 </template>
 
 <script>
-export default {};
+import { gsap } from 'gsap/all';
+
+export default {
+    data: () => ({
+        shape: null,
+        factorShape: 1,
+        cosmonaut: null,
+        factorCosmonaut: 2
+    }),
+    mounted() {
+        this.initRefs();
+        this.launchFloat();
+    },
+    methods: {
+        initRefs() {
+            this.shape = this.$refs.shape;
+            this.cosmonaut = this.$refs.cosmonaut;
+        },
+        launchFloat() {
+            gsap.to(this.shape, {
+                duration: 3 * (this.factorShape * 0.1 + 1),
+                repeat: -1,
+                yoyo: true,
+                y: -5 * this.factorShape - 5,
+                ease: 'power1.inOut'
+            });
+            gsap.to(this.shape, {
+                duration: 3 * (this.factorShape * 0.6 + 1),
+                repeat: -1,
+                yoyo: true,
+                rotation: -5 * (this.factorShape * 0.5),
+                ease: 'power1.inOut',
+                transformOrigin: '50% 50%'
+            });
+            gsap.to(this.cosmonaut, {
+                duration: 3 * (this.factorCosmonaut * 0.1 + 1),
+                repeat: -1,
+                yoyo: true,
+                y: -5 * this.factorCosmonaut - 5,
+                ease: 'power1.inOut',
+                delay: 1.5
+            });
+            gsap.to(this.cosmonaut, {
+                duration: 3 * (this.factorCosmonaut * 0.6 + 1),
+                repeat: -1,
+                yoyo: true,
+                rotation: -5 * (this.factorCosmonaut * 0.5),
+                ease: 'power1.inOut',
+                transformOrigin: '50% 50%',
+                delay: 1.5
+            });
+        }
+    }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -196,5 +249,8 @@ export default {};
 }
 .st20 {
     fill: #bba5ee;
+}
+.illus {
+    overflow: visible;
 }
 </style>
