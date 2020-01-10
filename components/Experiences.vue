@@ -55,7 +55,7 @@
                                             Seine-et-Marne. J’utilise winAutopilote depuis juillet 2019.&nbsp;»
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier</cite>
-                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
+                                        <span class="blockquote-source">Pharmacie du Coeur de la Brie (77)</span>
                                     </p>
                                 </blockquote>
                                 <div class="wrapper-experience-button">
@@ -95,7 +95,7 @@
                                             patients et les tâches à valeur ajoutée.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
+                                        <span class="blockquote-source">Seine-et-Marne (77)</span>
                                     </p>
                                 </blockquote>
                             </div>
@@ -156,7 +156,7 @@
                                             sensibles, nécessitant votre intervention.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
+                                        <span class="blockquote-source">Seine-et-Marne (77)</span>
                                     </p>
                                 </blockquote>
                             </div>
@@ -217,7 +217,7 @@
                                             pendant que j’étais au comptoir auprès de mes patients.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
+                                        <span class="blockquote-source">Seine-et-Marne (77)</span>
                                     </p>
                                 </blockquote>
                             </div>
@@ -278,7 +278,7 @@
                                             sensibles, nécessitant votre intervention.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">Hauts-de-Seine (92)</span>
+                                        <span class="blockquote-source">Seine-et-Marne (77)</span>
                                     </p>
                                 </blockquote>
                             </div>
