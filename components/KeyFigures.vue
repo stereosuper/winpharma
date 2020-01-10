@@ -16,7 +16,7 @@
                 <div class="outer-tabs">
                     <button
                         ref="firstTabButton"
-                        :class="{ active: tabActive === 0 && showActive }"
+                        :class="{ active: btnActive === 0 && showActive }"
                         type="button"
                         class="key-figures-button"
                         @click="changeTab(0, $event)"
@@ -24,7 +24,7 @@
                         Quartier
                     </button>
                     <button
-                        :class="{ active: tabActive === 1 && showActive }"
+                        :class="{ active: btnActive === 1 && showActive }"
                         type="button"
                         class="key-figures-button"
                         @click="changeTab(1, $event)"
@@ -32,7 +32,7 @@
                         Village
                     </button>
                     <button
-                        :class="{ active: tabActive === 2 && showActive }"
+                        :class="{ active: btnActive === 2 && showActive }"
                         type="button"
                         class="key-figures-button"
                         @click="changeTab(2, $event)"
@@ -143,6 +143,7 @@ import { query, forEach } from '@stereorepo/sac';
 export default {
     data: () => ({
         tabActive: 0,
+        btnActive: 0,
         showActive: false,
         myWatcher: null,
         keyFiguresButtons: null,
@@ -239,6 +240,7 @@ export default {
         changeTab(tabNb, e) {
             if (tabNb !== this.tabActive && this.transitionDone) {
                 this.transitionDone = false;
+                this.btnActive = tabNb;
                 const width = e.target.getBoundingClientRect().width;
                 const left = e.target.offsetLeft;
                 gsap.to(this.$refs.selectBar, {
