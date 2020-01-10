@@ -16,7 +16,7 @@
                 <div class="outer-tabs">
                     <button
                         ref="firstTabButton"
-                        :class="{ active: tabActive === 0 && showActive }"
+                        :class="{ active: btnActive === 0 && showActive }"
                         type="button"
                         class="key-figures-button"
                         @click="changeTab(0, $event)"
@@ -24,7 +24,7 @@
                         Quartier
                     </button>
                     <button
-                        :class="{ active: tabActive === 1 && showActive }"
+                        :class="{ active: btnActive === 1 && showActive }"
                         type="button"
                         class="key-figures-button"
                         @click="changeTab(1, $event)"
@@ -32,7 +32,7 @@
                         Village
                     </button>
                     <button
-                        :class="{ active: tabActive === 2 && showActive }"
+                        :class="{ active: btnActive === 2 && showActive }"
                         type="button"
                         class="key-figures-button"
                         @click="changeTab(2, $event)"
@@ -143,6 +143,7 @@ import { query, forEach } from '@stereorepo/sac';
 export default {
     data: () => ({
         tabActive: 0,
+        btnActive: 0,
         showActive: false,
         myWatcher: null,
         keyFiguresButtons: null,
@@ -156,7 +157,9 @@ export default {
         tlChangeTab: null,
         keyFiguresNotActive: null,
         usersNotActive: null,
-        transitionDone: true
+        buttons: null,
+        transitionDone: true,
+        appeared: false
     }),
     computed: {
         ww() {
@@ -167,6 +170,15 @@ export default {
     watch: {
         ww() {
             this.tabContentHeight();
+            if (!this.appeared) return;
+            const width = this.buttons[this.btnActive].getBoundingClientRect().width;
+            const left = this.buttons[this.btnActive].offsetLeft;
+            gsap.set(this.$refs.selectBar, {
+                width: width,
+                transformOrigin: '50% 50%',
+                ease: 'power4.inOut',
+                x: left
+            });
         }
     },
     mounted() {
@@ -174,6 +186,7 @@ export default {
         this.$stereorepo.superWindow.initializeWindow(this.$store);
 
         this.tabContents = query({ selector: '.tab-content' });
+        this.buttons = query({ selector: '.key-figures-button', ctx: this.$refs.wrapperKeyFigures });
         this.tabContentActive = this.tabContents[this.tabActive];
         this.keyFiguresButtons = query({ selector: '.key-figures-button' });
         this.keyFiguresActive = query({ selector: '.key-figure', ctx: this.tabContentActive });
@@ -215,7 +228,9 @@ export default {
                 });
                 this.tlAppear.to(
                     this.keyFiguresActive,
-                    { duration: 1, scale: 1, force3D: true, opacity: 1, stagger: 0.1, delay: 0.3, ease: 'power4.out' },
+                    { duration: 1, scale: 1, force3D: true, opacity: 1, stagger: 0.1, delay: 0.3, ease: 'power4.out', onComplete: () => {
+                        this.appeared = true;
+                    } },
                     'keyFiguresAppearing'
                 );
                 this.tlAppear.to(this.userActive, { duration: 0.7, opacity: 1, delay: 0.3 }, 'keyFiguresAppearing');
@@ -237,10 +252,11 @@ export default {
             this.heightTabSet = true;
         },
         changeTab(tabNb, e) {
-            if (tabNb !== this.tabActive && this.transitionDone) {
+            if (tabNb !== this.tabActive && this.transitionDone && this.appeared) {
                 this.transitionDone = false;
-                const width = e.target.getBoundingClientRect().width;
-                const left = e.target.offsetLeft;
+                this.btnActive = tabNb;
+                const width = this.buttons[tabNb].getBoundingClientRect().width;
+                const left = this.buttons[tabNb].offsetLeft;
                 gsap.to(this.$refs.selectBar, {
                     duration: 0.7,
                     width: width,
