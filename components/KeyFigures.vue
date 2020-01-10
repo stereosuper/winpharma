@@ -68,8 +68,8 @@
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
-                                <span class="user-name">Jean-René Delobelle</span>
-                                <span class="user-company">, Pharmacie à Orchie (59)</span>
+                                <span class="user-name">Jean-René Delobelle,&nbsp;</span>
+                                <span class="user-company"> Pharmacie à Orchie (59)</span>
                             </div>
                             <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
                         </div>
@@ -96,8 +96,8 @@
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
-                                <span class="user-name">Olivier Henry</span>
-                                <span class="user-company">, Pharmacie Mereau (18)</span>
+                                <span class="user-name">Olivier Henry,&nbsp;</span>
+                                <span class="user-company"> Pharmacie Mereau (18)</span>
                             </div>
                             <div class="user-company">Chiffre d’affaires : 1,2M&nbsp;€</div>
                         </div>
@@ -124,8 +124,8 @@
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
-                                <span class="user-name">Sophie Lachèze</span>
-                                <span class="user-company">, Pharmacie à Merignac (33)</span>
+                                <span class="user-name">Sophie Lachèze,&nbsp;</span>
+                                <span class="user-company"> Pharmacie à Merignac (33)</span>
                             </div>
                             <div class="user-company">Chiffre d’affaires : 7,2M&nbsp;€</div>
                         </div>
@@ -469,6 +469,7 @@ export default {
         display: flex;
         justify-content: flex-start;
         align-items: baseline;
+        flex-wrap: wrap;
     }
     .user-name {
         font-weight: 700;
