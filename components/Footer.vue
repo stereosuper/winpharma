@@ -68,13 +68,13 @@
                             <h4 class="footer-title">
                                 Téléphone
                             </h4>
-                            <a href="telto:contact@winpharma.com">0 820 220 333</a>
+                            <span class="txt-menu">0 820 220 333</span>
                         </li>
                         <li>
                             <h4 class="footer-title">
                                 Email
                             </h4>
-                            <a href="mailto:contact@winpharma.com">contact@winpharma.com</a>
+                            <span class="txt-menu">contact@winpharma.com</span>
                         </li>
                     </ul>
                 </li>
@@ -187,12 +187,15 @@ export default {};
             }
         }
     }
-    a {
+    a,
+    .txt-menu {
         font-family: $dm;
         font-size: 1.4rem;
         line-height: 24px;
         text-decoration: none;
         transition: opacity $short-duration;
+    }
+    a {
         &:hover {
             opacity: 0.6;
         }
@@ -369,11 +372,6 @@ export default {};
                     > li {
                         width: 100%;
                         margin: 0 0 30px;
-                        &:nth-child(n + 2) {
-                            .footer-title {
-                                margin-bottom: 0;
-                            }
-                        }
                     }
                 }
             }
