@@ -264,7 +264,7 @@ export default {
             margin: 0 0 0 25px;
         }
         a {
-            font-size: 1.7rem;
+            font-size: 1.4rem;
             .txt {
                 padding: 1px 0;
             }
