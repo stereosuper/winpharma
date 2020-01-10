@@ -908,7 +908,7 @@ export default {
 
     .content-title {
         @media (min-height: $desktop-v) {
-            margin-bottom: 70px;
+            margin-bottom: 30px;
         }
     }
 
@@ -959,6 +959,15 @@ export default {
                 padding: 20px 30px;
             }
         }
+    }
+}
+@media (min-width: $desktop-huge) and (min-height: 950px) {
+    .bullets {
+        top: calc(10vh + 95px);
+    }
+    .container-txt {
+        margin-top: 150px;
+        justify-content: flex-start;
     }
 }
 </style>
