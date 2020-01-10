@@ -178,4 +178,10 @@ export default {
         padding: 200px 0 260px;
     }
 }
+
+@media (min-height: $desktop-v) {
+    .hero {
+        min-height: 850px;
+    }
+}
 </style>
