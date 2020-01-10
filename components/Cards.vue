@@ -60,7 +60,7 @@ export default {
                 .watch({
                     element: el,
                     options: {
-                        stalk: true,
+                        stalk: false,
                         triggerOffset: '60%'
                     }
                 })
