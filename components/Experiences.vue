@@ -755,8 +755,8 @@ export default {
         margin-right: #{$small-gutter * 2};
     }
     .wrapper-txt {
-        color: $grey-light;
         p {
+        color: $grey-light;
             > strong {
                 display: block;
                 font-family: $ageo-semi-bold;
