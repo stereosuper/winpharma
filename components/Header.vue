@@ -48,6 +48,13 @@
 import { gsap } from 'gsap/all';
 
 export default {
+    head() {
+        return {
+            htmlAttrs: {
+                class: this.burgerState ? 'no-scroll' : ''
+            }
+        };
+    },
     computed: {
         navigationIsMobile() {
             if (!this.$store.state.superWindow) return false;
@@ -134,7 +141,6 @@ export default {
     display: flex;
     align-items: stretch;
     justify-content: center;
-    min-height: 100vh;
     padding: 104px 0 30px;
     background: $primary;
     transform: translate3d(0, -100%, 0);
@@ -148,7 +154,12 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: 0;
+    width: 100%;
+    height: 100vh;
+    margin: -104px 0 0;
+    padding: 104px 0 0;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
     > li {
         margin: 15px 0;
         &.active {
@@ -252,7 +263,6 @@ export default {
         left: auto;
         right: auto;
         display: block;
-        min-height: 0;
         padding: 0;
         background: transparent;
         transform: none;
@@ -260,6 +270,10 @@ export default {
     .menu {
         flex-direction: row;
         justify-content: flex-end;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow-y: visible;
         > li {
             margin: 0 0 0 25px;
         }
