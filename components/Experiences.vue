@@ -755,8 +755,8 @@ export default {
         margin-right: #{$small-gutter * 2};
     }
     .wrapper-txt {
-        color: $grey-light;
         p {
+            color: $grey-light;
             > strong {
                 display: block;
                 font-family: $ageo-semi-bold;
@@ -921,7 +921,7 @@ export default {
         margin-right: 0;
         margin-left: 0;
         @media (min-height: $desktop-v) {
-            margin-top: 50px;
+            margin-top: 100px;
         }
     }
     .experience-number {
