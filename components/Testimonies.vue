@@ -96,7 +96,7 @@ export default {
                     "WinAutopilote, <strong>c'est un gain de temps énorme !</strong>  On se libère des commandes grossistes. Depuis, <strong>j’ai gagné en efficacité</strong>, en stock <strong>et surtout en marge !</strong>",
                 author: 'Benoit Beaussier',
                 source: 'Tinchebray (61)',
-                img: 'user-placeholder.svg'
+                img: 'benoit-beaussier.png'
             },
 
             {
