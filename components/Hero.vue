@@ -175,7 +175,7 @@ export default {
 
 @media (min-width: $desktop-large) {
     .hero {
-        padding: 200px 0;
+        padding: 200px 0 260px;
     }
 }
 </style>
