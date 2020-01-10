@@ -350,6 +350,11 @@ export default {
         border: 0;
         color: $grey-light;
         transition: color 0.4s $easeInOut;
+        &:hover,
+        &:focus {
+            color: #D7D7D7;
+            transition: color 0.4s ease-in-out;
+        }
         &.active {
             color: $secondary;
         }
