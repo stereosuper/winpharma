@@ -87,6 +87,7 @@ export default {};
         display: block;
     }
     p {
+        font-size: 1.4rem;
         color: $grey;
     }
     &::before,
