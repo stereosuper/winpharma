@@ -838,7 +838,7 @@ export default {
             display: none;
         }
     }
-    .blockquote-image{
+    .blockquote-image {
         display: none;
     }
     .wrapper-illus {
@@ -907,7 +907,9 @@ export default {
     }
 
     .content-title {
-        margin-bottom: 70px;
+        @media (min-height: $desktop-v) {
+            margin-bottom: 70px;
+        }
     }
 
     .container-img {
@@ -916,7 +918,11 @@ export default {
     .container-txt {
         padding: 0 0 0 100px;
         width: 500px;
-        margin: 100px 0 0;
+        margin-right: 0;
+        margin-left: 0;
+        @media (min-height: $desktop-v) {
+            margin-top: 50px;
+        }
     }
     .experience-number {
         margin-top: 35px;
@@ -931,7 +937,9 @@ export default {
     }
     .bullets {
         left: calc(100% + 100px);
-        top: calc(10vh + 45px);
+        @media (min-height: $desktop-v) {
+            top: calc(10vh + 45px);
+        }
     }
     .blockquote-image {
         display: block;
@@ -952,5 +960,7 @@ export default {
             }
         }
     }
+
+    
 }
 </style>
