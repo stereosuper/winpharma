@@ -111,13 +111,7 @@ blockquote {
     }
 
     .blockquote-content {
-        &::before {
-            content: '« ';
-        }
 
-        &::after {
-            content: ' »';
-        }
 
         display: block;
         margin-bottom: 30px;
@@ -128,6 +122,14 @@ blockquote {
 
         &.secondary {
             color: $secondary;
+
+            &::before {
+                content: '« ';
+            }
+
+            &::after {
+                content: ' »';
+            }
         }
 
         &.primary-light {
