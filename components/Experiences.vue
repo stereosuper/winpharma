@@ -343,6 +343,8 @@ export default {
         containerExperiences: null,
         containerImgLarge: null,
         bgImg: null,
+        bgImgPosActive: false,
+        bgImgPos: 0,
         bgImgColor: '#EB522B',
         starsBg: null,
         revealXp: null,
@@ -359,12 +361,17 @@ export default {
         nbExperiences: 0,
         tlXpIn: null,
         tlXpOut: null,
-        activeBullet: 0
+        activeBullet: 0,
+        overExperiences: true
     }),
     computed: {
         isL() {
             if (!this.$store.state.superWindow) return false;
             return this.$store.state.superWindow.width >= this.$breakpoints.list.l;
+        },
+        ww() {
+            if (!this.$store.state.superWindow) return false;
+            return this.$store.state.superWindow.width;
         }
     },
     watch: {
@@ -372,8 +379,10 @@ export default {
             if (isBigDevice && !this.collantCreated) {
                 this.$nextTick(() => {
                     this.createCollant();
+                    this.createRevealXp();
                 });
                 this.collantCreated = true;
+                this.initBgPos();
             } else if (!isBigDevice && this.collantCreated) {
                 if (this.revealXp) this.revealXp.forget();
                 if (this.bgCollant) this.bgCollant.forget();
@@ -389,7 +398,16 @@ export default {
                         { clearProps: 'all' }
                     );
                 });
+                gsap.set(this.bgImg, { clearProps: 'all' });
                 this.collantCreated = false;
+            }
+        },
+        ww(w) {
+            if (w >= this.$breakpoints.list.l) {
+                this.initBgPos();
+                if (!this.bgImgPosActive) {
+                    gsap.set(this.bgImg, { x: this.bgImgPos });
+                }
             }
         }
     },
@@ -398,6 +416,7 @@ export default {
         this.$stereorepo.superWindow.initializeWindow(this.$store);
 
         this.initRefs();
+        this.initBgPos();
 
         this.tlXpIn = gsap.timeline();
         this.tlXpOut = gsap.timeline();
@@ -420,20 +439,6 @@ export default {
                 this.createCollant();
             });
 
-        // Watch an element
-        this.revealXp = this.$stereorepo.superScroll
-            .watch({
-                element: this.containerExperiences,
-                options: {
-                    stalk: false,
-                    triggerOffset: 400
-                }
-            })
-            .on('enter-view', () => {
-                // appear initial animation
-                gsap.to(this.bgImg, { duration: 0.3, x: 0 });
-                this.inXp(0);
-            });
         this.bgCollant = this.$stereorepo.superScroll.watch({
             element: this.containerImgLarge,
             options: {
@@ -503,6 +508,30 @@ export default {
             });
             this.$stereorepo.superScroll.update();
         },
+        createRevealXp() {
+            this.revealXp = this.$stereorepo.superScroll
+                .watch({
+                    element: this.containerExperiences,
+                    options: {
+                        triggerOffset: 400
+                    }
+                })
+                .on('enter-view', () => {
+                    // appear initial animation
+                    gsap.to(this.bgImg, { duration: 0.3, x: 0 });
+                    if (this.activeBullet === 0) {
+                        this.inXp(0);
+                    } else if (this.activeBullet === this.nbExperiences - 1) {
+                        this.inXp(this.nbExperiences - 1);
+                    }
+                    this.bgImgPosActive = true;
+                })
+                .on('leave-view', () => {
+                    this.animOutXp(this.activeBullet);
+                    gsap.to(this.bgImg, { duration: 0.3, x: this.bgImgPos });
+                    this.bgImgPosActive = false;
+                });
+        },
         outBeforeXp(xpIndex) {
             if (xpIndex != 0) {
                 gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
@@ -544,7 +573,7 @@ export default {
             this.tlXpIn.to(
                 this.experiencesTxt[xpIndex],
                 { duration: 0.3, opacity: 1, visibility: 'visible' },
-                'first-step'
+                'first-step+=0.2'
             );
             this.tlXpIn.to(this.experiencesIntro[xpIndex], {
                 duration: 0.3,
@@ -562,6 +591,18 @@ export default {
             if (xpIndex != 0) {
                 this.experiencesIllus[xpIndex].killFloat();
             }
+        },
+        animOutXp(xpIndex) {
+            if (this.tlXpIn) this.tlXpIn.kill();
+            gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+            gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
+            gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+            if (xpIndex != 0) {
+                this.experiencesIllus[xpIndex].killFloat();
+            }
+        },
+        initBgPos() {
+            this.bgImgPos = this.$store.state.superWindow.width / 2 - this.bgImg.getBoundingClientRect().width / 2;
         }
     }
 };
