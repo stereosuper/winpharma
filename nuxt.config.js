@@ -20,7 +20,7 @@ const isDevEnv = netlifyEnv === 'development';
 const websiteUrl = process.env.URL || `http://${process.env.HOST}:${process.env.PORT}`;
 
 // ie polyfill features
-const features = ['Array.from'].join('%2C');
+const features = ['Array.from', 'NodeList.prototype.forEach'].join('%2C');
 
 export default {
     mode: 'universal',
@@ -241,11 +241,6 @@ export default {
          ** Used to analyse chunks
          */
         analyze: isDevEnv ? { analyzerMode: 'static' } : false,
-        html: {
-            minify: {
-                minifyJS: false
-            }
-        },
         /*
          ** You can extend webpack config here
          */
