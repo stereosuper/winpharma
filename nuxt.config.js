@@ -235,11 +235,7 @@ export default {
         /*
          ** Used to analyse chunks
          */
-        analyze: isDevEnv ?
-            {
-                analyzerMode: 'static'
-            } :
-            false,
+        analyze: isDevEnv ? { analyzerMode: 'static' } : false,
         html: {
             minify: {
                 minifyJS: false
