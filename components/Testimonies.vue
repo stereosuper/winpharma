@@ -1,17 +1,17 @@
 <template>
-    <div class="wrapper-testimonies">
+    <div ref="testimoniesContainer" class="wrapper-testimonies">
         <div class="wrapper-bg-testimonies">
             <img src="img/bg-testimonies-mobile.svg" alt="" class="bg-testimonies-mobile" />
             <img src="img/bg-testimonies.svg" alt="" class="bg-testimonies" />
         </div>
         <div class="container">
-            <div class="wrapper-title">
+            <div ref="testimoniesTitle" class="wrapper-title">
                 <h3 class="testimonies-title">
                     Comme vos confrères, faites avancer
                     <span class="secondary">les projets dont vous rêvez&nbsp;!</span>
                 </h3>
             </div>
-            <div class="testimonies-intro">
+            <div ref="testimoniesText" class="testimonies-intro">
                 <p>
                     Nos pharmacies equipées de winAutopilote ont trouvé de nouvelles façons de dynamiser leur officine :
                     mise en place des actions de promotions, plus de disponibilité pour écouter les clients, du temps
@@ -136,7 +136,9 @@ export default {
         wrapperWidth: 0,
         slide: null,
         drag: null,
-        currentBullet: 0
+        currentBullet: 0,
+        watcher: null,
+        appeared: false
     }),
     computed: {
         isMobile() {
@@ -152,6 +154,7 @@ export default {
     },
     watch: {
         ww() {
+            if (!this.appeared) return;
             if ((this.drag && this.isMobile) || (!this.isMobile && this.slide)) return;
 
             if (this.isMobile && !this.drag) {
@@ -174,17 +177,65 @@ export default {
         }
     },
     mounted() {
-        if (this.isMobile) {
-            this.$nextTick(() => {
-                this.initDrag();
-            });
-        } else {
-            this.$nextTick(() => {
-                this.initSlide();
-            });
+        this.$stereorepo.superScroll.initializeScroll();
+        if (!this.isMobile) {
+            this.setCardsY();
         }
+        gsap.set([this.$refs.testimoniesTitle, this.$refs.testimoniesText], { opacity: 0 });
+        gsap.set(this.$refs.testimonies, { opacity: 0, y: '+=50' });
+
+        const staggerValue = this.isMobile ? 0 : 0.05;
+
+        this.watcher = this.$stereorepo.superScroll
+            .watch({
+                element: this.$refs.testimoniesContainer,
+                options: {
+                    stalk: false,
+                    triggerOffset: '30%'
+                }
+            })
+            .on('enter-view', () => {
+                gsap.to(this.$refs.testimoniesTitle, {
+                    duration: 1,
+                    opacity: 1,
+                    ease: 'power1.inOut'
+                });
+                gsap.to(this.$refs.testimoniesText, {
+                    duration: 1,
+                    opacity: 1,
+                    delay: 0.3,
+                    ease: 'power1.inOut'
+                });
+                gsap.to(this.$refs.testimonies, {
+                    duration: 1.2,
+                    y: '-=50',
+                    opacity: 1,
+                    delay: 0.7,
+                    stagger: staggerValue,
+                    ease: 'power3.out',
+                    onComplete: () => {
+                        this.appeared = true;
+                        this.initModule();
+                    }
+                });
+            });
+    },
+    beforeDestroy() {
+        if (this.watcher) this.watcher.forget();
+        this.$stereorepo.superScroll.destroyScroll();
     },
     methods: {
+        initModule() {
+            if (this.isMobile) {
+                this.$nextTick(() => {
+                    this.initDrag();
+                });
+            } else {
+                this.$nextTick(() => {
+                    this.initSlide();
+                });
+            }
+        },
         initDrag() {
             const self = this;
             [this.drag] = Draggable.create(this.$refs.testimoniesWrapper, {
@@ -254,6 +305,8 @@ export default {
                     this.setCardsY();
                 }
             });
+            this.slide.timeScale(0);
+            gsap.to(this.slide, { duration: 1, timeScale: 1, ease: 'power1.inOut' });
         },
         mapRange(value, low1, high1, low2, high2) {
             return low2 + ((high2 - low2) * (value - low1)) / (high1 - low1);

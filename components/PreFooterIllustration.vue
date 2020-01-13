@@ -457,6 +457,10 @@ export default {
 
         this.initParallax();
     },
+    beforeDestroy() {
+        if (this.wrapperWatcher) this.wrapperWatcher.forgetMultiple();
+        this.$stereorepo.superScroll.destroyScroll();
+    },
     methods: {
         initParallax() {
             // Watch an element
