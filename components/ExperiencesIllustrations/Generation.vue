@@ -101,9 +101,9 @@ export default {
 }
 .front {
     position: absolute;
-    bottom: -15%;
-    left: -1%;
-    height: 70%;
+    bottom: -25%;
+    left: -7%;
+    height: 90%;
 }
 
 @media (min-width: $tablet) {

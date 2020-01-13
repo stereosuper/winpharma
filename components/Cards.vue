@@ -1,5 +1,5 @@
 <template>
-    <div class="wrapper-cards container">
+    <div ref="wrapperCards" class="wrapper-cards container">
         <a href="http://www.winpharma.com/livre-blanc-winautopilote/" class="card button-trigger">
             <div class="inner-card">
                 <span class="wrapper-img" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
@@ -43,7 +43,44 @@
 </template>
 
 <script>
-export default {};
+import { gsap } from 'gsap/all';
+import { query } from '@stereorepo/sac';
+export default {
+    data: () => ({
+        myWatchers: [],
+        cards: null
+    }),
+    mounted() {
+        this.cards = query({ selector: '.card', ctx: this.$refs.wrapperCards });
+
+        gsap.set(this.cards, { opacity: 0, y: 50 });
+        this.$stereorepo.superScroll.initializeScroll();
+        this.cards.forEach((el, i) => {
+            const watcher = this.$stereorepo.superScroll
+                .watch({
+                    element: el,
+                    options: {
+                        stalk: false,
+                        triggerOffset: '60%'
+                    }
+                })
+                .on('enter-view', () => {
+                    gsap.to(el, {
+                        duration: 1,
+                        opacity: 1,
+                        y: 0,
+                        delay: i * 0.2,
+                        ease: 'power4.out'
+                    });
+                });
+            this.myWatchers.push(watcher);
+        });
+    },
+    beforeDestroy() {
+        if (this.myWatchers) this.myWatchers.forgetMultiple();
+        this.$stereorepo.superScroll.destroyScroll();
+    }
+};
 </script>
 
 <style lang="scss" scoped>
