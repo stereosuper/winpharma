@@ -505,7 +505,7 @@ export default {
                 .watch({
                     element: this.containerExperiences,
                     options: {
-                        triggerOffset: 400
+                        triggerOffset: '50vh'
                     }
                 })
                 .on('enter-view', () => {
