@@ -8,7 +8,7 @@
         </div>
         <div ref="containerExperiences" class="container-experiences">
             <div ref="containerImgLarge" class="container-img-large">
-                <div v-if="isL" class="bullets">
+                <div v-if="isL" class="bullets" ref='bullets'>
                     <span
                         v-for="p in 5"
                         :key="'bullet' + p"
@@ -447,6 +447,9 @@ export default {
                     this.experiencesCollants[index].forget();
                 });
                 this.createCollant();
+                this.createRevealBgXp();
+                this.createRevealXp();
+                this.createBgCollant();
             });
     },
     beforeDestroy() {
@@ -585,8 +588,12 @@ export default {
                 gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
                 this.experiencesIllus[xpIndex].killFloat();
             } else {
+                if (this.tlXpIn) this.tlXpIn.kill();
+
                 this.tlXpOut.kill();
                 this.tlXpOut = gsap.timeline();
+
+                this.tlXpOut.set(this.$refs.bullets, { opacity: 0 });
                 this.tlXpOut.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' }, 'illus-step');
                 this.tlXpOut.set(
                     this.experiencesIntro[xpIndex],
@@ -616,6 +623,7 @@ export default {
                     { duration: 0.3, opacity: 1 },
                     'bg-step+=0.3'
                 );
+                this.tlXpIn.to(this.$refs.bullets, { duration: 0.3, opacity: 1 });
             }
             this.tlXpIn.to(
                 this.experiencesWrapperIllus[xpIndex],
@@ -657,6 +665,7 @@ export default {
         },
         outXp(xpIndex) {
             if (xpIndex === this.nbExperiences - 1) {
+                if (this.tlXpIn) this.tlXpIn.kill();
                 this.tlXpOut.kill();
                 this.tlXpOut = gsap.timeline();
                 this.tlXpOut.to(
