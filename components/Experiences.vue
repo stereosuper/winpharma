@@ -598,6 +598,11 @@ export default {
                     { duration: 0.3, x: this.bgImgPos },
                     'bg-step'
                 );
+                this.tlXpOut.to(
+                    query({selector: '.rounded-wrapper', ctx: this.experiencesWrapperIllus[xpIndex]}),
+                    { duration: 0.3, opacity: 1 },
+                    'bg-step+0.3'
+                );
             }
         },
         inXp(xpIndex) {

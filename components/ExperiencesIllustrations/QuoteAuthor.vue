@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper-img-quote">
         <img src="img/sylvain.png" alt="" />
-        <div>
+        <div class='rounded-wrapper'>
             <img class="round" src="/img/toproundedorange.svg" alt="" />
         </div>
     </div>
@@ -12,6 +12,9 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+.rounded-wrapper {
+    opacity: 0;
+}
 .wrapper-img-quote {
     position: relative;
     display: flex;
