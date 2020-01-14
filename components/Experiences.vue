@@ -347,6 +347,7 @@ export default {
         bgImgPos: 0,
         bgImgColor: '#EB522B',
         starsBg: null,
+        revealBgXp: null,
         revealXp: null,
         bgCollant: null,
         experiences: null,
@@ -379,12 +380,14 @@ export default {
             if (isBigDevice && !this.collantCreated) {
                 this.$nextTick(() => {
                     this.createCollant();
+                    this.createRevealBgXp();
                     this.createRevealXp();
                     this.createBgCollant();
                 });
                 this.collantCreated = true;
                 this.initBgPos();
             } else if (!isBigDevice && this.collantCreated) {
+                if (this.revealBgXp) this.revealBgXp.forget();
                 if (this.revealXp) this.revealXp.forget();
                 if (this.bgCollant) this.bgCollant.forget();
                 forEach(this.experiencesContents, (item, index) => {
@@ -443,6 +446,7 @@ export default {
     },
     beforeDestroy() {
         // Forget the watcher to avoid memory leak
+        if (this.revealBgXp) this.revealBgXp.forget();
         if (this.revealXp) this.revealXp.forget();
         if (this.bgCollant) this.bgCollant.forget();
         if (this.revealTitle) this.revealTitle.forget();
@@ -500,6 +504,27 @@ export default {
             });
             this.$stereorepo.superScroll.update();
         },
+        // STEP 1 - apparition du bloc coloré
+        createRevealBgXp() {
+            this.revealBgXp = this.$stereorepo.superScroll
+                .watch({
+                    element: this.containerExperiences,
+                    options: {
+                        triggerOffset: '25vh'
+                    }
+                })
+                .on('enter-view', () => {
+                    gsap.to(this.bgImg, { duration: 0.3, y: 0, opacity: 1 });
+                })
+                .on('leave-view', () => {
+                    if (this.activeBullet === 0) {
+                        gsap.to(this.bgImg, { duration: 0.3, y: '25vh', opacity: 0 });
+                    } else {
+                        gsap.to(this.bgImg, { duration: 0.3, y: 0, opacity: 0 });
+                    }
+                });
+        },
+        // STEP 2 - apparition de l'illustration dans le bloc
         createRevealXp() {
             this.revealXp = this.$stereorepo.superScroll
                 .watch({
@@ -509,18 +534,21 @@ export default {
                     }
                 })
                 .on('enter-view', () => {
-                    // appear initial animation
-                    gsap.to(this.bgImg, { duration: 0.3, x: 0 });
-                    if (this.activeBullet === 0) {
-                        this.inXp(0);
-                    } else if (this.activeBullet === this.nbExperiences - 1) {
-                        this.inXp(this.nbExperiences - 1);
-                    }
+                    gsap.to(this.experiencesWrapperIllus[this.activeBullet], {
+                        duration: 0.3,
+                        opacity: 1,
+                        scale: 1,
+                        visibility: 'visible'
+                    });
                     this.bgImgPosActive = true;
                 })
                 .on('leave-view', () => {
-                    this.animOutXp(this.activeBullet);
-                    gsap.to(this.bgImg, { duration: 0.3, x: this.bgImgPos });
+                    gsap.to(this.experiencesWrapperIllus[this.activeBullet], {
+                        duration: 0.3,
+                        opacity: 0,
+                        scale: 0.9,
+                        visibility: 'visible'
+                    });
                     this.bgImgPosActive = false;
                 });
         },
@@ -541,12 +569,29 @@ export default {
                 gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
                 gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
                 this.experiencesIllus[xpIndex].killFloat();
+            } else {
+                this.tlXpOut.kill();
+                this.tlXpOut = gsap.timeline();
+                this.tlXpOut.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' }, 'illus-step');
+                this.tlXpOut.set(
+                    this.experiencesIntro[xpIndex],
+                    { opacity: 0, scale: 0.9, visibility: 'hidden' },
+                    'illus-step'
+                );
+                this.tlXpOut.to(
+                    [this.bgImg, this.experiencesWrapperIllus[xpIndex]],
+                    { duration: 0.3, x: this.bgImgPos },
+                    'bg-step'
+                );
             }
         },
         inXp(xpIndex) {
             this.activeBullet = xpIndex;
             this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
+            if (xpIndex === 0 || xpIndex === this.nbExperiences - 1) {
+                this.tlXpIn.to([this.bgImg, this.experiencesWrapperIllus[xpIndex]], { duration: 0.3, x: 0 }, 'bg-step');
+            }
             this.tlXpIn.to(
                 this.experiencesWrapperIllus[xpIndex],
                 { duration: 0.3, opacity: 1, scale: 1, visibility: 'visible' },
@@ -586,11 +631,18 @@ export default {
             });
         },
         outXp(xpIndex) {
-            if (xpIndex < this.nbExperiences - 1) {
-                gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
-                gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
-                gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+            if (xpIndex === this.nbExperiences - 1) {
+                this.tlXpOut.kill();
+                this.tlXpOut = gsap.timeline();
+                this.tlXpOut.to(
+                    [this.bgImg, this.experiencesWrapperIllus[xpIndex]],
+                    { duration: 0.3, x: this.bgImgPos },
+                    'bg-step-out'
+                );
             }
+            gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
+            gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
+            gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
             if (xpIndex != 0) {
                 this.experiencesIllus[xpIndex].killFloat();
             }
@@ -850,6 +902,11 @@ export default {
             &:not(:first-child) {
                 margin-top: calc(-100vh + 1px);
             }
+            &:first-child {
+                .wrapper-illus {
+                    transform: translate3d(calc(50vw - 50%), 0, 0);
+                }
+            }
         }
     }
     .experience-number {
@@ -928,7 +985,8 @@ export default {
             bottom: 10vh;
             left: 0;
             background: $secondary;
-            transform: translate3d(calc(50vw - 50%), 0, 0);
+            transform: translate3d(calc(50vw - 50%), 25vh, 0);
+            opacity: 0;
         }
         .stars-bg {
             position: absolute;
