@@ -599,9 +599,9 @@ export default {
                     'bg-step'
                 );
                 this.tlXpOut.to(
-                    query({selector: '.rounded-wrapper', ctx: this.experiencesWrapperIllus[xpIndex]}),
-                    { duration: 0.3, opacity: 1 },
-                    'bg-step+0.3'
+                    query({ selector: '.rounded-wrapper', ctx: this.experiencesWrapperIllus[xpIndex] }),
+                    { duration: 0.3, opacity: 0 },
+                    'bg-step'
                 );
             }
         },
@@ -611,6 +611,11 @@ export default {
             this.tlXpIn = gsap.timeline();
             if (xpIndex === 0 || xpIndex === this.nbExperiences - 1) {
                 this.tlXpIn.to([this.bgImg, this.experiencesWrapperIllus[xpIndex]], { duration: 0.3, x: 0 }, 'bg-step');
+                this.tlXpIn.to(
+                    query({ selector: '.rounded-wrapper', ctx: this.experiencesWrapperIllus[xpIndex] }),
+                    { duration: 0.3, opacity: 1 },
+                    'bg-step+=0.3'
+                );
             }
             this.tlXpIn.to(
                 this.experiencesWrapperIllus[xpIndex],
