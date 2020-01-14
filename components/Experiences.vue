@@ -20,6 +20,9 @@
                     <div ref="starsBg" class="stars-bg"></div>
                 </div>
             </div>
+            <div ref="topRounded" class="top-rounded">
+                <img src="/img/toprounded.svg" alt="" />
+            </div>
             <ul class="experiences">
                 <li class="experience">
                     <div class="experience-content-large">
@@ -362,7 +365,8 @@ export default {
         tlXpIn: null,
         tlXpOut: null,
         activeBullet: 0,
-        overExperiences: true
+        overExperiences: true,
+        roundedCollant: null
     }),
     computed: {
         isL() {
@@ -387,6 +391,7 @@ export default {
             } else if (!isBigDevice && this.collantCreated) {
                 if (this.revealXp) this.revealXp.forget();
                 if (this.bgCollant) this.bgCollant.forget();
+                if (this.roundedCollant) this.roundedCollant.forget();
                 forEach(this.experiencesContents, (item, index) => {
                     this.experiencesCollants[index].forget();
                     gsap.set(
@@ -445,6 +450,7 @@ export default {
         // Forget the watcher to avoid memory leak
         if (this.revealXp) this.revealXp.forget();
         if (this.bgCollant) this.bgCollant.forget();
+        if (this.roundedCollant) this.roundedCollant.forget();
         if (this.revealTitle) this.revealTitle.forget();
         forEach(this.experiencesContents, (item, index) => {
             this.experiencesCollants[index].forget();
@@ -527,6 +533,15 @@ export default {
         createBgCollant() {
             this.bgCollant = this.$stereorepo.superScroll.watch({
                 element: this.containerImgLarge,
+                options: {
+                    collant: true,
+                    target: this.containerExperiences,
+                    position: 'top',
+                    collantOffset: 0
+                }
+            });
+            this.roundedCollant = this.$stereorepo.superScroll.watch({
+                element: this.$refs.topRounded,
                 options: {
                     collant: true,
                     target: this.containerExperiences,
@@ -701,6 +716,20 @@ export default {
         max-height: 100%;
     }
 }
+
+.top-rounded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: flex-end;
+    z-index: -1;
+    img {
+        width: 100%;
+    }
+}
 .experience-intro {
     position: relative;
     margin: 0 0 30px;
@@ -832,6 +861,12 @@ export default {
 }
 
 @media (min-width: $desktop-small) {
+    .top-rounded {
+        display: flex;
+    }
+    .wrapper-experiences {
+        padding-bottom: 0;
+    }
     .content-title {
         margin-bottom: 20px;
     }

@@ -521,8 +521,8 @@ export default {
         bottom: 0;
         width: 130%;
     }
-    .wrapper-testimonies {
-        overflow: visible;
+    .wrapper-bg-testimonies {
+        background-color: #fef5f3;
     }
 }
 

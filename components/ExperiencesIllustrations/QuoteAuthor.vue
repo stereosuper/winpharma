@@ -1,6 +1,9 @@
 <template>
     <div class="wrapper-img-quote">
         <img src="img/sylvain.png" alt="" />
+        <div>
+            <img class="round" src="/img/toproundedorange.svg" alt="" />
+        </div>
     </div>
 </template>
 
@@ -10,6 +13,7 @@ export default {};
 
 <style lang="scss" scoped>
 .wrapper-img-quote {
+    position: relative;
     display: flex;
     align-items: flex-end;
     justify-content: center;
@@ -18,6 +22,24 @@ export default {};
     > img {
         flex: 0 0 auto;
         max-height: 90%;
+    }
+    > div {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        z-index: -1;
+    }
+    .round {
+        position: relative;
+        bottom: -10.7vh;
+        max-width: none;
+        width: 100vw;
+        flex: 1 0 100vw;
     }
 }
 </style>
