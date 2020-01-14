@@ -380,6 +380,7 @@ export default {
                 this.$nextTick(() => {
                     this.createCollant();
                     this.createRevealXp();
+                    this.createBgCollant();
                 });
                 this.collantCreated = true;
                 this.initBgPos();
@@ -398,6 +399,7 @@ export default {
                         { clearProps: 'all' }
                     );
                 });
+                gsap.set(this.containerImgLarge, { clearProps: 'all' });
                 gsap.set(this.bgImg, { clearProps: 'all' });
                 this.collantCreated = false;
             }
@@ -438,16 +440,6 @@ export default {
                 });
                 this.createCollant();
             });
-
-        this.bgCollant = this.$stereorepo.superScroll.watch({
-            element: this.containerImgLarge,
-            options: {
-                collant: true,
-                target: this.containerExperiences,
-                position: 'top',
-                collantOffset: 0
-            }
-        });
     },
     beforeDestroy() {
         // Forget the watcher to avoid memory leak
@@ -531,6 +523,17 @@ export default {
                     gsap.to(this.bgImg, { duration: 0.3, x: this.bgImgPos });
                     this.bgImgPosActive = false;
                 });
+        },
+        createBgCollant() {
+            this.bgCollant = this.$stereorepo.superScroll.watch({
+                element: this.containerImgLarge,
+                options: {
+                    collant: true,
+                    target: this.containerExperiences,
+                    position: 'top',
+                    collantOffset: 0
+                }
+            });
         },
         outBeforeXp(xpIndex) {
             if (xpIndex != 0) {
