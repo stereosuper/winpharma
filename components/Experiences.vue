@@ -1049,4 +1049,10 @@ export default {
         justify-content: flex-start;
     }
 }
+
+@media (max-height: 800px) {
+    .blockquote-image {
+        display: none;
+    }
+}
 </style>
