@@ -744,6 +744,7 @@ export default {
 }
 
 .bullet {
+    flex: 0 0 auto;
     width: 6px;
     height: 6px;
     border-radius: 3px;
