@@ -981,7 +981,6 @@ export default {
     .container-img {
         flex: 0 0 auto;
         display: flex;
-        justify-content: flex-end;
         width: percentage(6/12);
         height: 100%;
     }
@@ -989,6 +988,7 @@ export default {
         flex: 0 0 auto;
         width: calc(100% + #{$gutter * 2});
         height: 100%;
+        margin-left: #{-$gutter * 2};
         .bg-img {
             display: none;
         }
