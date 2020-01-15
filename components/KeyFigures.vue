@@ -547,7 +547,7 @@ export default {
         }
     }
     .wrapper-wave {
-        top: -110px;
+        top: -109px;
         height: 170px;
     }
 }
