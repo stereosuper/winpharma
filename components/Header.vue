@@ -157,7 +157,7 @@ export default {
     width: 100%;
     height: 100vh;
     margin: -104px 0 0;
-    padding: 104px 0 0;
+    padding: 104px 0 115px;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     > li {
