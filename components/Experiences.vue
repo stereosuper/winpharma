@@ -383,10 +383,7 @@ export default {
         isL(isBigDevice) {
             if (isBigDevice && !this.collantCreated) {
                 this.$nextTick(() => {
-                    this.createCollant();
-                    this.createRevealBgXp();
-                    this.createRevealXp();
-                    this.createBgCollant();
+                    this.createAllTheThings();
                 });
                 this.collantCreated = true;
                 this.initBgPos();
@@ -446,10 +443,7 @@ export default {
                 forEach(this.experiencesContents, (item, index) => {
                     this.experiencesCollants[index].forget();
                 });
-                this.createCollant();
-                this.createRevealBgXp();
-                this.createRevealXp();
-                this.createBgCollant();
+                this.createAllTheThings();
             });
     },
     beforeDestroy() {
@@ -502,7 +496,7 @@ export default {
                         }
                     })
                     .on('before-enter-collant', () => {
-                        this.outBeforeXp(index);
+                        this.leaveFromTop(index);
                     })
                     .on('enter-collant', () => {
                         this.inXp(index);
@@ -571,17 +565,35 @@ export default {
                     collantOffset: 0
                 }
             });
-            this.roundedCollant = this.$stereorepo.superScroll.watch({
-                element: this.$refs.topRounded,
-                options: {
-                    collant: true,
-                    target: this.containerExperiences,
-                    position: 'top',
-                    collantOffset: 0
-                }
-            });
+            this.roundedCollant = this.$stereorepo.superScroll
+                .watch({
+                    element: this.$refs.topRounded,
+                    options: {
+                        collant: true,
+                        target: this.containerExperiences,
+                        position: 'top',
+                        collantOffset: 0
+                    }
+                })
+                .on('enter-collant', () => {
+                    this.enterFromTop();
+                    // ou xp
+                    this.enterFromBottom();
+                })
+                .on('leave-collant', () => {
+                    this.leaveFromBottom();
+                })
+                .on('before-enter-collant', () => {
+                    this.leaveFromTop();
+                });
         },
-        outBeforeXp(xpIndex) {
+        createAllTheThings() {
+            this.createCollant();
+            this.createRevealBgXp();
+            this.createRevealXp();
+            this.createBgCollant();
+        },
+        leaveFromTop(xpIndex) {
             if (xpIndex != 0) {
                 gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
                 gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
@@ -681,14 +693,14 @@ export default {
                 this.experiencesIllus[xpIndex].killFloat();
             }
         },
-        animOutXp(xpIndex) {
-            if (this.tlXpIn) this.tlXpIn.kill();
-            gsap.set(this.experiencesWrapperIllus[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
-            gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
-            gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
-            if (xpIndex != 0) {
-                this.experiencesIllus[xpIndex].killFloat();
-            }
+        leaveFromBottom() {
+            console.log('yes');
+        },
+        enterFromTop() {
+            console.log('exact');
+        },
+        enterFromBottom() {
+            console.log('effectivement');
         },
         initBgPos() {
             this.bgImgPos = this.$store.state.superWindow.width / 2 - this.bgImg.getBoundingClientRect().width / 2;
