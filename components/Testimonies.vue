@@ -13,8 +13,8 @@
             </div>
             <div ref="testimoniesText" class="testimonies-intro">
                 <p>
-                    Nos pharmacies equipées de winAutopilote ont trouvé de nouvelles façons de dynamiser leur officine :
-                    mise en place des actions de promotions, plus de disponibilité pour écouter les clients, du temps
+                    Nos pharmacies equipées de winAutopilote® ont trouvé de nouvelles façons de dynamiser leur officine
+                    : mise en place des actions de promotions, plus de disponibilité pour écouter les clients, du temps
                     pour réorganiser son backoffice.
                 </p>
                 <Button :href="'http://www.winpharma.com/temoignages/'" :type="'Secondary'">
@@ -85,7 +85,7 @@ export default {
             {
                 title: 'Je gagne 1h de temps par jour',
                 text:
-                    "J'ai gagné avec winAutopilote au moins 1h/jour soit presque <strong>une journée chaque semaine</strong>. Imaginez tout ce que vous pouvez faire de mieux. Pour ma part : des formations, du coaching, des travaux et du sport !",
+                    "J'ai gagné avec winAutopilote® au moins 1h/jour soit presque <strong>une journée chaque semaine</strong>. Imaginez tout ce que vous pouvez faire de mieux. Pour ma part : des formations, du coaching, des travaux et du sport !",
                 author: 'Isabelle Delobelle',
                 source: 'Orchies (59)',
                 img: 'isabelle-delobelle.png'
@@ -93,7 +93,7 @@ export default {
             {
                 title: 'J’ai gagné en efficacité',
                 text:
-                    "WinAutopilote, <strong>c'est un gain de temps énorme !</strong>  On se libère des commandes grossistes. Depuis, <strong>j’ai gagné en efficacité</strong>, en stock <strong>et surtout en marge !</strong>",
+                    "winAutopilote®, <strong>c'est un gain de temps énorme !</strong>  On se libère des commandes grossistes. Depuis, <strong>j’ai gagné en efficacité</strong>, en stock <strong>et surtout en marge !</strong>",
                 author: 'Benoit Beaussier',
                 source: 'Tinchebray (61)',
                 img: 'benoit-beaussier.png'
@@ -102,7 +102,7 @@ export default {
             {
                 title: 'Tranquillité d’esprit au quotidien',
                 text:
-                    "WinAutopilote permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
+                    "winAutopilote® permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
                 author: 'Nicolas Zinck',
                 source: 'Soisy-sur-Seine (59)',
                 img: 'nicolas-zinck.png'
@@ -127,7 +127,7 @@ export default {
             {
                 title: 'C’est Winpharma qui gère !',
                 text:
-                    'Pour tous ceux qui acceptent le Pharma-ML, <strong>c’est Winpharma qui gère !</strong> Pour les autres, la commande est paramétrée dans winAutopilote et envoyée <strong>sans vérification</strong>.',
+                    'Pour tous ceux qui acceptent le Pharma-ML, <strong>c’est Winpharma qui gère !</strong> Pour les autres, la commande est paramétrée dans winAutopilote® envoyée <strong>sans vérification</strong>.',
                 author: 'Marc Lhopitalier',
                 source: 'Mouchamps (85)',
                 img: 'marc-lhopitalier.png'
