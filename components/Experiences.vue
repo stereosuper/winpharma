@@ -156,7 +156,7 @@
                                     <p>
                                         <span class="blockquote-content secondary">
                                             Seulement 5 min suffisent pour contrôler et isoler la commande des produits
-                                            sensibles, nécessitant votre intervention.
+                                            sensibles, nécessitant notre intervention.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
                                         <span class="blockquote-source">Seine-et-Marne (77)</span>
@@ -278,7 +278,7 @@
                                     <p>
                                         <span class="blockquote-content secondary">
                                             Seulement 5 min suffisent pour contrôler et isoler la commande des produits
-                                            sensibles, nécessitant votre intervention.
+                                            sensibles, nécessitant notre intervention.
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
                                         <span class="blockquote-source">Seine-et-Marne (77)</span>
