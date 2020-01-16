@@ -119,8 +119,10 @@ export default {
     z-index: 1;
 }
 .h2 {
+    color: $quaternary;
     > strong {
         display: block;
+        color: $white;
     }
     sup {
         top: -1.2em;
