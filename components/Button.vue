@@ -1,6 +1,14 @@
 <template>
-    <component :is="tag" :href="href" :class="{ btn: type === 'Primary', 'btn-secondary': type === 'Secondary' }">
-        <span :class="{ 'btn-inner': type === 'Primary' }">
+    <component
+        :is="tag"
+        :href="href"
+        :class="{
+            btn: type === 'Primary' || 'Quaternary',
+            'btn-secondary': type === 'Secondary',
+            'btn-quaternary': type === 'Quaternary'
+        }"
+    >
+        <span :class="{ 'btn-inner': type === 'Primary' || 'Quaternary' }">
             <slot></slot>
         </span>
         <Icon v-if="type === 'Secondary'" name="chevron" />
@@ -36,6 +44,17 @@ export default {
     color: $white;
     font-family: $ageo-bold;
     font-size: 1.6rem;
+    &.btn-quaternary {
+        .btn-inner {
+            background: $quaternary;
+        }
+        &:hover,
+        &:focus {
+            .btn-inner {
+                background-color: lighten($quaternary, 5%);
+            }
+        }
+    }
     &:hover,
     &:focus {
         .btn-inner {
