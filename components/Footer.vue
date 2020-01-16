@@ -1,152 +1,159 @@
 <template>
-    <div class="footer container">
-        <div class="wrapper-menu-newsletter">
-            <ul class="footer-menu">
-                <li>
+    <div class="footer">
+        <div class="container">
+            <div class="wrapper-menu-newsletter">
+                <ul class="footer-menu">
+                    <li>
+                        <h4 class="footer-title">
+                            Produits
+                        </h4>
+                        <ul class="footer-submenu">
+                            <li>
+                                <a href="/">winAutopilote</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/winpharma9-5/">Winpharma 9</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/winteam/">winTeam</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/winstat/">winStat</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/elsa-2/">Elsa</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/winaccompagnement/">winAccompagnement</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/cashguard/">Cashguard</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h4 class="footer-title">
+                            Winpharma
+                        </h4>
+                        <ul class="footer-submenu">
+                            <li>
+                                <a href="http://www.winpharma.com/actualites/">Actualités</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/temoignages/">Témoignages</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/recrutement/">Recrutement</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/formations/">Espace e&#x2011;learning</a>
+                            </li>
+                            <li>
+                                <a href="http://www.winpharma.com/forum/">Forum</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="big">
+                        <ul class="footer-submenu">
+                            <li>
+                                <h4 class="footer-title">
+                                    Contact
+                                </h4>
+                                <address class="footer-address">
+                                    <span>Espace Atlantica,</span>
+                                    <span>7552 Z.A. du Rédo,</span>
+                                    <span>56640 ARZON</span>
+                                </address>
+                            </li>
+                            <li>
+                                <h4 class="footer-title">
+                                    Téléphone
+                                </h4>
+                                <span class="txt-menu">0 820 220 333</span>
+                            </li>
+                            <li>
+                                <h4 class="footer-title">
+                                    Email
+                                </h4>
+                                <span class="txt-menu">contact@winpharma.com</span>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="wrapper-about">
                     <h4 class="footer-title">
-                        Produits
+                        À propos
                     </h4>
-                    <ul class="footer-submenu">
-                        <li>
-                            <a href="/">winAutopilote</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/winpharma9-5/">Winpharma 9</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/winteam/">winTeam</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/winstat/">winStat</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/elsa-2/">Elsa</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/winaccompagnement/">winAccompagnement</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/cashguard/">Cashguard</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <h4 class="footer-title">
-                        Winpharma
-                    </h4>
-                    <ul class="footer-submenu">
-                        <li>
-                            <a href="http://www.winpharma.com/actualites/">Actualités</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/temoignages/">Témoignages</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/recrutement/">Recrutement</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/formations/">Espace e&#x2011;learning</a>
-                        </li>
-                        <li>
-                            <a href="http://www.winpharma.com/forum/">Forum</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="big">
-                    <ul class="footer-submenu">
-                        <li>
-                            <h4 class="footer-title">
-                                Contact
-                            </h4>
-                            <address class="footer-address">
-                                <span>Espace Atlantica,</span>
-                                <span>7552 Z.A. du Rédo,</span>
-                                <span>56640 ARZON</span>
-                            </address>
-                        </li>
-                        <li>
-                            <h4 class="footer-title">
-                                Téléphone
-                            </h4>
-                            <span class="txt-menu">0 820 220 333</span>
-                        </li>
-                        <li>
-                            <h4 class="footer-title">
-                                Email
-                            </h4>
-                            <span class="txt-menu">contact@winpharma.com</span>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <div class="wrapper-about">
-                <h4 class="footer-title">
-                    À propos
-                </h4>
-                <p>
-                    N°1 des éditeurs indépendants de logiciels de pharmacie et leader en matière d’innovation, Winpharma
-                    développe son logiciel, vend le matériel associé et assure les services d’installation, de formation
-                    et d’assistance.
-                </p>
+                    <p>
+                        N°1 des éditeurs indépendants de logiciels de pharmacie et leader en matière d’innovation,
+                        Winpharma développe son logiciel, vend le matériel associé et assure les services
+                        d’installation, de formation et d’assistance.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div class="wrapper-footer-bottom">
-            <div class="footer-logo">
-                <Icon name="winpharma-colored" class="logo-colored" />
-            </div>
-            <ul class="social">
-                <li>
-                    <a href="https://twitter.com/Winpharma" target="_blank" rel="noopener noreferrer" class="twitter">
-                        <Icon name="twitter" />
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.facebook.com/Winpharma-427022747370410/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="facebook"
-                    >
-                        <Icon name="facebook" />
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.youtube.com/user/winpharma/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="youtube"
-                    >
-                        <Icon name="youtube" />
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.linkedin.com/company/winpharma-everys/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="linkedin"
-                    >
-                        <Icon name="linkedin" />
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="https://www.instagram.com/winpharma/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="instagram"
-                    >
-                        <Icon name="instagram" />
-                    </a>
-                </li>
-            </ul>
-            <div class="wrapper-copy-legals">
-                <p class="copyright">
-                    Copyright 1994 - 2018 Winpharma | All Rights Reserved
-                </p>
-                <div class="footer-bottom">
-                    <a href="http://www.winpharma.com/mentions-legales/">Mentions légales</a>
+            <div class="wrapper-footer-bottom">
+                <div class="footer-logo">
+                    <Icon name="winpharma-colored" class="logo-colored" />
+                </div>
+                <ul class="social">
+                    <li>
+                        <a
+                            href="https://twitter.com/Winpharma"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="twitter"
+                        >
+                            <Icon name="twitter" />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.facebook.com/Winpharma-427022747370410/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="facebook"
+                        >
+                            <Icon name="facebook" />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.youtube.com/user/winpharma/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="youtube"
+                        >
+                            <Icon name="youtube" />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.linkedin.com/company/winpharma-everys/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="linkedin"
+                        >
+                            <Icon name="linkedin" />
+                        </a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://www.instagram.com/winpharma/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="instagram"
+                        >
+                            <Icon name="instagram" />
+                        </a>
+                    </li>
+                </ul>
+                <div class="wrapper-copy-legals">
+                    <p class="copyright">
+                        Copyright 1994 - 2018 Winpharma | All Rights Reserved
+                    </p>
+                    <div class="footer-bottom">
+                        <a href="http://www.winpharma.com/mentions-legales/">Mentions légales</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,8 +166,10 @@ export default {};
 
 <style lang="scss" scoped>
 .footer {
-    padding-top: 45px;
-    padding-bottom: 30px;
+    position: relative;
+    padding: 45px 0 30px;
+    background: $white;
+    z-index: 1;
 }
 .footer-menu {
     display: flex;
