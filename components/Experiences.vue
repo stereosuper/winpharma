@@ -8,14 +8,6 @@
         </div>
         <div ref="containerExperiences" class="container-experiences">
             <div ref="containerImgLarge" class="container-img-large">
-                <div v-if="isL" ref="bullets" class="bullets">
-                    <span
-                        v-for="p in 5"
-                        :key="'bullet' + p"
-                        class="bullet"
-                        :class="{ active: p - 1 === activeBullet }"
-                    ></span>
-                </div>
                 <div ref="bgImg" class="bg-img-large">
                     <div ref="starsBg" class="stars-bg"></div>
                 </div>
@@ -319,6 +311,22 @@
                     </div>
                 </li>
             </ul>
+            <div v-if="isL" ref="bullets" class="nav-xp">
+                <button
+                    type="button"
+                    :class="{ inactive: activeBullet === 0 }"
+                    class="btn-xp prev"
+                    @click="changeSlide(activeBullet - 1)"
+                >
+                    <Icon name="chevron-back" class="arrow-xp" />
+                </button>
+                <span class="nb-slide active" v-html="activeBullet + 1"></span>
+                <span class="nb-slide-separator"> / </span>
+                <span class="nb-slide">5</span>
+                <button type="button" class="btn-xp next" @click="changeSlide(activeBullet + 1)">
+                    <Icon name="chevron" class="arrow-xp" />
+                </button>
+            </div>
         </div>
     </div>
 </template>
@@ -753,6 +761,14 @@ export default {
         },
         initBgPos() {
             this.bgImgPos = this.$store.state.superWindow.width / 2 - this.bgImg.getBoundingClientRect().width / 2;
+        },
+        changeSlide(newIndex) {
+            if (newIndex >= 0 && newIndex <= this.nbExperiences - 1) {
+                window.scroll({
+                    top: this.experiences[newIndex].getBoundingClientRect().top + this.$store.state.scroll.scrollTop,
+                    left: 0
+                });
+            }
         }
     }
 };
@@ -797,25 +813,51 @@ export default {
         }
     }
 }
-.bullets {
+.nav-xp {
     position: absolute;
     top: calc(10vh + 20px);
-    left: calc(100% + 30px);
+    // left: calc(100% + 30px);
+    left: percentage(6/12);
     display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: $ageo;
+    font-size: 1.8rem;
+    color: $grey-light;
+    z-index: 2;
 }
-
-.bullet {
-    flex: 0 0 auto;
-    width: 6px;
-    height: 6px;
-    border-radius: 3px;
-    margin-right: 25px;
-    border: 1px solid #b5b3b3;
-    transition: 0.2s ease-in-out;
-    &.active {
-        width: 24px;
-        border-color: $secondary;
+.btn-xp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 0;
+    cursor: pointer;
+    &.prev {
+        margin: 0 20px 0 -10px;
     }
+    &.next {
+        margin-left: 18px;
+    }
+    &.inactive {
+        opacity: 0.4;
+        cursor: default;
+    }
+    .arrow-xp {
+        width: 6px;
+        height: 10px;
+        fill: $grey-light;
+    }
+}
+.nb-slide {
+    min-width: 12px;
+    &.active {
+        font-family: $ageo-semi-bold;
+        color: $secondary;
+    }
+}
+.nb-slide-separator {
+    margin: 0 10px;
 }
 .wrapper-img {
     position: relative;
@@ -1153,8 +1195,9 @@ export default {
             font-size: 4rem;
         }
     }
-    .bullets {
-        left: calc(100% + 100px);
+    .nav-xp {
+        // left: calc(100% + 100px);
+        left: percentage(8/12);
         @media (min-height: $desktop-v) {
             top: calc(10vh + 45px);
         }
@@ -1180,7 +1223,7 @@ export default {
     }
 }
 @media (min-width: $desktop-huge) and (min-height: 950px) {
-    .bullets {
+    .nav-xp {
         top: calc(10vh + 95px);
     }
     .container-txt {
