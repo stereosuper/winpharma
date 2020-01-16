@@ -7,8 +7,8 @@
         <div class="container">
             <div ref="testimoniesTitle" class="wrapper-title">
                 <h3 class="testimonies-title">
-                    Comme vos confrères, faites avancer
-                    <span class="secondary">les projets dont vous rêvez&nbsp;!</span>
+                    Avec le temps gagné, comme vos confrères,
+                    <span class="secondary">faites avancer les projets dont vous rêvez&nbsp;!</span>
                 </h3>
             </div>
             <div ref="testimoniesText" class="testimonies-intro">
@@ -504,7 +504,7 @@ export default {
 @media (min-width: $desktop-small) {
     .testimonies-title {
         max-width: none;
-        width: percentage(5/12);
+        width: percentage(5/10);
     }
     .wrapper-title {
         margin-left: percentage(2/12);
