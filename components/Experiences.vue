@@ -489,6 +489,9 @@ export default {
         },
         createCollant() {
             forEach(this.experiencesContents, (item, index) => {
+                if (this.experiencesCollants[index]) this.experiencesCollants[index].forget();
+            });
+            forEach(this.experiencesContents, (item, index) => {
                 this.experiencesCollants[index] = this.$stereorepo.superScroll
                     .watch({
                         element: item,
@@ -503,7 +506,9 @@ export default {
                         this.outXp(index, true);
                     })
                     .on('enter-collant', () => {
-                        this.inXp(index);
+                        this.$nextTick(() => {
+                            this.inXp(index);
+                        });
                     })
                     .on('leave-collant', () => {
                         this.outXp(index, false);
@@ -513,6 +518,7 @@ export default {
         },
         // STEP 1 - apparition du bloc coloré
         createRevealBgXp() {
+            if (this.revealBgXp) this.revealBgXp.forget();
             this.revealBgXp = this.$stereorepo.superScroll
                 .watch({
                     element: this.containerExperiences,
@@ -533,6 +539,7 @@ export default {
         },
         // STEP 2 - apparition de l'illustration dans le bloc
         createRevealXp() {
+            if (this.revealXp) this.revealXp.forget();
             this.revealXp = this.$stereorepo.superScroll
                 .watch({
                     element: this.containerExperiences,
@@ -560,6 +567,7 @@ export default {
                 });
         },
         createBgCollant() {
+            if (this.bgCollant) this.bgCollant.forget();
             this.bgCollant = this.$stereorepo.superScroll.watch({
                 element: this.containerImgLarge,
                 options: {
@@ -569,6 +577,7 @@ export default {
                     collantOffset: 0
                 }
             });
+            if (this.roundedCollant) this.roundedCollant.forget();
             this.roundedCollant = this.$stereorepo.superScroll
                 .watch({
                     element: this.$refs.topRounded,
@@ -603,8 +612,12 @@ export default {
         /////// FOR EACH SLIDES ////////
         ////////////////////////////////
         inXp(xpIndex) {
+            console.log('inXp : ' + xpIndex);
             this.activeBullet = xpIndex;
-            this.tlXpIn.kill();
+            if (this.tlXpIn) {
+                // this.tlXpIn.restart();
+                this.tlXpIn.kill();
+            }
             this.tlXpIn = gsap.timeline();
             this.tlXpIn.to(
                 this.experiencesWrapperIllus[xpIndex],
@@ -651,6 +664,8 @@ export default {
             });
         },
         outXp(xpIndex, toTop) {
+            console.log('outXp : ' + xpIndex);
+            // if (this.tlXpIn) this.tlXpIn.kill();
             gsap.set(this.experiencesTxt[xpIndex], { opacity: 0, visibility: 'hidden' });
             gsap.set(this.experiencesIntro[xpIndex], { opacity: 0, scale: 0.9, visibility: 'hidden' });
             if (xpIndex != 0) {
@@ -664,7 +679,12 @@ export default {
         ////////// FOR THE BG //////////
         ////////////////////////////////
         leaveFromTop() {
+            console.log('leaveFromTop');
+            // if (this.tlXpIn) this.tlXpIn.kill();
             if (this.tlLeaveFromTop) this.tlLeaveFromTop.kill();
+            if (this.tlLeaveFromBottom) this.tlLeaveFromBottom.kill();
+            if (this.tlEnterFromTop) this.tlEnterFromTop.kill();
+            if (this.tlEnterFromBottom) this.tlEnterFromBottom.kill();
             this.tlLeaveFromTop = gsap.timeline();
             this.tlLeaveFromTop.to(query({ selector: '.rounded-wrapper', ctx: this.experiencesWrapperIllus[0] }), {
                 duration: 0.3,
@@ -678,10 +698,14 @@ export default {
             );
         },
         leaveFromBottom() {
+            console.log('leaveFromBottom');
+            // if (this.tlXpIn) this.tlXpIn.kill();
+            if (this.tlLeaveFromTop) this.tlLeaveFromTop.kill();
             if (this.tlLeaveFromBottom) this.tlLeaveFromBottom.kill();
+            if (this.tlEnterFromTop) this.tlEnterFromTop.kill();
+            if (this.tlEnterFromBottom) this.tlEnterFromBottom.kill();
             this.tlLeaveFromBottom = gsap.timeline();
             this.tlLeaveFromBottom.set(this.$refs.bullets, { opacity: 0 });
-            // this.tlLeaveFromBottom.set(this.experiencesIntro[0], { opacity: 0, scale: 0.9, visibility: 'hidden' }, 'illus-step');
             this.tlLeaveFromBottom.to(
                 [this.bgImg, this.experiencesWrapperIllus[this.nbExperiences - 1]],
                 { duration: 0.3, x: this.bgImgPos },
@@ -694,7 +718,11 @@ export default {
             );
         },
         enterFromTop() {
+            console.log('enterFromTop');
+            if (this.tlLeaveFromTop) this.tlLeaveFromTop.kill();
+            if (this.tlLeaveFromBottom) this.tlLeaveFromBottom.kill();
             if (this.tlEnterFromTop) this.tlEnterFromTop.kill();
+            if (this.tlEnterFromBottom) this.tlEnterFromBottom.kill();
             this.tlEnterFromTop = gsap.timeline();
             this.tlEnterFromTop.to([this.bgImg, this.experiencesWrapperIllus[0]], { duration: 0.3, x: 0 }, 'bg-step');
             this.tlEnterFromTop.to(
@@ -705,6 +733,10 @@ export default {
             this.tlEnterFromTop.to(this.$refs.bullets, { duration: 0.3, opacity: 1 });
         },
         enterFromBottom() {
+            console.log('enterFromBottom');
+            if (this.tlLeaveFromTop) this.tlLeaveFromTop.kill();
+            if (this.tlLeaveFromBottom) this.tlLeaveFromBottom.kill();
+            if (this.tlEnterFromTop) this.tlEnterFromTop.kill();
             if (this.tlEnterFromBottom) this.tlEnterFromBottom.kill();
             this.tlEnterFromBottom = gsap.timeline();
             this.tlEnterFromBottom.to(
