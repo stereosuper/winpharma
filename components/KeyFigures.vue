@@ -50,8 +50,8 @@
                 <div :class="{ active: tabActive === 0 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>91%</strong> de taux d'automatisation</h4>
-                            <p>En préparation, envoi et réception des commandes.</p>
+                            <h4 class="key-figure-title"><strong>91%</strong> d'automatisation</h4>
+                            <p>En <strong>préparation, envoi et réception</strong> des commandes.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>8h</strong> gagnées chaque semaine</h4>
@@ -78,8 +78,8 @@
                 <div :class="{ active: tabActive === 1 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>90%</strong> de taux d'automatisation</h4>
-                            <p>En préparation, envoi et réception des commandes.</p>
+                            <h4 class="key-figure-title"><strong>90%</strong> d'automatisation</h4>
+                            <p>En <strong>préparation, envoi et réception</strong> des commandes.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>30%</strong> de manquants en moins</h4>
@@ -106,8 +106,8 @@
                 <div :class="{ active: tabActive === 2 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>87%</strong> de taux d'automatisation</h4>
-                            <p>En préparation, envoi et réception des commandes.</p>
+                            <h4 class="key-figure-title"><strong>87%</strong> d'automatisation</h4>
+                            <p>En <strong>préparation, envoi et réception</strong> des commandes.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>35h</strong> gagnées chaque semaine</h4>
@@ -436,6 +436,9 @@ export default {
         font-size: 1.4rem;
         line-height: 20px;
         color: $grey;
+        > strong {
+            font-weight: 700;
+        }
     }
 }
 .key-figure-title {
