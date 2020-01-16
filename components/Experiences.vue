@@ -361,6 +361,7 @@ export default {
         revealBgXp: null,
         revealXp: null,
         bgCollant: null,
+        navCollant: null,
         experiences: null,
         collantCreated: false,
         containerTxt: null,
@@ -402,6 +403,7 @@ export default {
             } else if (!isBigDevice && this.collantCreated) {
                 if (this.revealBgXp) this.revealBgXp.forget();
                 if (this.revealXp) this.revealXp.forget();
+                if (this.navCollant) this.navCollant.forget();
                 if (this.bgCollant) this.bgCollant.forget();
                 if (this.roundedCollant) this.roundedCollant.forget();
                 forEach(this.experiencesContents, (item, index) => {
@@ -462,6 +464,7 @@ export default {
         // Forget the watcher to avoid memory leak
         if (this.revealBgXp) this.revealBgXp.forget();
         if (this.revealXp) this.revealXp.forget();
+        if (this.navCollant) this.navCollant.forget();
         if (this.bgCollant) this.bgCollant.forget();
         if (this.roundedCollant) this.roundedCollant.forget();
         if (this.revealTitle) this.revealTitle.forget();
@@ -575,6 +578,16 @@ export default {
                 });
         },
         createBgCollant() {
+            if (this.navCollant) this.navCollant.forget();
+            this.navCollant = this.$stereorepo.superScroll.watch({
+                element: this.$refs.bullets,
+                options: {
+                    collant: true,
+                    target: this.containerExperiences,
+                    position: 'top',
+                    collantOffset: 0
+                }
+            });
             if (this.bgCollant) this.bgCollant.forget();
             this.bgCollant = this.$stereorepo.superScroll.watch({
                 element: this.containerImgLarge,
@@ -815,12 +828,13 @@ export default {
 }
 .nav-xp {
     position: absolute;
-    top: calc(10vh + 20px);
+    top: 0;
     // left: calc(100% + 30px);
     left: percentage(6/12);
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    padding-top: calc(10vh + 30px);
     font-family: $ageo;
     font-size: 1.8rem;
     color: $grey-light;
