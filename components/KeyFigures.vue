@@ -21,7 +21,7 @@
                         class="key-figures-button"
                         @click="changeTab(0, $event)"
                     >
-                        Quartier
+                        Village
                     </button>
                     <button
                         :class="{ active: btnActive === 1 && showActive }"
@@ -29,7 +29,7 @@
                         class="key-figures-button"
                         @click="changeTab(1, $event)"
                     >
-                        Village
+                        Quartier
                     </button>
                     <button
                         :class="{ active: btnActive === 2 && showActive }"
@@ -39,7 +39,7 @@
                     >
                         Centre C<span class="hide-small-device">ommerc</span>ial
                     </button>
-                    <span class="select-bar" ref="selectBar"></span>
+                    <span ref="selectBar" class="select-bar"></span>
                 </div>
             </div>
             <div
@@ -48,34 +48,6 @@
                 class="wrapper-tabs-contents"
             >
                 <div :class="{ active: tabActive === 0 }" class="tab-content">
-                    <ul class="key-figures">
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>90%</strong> de taux d'automatisation</h4>
-                            <p>En préparation, envoi et réception des commandes.</p>
-                        </li>
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>30%</strong> de manquants en moins</h4>
-                            <p>Des prévisions plus justes et des besoins anticipés.</p>
-                        </li>
-                        <li class="key-figure">
-                            <h4 class="key-figure-title"><strong>+20&nbsp;000€</strong> de trésorerie</h4>
-                            <p>Une bonne adéquation entre les besoins et le taux d'immobilisation.</p>
-                        </li>
-                    </ul>
-                    <div class="user">
-                        <div class="wrapper-img">
-                            <img src="img/jean-rene-delobelle.png" alt="" />
-                        </div>
-                        <div>
-                            <div class="wrapper-user-name-company">
-                                <span class="user-name">Jean-René Delobelle,&nbsp;</span>
-                                <span class="user-company"> Pharmacie à Orchie (59)</span>
-                            </div>
-                            <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
-                        </div>
-                    </div>
-                </div>
-                <div :class="{ active: tabActive === 1 }" class="tab-content">
                     <ul class="key-figures">
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>91%</strong> de taux d'automatisation</h4>
@@ -100,6 +72,34 @@
                                 <span class="user-company"> Pharmacie Mereau (18)</span>
                             </div>
                             <div class="user-company">Chiffre d’affaires : 1,2M&nbsp;€</div>
+                        </div>
+                    </div>
+                </div>
+                <div :class="{ active: tabActive === 1 }" class="tab-content">
+                    <ul class="key-figures">
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>90%</strong> de taux d'automatisation</h4>
+                            <p>En préparation, envoi et réception des commandes.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>30%</strong> de manquants en moins</h4>
+                            <p>Des prévisions plus justes et des besoins anticipés.</p>
+                        </li>
+                        <li class="key-figure">
+                            <h4 class="key-figure-title"><strong>+20&nbsp;000€</strong> de trésorerie</h4>
+                            <p>Une bonne adéquation entre les besoins et le taux d'immobilisation.</p>
+                        </li>
+                    </ul>
+                    <div class="user">
+                        <div class="wrapper-img">
+                            <img src="img/jean-rene-delobelle.png" alt="" />
+                        </div>
+                        <div>
+                            <div class="wrapper-user-name-company">
+                                <span class="user-name">Jean-René Delobelle,&nbsp;</span>
+                                <span class="user-company"> Pharmacie à Orchie (59)</span>
+                            </div>
+                            <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
                         </div>
                     </div>
                 </div>
