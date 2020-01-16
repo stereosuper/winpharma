@@ -829,8 +829,7 @@ export default {
 .nav-xp {
     position: absolute;
     top: 0;
-    // left: calc(100% + 30px);
-    left: percentage(6/12);
+    left: calc(50% + 30px);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1210,8 +1209,7 @@ export default {
         }
     }
     .nav-xp {
-        // left: calc(100% + 100px);
-        left: percentage(8/12);
+        left: calc(#{percentage(7/12)} + 100px);
         @media (min-height: $desktop-v) {
             top: calc(10vh + 45px);
         }
