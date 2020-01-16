@@ -2,7 +2,7 @@
     <div ref="wrapperCards" class="wrapper-cards container">
         <a href="http://www.winpharma.com/livre-blanc-winautopilote/" class="card button-trigger">
             <div class="inner-card">
-                <span class="wrapper-img" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
+                <span class="wrapper-img full" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
                 <span class="card-txt">
                     <span class="card-txt-top">
                         <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
@@ -157,6 +157,9 @@ export default {
     background-repeat: no-repeat;
     background-size: auto 100%;
     background-position: 50% 50%;
+    &.full {
+        background-size: cover;
+    }
 }
 .card-txt {
     padding: 30px 30px 40px;
