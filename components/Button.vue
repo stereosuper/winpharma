@@ -3,12 +3,12 @@
         :is="tag"
         :href="href"
         :class="{
-            btn: type === 'Primary' || 'Quaternary',
+            btn: type === 'Primary' || type === 'Quaternary',
             'btn-secondary': type === 'Secondary',
             'btn-quaternary': type === 'Quaternary'
         }"
     >
-        <span :class="{ 'btn-inner': type === 'Primary' || 'Quaternary' }">
+        <span :class="{ 'btn-inner': type === 'Primary' || type === 'Quaternary' }">
             <slot></slot>
         </span>
         <Icon v-if="type === 'Secondary'" name="chevron" />
