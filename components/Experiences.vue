@@ -96,8 +96,13 @@
                             </div>
                             <div class="experience-content">
                                 <h3 class="content-title">
-                                    Génération et envoi automatique
+                                    Génération <br />
+                                    et envoi automatique
                                 </h3>
+                                <p class="intro-text">
+                                    winAutopilote® est tellement fiable que vous pouvez automatiser la génération et
+                                    l’envoi de vos commandes.
+                                </p>
                                 <h4 class="content-subtitle">
                                     L’esprit tranquille
                                 </h4>
@@ -117,9 +122,12 @@
                                         <Icon name="time" class="experience-icon" />
                                     </div>
                                     <div class="wrapper-txt">
+                                        <p class="title">
+                                            Les gains dans mon officine
+                                        </p>
                                         <p>
-                                            <strong>2h de temps gagnées</strong> Par jour grâce à 26 commandes
-                                            quotidiennes automatisées
+                                            Je gagne 2h par jour
+                                            <br />en génération et en envoi
                                         </p>
                                     </div>
                                 </div>
@@ -996,22 +1004,35 @@ export default {
     font-family: $ageo;
     font-size: 2.8rem;
     font-weight: normal;
+    line-height: 36px;
+    br {
+        display: none;
+    }
 }
 
 .content-subtitle {
     margin-top: 20px;
     font-family: $ageo-semi-bold;
-    font-size: 2rem;
+    font-size: 1.8rem;
+    line-height: 22px;
+}
+
+.intro-text {
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+    line-height: 20px;
+    color: $primary-darker;
 }
 
 .content-text {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    line-height: 18px;
 }
 
 .experience-number {
     display: flex;
     align-items: center;
-    margin-top: 35px;
+    margin-top: 30px;
     padding-top: 30px;
     border-top: 1px solid $grey-lighter;
     .wrapper-icon {
@@ -1022,16 +1043,21 @@ export default {
     }
     .wrapper-txt {
         p {
-            color: $grey-light;
-            > strong {
-                display: block;
-                font-family: $ageo-semi-bold;
-                font-size: 2rem;
-                line-height: 24px;
-                color: $tertiary;
+            font-family: $ageo-semi-bold;
+            font-size: 2rem;
+            line-height: 24px;
+            color: $tertiary;
+            &.title {
+                font-family: $ageo-bold;
+                font-size: 1.2rem;
+                line-height: 18px;
+                letter-spacing: 1px;
+                color: $grey-light;
+                text-transform: uppercase;
             }
-            font-size: 1.6rem;
-            line-height: 21px;
+            br {
+                display: none;
+            }
         }
     }
     .experience-icon {
@@ -1061,7 +1087,10 @@ export default {
         padding-bottom: 0;
     }
     .content-title {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
+        br {
+            display: block;
+        }
     }
     .title-experiences {
         .title-arrow {
@@ -1088,6 +1117,13 @@ export default {
     .experience-number {
         margin-top: 20px;
         padding-top: 20px;
+        .wrapper-txt {
+            p {
+                br {
+                    display: block;
+                }
+            }
+        }
     }
     .experience-content-large {
         position: relative;
@@ -1186,7 +1222,7 @@ export default {
 
     .content-title {
         @media (min-height: $desktop-v) {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
     }
 
@@ -1201,10 +1237,6 @@ export default {
         @media (min-height: $desktop-v) {
             margin-top: 100px;
         }
-    }
-    .experience-number {
-        margin-top: 35px;
-        padding-top: 40px;
     }
     .experience-intro {
         width: 125%;
