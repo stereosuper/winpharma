@@ -833,7 +833,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-top: calc(10vh + 30px);
+    padding-top: 10vh;
     font-family: $ageo;
     font-size: 1.8rem;
     color: $grey-light;
@@ -1068,7 +1068,7 @@ export default {
         width: 100%;
         > li {
             position: relative;
-            height: 200vh;
+            height: 150vh;
             margin: 0;
             &:not(:first-child) {
                 margin-top: calc(-100vh + 1px);
@@ -1211,7 +1211,7 @@ export default {
     .nav-xp {
         left: calc(#{percentage(7/12)} + 100px);
         @media (min-height: $desktop-v) {
-            top: calc(10vh + 45px);
+            padding-top: calc(10vh + 30px);
         }
     }
     .blockquote-image {
