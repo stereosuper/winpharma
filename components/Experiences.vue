@@ -167,12 +167,17 @@
                                 <h3 class="content-title">
                                     Réception automatique
                                 </h3>
+                                <p class="intro-text">
+                                    Vous restez maitre de votre temps car la réception des livraisons se fait
+                                    automatiquement. Lorsque vous le souhaitez, contentez-vous de contrôler les aléas de
+                                    livraison et laissez winAutopilote® faire le reste.
+                                </p>
                                 <h4 class="content-subtitle">
                                     Suppression des faux promis
                                 </h4>
                                 <p class="content-text">
-                                    Aucun laps de temps perdu entre la livraison des produits et le chargement du robot
-                                    ou la disponibilité des promis.
+                                    Aucun laps de temps entre la livraison et la disponibilité des produits (même avec
+                                    un robot) ce qui supprime les faux promis.
                                 </p>
                                 <h4 class="content-subtitle">
                                     Confort de travail
@@ -186,9 +191,12 @@
                                         <Icon name="time" class="experience-icon" />
                                     </div>
                                     <div class="wrapper-txt">
+                                        <p class="title">
+                                            Les gains dans mon officine
+                                        </p>
                                         <p>
-                                            <strong>2h de temps gagnées</strong> Chaque jour grâce à la reception
-                                            automatique.
+                                            Je gagne 2h par jour
+                                            <br />en réception
                                         </p>
                                     </div>
                                 </div>
