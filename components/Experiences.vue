@@ -365,7 +365,12 @@
                 <span class="nb-slide active" v-html="activeBullet + 1"></span>
                 <span class="nb-slide-separator"> / </span>
                 <span class="nb-slide">5</span>
-                <button type="button" class="btn-xp next" @click="changeSlide(activeBullet + 1)">
+                <button
+                    type="button"
+                    :class="{ inactive: activeBullet === nbExperiences - 1 }"
+                    class="btn-xp next"
+                    @click="changeSlide(activeBullet + 1)"
+                >
                     <Icon name="chevron" class="arrow-xp" />
                 </button>
             </div>
