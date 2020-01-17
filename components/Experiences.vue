@@ -72,6 +72,67 @@
                             <div class="wrapper-img">
                                 <div class="bg-img"></div>
                                 <div class="wrapper-illus">
+                                    <Generation ref="generationIllus" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-txt container">
+                            <div class="experience-intro">
+                                <div
+                                    v-if="isL"
+                                    class="blockquote-image"
+                                    :style="{ backgroundImage: 'url(img/sylvain-author.png)' }"
+                                ></div>
+                                <blockquote>
+                                    <p>
+                                        <span class="blockquote-content secondary">
+                                            Le reste des commandes a été envoyé automatiquement en temps et en heure
+                                            pendant que j’étais au comptoir auprès de mes patients.
+                                        </span>
+                                        <cite class="blockquote-author">Sylvain Pelletier,</cite>
+                                        <span class="blockquote-source">Seine-et-Marne (77)</span>
+                                    </p>
+                                </blockquote>
+                            </div>
+                            <div class="experience-content">
+                                <h3 class="content-title">
+                                    Génération et envoi automatique
+                                </h3>
+                                <h4 class="content-subtitle">
+                                    L’esprit tranquille
+                                </h4>
+                                <p class="content-text">
+                                    Ne vous souciez plus de vérifier et passer les commandes des grossistes,
+                                    d'homéopathie et même de certains laboratoires directs.
+                                </p>
+                                <h4 class="content-subtitle">
+                                    Réduction des erreurs
+                                </h4>
+                                <p class="content-text">
+                                    winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à
+                                    vérifier. Il n'est jamais distrait ni même pressé.
+                                </p>
+                                <div class="experience-number">
+                                    <div class="wrapper-icon">
+                                        <Icon name="time" class="experience-icon" />
+                                    </div>
+                                    <div class="wrapper-txt">
+                                        <p>
+                                            <strong>2h de temps gagnées</strong> Par jour grâce à 26 commandes
+                                            quotidiennes automatisées
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="experience">
+                    <div class="experience-content-large">
+                        <div class="container-img">
+                            <div class="wrapper-img">
+                                <div class="bg-img"></div>
+                                <div class="wrapper-illus">
                                     <Reception ref="receptionIllus" />
                                 </div>
                             </div>
@@ -181,67 +242,6 @@
                                         <p>
                                             <strong>1 seul coup d’oeil</strong> Visualiser rapidement l’organisation de
                                             la gestion de vos commandes
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="experience">
-                    <div class="experience-content-large">
-                        <div class="container-img">
-                            <div class="wrapper-img">
-                                <div class="bg-img"></div>
-                                <div class="wrapper-illus">
-                                    <Generation ref="generationIllus" />
-                                </div>
-                            </div>
-                        </div>
-                        <div class="container-txt container">
-                            <div class="experience-intro">
-                                <div
-                                    v-if="isL"
-                                    class="blockquote-image"
-                                    :style="{ backgroundImage: 'url(img/sylvain-author.png)' }"
-                                ></div>
-                                <blockquote>
-                                    <p>
-                                        <span class="blockquote-content secondary">
-                                            Le reste des commandes a été envoyé automatiquement en temps et en heure
-                                            pendant que j’étais au comptoir auprès de mes patients.
-                                        </span>
-                                        <cite class="blockquote-author">Sylvain Pelletier,</cite>
-                                        <span class="blockquote-source">Seine-et-Marne (77)</span>
-                                    </p>
-                                </blockquote>
-                            </div>
-                            <div class="experience-content">
-                                <h3 class="content-title">
-                                    Génération et envoi automatique
-                                </h3>
-                                <h4 class="content-subtitle">
-                                    L’esprit tranquille
-                                </h4>
-                                <p class="content-text">
-                                    Ne vous souciez plus de vérifier et passer les commandes des grossistes,
-                                    d'homéopathie et même de certains laboratoires directs.
-                                </p>
-                                <h4 class="content-subtitle">
-                                    Réduction des erreurs
-                                </h4>
-                                <p class="content-text">
-                                    winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à
-                                    vérifier. Il n'est jamais distrait ni même pressé.
-                                </p>
-                                <div class="experience-number">
-                                    <div class="wrapper-icon">
-                                        <Icon name="time" class="experience-icon" />
-                                    </div>
-                                    <div class="wrapper-txt">
-                                        <p>
-                                            <strong>2h de temps gagnées</strong> Par jour grâce à 26 commandes
-                                            quotidiennes automatisées
                                         </p>
                                     </div>
                                 </div>
