@@ -3,12 +3,12 @@
         :is="tag"
         :href="href"
         :class="{
-            btn: type === 'Primary' || type === 'Quaternary',
-            'btn-secondary': type === 'Secondary',
-            'btn-quaternary': type === 'Quaternary'
+            btn: type === 'Primary',
+            'btn-secondary': type === 'Secondary'
         }"
+        class="base-btn"
     >
-        <span :class="{ 'btn-inner': type === 'Primary' || type === 'Quaternary' }">
+        <span :class="{ 'btn-inner': type === 'Primary' }">
             <slot></slot>
         </span>
         <Icon v-if="type === 'Secondary'" name="chevron" />
@@ -38,23 +38,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.base-btn {
+    &.quaternary {
+        &.btn-secondary {
+            color: $quaternary;
+            &::after {
+                background-color: $quaternary;
+            }
+            .icon {
+                fill: $quaternary;
+            }
+            &:hover,
+            &:focus,
+            .button-trigger:hover &,
+            .button-trigger:focus &,
+            .hover {
+                color: darken($quaternary, 15%);
+                .icon {
+                    fill: darken($quaternary, 15%);
+                }
+                &::after {
+                    background-color: darken($quaternary, 15%);
+                }
+            }
+        }
+        &.btn {
+            .btn-inner {
+                background: $quaternary;
+            }
+            &:hover,
+            &:focus {
+                .btn-inner {
+                    background-color: lighten($quaternary, 5%);
+                }
+            }
+        }
+    }
+}
 .btn {
     text-decoration: none;
     display: inline-block;
     color: $white;
     font-family: $ageo-bold;
     font-size: 1.6rem;
-    &.btn-quaternary {
-        .btn-inner {
-            background: $quaternary;
-        }
-        &:hover,
-        &:focus {
-            .btn-inner {
-                background-color: lighten($quaternary, 5%);
-            }
-        }
-    }
     &:hover,
     &:focus {
         .btn-inner {

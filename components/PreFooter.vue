@@ -7,7 +7,7 @@
             <p class="prefooter-title">
                 Prêt à vous lancer&nbsp;?
             </p>
-            <Button :href="'http://www.winpharma.com/info-winautopilote/'" type="Quaternary">
+            <Button :href="'http://www.winpharma.com/info-winautopilote/'" type="Primary" class="quaternary">
                 Prendre rendez-vous
             </Button>
         </div>
