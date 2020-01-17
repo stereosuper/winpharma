@@ -329,7 +329,7 @@
                                     <Button
                                         :href="'http://www.winpharma.com/info-winautopilote/'"
                                         type="Secondary"
-                                        class="secondary experience-button"
+                                        class="secondary experience-button small"
                                     >
                                         Demander de l’information
                                     </Button>
@@ -1250,6 +1250,20 @@ export default {
             visibility: hidden;
         }
     }
+    @media (max-height: 800px) {
+        .container-txt {
+            margin-top: 40px;
+        }
+        .content-title {
+            margin-bottom: 5px;
+        }
+        .intro-text {
+            margin-bottom: 20px;
+        }
+        .content-subtitle {
+            margin-top: 15px;
+        }
+    }
 }
 
 @media (min-width: $container) {
@@ -1305,6 +1319,14 @@ export default {
             > blockquote {
                 padding: 20px 30px;
             }
+        }
+    }
+    @media (max-height: 800px) {
+        .nav-xp {
+            left: calc(#{percentage(7/12)} + 30px);
+        }
+        .container-txt {
+            padding-left: 30px;
         }
     }
 }
