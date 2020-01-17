@@ -29,7 +29,7 @@
                     et un confort encore jamais vus en matière de gestion de stock en pharmacie&nbsp;!
                 </h1>
                 <Button :href="'http://www.winpharma.com/info-winautopilote/'" type="Secondary" class="quaternary">
-                    Demander une démo
+                    Demander de l'information
                 </Button>
             </div>
         </div>
