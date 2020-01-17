@@ -56,10 +56,10 @@
                                 <div class="wrapper-experience-button">
                                     <Button
                                         :href="'http://www.winpharma.com/info-winautopilote/'"
-                                        type="Primary"
-                                        class="experience-button"
+                                        type="Secondary"
+                                        class="secondary experience-button"
                                     >
-                                        Demander une démo
+                                        Demander de l’information
                                     </Button>
                                 </div>
                             </div>
@@ -978,6 +978,11 @@ export default {
         font-size: 3rem;
         line-height: 36px;
         font-weight: 500;
+    }
+}
+.experience-content {
+    .blockquote-author {
+        color: $primary-light;
     }
 }
 .wrapper-experience-button {

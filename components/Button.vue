@@ -39,11 +39,32 @@ export default {
 
 <style lang="scss" scoped>
 .base-btn {
+    &.secondary {
+        &.btn-secondary {
+            color: $secondary;
+            &::after {
+                background-color: $secondary;
+            }
+            .icon {
+                fill: $secondary;
+            }
+            &:hover,
+            &:focus,
+            .button-trigger:hover &,
+            .button-trigger:focus &,
+            .hover {
+                color: darken($secondary, 10%);
+                .icon {
+                    fill: darken($secondary, 10%);
+                }
+                &::after {
+                    background-color: darken($secondary, 10%);
+                }
+            }
+        }
+    }
     &.quaternary {
         &.btn-secondary {
-            &.small {
-                font-size: 1.6rem;
-            }
             color: $quaternary;
             &::after {
                 background-color: $quaternary;
@@ -133,6 +154,9 @@ export default {
     font-size: 1.8rem;
     text-decoration: none;
     transition: color 0.6s $easeInOut;
+    &.small {
+        font-size: 1.6rem;
+    }
     &::after,
     .icon {
         position: relative;
