@@ -234,13 +234,19 @@
                             </div>
                             <div class="experience-content">
                                 <h3 class="content-title">
-                                    Des outils simples pour gérer les commandes
+                                    Des outils simples pour
+                                    <br />gérer les commandes
                                 </h3>
+                                <p class="intro-text">
+                                    Essentiellement, vous n’avez rien à faire, winAutopilote® s’occupe de tout&nbsp;! Un
+                                    seul tableau de bord et une seule fenêtre de gestion des règles pour garder un œil
+                                    sur votre pilote automatique.
+                                </p>
                                 <h4 class="content-subtitle">
                                     Visuel et dynamique
                                 </h4>
                                 <p class="content-text">
-                                    Le tableau de bord winAutopilote synthétise et pointe les commandes qui méritent
+                                    Le tableau de bord winAutopilote® synthétise et pointe les commandes qui méritent
                                     votre attention.
                                 </p>
                                 <h4 class="content-subtitle">
@@ -255,9 +261,11 @@
                                         <Icon name="eye" class="experience-icon" />
                                     </div>
                                     <div class="wrapper-txt">
+                                        <p class="title">
+                                            Les gains dans mon officine
+                                        </p>
                                         <p>
-                                            <strong>1 seul coup d’oeil</strong> Visualiser rapidement l’organisation de
-                                            la gestion de vos commandes
+                                            Je visualise d’un coup d’œil
                                         </p>
                                     </div>
                                 </div>
@@ -285,8 +293,8 @@
                                 <blockquote>
                                     <p>
                                         <span class="blockquote-content secondary">
-                                            Seulement 5 min suffisent pour contrôler et isoler la commande des produits
-                                            sensibles, nécessitant notre intervention.
+                                            Notre trésorerie a également eu un sacré coup de pouce : 38.000&nbsp;€
+                                            récupérés grâce à une diminution du stock. Et ce n’est que le début !
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier,</cite>
                                         <span class="blockquote-source">Seine-et-Marne (77)</span>
@@ -297,12 +305,18 @@
                                 <h3 class="content-title">
                                     Diminution du stock
                                 </h3>
+                                <p class="intro-text">
+                                    L’automatisation des commandes engendre une diminution du stock et un maintien du
+                                    niveau de manquant. Les algorithmes de winAutopilote® s’appuient sur les best
+                                    practices des winPharmaciens et s’adaptent à toutes les spécificités de votre
+                                    officine.
+                                </p>
                                 <h4 class="content-subtitle">
                                     Un stock optimisé
                                 </h4>
                                 <p class="content-text">
-                                    Diminue d’environ 1 %, ce qui représente en moyenne 15 000 € pour une pharmacie
-                                    générant 1,5 M€ de chiffre d’affaires.
+                                    Diminue d’environ 1 %, ce qui représente en moyenne 15.000 € pour une pharmacie
+                                    générant 1,5&nbsp;M€ de chiffre d’affaires.
                                 </p>
                                 <h4 class="content-subtitle">
                                     Des clients toujours satisfaits
@@ -311,14 +325,26 @@
                                     Les produits sont en stock toujours au bon moment. La baisse du stock n'engendre pas
                                     d'augmentation des promis grâce à une optimisation des achats.
                                 </p>
+                                <div class="wrapper-experience-button small-margin">
+                                    <Button
+                                        :href="'http://www.winpharma.com/info-winautopilote/'"
+                                        type="Secondary"
+                                        class="secondary experience-button"
+                                    >
+                                        Demander de l’information
+                                    </Button>
+                                </div>
                                 <div class="experience-number">
                                     <div class="wrapper-icon">
                                         <Icon name="graph" class="experience-icon" />
                                     </div>
                                     <div class="wrapper-txt">
+                                        <p class="title">
+                                            Les gains dans mon officine
+                                        </p>
                                         <p>
-                                            <strong>+&nbsp;38&nbsp;000€ de trésorerie</strong> Grâce à une diminution du
-                                            stock
+                                            J’ai récupéré 38&nbsp;000€
+                                            <br />de trésorerie.
                                         </p>
                                     </div>
                                 </div>
@@ -1005,6 +1031,9 @@ export default {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+    &.small-margin {
+        margin-top: 20px;
+    }
 }
 
 .content-title {
