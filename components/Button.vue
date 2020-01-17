@@ -41,6 +41,9 @@ export default {
 .base-btn {
     &.quaternary {
         &.btn-secondary {
+            &.small {
+                font-size: 1.6rem;
+            }
             color: $quaternary;
             &::after {
                 background-color: $quaternary;
@@ -130,6 +133,11 @@ export default {
     font-size: 1.8rem;
     text-decoration: none;
     transition: color 0.6s $easeInOut;
+    &::after,
+    .icon {
+        position: relative;
+        top: -1px;
+    }
     &::after {
         content: '';
         height: 2px;
