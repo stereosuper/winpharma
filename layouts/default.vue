@@ -30,7 +30,7 @@ export default {
             this.$store.commit('scroll/setFirstScrollTop', firstScrollTop);
         });
         this.$stereorepo.superScroll.on('scroll', scrollTop => {
-            this.$store.commit('scroll/setScrollTop', scrollTop);
+            this.$store.dispatch('scroll/changeScroll', scrollTop);
         });
 
         this.$nextTick(() => {
