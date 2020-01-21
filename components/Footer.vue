@@ -40,7 +40,7 @@
                                 <a href="http://www.winpharma.com/actualites/">Actualités</a>
                             </li>
                             <li>
-                                <a href="http://www.winpharma.com/temoignages/">Témoignages</a>
+                                <a href="http://www.winpharma.com/temoignages-winautopilote/">Témoignages</a>
                             </li>
                             <li>
                                 <a href="http://www.winpharma.com/recrutement/">Recrutement</a>

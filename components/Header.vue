@@ -18,7 +18,9 @@
                     <a href="/"> <span class="new">new</span> <span class="txt">winAutopilote</span> </a>
                 </li>
                 <li>
-                    <a href="http://www.winpharma.com/temoignages/"><span class="txt">Témoignages</span></a>
+                    <a href="http://www.winpharma.com/temoignages-winautopilote/">
+                        <span class="txt">Témoignages</span>
+                    </a>
                 </li>
                 <li>
                     <a href="http://www.winpharma.com/actualites/"><span class="txt">Actualités</span></a>
