@@ -931,7 +931,8 @@ export default {
         changeSlide(newIndex) {
             if (newIndex >= 0 && newIndex <= this.nbExperiences - 1) {
                 window.scroll({
-                    top: this.experiences[newIndex].getBoundingClientRect().top + this.$store.state.scroll.scrollTop,
+                    top:
+                        this.experiences[newIndex].getBoundingClientRect().top + this.$store.state.scroll.scrollTop + 1,
                     left: 0
                 });
             }

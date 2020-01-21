@@ -36,7 +36,7 @@ export default {
      ** Headers of the page
      */
     head: {
-        title: process.env.npm_package_name || '',
+        title: 'winAutopilote - Winpharma',
         htmlAttrs: {
             lang: 'en'
         },
@@ -57,105 +57,90 @@ export default {
                 name: 'author',
                 content: 'Stéréosuper'
             },
-            // COMBAK: Update open graph meta title
             {
                 hid: 'og:title',
                 property: 'og:title',
-                content: 'My business'
+                content: 'winAutopilote - Winpharma'
             },
-            // COMBAK: Update open graph meta site_name
             {
                 hid: 'og:site_name',
                 property: 'og:site_name',
-                content: 'My business'
+                content: 'Winpharma'
             },
-            // COMBAK: Update open graph meta url
             {
                 hid: 'og:url',
                 property: 'og:url',
-                content: 'https://my-business.fr'
+                content: 'http://www.winpharma.com/winautopilote/'
             },
-            // COMBAK: Update open graph meta image
             {
                 hid: 'og:image',
                 property: 'og:image',
-                content: '/images/MyBusinessOgImage.png'
+                content: '/img/og.jpg'
             },
-            // COMBAK: Update open graph meta image:width
             {
                 hid: 'og:image:width',
                 property: 'og:image:width',
-                content: '2000'
+                content: '1200'
             },
-            // COMBAK: Update open graph meta image:height
             {
                 hid: 'og:image:height',
                 property: 'og:image:height',
-                content: '1550'
+                content: '628'
             },
-            // COMBAK: Update open graph meta image:type
             {
                 hid: 'og:image:type',
                 property: 'og:image:type',
                 content: 'image/png'
             },
-            // COMBAK: Update open graph meta image:alt
             {
                 hid: 'og:image:alt',
                 property: 'og:image:alt',
-                content: 'My business og image alt'
+                content:
+                    'winAutopilote, c’est simple de gagner beaucoup de temps ! La méthode winAutopilote®, unique sur le marché, atteint des gains de temps, des gains financiers et un confort encore jamais vus en matière de gestion de stock en pharmacie !'
             },
-            // COMBAK: Update open graph meta twitter:card
             {
                 hid: 'twitter:card',
                 name: 'twitter:card',
                 content: 'summary_large_image'
             },
-            // COMBAK: Update open graph meta twitter:site
             {
                 hid: 'twitter:site',
                 name: 'twitter:site',
-                content: '@MyBusiness'
+                content: '@Winpharma'
             },
-            // COMBAK: Update open graph meta twitter:creator
             {
                 hid: 'twitter:creator',
                 name: 'twitter:creator',
-                content: '@MyBusiness'
+                content: '@Winpharma'
             },
-            // COMBAK: Update open graph meta twitter:image
             {
                 hid: 'twitter:image',
                 name: 'twitter:image',
-                content: '/images/MyBusinessOgImage.png'
+                content: '/img/twitter.jpg'
+            },
+            {
+                name: 'msapplication-TileColor',
+                content: '#fff'
             }
-            // COMBAK: Uncomment and update real favicon generator tile color
-            // {
-            //     name: 'msapplication-TileColor',
-            //     content: '#fff',
-            // },
         ],
         link: [
-            // COMBAK: Uncomment and update real favicon generator favicon 32x32
-            // {
-            //     rel: 'icon',
-            //     type: 'image/png',
-            //     sizes: '32x32',
-            //     href: '/favicon-32x32.png',
-            // },
-            // COMBAK: Uncomment and update real favicon generator favicon 16x16
-            // {
-            //     rel: 'icon',
-            //     type: 'image/png',
-            //     sizes: '16x16',
-            //     href: '/favicon-16x16.png',
-            // },
-            // COMBAK: Uncomment and update real favicon generator safari pinned tab
-            // {
-            //     rel: 'mask-icon',
-            //     href: '/safari-pinned-tab.svg',
-            //     color: '#fff',
-            // },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '32x32',
+                href: '/favicon-32x32.png'
+            },
+            {
+                rel: 'icon',
+                type: 'image/png',
+                sizes: '16x16',
+                href: '/favicon-16x16.png'
+            },
+            {
+                rel: 'mask-icon',
+                href: '/safari-pinned-tab.svg',
+                color: '#fff'
+            },
             {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap'

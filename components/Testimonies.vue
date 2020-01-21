@@ -17,7 +17,7 @@
                     : mise en place des actions de promotions, plus de disponibilité pour écouter les clients, du temps
                     pour réorganiser son backoffice.
                 </p>
-                <Button :href="'http://www.winpharma.com/temoignages/'" :type="'Secondary'">
+                <Button :href="'http://www.winpharma.com/temoignages-winautopilote/'" :type="'Secondary'">
                     Tous nos témoignages
                 </Button>
             </div>
