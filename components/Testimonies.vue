@@ -80,7 +80,7 @@ export default {
                     "Pour moi, l’automatisation présente <strong>un gain de temps important</strong> et pour rien au monde je ne reviendrai en arrière. Cela apporte <strong>sécurité et simplicité</strong> surtout en cas d'équipe réduite.",
                 author: 'Constance Vanwelden',
                 source: 'Mouchin (59)',
-                img: 'user-placeholder.svg'
+                img: 'constance-vanwelden.png'
             },
             {
                 title: 'Je gagne 1h de temps par jour',
@@ -523,6 +523,16 @@ export default {
     }
     .wrapper-bg-testimonies {
         background-color: #fef5f3;
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding-top: 23%;
+            background-color: $white;
+            z-index: -1;
+        }
     }
 }
 

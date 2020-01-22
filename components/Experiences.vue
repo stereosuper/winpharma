@@ -2,7 +2,7 @@
     <div class="wrapper-experiences">
         <div class="container">
             <h2 ref="titleModule" class="title-experiences">
-                <span>Découvrez <span class="primary-light">les gains incroyables</span> de vos confrères&nbsp;!</span>
+                <span>Découvrez <span class="primary-light">le fonctionnement de winAutopilote<sup>®</sup></span> au travers des gains incroyables d’un confrère&nbsp;!</span>
                 <Icon name="arrow" class="title-arrow primary-light" />
             </h2>
         </div>
@@ -503,7 +503,6 @@ export default {
                 if (!this.bgImgPosActive) {
                     gsap.set(this.bgImg, { x: this.bgImgPos });
                 }
-                // this.manageStick();
             }
         }
     },
@@ -513,9 +512,6 @@ export default {
 
         this.initRefs();
         this.initBgPos();
-
-        // this.tlXpIn = gsap.timeline();
-        // this.tlXpOut = gsap.timeline();
 
         gsap.set(this.$refs.titleModule, { opacity: 0 });
 
@@ -551,7 +547,6 @@ export default {
         this.$stereorepo.superScroll.destroyScroll();
     },
     destroyed() {
-        // this.$store is your VueX store instance
         this.$stereorepo.superWindow.destroyWindow(this.$store);
     },
     methods: {
@@ -722,6 +717,7 @@ export default {
         },
 
         stick() {
+            this.experiencesContentsAround[this.activeBullet].classList.add('collant');
             gsap.set(this.experiencesContentsAround[this.activeBullet], {
                 position: 'fixed',
                 top: '0px',
@@ -729,6 +725,7 @@ export default {
             });
         },
         unstick(elts) {
+            elts.forEach(el => el.classList.remove('collant'));
             gsap.set(elts, {
                 position: 'absolute',
                 top: 'auto',
@@ -736,9 +733,10 @@ export default {
             });
         },
         resetStick(elts) {
-            console.log('reset');
-
-            gsap.set(elts, { clearProps: 'top,bottom,position' });
+            elts.forEach(el => el.classList.remove('collant'));
+            gsap.set(elts, {
+                clearProps: 'top,bottom,position'
+            });
         },
         ////////////////////////////////
         /////// FOR EACH SLIDES ////////
@@ -952,11 +950,16 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 0 30px;
+    margin: 0 auto 30px;
     font-family: $ageo-semi-bold;
     font-size: 3.4rem;
     line-height: 41px;
     text-align: center;
+    max-width: 880px;
+    sup {
+        top: -1.5em;
+        font-size: 1.2rem;
+    }
     .title-arrow {
         flex: 0 0 auto;
         width: 12px;
@@ -1254,6 +1257,7 @@ export default {
         }
     }
     .title-experiences {
+        font-size: 4.2rem;
         .title-arrow {
             margin-top: 100px;
         }
@@ -1290,6 +1294,9 @@ export default {
         position: relative;
         width: 100%;
         height: 100vh;
+        &.collant {
+            z-index: 1;
+        }
     }
     .experience-content-large {
         display: flex;
@@ -1298,9 +1305,6 @@ export default {
         height: 100vh;
         align-items: stretch;
         padding: 10vh #{$gutter * 2};
-        &.collant {
-            z-index: 1;
-        }
     }
     .container-img {
         flex: 0 0 auto;
