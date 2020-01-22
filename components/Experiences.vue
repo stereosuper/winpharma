@@ -886,7 +886,7 @@ export default {
                 duration: 0.3,
                 opacity: 0
             });
-            this.tlLeaveFromBottom.to(this.$refs.bullets, { duration: 0.3, opacity: 1 }, 'bg-step');
+            this.tlLeaveFromBottom.to(this.$refs.bullets, { duration: 0.3, opacity: 0 }, 'bg-step');
             this.tlLeaveFromBottom.to(
                 [this.bgImg, this.experiencesWrapperIllus[this.nbExperiences - 1]],
                 { duration: 0.3, x: this.bgImgPos },
