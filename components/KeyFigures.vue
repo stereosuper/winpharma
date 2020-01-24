@@ -64,7 +64,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/olivier-henry.png" alt="" />
+                            <img :src="STATIC_PATH + 'img/olivier-henry.png'" alt="" />
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
@@ -92,7 +92,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/jean-rene-delobelle.png" alt="" />
+                            <img :src="STATIC_PATH + 'img/jean-rene-delobelle.png'" alt="" />
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">
@@ -120,7 +120,7 @@
                     </ul>
                     <div class="user">
                         <div class="wrapper-img">
-                            <img src="img/sophie-lacheze.png" alt="Sophie Lachèze" />
+                            <img :src="STATIC_PATH + 'img/sophie-lacheze.png'" alt="Sophie Lachèze" />
                         </div>
                         <div>
                             <div class="wrapper-user-name-company">

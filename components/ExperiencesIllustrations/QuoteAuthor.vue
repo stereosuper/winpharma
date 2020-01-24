@@ -1,8 +1,8 @@
 <template>
     <div class="wrapper-img-quote">
-        <img src="img/sylvain.png" alt="" />
-        <div class='rounded-wrapper'>
-            <img class="round" src="/img/toproundedorange.svg" alt="" />
+        <img :src="STATIC_PATH + 'img/sylvain.png'" alt="" />
+        <div class="rounded-wrapper">
+            <img class="round" :src="STATIC_PATH + 'img/toproundedorange.svg'" alt="" />
         </div>
     </div>
 </template>

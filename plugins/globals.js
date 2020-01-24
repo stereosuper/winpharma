@@ -21,3 +21,9 @@ Vue.use(useSuperScrollVue);
 // Set Vue.component here
 Vue.component('Icon', Icon);
 Vue.component('Button', Button);
+
+Vue.mixin({
+    computed: {
+        STATIC_PATH: () => process.env.staticPath
+    }
+});

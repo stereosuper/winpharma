@@ -19,16 +19,27 @@ const netlifyEnv = process.env.NODE_ENV;
 const isDevEnv = netlifyEnv === 'development';
 const websiteUrl = process.env.URL || `http://${process.env.HOST}:${process.env.PORT}`;
 
+const routerBase =
+    process.env.NODE_ENV === 'production'
+        ? {
+              router: {
+                  base: '/winautopilote/'
+              }
+          }
+        : {};
+
 // ie polyfill features
 const features = ['Array.from', 'NodeList.prototype.forEach'].join('%2C');
 
 export default {
     mode: 'universal',
+    ...routerBase,
     /*
      ** Environnement variables shared for the client and server-side
      */
     env: {
         cmsToken: process.env.CMS_TOKEN,
+        staticPath: process.env.NODE_ENV === 'production' ? '/winautopilote/' : '/',
         isDevEnv,
         websiteUrl
     },
@@ -146,7 +157,12 @@ export default {
                 href: 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap'
             }
         ],
-        script: [{ nomodule: 'true', src: `https://polyfill.io/v3/polyfill.min.js?features=${features}` }]
+        script: [
+            {
+                nomodule: 'true',
+                src: `https://polyfill.io/v3/polyfill.min.js?features=${features}`
+            }
+        ]
     },
     /*
      ** Customize the progress-bar
@@ -225,7 +241,11 @@ export default {
         /*
          ** Used to analyse chunks
          */
-        analyze: isDevEnv ? { analyzerMode: 'static' } : false,
+        analyze: isDevEnv
+            ? {
+                  analyzerMode: 'static'
+              }
+            : false,
         /*
          ** You can extend webpack config here
          */

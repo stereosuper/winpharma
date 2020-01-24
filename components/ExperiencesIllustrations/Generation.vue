@@ -1,11 +1,11 @@
 <template>
     <div class="wrapper">
         <div class="wrapper-shape">
-            <img ref="shape" class="shape" src="img/generation-shape.svg" alt="" />
+            <img ref="shape" class="shape" :src="STATIC_PATH + 'img/generation-shape.svg'" alt="" />
         </div>
         <span class="wrapper-screen">
-            <img class="screen" src="img/generation-screen.png" alt="" />
-            <img ref="front" class="front" src="img/generation-cosmonaut.svg" alt="" />
+            <img class="screen" :src="STATIC_PATH + 'img/generation-screen.png'" alt="" />
+            <img ref="front" class="front" :src="STATIC_PATH + 'img/generation-cosmonaut.svg'" alt="" />
         </span>
     </div>
 </template>

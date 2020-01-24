@@ -1,11 +1,11 @@
 <template>
     <div class="wrapper">
         <div class="wrapper-shape">
-            <img ref="shape" class="shape" src="img/tools-shape.svg" alt="" />
+            <img ref="shape" class="shape" :src="STATIC_PATH + 'img/tools-shape.svg'" alt="" />
         </div>
         <span class="wrapper-screen">
-            <img class="screen" src="img/tools-screen.png" alt="" />
-            <img ref="front" class="front" src="img/tools-switch.svg" alt="" />
+            <img class="screen" :src="STATIC_PATH + 'img/tools-screen.png'" alt="" />
+            <img ref="front" class="front" :src="STATIC_PATH + 'img/tools-switch.svg'" alt="" />
         </span>
     </div>
 </template>

@@ -1,8 +1,8 @@
 <template>
     <div ref="testimoniesContainer" class="wrapper-testimonies">
         <div class="wrapper-bg-testimonies">
-            <img src="img/bg-testimonies-mobile.svg" alt="" class="bg-testimonies-mobile" />
-            <img src="img/bg-testimonies.svg" alt="" class="bg-testimonies" />
+            <img :src="STATIC_PATH + 'img/bg-testimonies-mobile.svg'" alt="" class="bg-testimonies-mobile" />
+            <img :src="STATIC_PATH + 'img/bg-testimonies.svg'" alt="" class="bg-testimonies" />
         </div>
         <div class="container">
             <div ref="testimoniesTitle" class="wrapper-title">
@@ -41,7 +41,7 @@
                             <span class="blockquote-wrapper-author">
                                 <span
                                     class="wrapper-img"
-                                    :style="{ backgroundImage: `url(/img/${testimony.img})` }"
+                                    :style="{ backgroundImage: `url(${STATIC_PATH}img/${testimony.img})` }"
                                 ></span>
                                 <span>
                                     <cite class="blockquote-author">{{ testimony.author }}</cite>

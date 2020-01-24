@@ -13,7 +13,7 @@
                 </div>
             </div>
             <div ref="topRounded" class="top-rounded">
-                <img src="/img/toprounded.svg" alt="" />
+                <img :src="STATIC_PATH + 'img/toprounded.svg'" alt="" />
             </div>
             <ul class="experiences">
                 <li class="experience">
@@ -472,7 +472,6 @@ export default {
                 });
                 this.collantCreated = true;
                 this.initBgPos();
-                console.log('yes');
             } else if (!isBigDevice && this.collantCreated) {
                 if (this.revealBgXp) this.revealBgXp.forget();
                 if (this.revealXp) this.revealXp.forget();
@@ -1054,7 +1053,7 @@ export default {
         bottom: -35px;
         left: 0;
         background-color: $primary;
-        background-image: url('/img/stars.svg');
+        background-image: url('~static/img/stars.svg');
         background-repeat: repeat;
         background-position: 0 0;
     }
@@ -1376,7 +1375,7 @@ export default {
             right: 0;
             bottom: 0;
             left: 0;
-            background-image: url('/img/stars.svg');
+            background-image: url('~static/img/stars.svg');
             background-repeat: repeat;
             background-position: 0 0;
             opacity: 0;
