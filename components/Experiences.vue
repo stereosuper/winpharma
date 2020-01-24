@@ -990,10 +990,10 @@ export default {
     align-items: center;
     justify-content: flex-start;
     padding-top: 10vh;
-    font-family: $ageo;
+    font-family: $ageo-semi-bold;
+    color: $secondary;
     opacity: 0;
     font-size: 1.8rem;
-    color: $grey-light;
     z-index: 2;
     pointer-events: all;
 }
@@ -1021,21 +1021,19 @@ export default {
         margin-left: 18px;
     }
     &.inactive {
-        opacity: 0.4;
         cursor: default;
+        .arrow-xp {
+            fill: #e1e1e1;
+        }
     }
     .arrow-xp {
         width: 6px;
         height: 10px;
-        fill: $grey-light;
+        fill: $secondary;
     }
 }
 .nb-slide {
     min-width: 12px;
-    &.active {
-        font-family: $ageo-semi-bold;
-        color: $secondary;
-    }
 }
 .nb-slide-separator {
     margin: 0 10px;
