@@ -460,7 +460,7 @@ export default {
         this.initParallax();
     },
     beforeDestroy() {
-        if (this.wrapperWatcher) this.wrapperWatcher.forgetMultiple();
+        this.$stereorepo.superScroll.forgetMultiple(this.wrapperWatcher);
         this.$stereorepo.superScroll.destroyScroll();
     },
     methods: {

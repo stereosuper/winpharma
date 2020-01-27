@@ -77,7 +77,7 @@ export default {
         });
     },
     beforeDestroy() {
-        if (this.myWatchers) this.myWatchers.forgetMultiple();
+        this.$stereorepo.superScroll.forgetMultiple(this.myWatchers);
         this.$stereorepo.superScroll.destroyScroll();
     }
 };
@@ -172,7 +172,8 @@ export default {
 .card-title {
     display: block;
     margin-bottom: 20px;
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     font-size: 3.2rem;
     line-height: 1;
     color: $primary-darker;

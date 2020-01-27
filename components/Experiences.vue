@@ -479,8 +479,8 @@ export default {
                 if (this.bgCollant) this.bgCollant.forget();
                 if (this.roundedCollant) this.roundedCollant.forget();
                 forEach(this.experiencesContents, (item, index) => {
-                    this.experiencesWatcherDown[index].forget();
-                    this.experiencesWatcherUp[index].forget();
+                    if (this.experiencesWatcherDown[index]) this.experiencesWatcherDown[index].forget();
+                    if (this.experiencesWatcherUp[index]) this.experiencesWatcherDown[index].forget();
                     gsap.set(
                         [
                             this.experiencesContentsAround[index],
@@ -525,8 +525,8 @@ export default {
             .on('enter-view', () => {
                 gsap.to(this.$refs.titleModule, { duration: 0.7, opacity: 1, ease: 'power1.inOut' });
                 forEach(this.experiencesContents, (item, index) => {
-                    this.experiencesWatcherDown[index].forget();
-                    this.experiencesWatcherUp[index].forget();
+                    if (this.experiencesWatcherDown[index]) this.experiencesWatcherDown[index].forget();
+                    if (this.experiencesWatcherUp[index]) this.experiencesWatcherDown[index].forget();
                 });
                 this.createAllTheThings();
             });
@@ -540,8 +540,8 @@ export default {
         if (this.roundedCollant) this.roundedCollant.forget();
         if (this.revealTitle) this.revealTitle.forget();
         forEach(this.experiencesContents, (item, index) => {
-            this.experiencesWatcherDown[index].forget();
-            this.experiencesWatcherDown[index].forget();
+            if (this.experiencesWatcherDown[index]) this.experiencesWatcherDown[index].forget();
+            if (this.experiencesWatcherUp[index]) this.experiencesWatcherDown[index].forget();
         });
         this.$stereorepo.superScroll.destroyScroll();
     },
@@ -741,6 +741,7 @@ export default {
         /////// FOR EACH SLIDES ////////
         ////////////////////////////////
         inXp() {
+            console.log('in', this.activeBullet);
             if (this.position !== 'in') return;
             if (this.tlXpIn) this.tlXpIn.kill();
             this.tlXpIn = gsap.timeline();
@@ -800,6 +801,7 @@ export default {
             if (this.position === 'in') this.stick();
         },
         outXp(xpIndex, animateIllu, leave = false) {
+            console.log('out', xpIndex);
             if (this.tlXpOut && this.tlXpOut.progress() < 1) return;
 
             if (this.tlXpIn) this.tlXpIn.kill();
@@ -950,7 +952,8 @@ export default {
     flex-direction: column;
     align-items: center;
     margin: 0 auto 30px;
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     font-size: 3.4rem;
     line-height: 41px;
     text-align: center;
@@ -990,7 +993,8 @@ export default {
     align-items: center;
     justify-content: flex-start;
     padding-top: 10vh;
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     color: $secondary;
     opacity: 0;
     font-size: 1.8rem;
@@ -1134,13 +1138,15 @@ export default {
     }
     .intro-title {
         margin-bottom: 13px;
-        font-family: $ageo-bold;
+        font-family: $ageo;
+        font-weight: 700;
         font-size: 1.4rem;
         text-transform: uppercase;
         color: $grey;
     }
     .intro-number {
-        font-family: $ageo-semi-bold;
+        font-family: $ageo;
+        font-weight: 600;
         font-size: 3rem;
         line-height: 36px;
         font-weight: 500;
@@ -1173,7 +1179,8 @@ export default {
 
 .content-subtitle {
     margin-top: 20px;
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     font-size: 1.8rem;
     line-height: 22px;
 }
@@ -1204,12 +1211,16 @@ export default {
     }
     .wrapper-txt {
         p {
-            font-family: $ageo-semi-bold;
+            font-family: $ageo;
+            font-weight: 600;
+            font-style: italic;
             font-size: 2rem;
             line-height: 24px;
             color: $tertiary;
             &.title {
-                font-family: $ageo-bold;
+                font-family: $ageo;
+                font-weight: 700;
+                font-style: normal;
                 font-size: 1.2rem;
                 line-height: 18px;
                 letter-spacing: 1px;
