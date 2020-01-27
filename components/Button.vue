@@ -103,7 +103,8 @@ export default {
     text-decoration: none;
     display: inline-block;
     color: $white;
-    font-family: $ageo-bold;
+    font-family: $ageo;
+    font-weight: 700;
     font-size: 1.6rem;
     &:hover,
     &:focus {
@@ -150,7 +151,8 @@ export default {
 .btn-secondary {
     display: inline-flex;
     align-items: center;
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     font-size: 1.8rem;
     text-decoration: none;
     transition: color 0.6s $easeInOut;

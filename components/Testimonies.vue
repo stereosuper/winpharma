@@ -359,7 +359,8 @@ export default {
     }
 }
 .testimonies-title {
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     font-size: 2.8rem;
     line-height: 40px;
     max-width: 480px;

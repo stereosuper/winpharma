@@ -14,7 +14,7 @@
 // SANS-SERIF
 // [Your sans-serif font name]
 @font-face {
-    font-family: 'ageo-bold';
+    font-family: 'ageo';
     src: local('Ageo Bold'),
         url('~assets/fonts/Ageo-Bold.woff2') format('woff2'),
         url('~assets/fonts/Ageo-Bold.woff') format('woff');
@@ -24,7 +24,17 @@
 }
 
 @font-face {
-    font-family: 'ageo-semi-bold';
+    font-family: 'ageo';
+    src: local('Ageo Semi Bold Italic'),
+        url('~assets/fonts/Ageo-SemiBold-Italic.woff2') format('woff2'),
+        url('~assets/fonts/Ageo-SemiBold-Italic.woff') format('woff');
+    font-display: swap;
+    font-style: italic;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'ageo';
     src: local('Ageo Semi Bold'),
         url('~assets/fonts/Ageo-SemiBold.woff2') format('woff2'),
         url('~assets/fonts/Ageo-SemiBold.woff') format('woff');
@@ -34,7 +44,7 @@
 }
 
 @font-face {
-    font-family: 'ageo-medium';
+    font-family: 'ageo';
     src: local('Ageo Medium'),
         url('~assets/fonts/Ageo-Medium.woff2') format('woff2'),
         url('~assets/fonts/Ageo-Medium.woff') format('woff');

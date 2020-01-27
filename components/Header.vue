@@ -303,7 +303,8 @@ export default {
         margin-right: 6px;
         padding: 9px 6px 6px;
         border-radius: 5px;
-        font-family: $ageo-bold;
+        font-family: $ageo;
+        font-weight: 700;
         font-size: 1.2rem;
         line-height: 1;
         letter-spacing: 1px;

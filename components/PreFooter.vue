@@ -94,7 +94,8 @@ export default {
 }
 .prefooter-intro {
     margin-bottom: 20px;
-    font-family: $ageo-bold;
+    font-family: $ageo;
+    font-weight: 700;
     font-size: 1.4rem;
     line-height: 22px;
     text-transform: uppercase;
@@ -102,7 +103,8 @@ export default {
 }
 .prefooter-title {
     margin-bottom: 20px;
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     font-size: 3.2rem;
     line-height: 40px;
 }

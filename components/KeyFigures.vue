@@ -361,7 +361,8 @@ export default {
         flex: 1 1 auto;
         position: relative;
         padding: 0 10px 30px;
-        font-family: $ageo-medium;
+        font-family: $ageo;
+        font-weight: 500;
         font-size: 1.8rem;
         border: 0;
         color: $grey-light;
@@ -443,7 +444,8 @@ export default {
 }
 .key-figure-title {
     margin: 0 0 6px;
-    font-family: $ageo-semi-bold;
+    font-family: $ageo;
+    font-weight: 600;
     font-size: 2rem;
     line-height: 24px;
     > strong {

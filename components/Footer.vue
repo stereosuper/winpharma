@@ -277,7 +277,8 @@ export default {};
     button {
         flex: 0 0 auto;
         padding: 14px 20px 12px;
-        font-family: $ageo-bold;
+        font-family: $ageo;
+        font-weight: 700;
         font-size: 1.6rem;
         line-height: 24px;
         border: 0;

@@ -135,7 +135,8 @@ export default {
 }
 .intro {
     margin: 0 0 32px;
-    font-family: $ageo-bold;
+    font-family: $ageo;
+    font-weight: 700;
     font-size: 1.2rem;
     line-height: 22px;
     text-transform: uppercase;
