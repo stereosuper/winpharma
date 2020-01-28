@@ -189,13 +189,14 @@ export default {
 
 @media (min-width: $desktop-large) {
     .hero {
-        padding: 200px 0 260px;
+        padding: 150px 0 210px;
     }
 }
 
 @media (min-height: $desktop-v) {
     .hero {
         min-height: 850px;
+        padding: 200px 0 260px;
     }
 }
 </style>
