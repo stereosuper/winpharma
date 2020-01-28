@@ -27,7 +27,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="container-txt container">
+                            <div class="container-txt container portrait">
                                 <div class="experience-intro double">
                                     <div>
                                         <span class="intro-title">CA annuel</span>
@@ -364,23 +364,22 @@
             <div v-if="isL" ref="wrapperBullet" class="wrapper-nav-xp">
                 <div ref="bullets" class="nav-xp">
                     <button
+                        v-show="prevTitle"
                         type="button"
-                        :class="{ inactive: activeBullet === 0 }"
                         class="btn-xp prev"
                         @click="changeSlide(activeBullet - 1)"
                     >
-                        <Icon name="chevron-back" class="arrow-xp" />
+                        <Icon name="round-arrow" class="arrow-xp" />
+                        <span> {{ prevTitle }} </span>
                     </button>
-                    <span class="nb-slide active" v-html="activeBullet + 1"></span>
-                    <span class="nb-slide-separator"> / </span>
-                    <span class="nb-slide">5</span>
                     <button
+                        v-show="nextTitle"
                         type="button"
-                        :class="{ inactive: activeBullet === nbExperiences - 1 }"
                         class="btn-xp next"
                         @click="changeSlide(activeBullet + 1)"
                     >
-                        <Icon name="chevron" class="arrow-xp" />
+                        <span> {{ nextTitle }} </span>
+                        <Icon name="round-arrow" class="arrow-xp" />
                     </button>
                 </div>
             </div>
@@ -446,9 +445,22 @@ export default {
         tlEnterFromTop: null,
         tlEnterFromBottom: null,
         nextIndex: 0,
-        position: 'above'
+        position: 'above',
+        titles: [
+            'Portrait',
+            'Envoi automatique',
+            'Réception automatique',
+            'Gestion des commandes',
+            'Diminution du stock'
+        ]
     }),
     computed: {
+        prevTitle() {
+            return this.titles[this.activeBullet - 1];
+        },
+        nextTitle() {
+            return this.titles[this.activeBullet + 1];
+        },
         isL() {
             if (!this.$store.state.superWindow) return false;
             return this.$store.state.superWindow.width >= this.$breakpoints.list.l;
@@ -984,14 +996,14 @@ export default {
     top: 0;
     left: calc(50% + 30px);
     display: flex;
+    width: calc(50% - #{$gutter * 4});
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding-top: 10vh;
     font-family: $ageo;
     font-weight: 600;
-    color: $secondary;
     opacity: 0;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     z-index: 2;
     pointer-events: all;
 }
@@ -1009,25 +1021,29 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: 0;
     border: 0;
+    color: $primary-light;
     cursor: pointer;
     &.prev {
-        margin: 0 20px 0 -10px;
+        color: #e1e1e1;
+        .arrow-xp {
+            transform: rotate(-180deg);
+        }
     }
     &.next {
-        margin-left: 18px;
+        margin-left: auto;
     }
     &.inactive {
         cursor: default;
-        .arrow-xp {
-            fill: #e1e1e1;
-        }
     }
     .arrow-xp {
-        width: 6px;
-        height: 10px;
-        fill: $secondary;
+        width: 15px;
+        height: 15px;
+        fill: currentColor;
+    }
+    span {
+        margin: 0 10px;
     }
 }
 .nb-slide {
@@ -1359,7 +1375,7 @@ export default {
         position: absolute;
         top: 0;
         left: 0;
-        width: calc(50% - 5px);
+        width: 50%;
         height: 100vh;
 
         .bg-img-large {
@@ -1385,42 +1401,36 @@ export default {
             visibility: hidden;
         }
     }
-    @media (max-height: 800px) {
-        .container-txt {
-            margin-top: 40px;
-        }
-        .content-title {
-            margin-bottom: 5px;
-        }
-        .intro-text {
-            margin-bottom: 20px;
-        }
-        .content-subtitle {
-            margin-top: 15px;
-        }
+    @media (max-height: 700px) {
+        // .container-txt {
+        //     margin-top: 40px;
+        // }
+        // .content-title {
+        //     margin-bottom: 5px;
+        // }
+        // .intro-text {
+        //     margin-bottom: 20px;
+        // }
+        // .content-subtitle {
+        //     margin-top: 15px;
+        // }
     }
 }
 
 @media (min-width: $container) {
     .container-img-large {
-        width: calc(#{percentage(7/12)} - 5px);
-    }
-
-    .content-title {
-        @media (min-height: $desktop-v) {
-            margin-bottom: 20px;
-        }
+        width: calc(#{percentage(7/12)} + 5px);
     }
 
     .container-img {
         width: percentage(7/12);
     }
     .container-txt {
-        padding: 0 0 0 100px;
-        width: 500px;
+        padding: 0 0 0 130px;
+        width: 510px;
         margin-right: 0;
         margin-left: 0;
-        @media (min-height: $desktop-v) {
+        &.portrait {
             margin-top: 100px;
         }
     }
@@ -1432,10 +1442,8 @@ export default {
         }
     }
     .nav-xp {
-        left: calc(#{percentage(7/12)} + 100px);
-        @media (min-height: $desktop-v) {
-            padding-top: calc(10vh + 30px);
-        }
+        max-width: 380px;
+        left: calc(#{percentage(7/12)} + 130px);
     }
     .blockquote-image {
         display: block;
@@ -1457,25 +1465,32 @@ export default {
         }
     }
     @media (max-height: 800px) {
+        .container-img-large {
+            width: calc(#{percentage(5/12)} + 5px);
+        }
+        .container-img {
+            width: percentage(5/12);
+        }
         .nav-xp {
-            left: calc(#{percentage(7/12)} + 30px);
+            max-width: 600px;
+            left: calc(#{percentage(5/12)} + 130px);
         }
         .container-txt {
-            padding-left: 30px;
+            padding: 0 0 0 130px;
+            width: 730px;
         }
+        .experience-intro {
+            width: 100%;
+        }
+        // .nav-xp {
+        //     left: calc(#{percentage(5/12)} + 30px);
+        // }
+        // .container-txt {
+        //     padding-left: 30px;
+        // }
     }
 }
-@media (min-width: $desktop-huge) and (min-height: 950px) {
-    .nav-xp {
-        padding-top: calc(10vh + 95px);
-    }
-    .container-txt {
-        margin-top: 150px;
-        justify-content: flex-start;
-    }
-}
-
-@media (max-height: 800px) {
+@media (max-height: 700px) {
     .blockquote-image {
         display: none;
     }
