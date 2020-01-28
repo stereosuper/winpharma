@@ -32,6 +32,7 @@
                 >
                     Demander de l'information
                 </Button>
+                <Pharmagora />
             </div>
         </div>
         <HeroIllustration v-if="showIllus" />
@@ -42,11 +43,13 @@
 import { gsap } from 'gsap/all';
 
 import HeroIllustration from '~/components/HeroIllustration';
+import Pharmagora from '~/components/Pharmagora';
 export default {
     scrollToTop: true,
 
     components: {
-        HeroIllustration
+        HeroIllustration,
+        Pharmagora
     },
     data: () => ({
         showIllus: false
@@ -141,6 +144,12 @@ export default {
     color: $white;
 }
 
+.wrapper-txt-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @media (min-width: $tablet) {
     .wrapper-bg-hero {
         right: 0;
@@ -154,6 +163,7 @@ export default {
     }
     .wrapper-txt-hero {
         width: percentage(5/12);
+        align-items: flex-start;
     }
 }
 
