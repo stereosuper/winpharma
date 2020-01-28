@@ -18,15 +18,12 @@
         </div>
         <div ref="text" class="wrapper-txt container">
             <div class="wrapper-txt-hero">
-                <p class="intro">
-                    Révolutionner votre gestion des commandes
-                </p>
                 <h2 class="h2">
                     <strong>winAutopilote<sup>®</sup></strong> c'est simple de gagner beaucoup de temps&nbsp;!
                 </h2>
                 <h1 class="h1">
-                    La méthode winAutopilote®, unique sur le marché, atteint des gains de temps et des gains financiers
-                    et un confort encore jamais vus en matière de gestion de stock en pharmacie&nbsp;!
+                    La méthode winAutopilote®, unique sur le marché, atteint des gains de temps, des gains financiers et
+                    un confort au quotidien encore jamais vus en matière de gestion des commandes en pharmacie&nbsp;!
                 </h1>
                 <Button
                     :href="'http://www.winpharma.com/info-winautopilote/'"

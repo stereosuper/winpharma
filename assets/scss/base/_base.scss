@@ -41,6 +41,11 @@ body {
     font-family: $ageo;
     font-weight: 700;
     font-weight: normal;
+
+    sup {
+        top: -1.2em;
+        font-size: 1.5rem;
+    }
 }
 
 .wysiwyg h1,

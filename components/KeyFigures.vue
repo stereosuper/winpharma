@@ -9,8 +9,8 @@
         </div>
         <div class="container">
             <h3 ref="keyFiguresTitle" class="h3 key-figures-title">
-                Des résultats époustouflants
-                <span class="second-line">pour <span class="secondary">toutes les pharmacies de&nbsp;:</span></span>
+                winAutopilote<sup>®</sup>, des résultats
+                <span class="second-line">époustouflants pour <span class="secondary">tous les types de pharmacie&nbsp;!</span></span>
             </h3>
             <div class="wrapper-tabs">
                 <div class="outer-tabs">
@@ -55,11 +55,11 @@
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>8h</strong> gagnées chaque semaine</h4>
-                            <p>Grâce à l’automatisation des commandes et la nouvelle gestion de stocks.</p>
+                            <p>Grâce à l’automatisation des commandes et la nouvelle gestion de stock.</p>
                         </li>
                         <li class="key-figure">
                             <h4 class="key-figure-title"><strong>+25&nbsp;000€</strong> de trésorerie</h4>
-                            <p>Récupérés grâce à un stock et des canaux d'achat optimisés.</p>
+                            <p>Récupérés grâce à un stock et des canaux d'achats optimisés.</p>
                         </li>
                     </ul>
                     <div class="user">
@@ -127,7 +127,7 @@
                                 <span class="user-name">Sophie Lachèze,&nbsp;</span>
                                 <span class="user-company"> Pharmacie à Merignac (33)</span>
                             </div>
-                            <div class="user-company">Chiffre d’affaires : 7,2M&nbsp;€</div>
+                            <div class="user-company">Chiffre d’affaires : 5M&nbsp;€</div>
                         </div>
                     </div>
                 </div>
@@ -521,6 +521,9 @@ export default {
                 margin-left: 0;
             }
         }
+    }
+    .key-figures-title {
+        max-width: 45%;
     }
     .key-figures {
         flex-direction: row;

@@ -7,15 +7,15 @@
         <div class="container">
             <div ref="testimoniesTitle" class="wrapper-title">
                 <h3 class="testimonies-title">
-                    Avec le temps gagné, comme vos confrères,
+                    winAutopilote<sup>®</sup>, comme vos confrères,
                     <span class="secondary">faites avancer les projets dont vous rêvez&nbsp;!</span>
                 </h3>
             </div>
             <div ref="testimoniesText" class="testimonies-intro">
                 <p>
-                    Nos pharmacies equipées de winAutopilote® ont trouvé de nouvelles façons de dynamiser leur officine
-                    : mise en place des actions de promotions, plus de disponibilité pour écouter les clients, du temps
-                    pour réorganiser son backoffice.
+                    En gagnant du temps, les pharmacies équipées de winAutopilote® ont trouvé de nouvelles façons de
+                    dynamiser leur officine : mise en place des actions de promotions, plus de disponibilité pour
+                    écouter les clients, du temps pour les nouvelles missions et réorganiser son backoffice.
                 </p>
                 <Button :href="'http://www.winpharma.com/temoignages-winautopilote/'" :type="'Secondary'">
                     Tous nos témoignages
@@ -77,7 +77,7 @@ export default {
             {
                 title: 'Sécurité et simplicité',
                 text:
-                    "Pour moi, l’automatisation présente <strong>un gain de temps important</strong> et pour rien au monde je ne reviendrai en arrière. Cela apporte <strong>sécurité et simplicité</strong> surtout en cas d'équipe réduite.",
+                    "Pour moi, l’automatisation présente <strong>un gain de temps important</strong> et pour rien au monde je ne reviendrais en arrière. Cela apporte <strong>sécurité et simplicité</strong> surtout en cas d'équipe réduite.",
                 author: 'Constance Vanwelden',
                 source: 'Mouchin (59)',
                 img: 'constance-vanwelden.png'
@@ -104,7 +104,7 @@ export default {
                 text:
                     "winAutopilote® permet un pilotage automatique des commandes et une <strong>tranquillité d'esprit au quotidien.</strong> Je gagne 1h de temps par jour soit <strong>6h par semaine minimum.</strong>",
                 author: 'Nicolas Zinck',
-                source: 'Soisy-sur-Seine (59)',
+                source: 'Essonne (91)',
                 img: 'nicolas-zinck.png'
             },
 
@@ -127,7 +127,7 @@ export default {
             {
                 title: 'C’est Winpharma qui gère !',
                 text:
-                    'Pour tous ceux qui acceptent le Pharma-ML, <strong>c’est Winpharma qui gère !</strong> Pour les autres, la commande est paramétrée dans winAutopilote® envoyée <strong>sans vérification</strong>.',
+                    'Pour tous ceux qui acceptent le Pharma-ML, <strong>c’est Winpharma qui gère !</strong> Pour les autres, la commande est paramétrée dans winAutopilote® et envoyée <strong>sans vérification</strong>.',
                 author: 'Marc Lhopitalier',
                 source: 'Mouchamps (85)',
                 img: 'marc-lhopitalier.png'
@@ -514,7 +514,7 @@ export default {
         }
     }
     .testimonies-intro {
-        width: percentage(5/12);
+        width: 50%;
         margin-left: percentage(4/12);
     }
     .bg-testimonies {

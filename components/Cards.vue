@@ -5,7 +5,7 @@
                 <span class="wrapper-img full" :style="{ backgroundImage: 'url(img/livre-blanc.png)' }"></span>
                 <span class="card-txt">
                     <span class="card-txt-top">
-                        <span class="card-title">winAutopilote, une méthode adaptée à toutes les officines</span>
+                        <span class="card-title">8 idées reçues sur l'automatisation et comment les dépasser</span>
                         <p>
                             Si vous avez encore quelques questions, téléchargez ce livre blanc qui reprend 8 idées
                             reçues sur l’automatisation et pourquoi vous avez tout intérêt à les dépasser.
@@ -21,7 +21,7 @@
         </a>
         <a href="http://www.winpharma.com/notre-etude/" class="card button-trigger">
             <div class="inner-card">
-                <span class="wrapper-img" :style="{ backgroundImage: 'url(img/co-creation.png)' }"></span>
+                <span class="wrapper-img full" :style="{ backgroundImage: 'url(img/co-creation.png)' }"></span>
                 <span class="card-txt">
                     <span class="card-txt-top">
                         <span class="card-title">Le fruit d’un travail de co&#x2011;création</span>
@@ -174,7 +174,7 @@ export default {
     margin-bottom: 20px;
     font-family: $ageo;
     font-weight: 600;
-    font-size: 3.2rem;
+    font-size: 2.6rem;
     line-height: 1;
     color: $primary-darker;
 }

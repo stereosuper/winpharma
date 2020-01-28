@@ -100,7 +100,7 @@
                                 <div class="experience-content">
                                     <h3 class="content-title">
                                         Génération <br />
-                                        et envoi automatique
+                                        et envoi automatiques
                                     </h3>
                                     <p class="intro-text">
                                         winAutopilote® est tellement fiable que vous pouvez automatiser la génération et
@@ -117,8 +117,7 @@
                                         Réduction des erreurs
                                     </h4>
                                     <p class="content-text">
-                                        winAutopilote, mémorise, analyse, controle, et envoi pour vous les commandes à
-                                        vérifier. Il n'est jamais distrait ni même pressé.
+                                         winAutopilote, mémorise, analyse, controle, et envoie pour vous les commandes à vérifier. Il n'est jamais distrait ni même pressé.
                                     </p>
                                     <div class="experience-number">
                                         <div class="wrapper-icon">
@@ -126,7 +125,7 @@
                                         </div>
                                         <div class="wrapper-txt">
                                             <p class="title">
-                                                Les gains dans mon officine
+                                                Gains de l'officine de Sylvain Pelletier
                                             </p>
                                             <p>
                                                 Je gagne 2h par jour
@@ -188,8 +187,7 @@
                                         Confort de travail
                                     </h4>
                                     <p class="content-text">
-                                        Votre équipe se consacre plus sereinement à l’accueil, au conseil et au service
-                                        des patients.
+                                        Votre équipe se consacre plus sereinement à l’accueil, aux conseils et aux services des patients.
                                     </p>
                                     <div class="experience-number">
                                         <div class="wrapper-icon">
@@ -197,7 +195,7 @@
                                         </div>
                                         <div class="wrapper-txt">
                                             <p class="title">
-                                                Les gains dans mon officine
+                                                Gains de l'officine de Sylvain Pelletier
                                             </p>
                                             <p>
                                                 Je gagne 2h par jour
@@ -245,7 +243,7 @@
                                         <br />gérer les commandes
                                     </h3>
                                     <p class="intro-text">
-                                        Essentiellement, vous n’avez rien à faire, winAutopilote® s’occupe de
+                                        Essentiellement, vous n’avez rien à faire. winAutopilote® s’occupe de
                                         tout&nbsp;! Un seul tableau de bord et une seule fenêtre de gestion des règles
                                         pour garder un œil sur votre pilote automatique.
                                     </p>
@@ -269,7 +267,7 @@
                                         </div>
                                         <div class="wrapper-txt">
                                             <p class="title">
-                                                Les gains dans mon officine
+                                                Gains de l'officine de Sylvain Pelletier
                                             </p>
                                             <p>
                                                 Je visualise d’un coup d’œil
@@ -349,7 +347,7 @@
                                         </div>
                                         <div class="wrapper-txt">
                                             <p class="title">
-                                                Les gains dans mon officine
+                                                Gains de l'officine de Sylvain Pelletier
                                             </p>
                                             <p>
                                                 J’ai récupéré 38&nbsp;000€
@@ -958,10 +956,6 @@ export default {
     line-height: 41px;
     text-align: center;
     max-width: 880px;
-    sup {
-        top: -1.5em;
-        font-size: 1.2rem;
-    }
     .title-arrow {
         flex: 0 0 auto;
         width: 12px;
