@@ -175,7 +175,7 @@ export default {
         '~/plugins/breakpoints.js',
         '~/plugins/fastdom.js',
         {
-            src: '~/plugins/ga.js',
+            src: '~/plugins/scripts/ga.js',
             mode: 'client'
         }
     ],
