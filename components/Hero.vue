@@ -148,6 +148,9 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    > * {
+        max-width: 100%;
+    }
 }
 
 @media (min-width: $tablet) {
