@@ -29,6 +29,7 @@ export default {};
     margin-top: 50px;
     padding: 20px;
     background-color: $primary-light;
+    text-align: left;
     border-radius: 8px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
     p {
