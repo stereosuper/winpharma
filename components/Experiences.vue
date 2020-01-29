@@ -719,6 +719,7 @@ export default {
                 });
         },
         createAllTheThings() {
+            if (!this.isL) return;
             this.createCollant();
             this.createRevealBgXp();
             this.createRevealXp();
