@@ -1340,7 +1340,14 @@ export default {
         }
     }
     .blockquote-image {
-        display: none;
+        display: block;
+        flex-shrink: 0;
+        width: 120px;
+        background-color: $secondary;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 100%;
+        border-radius: 8px 0 0 8px;
     }
     .wrapper-illus {
         opacity: 0;
@@ -1363,12 +1370,19 @@ export default {
         visibility: hidden;
     }
     .experience-intro {
+        display: flex;
         order: 2;
-        width: 100%;
+        width: 116%;
         margin: 30px 0 -45px -20%;
         opacity: 0;
         transform: scale(0.9);
         visibility: hidden;
+        &:not(.double) {
+            padding: 0;
+            > blockquote {
+                padding: 20px 30px;
+            }
+        }
     }
     .container-img-large {
         display: block;
@@ -1454,15 +1468,6 @@ export default {
         background-size: cover;
         background-position: 50% 100%;
         border-radius: 8px 0 0 8px;
-    }
-    .experience-intro {
-        display: flex;
-        &:not(.double) {
-            padding: 0;
-            > blockquote {
-                padding: 20px 30px;
-            }
-        }
     }
     @media (max-height: 800px) {
         .container-img-large {
