@@ -87,25 +87,11 @@ export default {
 .front {
     position: relative;
 }
-.screen {
-    max-height: 200px;
-}
 .front {
     position: absolute;
     bottom: -15%;
     left: 10%;
     width: 25%;
     box-shadow: 50px 30px 30px rgba(88, 31, 17, 0.0551792), 0px -6px 40px rgba(88, 31, 17, 0.04);
-}
-
-@media (min-width: $tablet) {
-    .screen {
-        max-height: 250px;
-    }
-}
-@media (min-width: $desktop-small) {
-    .screen {
-        max-height: 64vh;
-    }
 }
 </style>

@@ -14,10 +14,7 @@
                 <li class="experience">
                     <div class="container container-experience">
                         <div class="wrapper-img">
-                            <div class="bg-img"></div>
-                            <div class="wrapper-illus img">
-                                <QuoteAuthor ref="quoteIllus" />
-                            </div>
+                            <QuoteAuthor ref="quoteIllus" />
                         </div>
                         <div class="container-txt">
                             <div class="experience-content">
@@ -48,10 +45,7 @@
                 <li class="experience">
                     <div class="container container-experience">
                         <div class="wrapper-img">
-                            <div class="bg-img"></div>
-                            <div class="wrapper-illus">
-                                <Generation ref="generationIllus" />
-                            </div>
+                            <Generation ref="generationIllus" />
                         </div>
                         <div class="container-txt">
                             <div class="experience-content">
@@ -115,10 +109,7 @@
                 <li class="experience">
                     <div class="container container-experience">
                         <div class="wrapper-img">
-                            <div class="bg-img"></div>
-                            <div class="wrapper-illus">
-                                <Reception ref="receptionIllus" />
-                            </div>
+                            <Reception ref="receptionIllus" />
                         </div>
                         <div class="container-txt">
                             <div class="experience-content">
@@ -182,10 +173,7 @@
                 <li class="experience">
                     <div class="container container-experience">
                         <div class="wrapper-img">
-                            <div class="bg-img"></div>
-                            <div class="wrapper-illus">
-                                <Tools ref="toolsIllus" />
-                            </div>
+                            <Tools ref="toolsIllus" />
                         </div>
                         <div class="container-txt">
                             <div class="experience-content">
@@ -248,10 +236,7 @@
                 <li class="experience">
                     <div class="container container-experience">
                         <div class="wrapper-img">
-                            <div class="bg-img"></div>
-                            <div class="wrapper-illus">
-                                <Stock ref="stockIllus" />
-                            </div>
+                            <Stock ref="stockIllus" />
                         </div>
                         <div class="container-txt">
                             <div class="experience-content">
@@ -395,36 +380,6 @@ export default {
 }
 .wrapper-img {
     flex: 0 0 auto;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 280px;
-    .bg-img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: -35px;
-        left: 0;
-        background-color: $primary;
-        background-image: url('~static/img/stars.svg');
-        background-repeat: repeat;
-        background-position: 0 0;
-    }
-}
-.wrapper-illus {
-    position: relative;
-    flex: 0 0 auto;
-    width: 80%;
-    height: 80%;
-    text-align: center;
-    &.img {
-        width: 100%;
-        height: 100%;
-    }
-    /deep/ svg {
-        max-height: 100%;
-    }
 }
 
 .top-rounded {

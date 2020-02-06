@@ -252,4 +252,7 @@ export default {
 .illus {
     overflow: visible;
 }
+.illus {
+    width: 465px;
+}
 </style>

@@ -253,6 +253,9 @@ export default {
     fill: #bba5ee;
 }
 .illus {
+    display: block;
+    width: 354px;
+    margin: 0 auto;
     overflow: visible;
 }
 </style>

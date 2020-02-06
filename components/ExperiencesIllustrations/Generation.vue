@@ -96,24 +96,10 @@ export default {
 .front {
     position: relative;
 }
-.screen {
-    max-height: 200px;
-}
 .front {
     position: absolute;
     bottom: -25%;
     left: -7%;
     height: 90%;
-}
-
-@media (min-width: $tablet) {
-    .screen {
-        max-height: 250px;
-    }
-}
-@media (min-width: $desktop-small) {
-    .screen {
-        max-height: 64vh;
-    }
 }
 </style>
