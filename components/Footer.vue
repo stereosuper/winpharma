@@ -216,7 +216,7 @@ export default {};
     font-size: 1.6rem;
     line-height: 21px;
     font-weight: 700;
-    color: $primary-darker;
+    color: $primary-even-darker;
 }
 .footer-submenu {
     > li {
@@ -231,7 +231,7 @@ export default {};
     font-style: normal;
     font-size: 1.4rem;
     line-height: 24px;
-    color: $primary-darker;
+    color: $primary-even-darker;
     > span {
         display: block;
     }
@@ -264,7 +264,7 @@ export default {};
         font-family: $dm;
         font-size: 1.3rem;
         line-height: 24px;
-        color: $primary-darker;
+        color: $primary-even-darker;
         transition: $short-duration;
         &:focus {
             outline: 0;
@@ -356,7 +356,7 @@ export default {};
         font-size: 1.2rem;
         line-height: 24px;
         text-decoration: none;
-        color: $primary-darker;
+        color: $primary-even-darker;
         transition: opacity $short-duration;
         &:hover {
             opacity: 0.6;

@@ -370,7 +370,7 @@ export default {
         margin-bottom: 25px;
         font-size: 1.6rem;
         line-height: 28px;
-        color: $primary-darker;
+        color: $primary-even-darker;
     }
 }
 .around-testimonies {
@@ -419,7 +419,7 @@ export default {
     }
     .blockquote-author {
         line-height: 24px;
-        color: $primary-darker;
+        color: $primary-even-darker;
     }
     .blockquote-source {
         font-size: 1.3rem;

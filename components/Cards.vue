@@ -176,11 +176,11 @@ export default {
     font-weight: 600;
     font-size: 2.6rem;
     line-height: 1;
-    color: $primary-darker;
+    color: $primary-even-darker;
 }
 p {
     line-height: 24px;
-    color: $primary-darker;
+    color: $primary-even-darker;
 }
 .card-btn {
     display: block;

@@ -23,7 +23,7 @@ html {
 
 body {
     height: 100%;
-    color: $primary-darker;
+    color: $primary-even-darker;
     font: #{$text-size-mobile * 0.1}em / 1.5 $dm;
     font-kerning: normal;
     font-weight: 300;
@@ -128,7 +128,7 @@ blockquote {
         font-family: $ageo;
         font-size: 2.8rem;
         line-height: 36px;
-        color: $primary-darker;
+        color: $primary-even-darker;
 
         &.secondary {
             color: $secondary;
