@@ -1,5 +1,21 @@
 <template>
     <div class="wrapper-experiences">
+        <div class="wrapper-wave top-xp">
+            <svg
+                class="wave"
+                viewBox="0 0 1440 170"
+                fill="none"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0 0V169.1C294.364 106.177 529.74 57.7845 662.66 33.9119C930.374 -13.5948 1193.04 -5.92603 1440 42.7717V0H0Z"
+                    fill="#FBFBFD"
+                />
+            </svg>
+        </div>
         <div class="container">
             <h2 ref="titleModule" class="title-experiences">
                 <span>
@@ -43,6 +59,22 @@
                     </div>
                 </li>
                 <li class="experience">
+                    <div class="wrapper-wave generation-xp">
+                        <svg
+                            class="wave"
+                            viewBox="0 0 1440 146"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            preserveAspectRatio="none"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M1440 0H0V126.632C164.733 28.8372 346.779 2.00012 576 2C728.589 1.99988 1063.26 49.2133 1440 145.094V0Z"
+                                fill="#322654"
+                            />
+                        </svg>
+                    </div>
                     <div class="container container-experience">
                         <div class="wrapper-img">
                             <Generation ref="generationIllus" />
@@ -338,8 +370,35 @@ export default {
 
 <style lang="scss" scoped>
 .wrapper-experiences {
-    padding: 186px 0 20px;
+    position: relative;
+    padding: 190px 0 20px;
     background: $primary-darker;
+}
+.wrapper-wave {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    .wave {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    &.top-xp {
+        top: -1px;
+        height: 178px;
+        width: 100%;
+        min-width: 1000px;
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+    }
+    &.generation-xp {
+        top: -1px;
+        height: 146px;
+        width: 100%;
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 .container-experiences {
     position: relative;
@@ -364,7 +423,14 @@ export default {
 .experiences {
     margin: 0;
     > li {
+        position: relative;
         padding: 62px 0;
+        &:nth-child(n + 2) {
+            background: #463271;
+        }
+        &:nth-child(2) {
+            padding-top: 172px;
+        }
     }
     blockquote {
         .blockquote-content {
