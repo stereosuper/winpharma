@@ -339,12 +339,8 @@
 </template>
 
 <script>
-import { gsap, CSSPlugin } from 'gsap/all';
+import { gsap } from 'gsap/all';
 import { query, forEach } from '@stereorepo/sac';
-
-if (process.browser) {
-    gsap.registerPlugin(CSSPlugin);
-}
 
 import QuoteAuthor from '~/components/ExperiencesIllustrations/QuoteAuthor';
 import Reception from '~/components/ExperiencesIllustrations/Reception';
@@ -360,13 +356,73 @@ export default {
         Stock,
         Generation
     },
-    data: () => ({}),
+    data: () => ({
+        containerExperiences: null,
+        experiencesContents: null,
+        experiencesWatchers: [],
+        experiencesIllus: [],
+        experiencesTxt: [],
+        experiencesImg: []
+    }),
     computed: {},
     watch: {},
-    mounted() {},
+    mounted() {
+        this.$stereorepo.superScroll.initializeScroll();
+        this.$stereorepo.superWindow.initializeWindow(this.$store);
+
+        this.initRefs();
+        this.initScroll();
+    },
     beforeDestroy() {},
     destroyed() {},
-    methods: {}
+    methods: {
+        initRefs() {
+            this.containerExperiences = this.$refs.containerExperiences;
+            this.experiencesContents = query({ selector: '.container-experience', ctx: this.containerExperiences });
+            this.experiencesIllus = [
+                this.$refs.quoteIllus,
+                this.$refs.generationIllus,
+                this.$refs.receptionIllus,
+                this.$refs.toolsIllus,
+                this.$refs.stockIllus
+            ];
+            this.experiencesTxt = query({ selector: '.container-txt', ctx: this.containerExperiences });
+            this.experiencesImg = query({ selector: '.wrapper-img', ctx: this.containerExperiences });
+        },
+        initScroll() {
+            this.$stereorepo.superScroll.initializeScroll();
+
+            gsap.set([this.experiencesTxt, this.experiencesImg], { opacity: 0, y: 50 });
+
+            forEach(this.experiencesContents, (item, index) => {
+                this.experiencesWatchers[index] = this.$stereorepo.superScroll
+                    .watch({
+                        element: item,
+                        options: {
+                            triggerOffset: '30%'
+                        }
+                    })
+                    .on('enter-view', () => {
+                        if (index !== 0) {
+                            this.experiencesIllus[index].launchFloat();
+                        }
+                        gsap.to(this.experiencesImg[index], {
+                            duration: 1,
+                            opacity: 1,
+                            y: 0,
+                            ease: 'power4.out'
+                        });
+                        gsap.to(this.experiencesTxt[index], {
+                            duration: 1,
+                            opacity: 1,
+                            y: 0,
+                            delay: 0.2,
+                            ease: 'power4.out'
+                        });
+                    });
+            });
+        }
+    }
 };
 </script>
 
