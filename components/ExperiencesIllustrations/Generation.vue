@@ -75,8 +75,10 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 97%;
     height: 100%;
+    margin-left: 3%;
+    padding-bottom: 10%;
 }
 .wrapper-shape {
     position: absolute;
@@ -101,5 +103,13 @@ export default {
     bottom: -25%;
     left: -7%;
     height: 90%;
+}
+
+@media (min-width: $desktop-small) {
+    .wrapper {
+        width: 100%;
+        margin-left: 0;
+        padding-bottom: 0;
+    }
 }
 </style>

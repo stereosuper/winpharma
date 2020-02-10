@@ -253,7 +253,14 @@ export default {
     overflow: visible;
 }
 .illus {
+    display: block;
     width: 465px;
-    max-width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+}
+@media (min-width: $desktop-small) {
+    .illus {
+        max-width: 100%;
+    }
 }
 </style>
