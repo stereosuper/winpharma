@@ -38,7 +38,8 @@
                                     <p>
                                         <span class="blockquote-content">
                                             «&nbsp;Je suis pharmacien titulaire de la pharmacie du Cœur de la Brie, en
-                                            Seine-et-Marne. J’utilise winAutopilote depuis juillet 2019.&nbsp;»
+                                            Seine-et-Marne. J’utilise winAutopilote<sup>®</sup> depuis juillet
+                                            2019.&nbsp;»
                                         </span>
                                         <cite class="blockquote-author">Sylvain Pelletier</cite>
                                         <span class="blockquote-source">Pharmacie du Coeur de la Brie (77)</span>
