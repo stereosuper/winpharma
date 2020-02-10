@@ -93,6 +93,7 @@ export default {
 }
 .wrapper-screen {
     position: relative;
+    width: 100%;
 }
 .screen,
 .front {

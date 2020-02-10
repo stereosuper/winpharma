@@ -477,6 +477,9 @@ export default {
         top: -0.6em;
         font-size: 65%;
     }
+    > span {
+        width: 100%;
+    }
 }
 .experiences {
     margin: 0;
