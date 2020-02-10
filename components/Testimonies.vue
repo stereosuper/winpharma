@@ -1,5 +1,35 @@
 <template>
     <div ref="testimoniesContainer" class="wrapper-testimonies">
+        <div class="wrapper-wave top">
+            <!-- <svg
+                class="wave"
+                viewBox="0 0 1440 170"
+                fill="none"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0 0V169.1C294.364 106.177 529.74 57.7845 662.66 33.9119C930.374 -13.5948 1193.04 -5.92603 1440 42.7717V0H0Z"
+                    fill="#FBFBFD"
+                />
+            </svg> -->
+            <svg
+                class="wave"
+                viewBox="0 0 1440 300"
+                fill="none"
+                preserveAspectRatio="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M0 0V257.999C223.892 47.5664 494.511 -57.1897 774.767 36.5203C890.397 75.6511 1141.08 175.686 1440 299.027V0H0Z"
+                    fill="#463271"
+                />
+            </svg>
+        </div>
         <div class="wrapper-bg-testimonies">
             <img :src="STATIC_PATH + 'img/bg-testimonies-mobile.svg'" alt="" class="bg-testimonies-mobile" />
             <img :src="STATIC_PATH + 'img/bg-testimonies.svg'" alt="" class="bg-testimonies" />
@@ -321,7 +351,26 @@ export default {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding: 120px 0;
+    padding: 180px 0 120px;
+}
+.wrapper-wave {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    .wave {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    &.top {
+        top: -1px;
+        height: 300px;
+        width: 100%;
+        min-width: 1300px;
+        left: 50%;
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 .wrapper-bg-testimonies {
     position: absolute;

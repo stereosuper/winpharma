@@ -371,7 +371,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-experiences {
     position: relative;
-    padding: 190px 0 20px;
+    padding: 190px 0 0;
     background: $primary-darker;
 }
 .wrapper-wave {
