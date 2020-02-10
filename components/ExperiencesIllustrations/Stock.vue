@@ -254,5 +254,6 @@ export default {
 }
 .illus {
     width: 465px;
+    max-width: 100%;
 }
 </style>

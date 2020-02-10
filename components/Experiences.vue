@@ -47,13 +47,15 @@
                                         </span>
                                     </p>
                                 </blockquote>
-                                <Button
-                                    :href="'http://www.winpharma.com/info-winautopilote/'"
-                                    type="Primary"
-                                    class="secondary experience-button"
-                                >
-                                    Demander de l’information
-                                </Button>
+                                <div class="wrapper-experience-button">
+                                    <Button
+                                        :href="'http://www.winpharma.com/info-winautopilote/'"
+                                        type="Primary"
+                                        class="secondary experience-button"
+                                    >
+                                        Demander de l’information
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -371,7 +373,7 @@ export default {
 <style lang="scss" scoped>
 .wrapper-experiences {
     position: relative;
-    padding: 190px 0 0;
+    padding: 80px 0 0;
     background: $primary-darker;
 }
 .wrapper-wave {
@@ -386,15 +388,14 @@ export default {
     }
     &.top-xp {
         top: -1px;
-        height: 178px;
+        height: 55px;
         width: 100%;
-        min-width: 1000px;
         left: 50%;
         transform: translate3d(-50%, 0, 0);
     }
     &.generation-xp {
         top: -1px;
-        height: 146px;
+        height: 30px;
         width: 100%;
         left: 50%;
         transform: translate3d(-50%, 0, 0);
@@ -410,8 +411,8 @@ export default {
     margin: 0 auto;
     font-family: $ageo;
     font-weight: 600;
-    font-size: 4.2rem;
-    line-height: 50px;
+    font-size: 3.4rem;
+    line-height: 41px;
     text-align: center;
     max-width: 795px;
     color: $white;
@@ -424,12 +425,17 @@ export default {
     margin: 0;
     > li {
         position: relative;
-        padding: 62px 0;
+        padding: 40px 0;
         &:nth-child(n + 2) {
             background: #463271;
         }
+        &:nth-child(1) {
+            .wrapper-img {
+                margin-bottom: 20px;
+            }
+        }
         &:nth-child(2) {
-            padding-top: 172px;
+            padding-top: 60px;
         }
     }
     blockquote {
@@ -446,6 +452,7 @@ export default {
 }
 .wrapper-img {
     flex: 0 0 auto;
+    margin-bottom: 40px;
 }
 
 .top-rounded {
@@ -464,7 +471,7 @@ export default {
 .experience-testimony {
     flex: 0 0 auto;
     width: 100%;
-    margin-top: 70px;
+    margin-top: 40px;
     text-align: center;
     .testimony-content {
         max-width: 793px;
@@ -526,9 +533,11 @@ export default {
         display: block;
     }
 }
-
+.wrapper-experience-button {
+    text-align: center;
+}
 .experience-button {
-    margin-top: 60px;
+    margin-top: 30px;
 }
 
 .content-title {
@@ -569,17 +578,17 @@ export default {
     display: flex;
     align-items: center;
     margin-top: 40px;
-    padding: 24px 40px 24px 20px;
+    padding: 20px 28px 20px 20px;
     border-radius: 8px;
     background: $white;
     box-shadow: 0px 0px 20px rgba($black, 0.05);
     .wrapper-number {
         flex: 0 0 auto;
-        margin-right: 30px;
+        margin-right: 22px;
         font-family: $ageo;
         font-weight: 600;
-        font-size: 3.8rem;
-        line-height: 46px;
+        font-size: 2.8rem;
+        line-height: 34px;
         color: $tertiary;
     }
     .wrapper-txt {
@@ -587,16 +596,48 @@ export default {
             font-family: $ageo;
             font-weight: 600;
             font-style: italic;
-            font-size: 2rem;
-            line-height: 24px;
+            font-size: 1.6rem;
+            line-height: 19px;
             color: $primary-even-darker;
         }
     }
 }
-
+@media (min-width: $phone) {
+    .experience-number {
+        padding: 24px 40px 24px 20px;
+        .wrapper-number {
+            margin-right: 30px;
+            font-size: 3.8rem;
+            line-height: 46px;
+        }
+        .wrapper-txt {
+            p {
+                font-style: italic;
+                font-size: 2rem;
+                line-height: 24px;
+            }
+        }
+    }
+}
 @media (min-width: $desktop-small) {
+    .wrapper-experiences {
+        padding-top: 190px;
+    }
+    .wrapper-wave {
+        &.top-xp {
+            height: 178px;
+        }
+        &.generation-xp {
+            height: 146px;
+        }
+    }
+    .title-experiences {
+        font-size: 4.2rem;
+        line-height: 50px;
+    }
     .experiences {
         > li {
+            padding: 62px 0;
             &:nth-child(odd) {
                 .container-experience {
                     flex-direction: row-reverse;
@@ -619,11 +660,31 @@ export default {
                     padding-left: calc(#{percentage(1/12)} + #{$small-gutter});
                 }
             }
+            &:nth-child(1) {
+                .wrapper-img {
+                    margin-bottom: 0;
+                }
+            }
+            &:nth-child(2) {
+                padding-top: 172px;
+            }
         }
     }
     .wrapper-img,
     .container-txt {
         width: 50%;
+    }
+    .wrapper-img {
+        margin-bottom: 0;
+    }
+    .wrapper-experience-button {
+        text-align: left;
+    }
+    .experience-testimony {
+        margin-top: 70px;
+    }
+    .experience-button {
+        margin-top: 60px;
     }
 }
 </style>

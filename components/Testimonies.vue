@@ -1,20 +1,6 @@
 <template>
     <div ref="testimoniesContainer" class="wrapper-testimonies">
         <div class="wrapper-wave top">
-            <!-- <svg
-                class="wave"
-                viewBox="0 0 1440 170"
-                fill="none"
-                preserveAspectRatio="none"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M0 0V169.1C294.364 106.177 529.74 57.7845 662.66 33.9119C930.374 -13.5948 1193.04 -5.92603 1440 42.7717V0H0Z"
-                    fill="#FBFBFD"
-                />
-            </svg> -->
             <svg
                 class="wave"
                 viewBox="0 0 1440 300"
@@ -351,7 +337,21 @@ export default {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    padding: 180px 0 120px;
+    padding: 82px 0 120px;
+    z-index: 1;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 28%;
+        background: #fef5f3;
+    }
+}
+.container {
+    position: relative;
 }
 .wrapper-wave {
     position: absolute;
@@ -365,9 +365,8 @@ export default {
     }
     &.top {
         top: -1px;
-        height: 300px;
+        height: 45px;
         width: 100%;
-        min-width: 1300px;
         left: 50%;
         transform: translate3d(-50%, 0, 0);
     }
@@ -552,6 +551,15 @@ export default {
 }
 
 @media (min-width: $desktop-small) {
+    .wrapper-testimonies {
+        padding-top: 180px;
+    }
+    .wrapper-wave {
+        &.top {
+            height: 300px;
+            min-width: 1300px;
+        }
+    }
     .testimonies-title {
         max-width: none;
         width: percentage(5/10);
