@@ -446,7 +446,7 @@ export default {
     &.top-xp {
         top: -1px;
         height: 55px;
-        width: 100%;
+        width: calc(100% + 2px);
         left: 50%;
         transform: translate3d(-50%, 0, 0);
     }
