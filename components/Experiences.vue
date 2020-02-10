@@ -662,23 +662,6 @@ export default {
         }
     }
 }
-@media (min-width: $phone) {
-    .experience-number {
-        padding: 24px 40px 24px 20px;
-        .wrapper-number {
-            margin-right: 30px;
-            font-size: 3.8rem;
-            line-height: 46px;
-        }
-        .wrapper-txt {
-            p {
-                font-style: italic;
-                font-size: 2rem;
-                line-height: 24px;
-            }
-        }
-    }
-}
 @media (min-width: $desktop-small) {
     .wrapper-experiences {
         padding-top: 190px;
@@ -745,6 +728,23 @@ export default {
     }
     .experience-button {
         margin-top: 60px;
+    }
+}
+@media (min-width: $desktop-large) {
+    .experience-number {
+        padding: 24px 40px 24px 20px;
+        .wrapper-number {
+            margin-right: 25px;
+            font-size: 3.8rem;
+            line-height: 46px;
+        }
+        .wrapper-txt {
+            p {
+                font-style: italic;
+                font-size: 2rem;
+                line-height: 24px;
+            }
+        }
     }
 }
 </style>
