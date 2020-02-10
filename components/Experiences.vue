@@ -586,6 +586,9 @@ export default {
     .blockquote-source {
         color: $white;
     }
+    .blockquote-author {
+        line-height: 18px;
+    }
     .blockquote-more-infos {
         display: block;
     }
