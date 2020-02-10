@@ -13,9 +13,8 @@
             </svg>
         </div>
         <div>
-            <span class="pharmagora-title">Salon Pharmagora 2020</span>
-            <p>Venez nous rencontrer les 14 et 15 mars</p>
-            <p><strong>Stand Winpharma E110</strong></p>
+            <span class="pharmagora-title">Salon Pharmagora</span>
+            <p>Stand Winpharma E110</p>
         </div>
     </div>
 </template>
@@ -26,6 +25,8 @@ export default {};
 .pharmagora {
     display: inline-flex;
     align-items: center;
+    width: 100%;
+    max-width: 280px;
     margin-top: 50px;
     padding: 20px;
     background-color: $primary-light;
@@ -33,20 +34,23 @@ export default {};
     border-radius: 8px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
     p {
+        font-size: 1.4rem;
+        line-height: 19px;
         color: $white;
     }
 }
 
 .pharmagora-logo {
-    width: 47px;
-    height: 45px;
+    width: 36px;
+    height: 34px;
     margin-right: 20px;
 }
 
 .pharmagora-title {
     font-family: $ageo;
     font-weight: 600;
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+    line-height: 22px;
     color: $quaternary;
 }
 </style>
