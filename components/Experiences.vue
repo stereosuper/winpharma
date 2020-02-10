@@ -103,7 +103,7 @@
                                     Réduction des erreurs
                                 </h4>
                                 <p class="content-text">
-                                    winAutopilote, mémorise, analyse, controle, et envoie pour vous les commandes à
+                                    winAutopilote®, mémorise, analyse, controle, et envoie pour vous les commandes à
                                     vérifier. Il n'est jamais distrait ni même pressé.
                                 </p>
                                 <div class="experience-number">
