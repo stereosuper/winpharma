@@ -258,6 +258,7 @@ export default {
     position: relative;
     display: block;
     width: 354px;
+    max-width: 70%;
     margin: 0 auto;
     &::before {
         content: '';

@@ -512,6 +512,7 @@ export default {
 }
 .wrapper-img {
     flex: 0 0 auto;
+    max-width: 100%;
     margin-bottom: 40px;
 }
 
