@@ -20,13 +20,13 @@ const isDevEnv = netlifyEnv === 'development';
 const websiteUrl = process.env.URL || `http://${process.env.HOST}:${process.env.PORT}`;
 
 const routerBase =
-    process.env.NODE_ENV === 'production' && !process.env.NETLIFY ?
-    {
-        router: {
-            base: '/winautopilote/'
-        }
-    } :
-    {};
+    process.env.NODE_ENV === 'production' && !process.env.NETLIFY
+        ? {
+              router: {
+                  base: '/winautopilote/'
+              }
+          }
+        : {};
 
 // ie polyfill features
 const features = ['Array.from', 'NodeList.prototype.forEach'].join('%2C');
@@ -51,7 +51,8 @@ export default {
         htmlAttrs: {
             lang: 'en'
         },
-        meta: [{
+        meta: [
+            {
                 charset: 'utf-8'
             },
             {
@@ -105,7 +106,8 @@ export default {
             {
                 hid: 'og:image:alt',
                 property: 'og:image:alt',
-                content: 'winAutopilote, c’est simple de gagner beaucoup de temps ! La méthode winAutopilote®, unique sur le marché, atteint des gains de temps, des gains financiers et un confort encore jamais vus en matière de gestion de stock en pharmacie !'
+                content:
+                    'winAutopilote, c’est simple de gagner beaucoup de temps ! La méthode winAutopilote®, unique sur le marché, atteint des gains de temps, des gains financiers et un confort encore jamais vus en matière de gestion de stock en pharmacie !'
             },
             {
                 hid: 'twitter:card',
@@ -132,7 +134,8 @@ export default {
                 content: '#fff'
             }
         ],
-        link: [{
+        link: [
+            {
                 rel: 'icon',
                 type: 'image/png',
                 sizes: '32x32',
@@ -154,10 +157,12 @@ export default {
                 href: 'https://fonts.googleapis.com/css?family=DM+Sans:400,500,700&display=swap'
             }
         ],
-        script: [{
-            nomodule: 'true',
-            src: `https://polyfill.io/v3/polyfill.min.js?features=${features}`
-        }]
+        script: [
+            {
+                nomodule: 'true',
+                src: `https://polyfill.io/v3/polyfill.min.js?features=${features}`
+            }
+        ]
     },
     /*
      ** Customize the progress-bar
@@ -179,11 +184,6 @@ export default {
             mode: 'client'
         }
     ],
-    /*
-     ** Nuxt.js dev-modules
-     ** SEE: https://github.com/Atinux/nuxt-prismic-showcase/tree/master/modules
-     */
-    buildModules: ['~/modules/crawler', '~/modules/static', '~/modules/static-medias'],
     /*
      ** Crawler config
      */
@@ -244,11 +244,11 @@ export default {
         /*
          ** Used to analyse chunks
          */
-        analyze: isDevEnv ?
-            {
-                analyzerMode: 'static'
-            } :
-            false,
+        analyze: isDevEnv
+            ? {
+                  analyzerMode: 'static'
+              }
+            : false,
         /*
          ** You can extend webpack config here
          */
