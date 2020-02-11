@@ -10,7 +10,9 @@
         <div class="container">
             <h3 ref="keyFiguresTitle" class="h3 key-figures-title">
                 winAutopilote<sup>®</sup>, des résultats
-                <span class="second-line">époustouflants pour <span class="secondary">tous les types de pharmacie&nbsp;!</span></span>
+                <span class="second-line"
+                    >époustouflants pour <span class="secondary">tous les types de pharmacie&nbsp;!</span></span
+                >
             </h3>
             <div class="wrapper-tabs">
                 <div class="outer-tabs">
@@ -71,7 +73,9 @@
                                 <span class="user-name">Olivier Henry,&nbsp;</span>
                                 <span class="user-company"> Pharmacie Mereau (18)</span>
                             </div>
-                            <div class="user-company">Chiffre d’affaires : 1,2M&nbsp;€</div>
+                            <div class="user-company">
+                                Chiffre d’affaires : 1,2M&nbsp;€
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,7 +103,9 @@
                                 <span class="user-name">Jean-René Delobelle,&nbsp;</span>
                                 <span class="user-company"> Pharmacie à Orchie (59)</span>
                             </div>
-                            <div class="user-company">Chiffre d’affaires : 2M&nbsp;€</div>
+                            <div class="user-company">
+                                Chiffre d’affaires : 2M&nbsp;€
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -127,7 +133,9 @@
                                 <span class="user-name">Sophie Lachèze,&nbsp;</span>
                                 <span class="user-company"> Pharmacie à Merignac (33)</span>
                             </div>
-                            <div class="user-company">Chiffre d’affaires : 5M&nbsp;€</div>
+                            <div class="user-company">
+                                Chiffre d’affaires : +5M&nbsp;€
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -228,9 +236,18 @@ export default {
                 });
                 this.tlAppear.to(
                     this.keyFiguresActive,
-                    { duration: 1, scale: 1, force3D: true, opacity: 1, stagger: 0.1, delay: 0.3, ease: 'power4.out', onComplete: () => {
-                        this.appeared = true;
-                    } },
+                    {
+                        duration: 1,
+                        scale: 1,
+                        force3D: true,
+                        opacity: 1,
+                        stagger: 0.1,
+                        delay: 0.3,
+                        ease: 'power4.out',
+                        onComplete: () => {
+                            this.appeared = true;
+                        }
+                    },
                     'keyFiguresAppearing'
                 );
                 this.tlAppear.to(this.userActive, { duration: 0.7, opacity: 1, delay: 0.3 }, 'keyFiguresAppearing');
@@ -369,7 +386,7 @@ export default {
         transition: color 0.4s $easeInOut;
         &:hover,
         &:focus {
-            color: #D7D7D7;
+            color: #d7d7d7;
             transition: color 0.4s ease-in-out;
         }
         &.active {

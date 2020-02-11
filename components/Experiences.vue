@@ -44,7 +44,7 @@
                                         <cite class="blockquote-author">Sylvain Pelletier</cite>
                                         <span class="blockquote-source">Pharmacie du Coeur de la Brie (77)</span>
                                         <span class="blockquote-more-infos">
-                                            Chiffre d’affaires : 1,2M&nbsp;€ - Équipe : 20 pers.
+                                            Chiffre d’affaires : 5,4M&nbsp;€ - Équipe : 20 pers.
                                         </span>
                                     </p>
                                 </blockquote>
