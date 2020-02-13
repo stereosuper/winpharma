@@ -149,7 +149,7 @@
                 </ul>
                 <div class="wrapper-copy-legals">
                     <p class="copyright">
-                        Copyright 1994 - 2018 Winpharma | All Rights Reserved
+                        2020 Copyright 1994 - 2018 Winpharma | All Rights Reserved
                     </p>
                     <div class="footer-bottom">
                         <a href="http://www.winpharma.com/mentions-legales/">Mentions légales</a>
