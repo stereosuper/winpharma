@@ -23,7 +23,7 @@
     "fastdom": "^1.0.9",
     "gsap": "file:gsap/gsap-bonus.tgz",
     "nuxt": "^2.11.0",
-    "sharp": "^0.23.0"
+    "sharp": "^0.30.5"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.0",
